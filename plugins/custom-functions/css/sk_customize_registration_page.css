@@ -1,0 +1,96 @@
+/*__________________REGISTRATION PAGE___________________________*/
+
+	// #upme-registration-form .upme-field{
+	// 	float:none;
+	// 	display: flex;
+	// 	align-items: center;
+	// }
+
+	// #upme-registration-form label{
+	// 	vertical-align: center;
+	// 	height: 100% !important;
+	// 	position: relative !important;
+	// 	display:none;
+	// }
+
+	// #upme-registration-form label *{
+	// 	font-size: 18px !important;
+	// 	font-family: 'Ubuntu', sans-serif !important;
+	// 	font-weight: 300 !important;
+	// 	color: #444 !important;
+	// }
+
+	// #upme-registration-form input,
+	// #upme-registration-form select{
+	// 	font-size: 18px !important;
+	// 	font-family: 'Ubuntu', sans-serif !important;
+	// 	font-weight: 300 !important;
+	// 	border-radius: 0 !important;
+	// 	border-color: #000 !important;
+	// 	padding: 10px !important;
+	// }
+
+	// #upme-registration .upme-field-value{
+	// 	width: 100%;
+	// }
+
+	// #upme-registration #password-meter-message{
+	// 	display: none;
+	// }
+
+	// #upme-registration .upme-head{
+	// 	display:none;
+	// }
+
+	// #upme-registration .upme-field.upme-separator.upme-edit.upme-edit-show.upme-clearfix.upme-account_info_separator{
+	// 	display:none;
+	// }
+
+	// #upme-registration .upme-hide-from-public{
+	// 	display:none;
+	// }
+
+	// #upme-registration .upme-icon{
+	// 	display:none;
+	// }
+
+	// .page-id-390 #upme-registration .upme-user_login{
+	// 	display:none;
+	// }
+
+	// #upme-registration .upme-datepicker-reset{
+	// 	display: none;
+	// }
+
+	// #upme-registration .upme-user_agree-container div{
+	//   width: auto;	
+	// }
+
+	// #upme-registration .upme-user_agree-container a{
+	// 	text-decoration: underline;
+	// }
+
+	// #upme-registration .upme-user_agree-container .upme-required{
+	//   display: none;
+	// }
+
+	// #upme-registration button{
+	// 	border: 1px solid #000;
+	// 	border-radius: 0;
+	// 	padding: 10px 20px;
+	// 	text-transform: uppercase;
+	// 	font-family: 'Ubuntu', sans-serif !important;
+	// 	font-size: 18px;
+	// 	font-weight: 700;
+	// 	background: #eee;
+	// }
+
+	// #upme-registration .upme-help-text.upme-help{
+	// 	display:none;
+	// }
+
+	// @media screen and (max-width:991px){
+	// 	#upme-registration-wrapper .row{
+	// 		margin-bottom: 0;
+	// 	}
+	// }

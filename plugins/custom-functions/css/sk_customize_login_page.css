@@ -1,0 +1,72 @@
+/*__________________REGISTRATION PAGE___________________________*/
+
+	// [id^=upme-login-form] .upme-field{
+	// 	float:none;
+	// 	display: flex;
+	// 	align-items: center;
+	// }
+
+	// [id^=upme-login-form] label{
+	// 	vertical-align: center;
+	// 	height: 100% !important;
+	// 	position: relative !important;
+	// 	display:none;
+	// }
+
+	// [id^=upme-login-form] label *{
+	// 	font-size: 18px !important;
+	// 	font-family: 'Ubuntu', sans-serif !important;
+	// 	font-weight: 300 !important;
+	// 	color: #444 !important;
+	// }
+
+	// [id^=upme-login-form] input,
+	// [id^=upme-login-form] select{
+	// 	font-size: 18px !important;
+	// 	font-family: 'Ubuntu', sans-serif !important;
+	// 	font-weight: 300 !important;
+	// 	border-radius: 0 !important;
+	// 	border-color: #000 !important;
+	// 	padding: 10px !important;
+	// }
+
+	// [id^=upme-login-form] .upme-field-value{
+	// 	width: 100%;
+	// }
+
+	// #login-emp-modal .upme-head{
+	// 	display:none;
+	// }
+
+	// [id^=upme-login-form] .upme-icon{
+	// 	display:none;
+	// }
+
+
+	// [id^=upme-login-form] .upme-button.upme-login{
+	// 	border: 1px solid #000;
+	// 	border-radius: 0;
+	// 	padding: 10px 20px;
+	// 	text-transform: uppercase;
+	// 	font-family: 'Ubuntu', sans-serif !important;
+	// 	font-size: 18px;
+	// 	font-weight: 700;
+	// 	background: #eee;
+	// 	float:none;
+	// }
+
+ //  [id^=upme-login-form] .upme-rememberme{
+	//   display: none;
+ //  }
+
+ //  [id^=upme-login-form] .upme-login-register-link{
+ //    cursor:default;
+	// 	pointer-events: none;
+ //  }
+
+ //  [id^=upme-login-form] .upme-login-register-link span{
+	// 	text-decoration: underline;
+	// 	color: #f00;
+	// 	cursor: pointer;
+	// 	pointer-events: initial;
+	// }

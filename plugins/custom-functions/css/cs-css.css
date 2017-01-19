@@ -1,0 +1,151 @@
+
+
+/*__________________REGISTRATION PAGE___________________________*/
+
+	.page-id-390 #upme-registration-form .upme-field{
+		float:none;
+		display: flex;
+		align-items: center;
+	}
+
+	.page-id-390  #upme-registration-form label{
+		vertical-align: center;
+		height: 100% !important;
+		position: relative !important;
+	}
+
+	#upme-registration-form label *,
+	#upme-registration-form .terms_and_condition_wrapper{
+		font-size: 18px !important;
+		font-family: 'Ubuntu', sans-serif !important;
+		font-weight: 300 !important;
+		color: #444 !important;
+	}
+
+	#upme-registration-form label > i + span:after{
+	  content: ':';
+	}
+
+	#upme-registration-form #upme-registration-wrapper input,
+	#upme-registration-form #upme-registration-wrapper select{
+		font-size: 18px !important;
+		font-family: 'Ubuntu', sans-serif !important;
+		font-weight: 300 !important;
+		border-radius: 0 !important;
+		border-color: #000 !important;
+		padding: 10px !important;
+	}
+
+	#upme-registration-form .terms_and_condition_wrapper label{
+		display:none;
+	}
+
+	#upme-registration-form .terms_and_condition_wrapper a{
+		text-decoration: underline;
+	}
+
+
+	#upme-registration .upme-head{
+		display:none;
+	}
+
+	.page-id-390 #upme-registration .upme-field.upme-separator.upme-edit.upme-edit-show.upme-clearfix.upme-account_info_separator{
+		display:none;
+	}
+
+	#upme-registration .upme-hide-from-public{
+		display:none;
+	}
+
+	#upme-registration .upme-icon{
+		display:none;
+	}
+
+	.page-id-390 #upme-registration .upme-user_login{
+		display:none;
+	}
+
+	#upme-registration .upme-datepicker-reset{
+		display: none;
+	}
+
+	#upme-registration #upme-registration-wrapper .upme-required{
+		color: #f00;
+	}
+
+	#upme-registration .upme-required{
+		color: #f00 !important;
+	}
+
+	#upme-registration .upme-user_agree-container div{
+	  width: auto;	
+	}
+
+	#upme-registration .upme-user_agree-container a{
+		text-decoration: underline;
+	}
+
+	#upme-registration .upme-user_agree-container .upme-required{
+	  display: none;
+	}
+
+	#upme-registration button{
+		border: 1px solid #000;
+		border-radius: 0;
+		padding: 10px 20px;
+		text-transform: uppercase;
+		font-family: 'Ubuntu', sans-serif !important;
+		font-size: 18px;
+		font-weight: 700;
+		background: #eee;
+	}
+
+
+	#upme-registration-form .upme-user_register-container label{
+		display: none;
+	}
+
+	#upme-registration-form .upme-user_register-container div{
+		text-align: center;
+		display: block;
+		width: 100%;
+	}
+
+
+	@media screen and (max-width:991px){
+		#upme-registration-wrapper .row{
+			margin-bottom: 0;
+		}
+	}
+
+
+
+/* ________________WOOCOMMERCE CUSTOMIZATION_____________________*/
+
+	#billing_postcode_field{
+		float:left;
+	}
+
+	#billing_country_field{
+		display:none;
+	}
+
+	.cart_dropdown{
+		display:none;
+	}
+
+
+input[type=number]::-webkit-outer-spin-button,
+input[type=number]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+input[type=number] {
+    -moz-appearance:textfield;
+}
+
+
+input[name=your-phone]{
+	color: #000;
+}
