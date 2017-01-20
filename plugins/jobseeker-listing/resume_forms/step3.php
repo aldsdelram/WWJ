@@ -63,11 +63,14 @@ function show_step_3(){
 								<div class="dropdown-input">
 									<input type="text" name="rating<?='['.$skills[$i]->term_id.']'?>" class="dropdown-data input-field" />
 									<ul>
-										<li>1</li>
-										<li>2</li>
-										<li>3</li>
-										<li>4</li>
-										<li>5</li>
+										<?php for($j= 1; $j<= 5; $j++): ?>
+											<li data-value="<?= $j ?>"><?= $j ?> - <?= WWJ::getRatingDescription($j); ?></li>
+										<?php endfor; ?>
+
+										<!--li data-value="2">2- Intermediate</li>
+										<li data-value="3">3- I'm Good</li>
+										<li data-value="4">4- I'm a Specialist</li>
+										<li data-value="5">5- I'm an Expert</li-->
 									</ul>
 								</div>
 							</div>
@@ -83,11 +86,9 @@ function show_step_3(){
 								<div class="dropdown-input">
 									<input type="text" name="rating<?='['.$skills[$i]->term_id.']'?>" class="dropdown-data input-field" />
 									<ul>
-										<li>1</li>
-										<li>2</li>
-										<li>3</li>
-										<li>4</li>
-										<li>5</li>
+										<?php for($j= 1; $j<= 5; $j++): ?>
+											<li data-value="<?= $j ?>"><?= $j ?> - <?= WWJ::getRatingDescription($j); ?></li>
+										<?php endfor; ?>
 									</ul>
 								</div>
 							</div>
@@ -154,11 +155,9 @@ function show_step_3(){
 								<div class="dropdown-input language-show" style="display: none;">
 									<input type="text" name="proficiency[0]" class="dropdown-data input-field" placeholder="Proficiency" />
 									<ul>
-										<li>1</li>
-										<li>2</li>
-										<li>3</li>
-										<li>4</li>
-										<li>5</li>
+										<?php for($j= 1; $j<= 5; $j++): ?>
+											<li data-value="<?= $j ?>"><?= $j ?> - <?= WWJ::getRatingDescription($j); ?></li>
+										<?php endfor; ?>
 									</ul>
 								</div>
 							</div>
@@ -174,11 +173,9 @@ function show_step_3(){
 								<div class="dropdown-input language-show" style="display: none;">
 									<input type="text" name="proficiency[1]" class="dropdown-data input-field" placeholder="Proficiency" />
 									<ul>
-										<li>1</li>
-										<li>2</li>
-										<li>3</li>
-										<li>4</li>
-										<li>5</li>
+										<?php for($j= 1; $j<= 5; $j++): ?>
+											<li data-value="<?= $j ?>"><?= $j ?> - <?= WWJ::getRatingDescription($j); ?></li>
+										<?php endfor; ?>
 									</ul>
 								</div>
 							</div>
@@ -194,11 +191,9 @@ function show_step_3(){
 								<div class="dropdown-input language-show" style="display: none;">
 									<input type="text" name="proficiency[2]" class="dropdown-data input-field" placeholder="Proficiency" />
 									<ul>
-										<li>1</li>
-										<li>2</li>
-										<li>3</li>
-										<li>4</li>
-										<li>5</li>
+										<?php for($j= 1; $j<= 5; $j++): ?>
+											<li data-value="<?= $j ?>"><?= $j ?> - <?= WWJ::getRatingDescription($j); ?></li>
+										<?php endfor; ?>
 									</ul>
 								</div>
 							</div>
@@ -214,11 +209,9 @@ function show_step_3(){
 								<div class="dropdown-input language-show" style="display: none;">
 									<input type="text" name="proficiency[3]" class="dropdown-data input-field" placeholder="Proficiency" />
 									<ul>
-										<li>1</li>
-										<li>2</li>
-										<li>3</li>
-										<li>4</li>
-										<li>5</li>
+										<?php for($j= 1; $j<= 5; $j++): ?>
+											<li data-value="<?= $j ?>"><?= $j ?> - <?= WWJ::getRatingDescription($j); ?></li>
+										<?php endfor; ?>
 									</ul>
 								</div>
 							</div>
@@ -234,11 +227,9 @@ function show_step_3(){
 								<div class="dropdown-input language-show" style="display: none;">
 									<input type="text" name="proficiency[4]" class="dropdown-data input-field" placeholder="Proficiency" />
 									<ul>
-										<li>1</li>
-										<li>2</li>
-										<li>3</li>
-										<li>4</li>
-										<li>5</li>
+										<?php for($j= 1; $j<= 5; $j++): ?>
+											<li data-value="<?= $j ?>"><?= $j ?> - <?= WWJ::getRatingDescription($j); ?></li>
+										<?php endfor; ?>
 									</ul>
 								</div>
 							</div>
