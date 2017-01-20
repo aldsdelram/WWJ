@@ -47,7 +47,7 @@
 														<div class="left-form">
 															<div class="form-group">
 																<div class="dropdown-input">
-																	<label for="end_year">Month</label>
+																	<label for="from_month">Month</label>
 																	<input class="dropdown-data input-field" name="start_month[]" type="text">
 																	<ul class="option_end_year">
 																		<?php for( $i = 1; $i <= 12; $i++ ) : ?>
@@ -59,8 +59,16 @@
 														</div>
 														<div class="right-form">
 															<div class="form-group">
-																<label for="end_year">Year</label>
-																<input class="input-field numeric" max="9999" min="1000" name="start_year[]" type="number">
+																<label for="form_year">Year</label>
+																<div class="dropdown-input">
+																	<input class="dropdown-data input-field" name="start_year[]" type="text">
+																	<ul class="option_end_year">
+																		<?php for( $i = date( 'Y' ); $i >= 1950; $i-- ) : ?>
+																			<li><?= $i ?></li>
+																		<?php endfor; ?>
+																	</ul>
+																</div>
+																<!--input class="input-field numeric" max="9999" min="1000" name="start_year[]" type="number"-->
 															</div>
 														</div>
 													</div>
@@ -84,7 +92,18 @@
 														<div class="right-form">
 															<div class="form-group">
 																<label for="end_year">Year</label> 
-																<input class="input-field numeric" max="9999" min="1000" name="end_year[]" type="number">
+
+																<div class="dropdown-input">
+																	<input class="dropdown-data input-field" name="end_year[]" type="text">
+																	<ul class="option_end_year">
+																		<li data-value="Present">Present</li>
+																		<?php for( $i = date( 'Y' ); $i >= 1950; $i-- ) : ?>
+																			<li data-value="<?=$i?>"><?= $i ?></li>
+																		<?php endfor; ?>
+																	</ul>
+																</div>
+
+																<!--input class="input-field numeric" max="9999" min="1000" name="end_year[]" type="number"-->
 															</div>
 														</div>
 													</div>
