@@ -120,6 +120,20 @@
 					</div>
 				</div> <!-- end of .left-form -->
 				<div class="right-form">
+
+					<div class="form-group">
+						<h3 class="required">Nationality</h3>
+						<div class="dropdown-input">
+							<input type="text" name="nationality" class="dropdown-data input-field" readonly/>
+							<ul class="option_nationality">
+							<?php $nationalities = WWJ::getNationalities(); ?>
+							<?php foreach ($nationalities as $key => $value): ?>
+								<li data-value="<?= $key ?>"><?= $value ?></li>
+							<?php endforeach; ?>
+							</ul>
+						</div>
+					</div> <!-- end of .form-group -->	
+
 					<div class="form-group">
 						<h3 class="required">Career objective(Limited to 150 characters)</h3>
 						<textarea class="input-field" name="career_objective" maxlength="150"></textarea>
