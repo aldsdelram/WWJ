@@ -35,9 +35,28 @@ class WWJ{
 		return $contact_number;
 	}
 
+	/**
+	 * Gets the rating description.
+	 *
+	 * @param      integer  $value  The value
+	 *
+	 * @return     array    The rating description.
+	 */
 	public static function getRatingDescription($value){
 		$descriptions = ['Beginner', 'Intermediate', 'I\'m Good', 'I\'m a Specialist', 'I\'m an Expert'];
 		$description = $descriptions[($value - 1)];
 		return $description;
 	}
+
+
+	/**
+	 * Gets the nationalities.
+	 *
+	 * @return     <array>  The nationalities.
+	 */
+	public static function getNationalities(){
+		include('nationalities.inc.php');
+		return $nationalities;
+	}
+
 }
