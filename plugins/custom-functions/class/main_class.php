@@ -34,4 +34,10 @@ class WWJ{
 		$contact_number .= substr($number,0,4).' '.substr($number,4,4);
 		return $contact_number;
 	}
+
+	public static function getRatingDescription($value){
+		$descriptions = ['Beginner', 'Intermediate', 'I\'m Good', 'I\'m a Specialist', 'I\'m an Expert'];
+		$description = $descriptions[($value - 1)];
+		return $description;
+	}
 }
