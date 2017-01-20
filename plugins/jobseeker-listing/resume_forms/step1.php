@@ -9,18 +9,24 @@
 					<div class="form-group">
 						<h3 class="required">Singapore Work Authorization</h3>
 						<ul class="radio-group">
-							<li>
-								<input type="radio" name="work_authorization" id="singapore_citizen" value="Singapore Citizen"/>
-								<label for="singapore_citizen">Singapore Citizen</label>
-							</li>
-							<li>
-								<input type="radio" name="work_authorization" id="permanent_resident" value="Permanent Resident"/>
-								<label for="permanent_resident">Permanent Resident</label>
-							</li>
-							<li>
-								<input type="radio" name="work_authorization" id="no_work_permit" value="No Work Permit for Singapore"/>
-								<label for="no_work_permit">No Work Permit for Singapore</label>
-							</li>
+
+							<?php 
+								$authorizations = [
+									'singapore_citizen' => 'Singapore Citizen',
+									'valid_spass' => 'Valid SPASS',
+									'permanent_resident' => 'Permanent Resident',
+									'valid_epass' => 'Valid EPass',
+									'no_work_permit_for_singapore' => 'No Work Permit for Singapore',
+									'valid_work_permit' => 'Valid Work Permit',
+								];
+							?>
+
+							<?php foreach ($authorizations as $key => $value):?>
+								<li>
+									<input type="radio" name="work_authorization" id="<?= $key ?>" value="<?= $value?>"/>
+									<label for="<?= $key ?>"><?= $value ?></label>
+								</li>							
+							<?php endforeach; ?>
 						</ul>
 					</div> <!-- end of .form-group -->
 					<div class="form-group">
