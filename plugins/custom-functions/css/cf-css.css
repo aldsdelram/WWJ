@@ -16,3 +16,7 @@ input[type=number] {
 input[name=your-phone]{
 	color: #000;
 }
+
+#menu-item-142 .sub-menu{
+	display:none !important;
+}
