@@ -1,0 +1,142 @@
+#candidate-backdrop{
+	position: relative;
+}
+
+#candidate-backdrop .registration-message{
+	min-width: 100%;
+	min-height: 100%;
+	position: absolute;
+	background: rgba(255,255,255,1) !important;
+	z-index: 100;
+	border: 1px solid #ddd !important;
+	text-align: center;
+	padding: 40px;
+}
+
+
+#candidate-backdrop .registration-message h1{
+	color: #df141d;
+	font-size: 40px;
+}
+
+
+
+.logged-in .registration-message{
+	display: none;
+}
+
+
+
+.portal--modal{
+    position: fixed;
+    background: rgba(0,0,0,0.3);
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: none;
+    z-index: 999;
+}
+
+.portal--modal-details {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.portal--modal-content{
+    background: #fff;
+    width: 850px;
+    text-align: center;
+    padding: 50px 20px;
+    overflow: auto;
+    max-height: 80%;
+}
+
+.portal--modal-content h1 {
+    font: 600 34px/42px 'Open Sans';
+    text-transform: uppercase;
+    margin: 0 0 30px;
+}
+
+.portal--modal-content h3 {
+    font: 28px/36px 'Open Sans';
+    margin: 0 0 30px;
+}
+
+.portal--modal-content .btn-panel {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.portal--modal-content .btn-panel a {
+    font: 600 16px/24px 'Open Sans';
+    text-transform: uppercase;
+    width: 125px;
+    text-align: center;
+    display: block;
+    border: 1px solid #df141d;
+    margin: 0 20px;
+    padding: 7px 0;
+}
+
+.portal--modal-content .btn-panel a.yes {
+    color: #fff;
+    background: #df141d;
+}
+
+.portal--modal-content .btn-panel a.no {
+    color: #df141d;
+}
+
+#snap{
+    background: #df141d;
+    padding: 10px 20px;
+    color: white;
+}
+
+
+.resume-content .radio-group input[type=radio]:checked + .error + label:before {
+	color: #df141d;
+}
+
+.portal--modal-content .resume-content{
+    text-align: left;
+}
+
+.company_year_error{
+    width: 100% !important;
+    display: inline-block;
+    padding: 1px 15px !important;
+    margin-bottom: 10px;
+    color: #df141d;
+    border: 1px solid #F31212 !important;
+}
+
+.portal--modal-content .error{
+    width: 100% !important;
+    font-size: 10px;
+}
+
+.resume-content .add-field{
+    display: block;
+    width: 100%;
+    background: #eee;
+    text-align: center;
+    font: 600 20px/28px 'Open Sans';
+    cursor: pointer;
+    padding: 14px 0;
+}
+
+.resume-content .add-field span{
+    color: #df141d;
+}
+
+
+.resume-content .checkbox-group label.error::before{
+    background: none;
+}
