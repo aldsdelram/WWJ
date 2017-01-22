@@ -6,6 +6,7 @@
         var to_repeat_verification;
         var to_repeat_certification;
         var month = [''];
+        var localStream;
 
     /* MAIN FUNCTION */
     $(document).ready(function(){
@@ -233,7 +234,20 @@
                         $('.portal--modal-image-capture').show();
                         video.src = window.URL.createObjectURL(stream);
                         video.play();
+
+                        // re-add the stop function
+                        if(!stream.stop && stream.getTracks) {
+                            stream.stop = function(){         
+                              this.getTracks().forEach(function (track) {
+                                 track.stop();
+                              });
+                            };
+                        }
+
+                        localStream = stream;
                     });
+
+                    
                 }
             });
 
@@ -250,6 +264,8 @@
                 $(inputProfilePicture).val(url);
 
                 $('.portal--modal-image-capture').fadeOut('fast');
+
+                localStream.stop();
             });
 
             $('.add_field_with_modal').click(function(e){
