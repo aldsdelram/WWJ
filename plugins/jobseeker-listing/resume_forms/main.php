@@ -2,6 +2,7 @@
 	include( 'step1.php'); 
 	include( 'step2.php'); 
 	include( 'step3.php'); 
+	include( 'portal_next.php'); 
 	include( 'modals.php'); 
 	include( 'functions.php'); 
 

@@ -140,3 +140,53 @@
 .resume-content .checkbox-group label.error::before{
     background: none;
 }
+
+
+/*________________________ =RESUME NEXT ________________________*/
+
+.slick-slider-variant-1 li {
+    list-style-type: none;
+}
+
+.slick-slider-variant-1 li .box-shadow {
+    background: #fff;
+    margin: 0 auto;
+    max-width: 900px;
+    padding: 30px 20px 20px;
+    box-shadow: 0 0 10px 0 #cacaca;
+}
+
+.slick-slider-variant-1 li h1 {
+    text-align: center;
+    font-size: 20px;
+}
+
+.slick-slider-variant-1 li .box-shadow .chxbxs {
+    -webkit-column-count: 2;
+    -moz-column-count: 2;
+         column-count: 2;
+}
+
+.slick-slider-variant-1 li .box-shadow .chxbxs {
+    max-width: 70%;
+    margin: 20px auto 10px;
+}
+
+.slick-slider-variant-1 li .box-shadow .chxbxs > div {
+    margin-bottom: 3px;
+}
+
+.slick-slider-variant-1 li .box-shadow .chxbxs > div input[type="checkbox"] {
+    margin-right: 5px;
+}
+
+.slick-slider-variant-1 .slider-next {
+    margin: 20px auto;
+    display: block;
+    width: 100%;
+    max-width: 120px;
+    text-align: center;
+    color: #fff;
+    background: #df141d;
+    padding: 8px;
+}
