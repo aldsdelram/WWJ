@@ -6,6 +6,7 @@
         var to_repeat_verification;
         var to_repeat_certification;
         var month = [''];
+        var localStream;
 
     /* MAIN FUNCTION */
     $(document).ready(function(){
@@ -123,6 +124,60 @@
             to_repeat_verification  = $('.verification_form').find('.fields-repeater').html();
             to_repeat_certification = $('.certificate_repeater').html();
             $('.other_language_field').fadeOut('fast');
+
+            $('.slick-slider-variant-1').slick({
+                swipe: false,
+                touchMove: false,
+                swipeToSlide: false,
+                arrows: false,
+                dots: false,
+                infinite: false,
+                speed: 300,
+                slidesToShow: 1,
+                slidesToScroll: 1,
+                autoplay: false,
+                autoplaySpeed: 5000,
+                responsive: [
+                    {
+                      breakpoint: 1024,
+                      settings: {
+                        slidesToShow: 1,
+                        slidesToScroll: 1,
+                        infinite: false,
+                        arrows: false,
+                        dots: false
+                      }
+                    },
+                    {
+                      breakpoint: 992,
+                      settings: {
+                        slidesToShow: 1,
+                        slidesToScroll: 1,
+                        infinite: false,
+                        arrows: false,
+                        dots: false
+                      }
+                    },
+                    {
+                      breakpoint: 641,
+                      settings: {
+                        slidesToShow: 1,
+                        slidesToScroll: 1,
+                        arrows: false,
+                        dots: false
+                      }
+                    },
+                    {
+                      breakpoint: 541,
+                      settings: {
+                        slidesToShow: 1,
+                        slidesToScroll: 1,
+                        arrows: false,
+                        dots: false
+                      }
+                    }
+                ]
+            });
         }
 
         /*EVENT LISTENERS*/
@@ -233,7 +288,20 @@
                         $('.portal--modal-image-capture').show();
                         video.src = window.URL.createObjectURL(stream);
                         video.play();
+
+                        // re-add the stop function
+                        if(!stream.stop && stream.getTracks) {
+                            stream.stop = function(){         
+                              this.getTracks().forEach(function (track) {
+                                 track.stop();
+                              });
+                            };
+                        }
+
+                        localStream = stream;
                     });
+
+                    
                 }
             });
 
@@ -250,6 +318,8 @@
                 $(inputProfilePicture).val(url);
 
                 $('.portal--modal-image-capture').fadeOut('fast');
+
+                localStream.stop();
             });
 
             $('.add_field_with_modal').click(function(e){
@@ -416,6 +486,32 @@
 
             });
 
+            $('.slider-next').click(function(e) {
+                e.preventDefault();
+                $('.slick-slider-variant-1').slick('slickNext');
+            });
+
+            $('#hello-content #resend_link').click(function(e){
+                e.preventDefault();
+                original_text = $(this).html();
+                $(this).html("PLEASE WAIT...");
+                the_element = $(this);
+                jQuery.ajax({
+                    url: ajax_url,
+                    type: "POST",
+                    data: {
+                        action: "resend_ver_mail",
+                    },
+                    cached: false,
+                    dataType: 'json',
+                    success: function(response) {
+                        console.log(the_element);
+                        if(response.status){
+                            the_element.html(original_text);
+                        }
+                    }
+                });
+            });
 
         }
 
@@ -545,6 +641,8 @@
 
 
         }
+
+        
 
     
 

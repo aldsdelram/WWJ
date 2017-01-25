@@ -27,6 +27,7 @@ Network: true
 	 * { This function to be used on testing some code }
 	 */
 	function test_code_here(){
+
 		// var_dump(get_user_meta(get_current_user_id(), 'step1_data', true));
 		// var_dump(get_user_meta(get_current_user_id(), 'step2_data', true));
 		// var_dump(get_user_meta(get_current_user_id(), 'step3_data', true));
@@ -77,6 +78,7 @@ Network: true
 	function main_variables(){
 		echo "<script type=\"text/javascript\">".
 	        "home_url = '".home_url()."';".
+	        "ajax_url ='".admin_url( 'admin-ajax.php' )."';". 
 	      "</script>";
 	}
 	add_action ( 'wp_head', 'main_variables' );
@@ -112,3 +114,40 @@ Network: true
 	     return $currency_symbol;
 	}
 	add_filter('woocommerce_currency_symbol', 'change_dollar_to_sgd', 10, 2);
+
+	// function upme_registration_save( $user_id ) {
+	// 	wp_redirect(home_url('/jobseeker/register/hello/'));
+	// 	exit;
+	// }
+	// add_action( 'user_register', 'upme_registration_save', 10, 1 );
+	
+	function resend_email_verification_mail(){
+		$response = [];
+		$response['status'] = false;
+		if(isset($_SESSION['rdata'])){
+			$upme_obj = $_SESSION['rdata']['upme'];
+			$param1 = $_SESSION['rdata']['param1'];
+			$param2 = $_SESSION['rdata']['param2'];
+			$param5 = $_SESSION['rdata']['param5'];
+			$param6 = $_SESSION['rdata']['param6'];
+
+			$upme_obj->upme_send_emails($param1, $param2 , '' , '' ,$param5,$param6);
+			$response['status'] = true;
+
+		}
+		echo json_encode($response);
+		wp_die();
+	}
+	add_action('wp_ajax_resend_ver_mail', 'resend_email_verification_mail');
+	add_action('wp_ajax_nopriv_resend_ver_mail', 'resend_email_verification_mail');
+
+
+	function add_to_cart($product_id, $quantity){
+		WC()->cart->add_to_cart($product_id, 1);
+	}
+
+	function ajax_add_to_cart(){
+		$data = $_POST['product_id'];
+	}
+	add_action('wp_ajax_resend_ver_mail', 'resend_email_verification_mail');
+	add_action('wp_ajax_nopriv_resend_ver_mail', 'resend_email_verification_mail');
