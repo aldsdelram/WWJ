@@ -359,11 +359,25 @@ class UPME_Register {
                     }else{
                         $admin_email_status = $upme_email_templates->upme_send_emails( 'reg_activation_admin' , get_option('admin_email') , '' , '' ,$send_params,$user_id);
                     }
-                    
-                    
-                    
+                    log_error("hello");
+
+
+                    if(session_id() == '')
+                        session_start(); 
+
+                    $_SESSION['rdata'] = array(
+                        'upme' => $upme_email_templates,
+                        'param1' => 'reg_activation_user',
+                        'param2' => $user->user_email,
+                        'param5' => $send_params,
+                        'param6' => $user_id
+                    );
+
                     $email_status = $upme_email_templates->upme_send_emails('reg_activation_user', $user->user_email , '' , '' ,$send_params,$user_id);
                     
+                    wp_redirect(home_url('/jobseeker/register/hello/'));
+                    exit;
+
                 }else if('INACTIVE' == $approval_status){
                     // Approval enabled
                     
