@@ -55,6 +55,58 @@
 						<label for="email_address">Email</label>
 						<input type="email" name="email_address" class="input-field" />
 					</div> <!-- end of .form-group -->
+
+
+					<div class="form-group">
+						<h3 class="required">Address</h3>
+						<div class="form-group">
+							<label for="address['street']">Street Address</label>
+							<input type="text" name="address['street']" class="input-field"/>
+						</div>
+
+						<div class="form-group">
+							<label for="address['unit']">Unit / Building Number</label>
+							<input type="text" name="address['unit']" class="input-field"/>
+						</div>
+
+						<div class="form-group">
+							<label for="address['city']">City</label>
+							<input type="text" name="address['city']" class="input-field"/>
+						</div>
+
+						<div class="form-divider rd-row rd-between-xs">
+							<div class="left-form">
+								<div class="form-group">
+									<label for="address['state']">State</label>
+									<input type="text" name="address['state']" class="input-field"/>
+								</div>
+							</div>
+							<div class="right-form">
+								<div class="form-group">
+									<label for="address['postalcode']">Postal Code</label>
+									<input type="text" name="address['postalcode']" class="input-field"/>
+								</div>
+							</div>
+						</div>
+					</div> <!-- end of .form-group -->	
+
+					<div class="form-group">
+						<h3 class="required">Nationality</h3>
+						<div class="dropdown-input">
+							<input type="text" name="nationality" class="dropdown-data input-field" readonly/>
+							<ul class="option_nationality">
+							<?php $nationalities = WWJ::getNationalities(); ?>
+							<?php foreach ($nationalities as $key => $value): ?>
+								<li data-value="<?= $key ?>"><?= $value ?></li>
+							<?php endforeach; ?>
+							</ul>
+						</div>
+					</div> <!-- end of .form-group -->
+
+				</div> <!-- end of .left-form -->
+
+
+				<div class="right-form">
 					<div class="form-group">
 						<h3 class="required">What is your highest educational level?</h3>
 						<div class="form-group">
@@ -74,10 +126,12 @@
 							</div> <!-- end of .dropdown-input -->
 						</div>
 					</div> <!-- end of .form-group -->
+
 					<div class="form-group">
 						<label for="course">Course</label>
 						<input type="text" name="course" class="input-field" />
-					</div> <!-- end of .form-group -->
+					</div> <!-- end of .form-group -->	
+
 					<div class="form-divider rd-row rd-between-xs">
 						<div class="left-form">
 							<div class="form-group">
@@ -107,6 +161,9 @@
 						</div>
 					</div> <!-- end of .form-divider -->
 
+
+
+
 					<div class="form-group">
 						<h3 class="required">What is your employment status?</h3>
 						<div class="dropdown-input">
@@ -118,12 +175,15 @@
 							</ul>
 						</div> <!-- end of .dropdown-input -->
 					</div>
-				</div> <!-- end of .left-form -->
-				<div class="right-form">
+
+
 					<div class="form-group">
 						<h3 class="required">Career objective(Limited to 150 characters)</h3>
 						<textarea class="input-field" name="career_objective" maxlength="150"></textarea>
 					</div> <!-- end of .form-group -->
+
+
+
 					<div class="form-group">
 						<h3>Share your LinkedIn Profile(optional)</h3>
 						<input type="url" name="linkedin" class="linkedIn-url input-field" />
