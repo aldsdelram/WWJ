@@ -20,3 +20,53 @@ input[name=your-phone]{
 #menu-item-142 .sub-menu{
 	display:none !important;
 }
+
+
+/*________________________ =THANK YOU ________________________*/
+
+.ty--main {
+    max-width: 465px;
+    margin: 60px auto;
+    width: 465px;
+    border: 1px solid #f2f2f2;
+    background: #f9f9f9;
+    text-align: center;
+    border-radius: 20px;
+    padding: 30px 50px 40px;
+}
+
+.ty--title {
+    font-size: 26px;
+    line-height: 150%;
+    font-family: 'Open Sans';
+    color: #000;
+}
+
+.ty--desc {
+    font-size: 14px;
+    font-family: 'Open Sans';
+    color: #0c0c0c;
+}
+
+.ty--icon {
+    margin: 20px 0 !important;
+    max-width: 140px;
+}
+
+.ty--email {
+    font-size: 16px;
+    font-family: 'Open Sans';
+    color: #c7161c;
+}
+
+.ty--link {
+    margin: 25px 0px 10px !important;
+    font-size: 15px;
+    font-family: "Open Sans";
+}
+
+.ty--link a {
+    color: white;
+    background: #c7161c;
+    padding: 12px 50px;
+}
