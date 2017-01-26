@@ -27,14 +27,16 @@
 						$img_bg = wp_get_attachment_image_src( get_post_thumbnail_id(), 'full' );
 						global $product;
 					?>
-						<li class="list-item">
+						<li class="list-item" id="product_<?= get_the_ID(); ?>">
 							<h3 class="title"><?= get_the_title(); ?></h3>
 							<div class="img-container" style="background: url( '<?= $img_bg[0]; ?>' ) no-repeat center; background-size: cover;"></div>
 							<div class="product-details">
 								<?php the_content(); ?>
 								<div class="credits"><?php the_excerpt(); ?></div>
 								<div class="btn-panel">
-									<a href="<?= do_shortcode( '[add_to_cart_url id="' . get_the_ID() . '"]' ); ?>">Get Now</a>
+									<!--a href="<?= do_shortcode( '[add_to_cart_url id="' . get_the_ID() . '"]' ); ?>">Get Now</a-->
+
+									<a href="#product_<?= get_the_ID(); ?>" class="get_now_button" data-product="<?= get_the_ID() ?>">Get Now</a>
 								</div> <!-- end of .btn-panel -->
 							</div> <!-- end of .product-details -->
 						</li>

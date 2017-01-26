@@ -147,7 +147,12 @@ Network: true
 	}
 
 	function ajax_add_to_cart(){
-		$data = $_POST['product_id'];
+		$response = [];
+		$response['status'] = true;
+		$product_id = $_POST['product_id'];
+		add_to_cart($product_id, 1);
+		echo json_encode($response);
+		wp_die();
 	}
-	add_action('wp_ajax_resend_ver_mail', 'resend_email_verification_mail');
-	add_action('wp_ajax_nopriv_resend_ver_mail', 'resend_email_verification_mail');
+	add_action('wp_ajax_add_to_cart', 'ajax_add_to_cart');
+	add_action('wp_ajax_nopriv_add_to_cart', 'ajax_add_to_cart');
