@@ -1,5 +1,7 @@
 <?php
 	include( 'functions.php'); 
+	include( 'view_profile.php');
+	include( 'view_experience.php');
 
 	function set_info(){
 		include( 'info.inc');
@@ -87,117 +89,52 @@
 
 	}
 
-	function show_profile_page(){
-		include( 'info.inc');
-		if(is_user_logged_in()){
-			set_info();
-		}
+// SHOW PROFILE
+function create_profile_container($icon, $editIcon, $title, $content) {
+	ob_start();
+	?>
 
-		ob_start();
-		?>
-			<div class="btsp-container-fluid">
-			<?= show_basic_info() ?>
-			<?= show_workplaces() ?>
-			<?= show_skill_and_others() ?>
-			<?= show_about() ?>
+	<div class="profile--container">
+
+		<div class="btsp-container-fluid profile-view--header">
+			<div class="row">
+				<div class="col-xs-12">
+					<h1 class="profile-view--header_title">
+						<img class="profile-view--header_icon" src="<?= $icon; ?>"><?= $title; ?>
+						<?php if($editIcon != '') : ?>
+							<a href="#"><img class="profile-view--edit_icon" src="<?= $editIcon; ?>"></a>
+						<?php endif; ?>
+					</h1>
+				</div>
 			</div>
-		<?php
-		return ob_get_clean();
-	}
-	add_shortcode('show_profile', 'show_profile_page');
+		</div>
 
-		function show_basic_info(){
-			include( 'info.inc');
-			ob_start();
-			?>
-				<div class="row">
-					<h1><?= $firstname.' '.$lastname ?></h1>
-					<div class="col-xs-12 row">
-						<div class="row">
-							<div class="col-md-4 col-xs-12">
-								<label>Gender</label>
-								<?= $gender?>
-							</div>
-							<div class="col-md-4 col-xs-12">
-								<label>Work Authorization</label>
-								<?= $work_authorization?>
-							</div>
-							<div class="col-md-4 col-xs-12">
-								<label>Age</label>
-								<?= $age?>
-							</div>
-						</div>
-						<div class="row">
-							<div class="col-md-4 col-xs-12">
-								<label>availability</label>
-								<?= $availability?>
-							</div>
-							<div class="col-md-4 col-xs-12">
-								<label>Field of Expertise</label>
-								<?= Job_Listing::GetIndustryByID($expertise)?>
-							</div>
-							<div class="col-md-4 col-xs-12">
-								<label>Contact Details</label>
-								<div class="row">
-									<div class="col-xs-12 col-md-6">
-										<?= $contact ?>
-									</div>
-									<div class="col-xs-12 col-md-6">
-										<?= $email_address ?>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-			<?php
-			return ob_get_clean();
-		}
+		<?= $content; ?>
+	</div>
 
-		function show_workplaces(){
-			include( 'info.inc');
-			ob_start();
-			?>
-				<div class="row">
-				<?php foreach ($work_experiences as $key => $work_experience):
-				?>
-	                    <div class="row">
-		                    <div class="col-sm-2 col-xs-12">
-	                            <?= getMonthName($work_experience['start_month']).' '.$work_experience['start_year'].
-	                                        ' - '.
-		                            getMonthName($work_experience['end_month']).' '.$work_experience['end_year'];
-	                            ?>
-		                    </div>
-		                    <div class="col-sm-9 col-xs-12">
-		                        <h1><?=$work_experience['job'] ?> at <?= $work_experience['company_name']?></h1>
-		                        <p><?= $work_experience['key_task']?></p>
-		                    </div>
-	                    </div>
-				<?php endforeach; ?>
-				</div>
+	<?php
+	return ob_get_clean();
+}
+
+function view_profile_func(){
+	$icon    	 = 'http://preskubbs.com/wwj2/skubbswp/wp-content/uploads/2017/01/icon-view-profile.png';
+	$editIcon    = 'http://preskubbs.com/wwj2/skubbswp/wp-content/uploads/2017/01/edit-button.png';
+	$title   	 = 'PROFILE';
+	$content 	 = view_profile_content();
+
+	return create_profile_container($icon, $editIcon, $title, $content);
+}
+
+add_shortcode('view-profile', 'view_profile_func');
 
 
-			<?php
-			return ob_get_clean();
-		}
+function view_experience_func(){
+	$icon    	 = 'http://preskubbs.com/wwj2/skubbswp/wp-content/uploads/2017/01/icon-view-experience.png';
+	$editIcon    = '';
+	$title   	 = 'EXPERIENCE';
+	$content 	 = view_experience_content();
 
-		function show_skill_and_others(){
+	return create_profile_container($icon, $editIcon, $title, $content);
+}
 
-		}
-
-		function show_about(){
-			ob_start();
-			?>
-			<?= $about_me ?>
-			<?php
-			return ob_get_clean();
-		}
-
-
-
-
-
-	    function getMonthName($month_number){
-            $monthNames = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sept", "Oct", "Nov", "Dec"];
-            return $monthNames[((int)($month_number)-1)];
-        }
+add_shortcode('view-experience', 'view_experience_func');
