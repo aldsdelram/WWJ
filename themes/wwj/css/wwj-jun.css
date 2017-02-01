@@ -1,0 +1,103 @@
+
+
+
+
+#main-section .employers-section-promotion_1 {
+	text-align: center;
+	padding: 60px 0;
+}
+
+.empsp--container {
+	margin-top: 25px;
+}
+
+.empsp-sets {
+	max-width: 222px;
+	width: 100%;
+	position: relative;
+	display: inline-block;
+	padding-top: 50px !important;
+	margin: 0 5px !important;
+}
+
+.empsp-icon {
+    position: absolute;
+    width: 100%;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    top: 15px;
+}
+
+.empsp-circle {
+    width: 222px;
+    height: 222px;
+    border-radius: 50% !important;
+    border: 2px solid #363636 !important;
+    text-align: center !important;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    padding: 85px 30px 0!important;
+}
+
+.empsp-sets h4 {
+    font-size: 24px;
+    color: #363636;
+}
+
+.empsp-sets.blank {
+    margin: 0 !important;
+    padding: 0 !important;
+    vertical-align: bottom !important;
+}
+
+.empsp-sets.blank .empsp-icon {
+    top: -120px;
+}
+
+.empsp-sets.blank .empsp-circle {
+	padding: 0 0 0 !important;
+    border: none !important;
+    height: auto !important;
+}
+
+.empsp-learn-more {
+    border: 1px solid #363636 !important;
+    padding: 10px 30px !important;
+    display: inline-block;
+    margin-top: 35px !important;
+    position: relative;
+    font-weight: bold;
+}
+
+.empsp-learn-more:before {
+    content: " ";
+    position: absolute;
+    z-index: -1;
+    top: 0;
+    left: 0px;
+    right: 0px;
+    bottom: -4px;
+    border-bottom: 3px solid #686868;
+}
+
+
+#main-section .employers-section-promotion_2 {
+	text-align: center;
+	padding: 60px 0;
+	background: url( '../../../uploads/2017/02/rating-bg.jpg' ) no-repeat center;
+    background-size: cover;
+}
+
+#main-section .employers-section-promotion_2 .section-title--variant_1 {
+	color: #fff !important;
+    margin-bottom: 25px;
+}
