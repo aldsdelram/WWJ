@@ -49,11 +49,11 @@
 					<div class="form-group">
 						<h3 class="required">Contact Details</h3>
 						<label for="mobile_contact">Mobile</label>
-						<input type=number name="mobile_contact" class="input-field numeric" maxlength="8" minlength="8"  pattern="[0-9]{8}"/>
+						<input type=number name="mobile_contact" class="input-field numeric" maxlength="8" minlength="8"  pattern="[0-9]{8}" value="<?= get_user_meta(get_current_user_id(), 'user_phone', true)?>"/>
 					</div> <!-- end of .form-group -->
 					<div class="form-group">
 						<label for="email_address">Email</label>
-						<input type="email" name="email_address" class="input-field" />
+						<input type="email" name="email_address" class="input-field" value="<?= get_user_meta(get_current_user_id(), 'user_email', true) ?>/>
 					</div> <!-- end of .form-group -->
 
 

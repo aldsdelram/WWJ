@@ -3080,3 +3080,63 @@ form .upme-login-register-link:hover {
 .sfd--desc {
 	text-align: left;
 }
+
+
+.sidebar-menu{
+	color: white;
+	display: block;
+	width: 100%;
+	position: relative;
+	padding: 0 10px;
+	-webkit-transition: .5s;
+	transition: .5s;
+}
+
+.sidebar-menu a{
+	color: white;
+	display: block;
+	width: 100%;
+	position: relative;
+	padding: 10px 0 10px 30px;
+	border-bottom: 1px solid #555;
+	-webkit-transition: .5s;
+	transition: .5s;
+}
+
+.sidebar-menu .has-sub-menu + .sub-menu{
+	display: none;
+	-webkit-transition: .5s;
+	transition: .5s;
+
+}
+
+.sidebar-menu > a:first-child{
+	border-left: 5px solid rgba(0,0,0,0);
+}
+
+.sidebar-menu.active > a:first-child{
+	background: #df141d;
+	border-left: 5px solid #fff;
+	padding: 10px 10px 10px 40px;
+}
+
+
+.sidebar-menu.active{
+	/*padding: 0 5%;*/
+	padding: 0 0;
+}
+
+.sidebar-menu.active a{
+	border-bottom: 1px solid rgba(0,0,0,0);
+}
+
+.sidebar-menu.active .sub-menu{
+	display: block;
+	background: #333;
+	font-size: 13px;
+	padding: 10px 10px;
+}
+
+.sidebar-menu.active .sub-menu a{
+	padding: 5px 0 5px 30px;
+}

@@ -27,7 +27,18 @@
 	<main id="main-wrapper" class="dashboard-page">
 		<div class="rd-row">
 			<aside id="main-sidebar">
-			
+				<div class="sidebar-logo"></div>
+				<div class="sidepar-dp"></div>
+				<div class="sidebar-menus">
+					<div class="sidebar-menu">
+						<a href="" class="has-sub-menu">Profile</a>
+						<div class="sub-menu">
+							<a href="<?= home_url('/jobseeker/dashboard/profile/view/information/') ?>">Basic Information</a>
+							<a href="<?= home_url('/jobseeker/dashboard/profile/view/experience/') ?>">Experience</a>
+							<a href="<?= home_url('/jobseeker/dashboard/profile/view/others/') ?>">Other Information</a>
+						</div>
+					</div>
+				</div>
 			</aside>
 			<section id="main-section">
 				<header class="content-header">

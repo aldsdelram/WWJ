@@ -102,7 +102,7 @@
                         </div>
 
                     </div>
-                    <p><a href="" class="slider-next">NEXT</a></p>
+                    <p><a href="#" class="slider-next">NEXT</a></p>
                 </li>
                 <li>
                     <div class="box-shadow">
@@ -136,7 +136,7 @@
                         <input id="location_preference_1" type="checkbox" name="location_preference" value="Islandwide" style="display:none;">
                         <!-- <label for="location_preference_1">Islandwide</label> -->
 
-                        <label><a href="#" class="portal-next--show_other_loc">Show other locations</a></label>
+                        <!-- <label><a href="#" class="portal-next--show_other_loc">Show other locations</a></label> -->
 
                         <div class="other-locations chxbxs">
                             <?php $locations = array(
