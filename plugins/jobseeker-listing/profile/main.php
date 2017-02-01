@@ -1,140 +1,134 @@
 <?php
 	include( 'functions.php'); 
-	include( 'view_profile.php');
+	include( 'basic_info.php');
 	include( 'view_experience.php');
-
-	function set_info(){
-		include( 'info.inc');
-		$current_user  = get_currentuserinfo();
-		$step1 = get_user_meta(get_current_user_id(), 'step1_data', true);
-		$step2 = get_user_meta(get_current_user_id(), 'step2_data', true);
-		$step3 = get_user_meta(get_current_user_id(), 'step3_data', true);
+	include( 'languages.php');
+	include( 'skills.php');
+	include( 'awards.php');
+	include( 'about_me.php');
 
 
-		$profile_picture = wp_get_attachment_url($step1['photo_base_64']);
-		$firstname = $current_user->user_firstname;
-		$lastname  = $current_user->user_lastname;
-		$gender = $step1['gender'];
-		$work_authorization = $step1["work_authorization"];
-		$age = 0;
-			$sBday = $step1['birthday'];
-		    $bday = DateTime::createFromFormat('d-m-Y', $sBday );
-		    $date = new DateTime();
 
-		    $diff = $date->diff($bday);
-		    $age = $diff->y;
-		$availability = $step2["o_start_year"];
-		$expertise = $step2["field_of_expertise"]; 
-		$contact = $step1["mobile_contact"];
-		$email_address= $step1["email_address"];
+	/**
+	 * SHORTCODE FOR BASIC INFO
+	 *
+	 * @return     <type>  ( description_of_the_return_value )
+	 */
+	function view_profile_func(){
+		$icon    	 = plugins_url() . '/jobseeker-listing/img/icon--view-profile.png';
+		$editIcon    = plugins_url() . '/jobseeker-listing/img/edit-button.png';
+		$title   	 = 'PROFILE';
+		$content 	 = view_profile_content();
+
+		return create_profile_container($icon, $editIcon, $title, $content);
+	}
+	add_shortcode('view-profile', 'view_profile_func');
 
 
-		$work_experiences =[];
-		foreach ($step2['job'] as $key => $value) {
-			$work_experience = [];
-			$work_experience['job'] = $value;
-			$work_experience['start_year'] = $step2['start_year'][$key];
-			$work_experience['end_year'] = $step2['end_year'][$key];
-			$work_experience['start_month'] = $step2['start_month'][$key];
-			$work_experience['end_month'] = $step2['end_month'][$key];
-			$work_experience['key_task'] = $step2['keytasks'][$key];
-			$work_experience['company_name'] = $step2['company_name'][$key];
-			$work_experiences[] = $work_experience;
-		}
+	function edit_profile_func(){
+		$icon    	 = plugins_url() . '/jobseeker-listing/img/icon--view-profile.png';
+		$editIcon    = plugins_url() . '/jobseeker-listing/img/edit-button.png';
+		$title   	 = 'PROFILE';
+		$content 	 = edit_profile_content();
 
-		$languages = [];
-		foreach ($step3['language'] as $key => $value) {
-			if($value != ''){
-				$language = [];
-				$language['name'] = $value;
-				$language['rating'] = $step3['proficiency'][$key];
-				$languages[] = $language;
-			}
-		}
+		return create_profile_container($icon, $editIcon, $title, $content);
+	}
+	add_shortcode('edit-profile', 'edit_profile_func');
 
-		$skills = [];
-		foreach($step3['skills'] as $key => $value){
-			$skill = [];
-			$skill['name'] = Job_Listing::GetIndustryByID($value);
-			$skill['rating'] = $step3['ratings'][$value];
-			$skills[] = $skill;
-		}
 
-		$certificates = [];
-		foreach($step3['cert_images'] as $key => $cert_image){
-			$cert= [];
-			$cert['image'] = $cert_image;
-			$cert['award'] = $step3['awards_certification'][$key];
-			$cert['body_corporate'] = $step3['body_corporate'][$key];
-			$cert['year'] = $step3['cert_year'][$key];
+	// function view_about_func(){
+	// 	$icon    	 = plugins_url() . '/jobseeker-listing/img/icon--view-profile.png';
+	// 	$editIcon    = plugins_url() . '/jobseeker-listing/img/edit-button.png';
+	// 	$title   	 = 'MORE ABOUT ME';
+	// 	$content 	 = view_about_content();
 
-			foreach($cert as $c){
-				if($c != null){
-					$certificates[] = $cert;
-					break;
-				}
-			}
-		}
-		$about_me = $step3['other_description'];
+	// 	return create_profile_container($icon, $editIcon, $title, $content);
+	// }
+	// add_shortcode('view-about', 'view_about_func');
 
-		$career_objective =$step1['career_objective'];
-		$tertiary =$step1['tertiary'];
-		$course = $step1['course'];
-		$linkedin = $step1['linkedin'];
-		$desired_salary = $step2['desired_salary'];
-		$verification = $step2['verification'];
+	function edit_about_func(){
+		$icon    	 = plugins_url() . '/jobseeker-listing/img/icon--view-profile.png';
+		$editIcon    = plugins_url() . '/jobseeker-listing/img/edit-button.png';
+		$title   	 = 'MORE ABOUT ME';
+		$content 	 = edit_about_content();
 
-		$school_s_year = $step1["start_year"];
-  		$school_e_year = $step1["end_year"];
+		return create_profile_container($icon, $editIcon, $title, $content);
+	}
+	add_shortcode('edit-about', 'edit_about_func');
 
+
+	/**
+	 * { function_description }
+	 *
+	 * @return     <type>  ( description_of_the_return_value )
+	 */
+	function view_experience_func(){
+		$icon    	 = plugins_url() . '/jobseeker-listing/img/icon--view-experience.png';
+		$editIcon    = plugins_url() . '/jobseeker-listing/img/edit-button.png';
+		$title   	 = 'EXPERIENCE';
+		$content 	 = view_experience_content();
+
+		return create_profile_container($icon, $editIcon, $title, $content);
+	}
+	add_shortcode('view-experience', 'view_experience_func');
+
+	function view_others_func(){
+		$html = '';
+		$icon    	 = plugins_url() . '/jobseeker-listing/img/icon--view-experience.png';
+		$editIcon    = plugins_url() . '/jobseeker-listing/img/edit-button.png';
+		
+		$html .= create_profile_container(plugins_url() . '/jobseeker-listing/img/icon--skills.png', $editIcon, 'SKILLS', view_skills_content());
+		$html .= create_profile_container($icon, $editIcon, 'LANGUAGES', view_languages_content());
+		$html .= create_profile_container($icon, $editIcon, 'AWARDS', view_awards_content());
+		$html .= create_profile_container($icon, $editIcon, 'MORE ABOUT ME', view_about_content());
+
+
+		return $html;
+	}
+	add_shortcode('view-other_info', 'view_others_func');
+
+
+	function edit_experience_func(){
+		$icon    	 = plugins_url() . '/jobseeker-listing/img/icon--view-experience.png';
+		$editIcon    = '';
+		$title   	 = 'EXPERIENCE';
+		$content 	 = edit_experience_content();
+
+		return create_profile_container($icon, $editIcon, $title, $content);
+	}
+	add_shortcode('edit-experience', 'edit_experience_func');
+
+
+	function edit_skills_func(){
+		$icon    	 = plugins_url() . '/jobseeker-listing/img/icon--skills.png';
+		$editIcon    = '';
+		$title   	 = 'SKILLS';
+		$content 	 = edit_skills_content();
+
+		return create_profile_container($icon, $editIcon, $title, $content);
+	}
+	add_shortcode('edit-skills', 'edit_skills_func');
+
+
+	function edit_awards_func(){
+		$icon      = 'http://preskubbs.com/wwj2/skubbswp/wp-content/uploads/2017/01/icon-view-experience.png';
+		$editIcon    = '';
+		$title     = 'ABOUT ME';
+		$content   = edit_awards_content();
+
+		return create_profile_container($icon, $editIcon, $title, $content);
 	}
 
-// SHOW PROFILE
-function create_profile_container($icon, $editIcon, $title, $content) {
-	ob_start();
-	?>
-
-	<div class="profile--container">
-
-		<div class="btsp-container-fluid profile-view--header">
-			<div class="row">
-				<div class="col-xs-12">
-					<h1 class="profile-view--header_title">
-						<img class="profile-view--header_icon" src="<?= $icon; ?>"><?= $title; ?>
-						<?php if($editIcon != '') : ?>
-							<a href="#"><img class="profile-view--edit_icon" src="<?= $editIcon; ?>"></a>
-						<?php endif; ?>
-					</h1>
-				</div>
-			</div>
-		</div>
-
-		<?= $content; ?>
-	</div>
-
-	<?php
-	return ob_get_clean();
-}
-
-function view_profile_func(){
-	$icon    	 = 'http://preskubbs.com/wwj2/skubbswp/wp-content/uploads/2017/01/icon-view-profile.png';
-	$editIcon    = 'http://preskubbs.com/wwj2/skubbswp/wp-content/uploads/2017/01/edit-button.png';
-	$title   	 = 'PROFILE';
-	$content 	 = view_profile_content();
-
-	return create_profile_container($icon, $editIcon, $title, $content);
-}
-
-add_shortcode('view-profile', 'view_profile_func');
+	add_shortcode('edit-awards', 'edit_awards_func');
 
 
-function view_experience_func(){
-	$icon    	 = 'http://preskubbs.com/wwj2/skubbswp/wp-content/uploads/2017/01/icon-view-experience.png';
-	$editIcon    = '';
-	$title   	 = 'EXPERIENCE';
-	$content 	 = view_experience_content();
+	function edit_languages_func(){
+		$icon      = 'http://preskubbs.com/wwj2/skubbswp/wp-content/uploads/2017/01/icon-view-experience.png';
+		$editIcon    = '';
+		$title     = 'EDIT LANGUAGES';
+		$content   = edit_languages_content();
 
-	return create_profile_container($icon, $editIcon, $title, $content);
-}
+		return create_profile_container($icon, $editIcon, $title, $content);
+	}
 
-add_shortcode('view-experience', 'view_experience_func');
+	add_shortcode('edit-languages', 'edit_languages_func');

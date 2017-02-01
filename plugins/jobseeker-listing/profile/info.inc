@@ -28,6 +28,9 @@ global $verification;
 global $school_s_year;
 global $school_e_year;
 
+global $address;
+global $nationality;
+global $employment_status;
 
 global $about_me;
 ?>

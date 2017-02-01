@@ -11,6 +11,10 @@ body {
 	color: #363636;
 }
 
+.text-red {
+	color: #df141d;
+}
+
 .container {
 	width: 1170px;
 	margin: 0 auto !important;
@@ -498,9 +502,11 @@ body {
 	padding: 30px 0;
 }
 
-#main-section .whyUs-area .section-title {
+#main-section .whyUs-area .section-title,
+#main-section .phoneSlider-area .section-title {
 	font: 700 36px/44px 'Montserrat';
 	margin: 0 0 30px;
+	text-align: center;
 }
 
 #main-section .whyUs-area .column-title {
@@ -545,7 +551,8 @@ body {
 #main-section #about-workwork-jay-content .section-title,
 #main-section .pricingPlans-area .section-title,
 #main-section .jobseekerProducts-area .section-title,
-#main-section .careerToolkit-area .section-title {
+#main-section .careerToolkit-area .section-title,
+#main-section .employerProducts-area .section-title {
 	font: 36px/44px 'Oswald';
 	margin: 0 0 30px;
 	text-align: center !important;
@@ -561,7 +568,8 @@ body {
 #main-section #get-in-touch-content,
 #main-section .standOutResume-area,
 #main-section .pricingPlans-area,
-#main-section .careerToolkit-area {
+#main-section .careerToolkit-area,
+#main-section .nextEmployeeFree-area {
 	text-align: center;
 	padding: 50px 0;
 }
@@ -877,6 +885,17 @@ body {
 	font: 18px/26px 'Open Sans';
 }
 
+#main-section .careerToolkit-area .not-member {
+	margin: 30px 0 0;
+	font: 600 24px/32px 'Open Sans';
+	color: #fff;
+}
+
+#main-section .careerToolkit-area .not-member a {
+	text-transform: uppercase;
+	text-decoration: underline !important;
+}
+
 #main-section .toolkit-list {
 	margin: 30px 0 0;
 	display: -webkit-box;
@@ -1131,10 +1150,31 @@ body {
 	padding: 30px 0;
 }
 
-#main-section .phoneSlider-list {
-	min-height: 479px;
+#main-section .phoneSlider-area .phoneSlider-container {
+	padding: 0 0 120px;
+	margin: 30px 0 0;
+}
+
+#main-section .phoneSlider-container .container {
+	position: relative;
+}
+
+#main-section .phoneSlider-container .img-phone {
 	background: url( '../../../uploads/2017/01/bg-phone.png') no-repeat center;
-	background-size: contain;
+	width: 233px;
+	height: 479px;
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	margin: 0 auto;
+	z-index: 2;
+}
+
+#main-section .phoneSlider-container .phoneSlider-list {
+	padding: 57px 0 0;
+	position: relative;
+	z-index: 2;
 }
 
 #main-section .phoneslider-list .slick-list {
@@ -1142,23 +1182,103 @@ body {
 }
 
 #main-section .phoneSlider-list .slick-slide {
-	padding: 0 15px;
+	padding: 0 14px;
 }
 
-#main-section .phoneSlider-list .slick-slide.slick-active {
-	padding: 0 15px 0 16px;
-}
-
-#main-section .phoneSlider-list .slick-slide.slick-active .phone-container {
-	border: 0;
-}
-
-#main-section .phoneSlider-list .phone-container {
+#main-section .phoneSlider-list .slick-slide .phone-container {
 	border: 1px solid #363636;
+}
+
+#main-section .phoneSlider-list .slick-slide.slick-current .phone-container {
+	border: 1px solid transparent;
 }
 
 #main-section .phoneSlider-list .img-container {
 	min-height: 200px;
+}
+
+#main-section .phone-details {
+	text-align: center;
+	background: #333;
+	padding: 10px 20px;
+}
+
+#main-section .phone-details h3 {
+	font: 300 24px/28px 'Open Sans';
+	text-transform: uppercase;
+	color: #fff;
+	padding: 0 !important;
+}
+
+#main-section .phone-details p {
+	font: 14px/18px 'Open Sans' !important;
+	color: #fff !important;
+	padding: 0 !important;
+}
+
+#main-section .phone-details p.motto {
+	font: italic 14px/18px 'Open Sans';
+	margin: 5px 0 0 !important;
+}
+
+#main-section .phone-container a {
+	color: #da1f26 !important;
+	font: 600 14px/22px 'Open Sans';
+	text-transform: uppercase;
+	display: block;
+	text-align: center !important;
+	padding: 5px 0 !important;
+}
+
+#main-section .phoneSlider-list .slick-arrow {
+	position: absolute;
+	bottom: -120px;
+	margin: 0 auto;
+	left: 0;
+	right: 0;
+	width: 17px;
+	height: 24px;
+	font-size: 0;
+	cursor: pointer;
+}
+
+#main-section .phoneSlider-list .slick-prev {
+	background: url( '../../../uploads/2017/01/icon-phone-arrows.png' ) no-repeat left center;
+	left: -50px;
+}
+
+#main-section .phoneSlider-list .slick-next {
+	background: url( '../../../uploads/2017/01/icon-phone-arrows.png' ) no-repeat right center;
+	right: -50px;
+}
+
+#main-section .phoneSlider-area h2.section-title {
+	margin: 0;
+}
+
+#main-section .phoneSlider-area ul {
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-box-align: center;
+	    -ms-flex-align: center;
+	        align-items: center;
+	-webkit-box-pack: center;
+	    -ms-flex-pack: center;
+	        justify-content: center;
+	-ms-flex-wrap: wrap;
+	    flex-wrap: wrap;
+}
+
+#main-section .phoneSlider-area ul li {
+	padding: 0 20px;
+}
+
+#main-section .phoneSlider-area p {
+	font: 24px/32px 'Open Sans';
+	margin: 0 !important;
+	padding: 0 !important;
+	text-align: center !important;
 }
 
 /* ========== search styles ========== */
@@ -1672,12 +1792,14 @@ body {
 	padding: 50px 0;
 }
 
-#main-section #jobseeker-pricing-content {
+#main-section #jobseeker-pricing-content,
+#main-section #employer-pricing-content {
 	border-top: 1px solid #363636;
 	padding: 50px 0 0;
 }
 
-#main-section .jobseeker-products .product-list {
+#main-section .jobseeker-products .product-list,
+#main-section .employer-products .product-list {
 	display: -webkit-box;
 	display: -ms-flexbox;
 	display: flex;
@@ -1688,7 +1810,8 @@ body {
 	        justify-content: space-between;
 }
 
-#main-section .jobseeker-products .product-list .list-item {
+#main-section .jobseeker-products .product-list .list-item,
+#main-section .employer-products .product-list .list-item {
 	width: 49%;
 	margin: 0 0 20px;
 	display: -webkit-box;
@@ -1700,7 +1823,8 @@ body {
 	        flex-direction: column;
 }
 
-#main-section .jobseeker-products .list-item h3 {
+#main-section .jobseeker-products .list-item h3,
+#main-section .employer-products .list-item h3 {
 	font: 24px/32px 'Oswald';
 	text-transform: uppercase;
 	color: #fff;
@@ -1712,11 +1836,13 @@ body {
 	padding: 12px 0;
 }
 
-#main-section .jobseeker-products .list-item .img-container {
+#main-section .jobseeker-products .list-item .img-container,
+#main-section .employer-products .list-item .img-container {
 	height: 240px;
 }
 
-#main-section .jobseeker-products .product-details {
+#main-section .jobseeker-products .product-details,
+#main-section .employer-products .product-details {
 	padding: 20px 70px;
 	text-align: center;
 	background: #363636;
@@ -1733,13 +1859,15 @@ body {
 	        flex: 1 0 auto;
 }
 
-#main-section .jobseeker-products .product-details > p {
+#main-section .jobseeker-products .product-details > p,
+#main-section .employer-products .product-details > p {
 	-webkit-box-flex: 1;
 	    -ms-flex: 1 0 auto;
 	        flex: 1 0 auto;
 }
 
-#main-section .jobseeker-products .product-details .credits {
+#main-section .jobseeker-products .product-details .credits,
+#main-section .employer-products .product-details .credits {
 	font: 24px/32px 'Oswald';
 	text-transform: uppercase;
 	margin: 10px 0;
@@ -1747,14 +1875,17 @@ body {
 }
 
 #main-section .jobseeker-products .product-details .credits:before,
-#main-section .jobseeker-products .product-details .credits:after {
+#main-section .jobseeker-products .product-details .credits:after,
+#main-section .employer-products .product-details .credits:before,
+#main-section .employer-products .product-details .credits:after {
 	content: '';
 	display: block;
 	background: url( '../../../uploads/2017/01/credits-separator.png' ) no-repeat center;
 	height: 2px;
 }
 
-#main-section .jobseeker-products .product-details .btn-panel a {
+#main-section .jobseeker-products .product-details .btn-panel a,
+#main-section .employer-products .product-details .btn-panel a {
 	width: 135px;
 	display: block;
 	margin: 0 auto;
@@ -1773,13 +1904,26 @@ body {
 	border-bottom: 7px solid #da1f26;
 }
 
+#main-section .nextEmployeeFree-area {
+	background: url( '../../../uploads/2017/01/bg-next-employee.png' ) no-repeat center;
+	text-align: left;
+	border-bottom: 3px solid #d1d1d1;
+	border-top: 3px solid #d1d1d1;
+}
+
 #main-section .standOutResume-area .section-title {
 	text-align: left !important;
 	font: 36px/44px 'Oswald';
 	margin: 0;
 }
 
-#main-section .standOutResume-area .resume-step {
+#main-section .nextEmployeeFree-area .section-title {
+	font: 36px/44px 'Oswald';
+	margin: 0;
+}
+
+#main-section .standOutResume-area .resume-step,
+#main-section .nextEmployeeFree-area .nextEmployee-step {
 	display: -webkit-box;
 	display: -ms-flexbox;
 	display: flex;
@@ -1789,20 +1933,23 @@ body {
 	margin: 0 0 15px;
 }
 
-#main-section .standOutResume-area .resume-step li {
+#main-section .standOutResume-area .resume-step li,
+#main-section .nextEmployeeFree-area .nextEmployee-step li {
 	margin: 0 30px 0 0;
 	position: relative;
 	padding: 0 0 0 15px;
 }
 
-#main-section .standOutResume-area .resume-step li:before {
+#main-section .standOutResume-area .resume-step li:before,
+#main-section .nextEmployeeFree-area .nextEmployee-step li:before {
 	content: '+';
 	position: absolute;
 	left: 0;
 	top: 0;
 }
 
-#main-section .standOutResume-area .btn-panel a {
+#main-section .standOutResume-area .btn-panel a,
+#main-section .nextEmployeeFree-area .btn-panel a {
 	display: block;
 	background: #da1f26;
 	width: 225px;
@@ -1810,6 +1957,7 @@ body {
 	text-transform: uppercase;
 	padding: 13px 0;
 	text-align: center;
+	color: #fff;
 }
 
 /* ========== end of candidate listing styles ========== */
@@ -1926,7 +2074,7 @@ body {
 }
 
 .dashboard-page #main-section .content-details {
-	padding: 50px 30px;
+	padding: 20px 30px;
 }
 
 /* ========== end of dashboard page styles ========== */
@@ -2489,10 +2637,10 @@ form .upme-login-register-link:hover {
 .resume-content .btn-panel input[type=submit],
 .resume-content .btn-panel a,
 .resume-content .btn-panel .upload-button {
-	width: 130px;
+	width: 115px;
 	background: #df141d;
 	color: #fff;
-	font: 16px/24px 'Open Sans';
+	font: 14px/24px 'Open Sans';
 	text-align: center;
 	display: block;
 	margin: 0 10px;
@@ -2567,6 +2715,11 @@ form .upme-login-register-link:hover {
 .dropdown-input ul li {
 	list-style: none;
 	font: 14px/22px 'Open Sans';
+}
+
+.dropdown-input ul li:hover {
+	background-color: #e3e3e3;
+	cursor: pointer;
 }
 
 .linkedIn-url {
@@ -2789,4 +2942,40 @@ form .upme-login-register-link:hover {
 		border: 0;
 		text-align: center;
 	}
+}
+
+
+
+/* _______ =ADDED 31-01-2017 _______ */
+
+.coming-soon-variant_1 {
+    text-align: center !important;
+    padding: 110px 0 !important;
+    background-color: #ebebeb !important;
+}
+
+.help-button {
+	text-align: right;
+	position: relative;
+}
+
+.help-button i {
+	color: #25b7d3;
+	margin: 0 0 15px 10px;
+    font-size: 35px;
+	position: relative;
+	z-index: 1;
+	cursor: pointer;
+}
+
+.help-button .bg-circle {
+	display: block;
+    background: #fff;
+    border-radius: 25px;
+    height: 25px;
+    width: 25px;
+    position: absolute;
+    top: 5px;
+    right: 2px;
+    z-index: 0;
 }

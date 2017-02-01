@@ -60,31 +60,31 @@
 					<div class="form-group">
 						<h3 class="required">Address</h3>
 						<div class="form-group">
-							<label for="address['street']">Street Address</label>
-							<input type="text" name="address['street']" class="input-field"/>
+							<label for="address[street]">Street Address</label>
+							<input type="text" name="address[street]" class="input-field"/>
 						</div>
 
 						<div class="form-group">
-							<label for="address['unit']">Unit / Building Number</label>
-							<input type="text" name="address['unit']" class="input-field"/>
+							<label for="address[unit]">Unit / Building Number</label>
+							<input type="text" name="address[unit]" class="input-field"/>
 						</div>
 
 						<div class="form-group">
-							<label for="address['city']">City</label>
-							<input type="text" name="address['city']" class="input-field"/>
+							<label for="address[city]">City</label>
+							<input type="text" name="address[city]" class="input-field"/>
 						</div>
 
 						<div class="form-divider rd-row rd-between-xs">
 							<div class="left-form">
 								<div class="form-group">
-									<label for="address['state']">State</label>
-									<input type="text" name="address['state']" class="input-field"/>
+									<label for="address[state]">State</label>
+									<input type="text" name="address[state]" class="input-field"/>
 								</div>
 							</div>
 							<div class="right-form">
 								<div class="form-group">
-									<label for="address['postalcode']">Postal Code</label>
-									<input type="text" name="address['postalcode']" class="input-field"/>
+									<label for="address[postalcode]">Postal Code</label>
+									<input type="text" name="address[postalcode]" class="input-field"/>
 								</div>
 							</div>
 						</div>
@@ -167,8 +167,8 @@
 					<div class="form-group">
 						<h3 class="required">What is your employment status?</h3>
 						<div class="dropdown-input">
-							<input type="text" name="expertise_years" class="dropdown-data input-field" />
-							<ul class="option_expertise_years">
+							<input type="text" name="employment_status" class="dropdown-data input-field" />
+							<ul class="option_employment_status">
 								<li>Actively Seeking for Job Opportunities</li>
 								<li>Employed but Open to Attractive Offers</li>
 								<li>Satisfied and Not Looking for A Change</li>

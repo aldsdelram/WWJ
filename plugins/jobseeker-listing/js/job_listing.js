@@ -57,7 +57,38 @@
 
         //to initialize the inputs and everything
         function init(){
-            
+         
+
+            $(document).on('focus', '.dropdown-data', function(event) {
+                $( this ).closest( '.dropdown-search-input').addClass( 'opened' );
+                event.stopPropagation();
+            });
+
+            $(document).on( 'click', 'dropdown-search-input > ul > li', function(event) {
+                var text = $( this ).html();
+                $( this ).closest( '.dropdown-search-input' ).find( '.dropdown-data' ).val( text );
+                $( this ).closest( '.dropdown-search-input' ).removeClass( 'opened' );
+                event.stopPropagation();
+            });
+
+            $( 'html' ).on( 'click', function() {
+                if(!$(".dropdown-search-input input").is(":focus"))
+                    $( '.dropdown-search-input' ).removeClass( 'opened' );
+            });
+
+            $(document).find( '.dropdown-search-input' ).blur(function(){
+                $(this).removeClass( 'opened' );
+            });
+
+
+            $( document ).find( '.dropdown-list' ).each( function() {
+                var height = $( this ).children( 'ul' ).actual( 'outerHeight' );
+                console.log(height);
+                $( this ).css( 'height', height );
+            });
+
+
+
         }
 
         /*EVENT LISTENERS*/
@@ -110,6 +141,42 @@
         		});
         		do_the_filter();
         	});
+
+            $('.skills_options').find('li').each(function(){
+                $(this).click(function(){
+                    console.log($(this).attr('data-value'));
+                    $(document).find('.skill_parent_'+$(this).attr('data-value')).show();
+                    // console.log($(document).find('input[name="o_rating['+$(this).attr('data-value')+']"]').parent().parent().parent());
+                    // $(document).find('input[name="o_rating['+$(this).attr('data-value')+']"]').parent().parent().parent().parent().show();
+                    $(document).find('input[name="o_rating['+$(this).attr('data-value')+']"]').addClass("required");
+                    $(document).find('.skill_parent_'+$(this).attr('data-value')).find('.input_skill').attr('name', 'skills[]');
+                });
+            });
+
+            $(document).on('click', '.delete_skill', function(e){
+                $(document).find('.skill_parent_'+$(this).attr('data-value')).hide();
+                $(document).find('input[name="o_rating['+$(this).attr('data-value')+']"]').removeClass("required");
+                $(document).find('.skill_parent_'+$(this).attr('data-value')).find('.input_skill').removeAttr('name');
+            });
+        // $(document).find('input[name="o_rating['+$(this).attr('data-value')+']"]').parent().parent()..hide();
+        // $(document).find('input[name="o_rating['+$(this).attr('data-value')+']"]').removeClass("required");
+
+
+            $('#edit_skills').validate({
+                rules:{
+                    '.required':{
+                        required: true
+                    }
+                }
+            });
+
+            $('#edit_skills .save-btn-variant-1').click(function(e){
+                if(jQuery('input[name^=skills]').length == 0){
+                    e.preventDefault();
+                    alert("You must have at least one skill to continue");
+                }
+            });
+
         }
 
         
