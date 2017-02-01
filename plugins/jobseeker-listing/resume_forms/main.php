@@ -21,6 +21,10 @@
 		?>
 
 		<div id="resume-form">
+			<div class="help-button">
+				<i class="fa fa-question-circle" aria-hidden="true" data-modal="help_modal_container"></i>
+				<span class="bg-circle"></span>
+			</div>
 			<div class="resume-header">
 				<ul class="resume-steps">
 					<li class="steps <?= ( in_array( $step, array( 1, 2, 3 ) ) ) ? 'active' : '' ?>">
@@ -71,6 +75,7 @@
 		<?= image_capture_modal(); ?>
 		<?= add_workplace_modal(); ?>
 		<?= workplace_verification_modal(); ?>
+		<?= help_button_modal(); ?>
 
 	<?php
 		return ob_get_clean();

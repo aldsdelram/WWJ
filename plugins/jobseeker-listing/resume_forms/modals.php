@@ -108,7 +108,7 @@
 														</div>
 													</div>
 												</div>
-												<label class="company_year_error">To Date Must Not be late to the From Date</label>
+												<label class="company_year_error">The date picked must not be later than the From Date</label>
 											</div>
 										</div>
 										<div class="right-form">
@@ -221,6 +221,81 @@
 			<script>
 				jQuery('.portal--modal .success_container').show();
 			</script>
+		<?php
+		return ob_get_clean();
+	}
+
+	function help_button_modal() {
+		ob_start();
+		?>
+			<div class="portal--modal help_modal_container">
+				<div class="portal--modal-details">
+					<div class="portal--modal-content">
+						<div class="help_modal_close">x</div>
+						
+						<div class="simple-fading-divs">
+							<h2 class="sfd--title">Help Tips</h2>
+							<!-- 1 -->
+							<div class="box-to-fade box-no-1">
+								<img class="sfd--img" src="<?= plugins_url() . '/jobseeker-listing/img/help-modal--img-1.png' ?>" alt="">		
+
+								<div class="clearfix">
+									<h3 class="sfd--slanted">My personal profile <span class="sfd--slanted-border"></span></h3>
+								</div>
+
+								<p class="sfd--desc">Fill out the form on the left.<br>You can always come back to edit the data in My Profile.</p>
+							</div>
+
+							<!-- 2 -->
+							<div class="box-to-fade box-no-2">
+								<img class="sfd--img" src="<?= plugins_url() . '/jobseeker-listing/img/help-modal--img-2.png' ?>" alt="">
+
+								<div class="clearfix">
+									<h3 class="sfd--slanted">Tailor your answers to the job you are seeking <span class="sfd--slanted-border"></span></h3>
+								</div>
+
+								<p class="sfd--desc">You want to focus your education and experience to the job at hand. Give details of skills and accomplishments, and avoid framing your experiences in terms of mere duties and responsibilities. Include experience from all sources, including previous jobs, school and even volunteer work.</p>
+							</div>
+
+							<!-- 3 -->
+							<div class="box-to-fade box-no-3">
+								<img class="sfd--img" src="<?= plugins_url() . '/jobseeker-listing/img/help-modal--img-3.png' ?>" alt="">
+
+								<div class="clearfix">
+									<h3 class="sfd--slanted">Provide references <span class="sfd--slanted-border"></span></h3>
+								</div>
+
+								<p class="sfd--desc">Employers want to see that there are people who will provide objective information about you to them. Pick your references carefully — and make sure you ask if they are willing to be a reference for you before you list them. Past employers and teachers are good sources.</p>
+							</div>
+
+							<!-- 4 -->
+							<div class="box-to-fade box-no-4">
+								<img class="sfd--img" src="<?= plugins_url() . '/jobseeker-listing/img/help-modal--img-4.png' ?>" alt="">
+
+								<div class="clearfix">
+									<h3 class="sfd--slanted">Don't leave any blanks <span class="sfd--slanted-border"></span></h3>
+								</div>
+
+								<p class="sfd--desc">Many companies filter candidates by their responses to certain fields within the online application forms. Don't miss out on any chances to be included in the recruiters' filtering processes for the position! Fill out all fields within the application process.</p>
+							</div>
+
+							<!-- 5 -->
+							<div class="box-to-fade box-no-5">
+								<img class="sfd--img" src="<?= plugins_url() . '/jobseeker-listing/img/help-modal--img-5.png' ?>" alt="">
+
+								<div class="clearfix">
+									<h3 class="sfd--slanted">Proofread your information before submitting <span class="sfd--slanted-border"></span></h3>
+								</div>
+
+								<p class="sfd--desc">Many companies filter candidates by their responses to certain fields within the online application forms. Don't miss out on any chances to be included in the recruiters' filtering processes for the position! Fill out all fields within the application process.</p>
+							</div>
+						</div>
+
+						<div class="sfd--bullets"></div>
+
+					</div>
+				</div>
+			</div>
 		<?php
 		return ob_get_clean();
 	}
