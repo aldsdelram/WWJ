@@ -9,6 +9,7 @@
 		wp_enqueue_style( 'font-awesome-styles', 'https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css' );
 		wp_enqueue_style( 'responsive-dojo-styles', get_template_directory_uri() . '/css/responsive-dojo.css' );
 		wp_enqueue_style( 'main-styles', get_template_directory_uri() . '/css/main.css' );
+		wp_enqueue_style( 'temp-styles', get_template_directory_uri() . '/css/wwj-jun.css' );
 
 		//scripts
 		wp_enqueue_script( 'jquery-ui-js', 'http://code.jquery.com/ui/1.12.1/jquery-ui.min.js' );

@@ -541,6 +541,17 @@ body {
 	        align-items: center;
 }
 
+
+#main-section .employers-section-promotion_1 {
+
+}
+
+.section-title--variant_1 {
+	font: 36px/44px 'Oswald';
+	margin: 0 0 30px;
+	text-align: center !important;
+}
+
 #main-section .createProfile-area .section-title,
 #main-section .app-area .section-title,
 #main-section .getStarted-area .section-title,
