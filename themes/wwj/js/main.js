@@ -44,7 +44,6 @@ jQuery( document ).ready( function($) {
 			out_focus_field( this );
 	});
 
-
 	$(document).on('focus', '.dropdown-data', function(event) {
 		$( this ).closest( '.dropdown-input').addClass( 'opened' );
 		event.stopPropagation();
