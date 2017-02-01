@@ -13,6 +13,7 @@
         init();
         onChanges();
         onClick();
+        onSubmit();
 
         validate_form();
     });
@@ -39,9 +40,16 @@
                 $(this).attr('readonly', true);
                 the_dropdow_data = $(this).find('.dropdown-data');
                 name = the_dropdow_data.attr('name');
+                the_value = the_dropdow_data.attr('value');
+                f_value = the_dropdow_data.attr('data-fvalue');
+                data_value = the_dropdow_data.attr('data-value');
+
 
                 classList = the_dropdow_data.attr('class');
-                class_array = classList.split(/\s+/);
+                if(classList != null)
+                    class_array = classList.split(/\s+/);
+                else
+                    class_array = [];
 
                 new_class = "dropdown_real_input ";
                 for (var i = 0; i < class_array.length; i++) {
@@ -53,6 +61,15 @@
                     .attr('readonly', true)
                     .attr('class', new_class)
                     .hide();
+
+                if(the_value){
+                    input_field.val(data_value);
+                    the_dropdow_data.val(data_value);
+                }
+                if(f_value){
+                    input_field.val(data_value);
+                    the_dropdow_data.val(f_value);
+                }
 
                 the_input_field.push(input_field);
                 $(this).append(the_input_field[key]);
@@ -73,6 +90,27 @@
 
         }
 
+
+        function rearrangeVerificationFields(){
+            key = $('.verification_form').attr('data-key');
+            number = 0;
+            $(document).find('.verification_form').find('.verification_name').each(function(){
+                $(this).attr('name', 'verification['+key+'][firstname]['+number+']');
+                number++;
+            });
+
+            number = 0;
+            $(document).find('.verification_form').find('.verification_email').each(function(){
+                $(this).attr('name', 'verification['+key+'][email]['+number+']');
+                number++;
+            });
+
+            number = 0;
+            $(document).find('.verification_form').find('.verification_contact').each(function(){
+                $(this).attr('name', 'verification['+key+'][contact]['+number+']');
+                number++;
+            });
+        }
 
         /**
          * Creates an input.
@@ -107,6 +145,9 @@
         //to initialize the inputs and everything
         function init(){
 
+            formatDropdownInput();
+            modal_fade_box();
+
             inputProfilePicture = 'input[name=photo_base_64]';
             $('.portal--modal-image-capture').hide();
 
@@ -118,7 +159,6 @@
                 maxDate: "-16Y"
             });
 
-            formatDropdownInput();
             $('.company_year_error').hide();
 
             to_repeat_verification  = $('.verification_form').find('.fields-repeater').html();
@@ -178,6 +218,31 @@
                     }
                 ]
             });
+
+
+            $( '.language-item input[type=checkbox]' ).each( function() {
+                if( $(this).attr("data-checked")){
+                    $( this ).closest( '.language-item' ).find( '.language-show' ).show( 500 );
+                    $(this).attr("checked", true);
+                    $(this).closest('.language-item').find('.dropdown-data').addClass('required');                   
+                    if($(this).attr("id") == 'other_language')
+                        $('.other_language_field').fadeIn('fast');
+                }
+            });
+
+
+            $( '.filter-dropdown' ).keyup(function(){
+                var value = $( this ).val();
+                $( this ).closest( '.dropdown-list' ).find( 'li' ).each( function() {
+                if ( $( this ).text().search( new RegExp(value, 'i' ) ) > -1 ) {
+                    $( this ).show();
+                } else {
+                $( this ).hide();
+                }
+                });
+            });
+
+
         }
 
         /*EVENT LISTENERS*/
@@ -235,9 +300,11 @@
             });
 
 
+            var the_cert_image = '';
             $(document).on('change', '.cert_image',function(){
                 input = $(this)[0];
                 // the_base_64_input = $(this).closest('.cert_image_64');
+                the_cert_image = $(this).attr('data-name');
                 the_base_64_input = $(this).parent().find('.cert_image_64');
                 if (input.files && input.files[0]) {
                     var reader = new FileReader();
@@ -245,6 +312,10 @@
                     reader.onload = function (e) {
                         b64Image = e.target.result;
                         $(the_base_64_input).val(b64Image);
+                        console.log($(document).find('div[data-name="'+the_cert_image+'"]'));
+                        if($(document).find('div[data-name="'+the_cert_image+'"]').length){
+                            $(document).find('div[data-name="'+the_cert_image+'"]').css('background-image', 'url(\''+b64Image+'\'');
+                        }
                     }
                     
                     reader.readAsDataURL(input.files[0]);
@@ -270,7 +341,6 @@
             // }
 
         }
-
 
         //on click
         function onClick(){
@@ -334,6 +404,34 @@
 
                 modal = '.' + $(this).attr('data-modal');
                 $(modal).fadeIn('slow');
+            });
+
+
+            $('.help-button i').click(function(e){
+                e.preventDefault();
+
+                modal = '.' + $(this).attr('data-modal');
+                $(modal).fadeIn('fast');
+            });
+
+
+            
+
+
+
+            /*______________ close modal on click gray area _______________________*/
+
+            $(document).mouseup(function (e) {
+                var container = $(".portal--modal-content");
+
+                if(container.is(':visible')) {
+                    if (!container.is(e.target) // if the target of the click isn't the container...
+                    && container.has(e.target).length === 0) // ... nor a descendant of the container
+                    {
+                        $('.portal--modal').fadeOut();
+                    }
+                }
+                
             });
 
 
@@ -462,9 +560,36 @@
 
                 number = $(document).find('.verification_form').find('.verification_name').length;
                 appended = $('<div><div class="delete-field" onClick="delete_field( this );"><i class="fa fa-times fa-fw" aria-hidden="true"></i> Delete</div>' + to_repeat_verification + '</div>');
-                appended.find('.verification_name').attr('name', 'verification_name['+number+']');
-                appended.find('.verification_email').attr('name', 'verification_email['+number+']');
-                appended.find('.verification_contact').attr('name', 'verification_contact['+number+']');
+                if($('#experience_edit').length){
+                    key = $('.verification_form').attr('data-key');
+
+                    number = 0;
+                    $(document).find('.verification_form').find('.verification_name').each(function(){
+                        $(this).attr('name', 'verification['+key+'][firstname]['+number+']');
+                        number++;
+                    });
+
+                    number = 0;
+                    $(document).find('.verification_form').find('.verification_email').each(function(){
+                        $(this).attr('name', 'verification['+key+'][email]['+number+']');
+                        number++;
+                    });
+
+                    number = 0;
+                    $(document).find('.verification_form').find('.verification_contact').each(function(){
+                        $(this).attr('name', 'verification['+key+'][contact]['+number+']');
+                        number++;
+                    });
+
+                    appended.find('.verification_name').attr('name', 'verification['+key+'][firstname]['+number+']').val('').removeAttr('value');
+                    appended.find('.verification_email').attr('name', 'verification['+key+'][email]['+number+']').val('').removeAttr('value');
+                    appended.find('.verification_contact').attr('name', 'verification['+key+'][contact]['+number+']').val('').removeAttr('value');
+                }
+                else{
+                    appended.find('.verification_name').attr('name', 'verification_name['+number+']');
+                    appended.find('.verification_email').attr('name', 'verification_email['+number+']');
+                    appended.find('.verification_contact').attr('name', 'verification_contact['+number+']');
+                }
                 $('.fields-repeated').append('<div><div class="delete-field" onClick="delete_field( this ); style="z-index:999"><i class="fa fa-times fa-fw" aria-hidden="true"></i> Delete</div>' + appended.html() + '</div>');
 
                 return false;
@@ -481,6 +606,7 @@
                 appended.find('.cert_year').attr('name', 'o_year['+number+']');
                 appended.find('.real_cert_year').attr('name', 'cert_year['+number+']');
                 appended.find('.cert_image').attr('data-name', 'cert_image['+number+']');
+                appended.find('.cert_image_container').attr('data-name', 'cert_image['+number+']');
 
                 $('.fields-repeated').append('<div><div class="delete-field" onClick="delete_field( this ); style="z-index:999"><i class="fa fa-times fa-fw" aria-hidden="true"></i> Delete</div>' + appended.html() + '</div>');                
 
@@ -513,6 +639,39 @@
                 });
             });
 
+        }
+
+        function onSubmit(){
+            $('#experience_edit').submit(function(e){
+                rearrangeVerificationFields();
+
+                startMonth = $('input[name^=o_start_month]').val();
+                endMonth = $('input[name^=o_end_month]').val();
+                startYear = $('input[name^=start_year]').val();
+                endYear = $('input[name^=end_year]').val();
+
+                if(startMonth != null && endMonth != null && startYear != null && endYear != null){
+                    var dateStart = new Date(startYear+"-"+startMonth+"-01");
+                    var dateEnd = new Date(endYear+"-"+endMonth+"-01");
+                    if(dateStart > dateEnd){
+                        $('.company_year_error').slideDown('fast');
+                    }
+                    else{
+                        $('.company_year_error').fadeOut('slow');
+                    }                    
+                }
+
+                if($($(this)).valid()){
+                    var dateStart = new Date(startYear+"-"+startMonth+"-01");
+                    var dateEnd = new Date(endYear+"-"+endMonth+"-01");
+                    if(dateStart > dateEnd){
+                        $('.company_year_error').slideDown('fast');
+                        e.preventDefault();
+                    }
+                }
+                else
+                    e.preventDefault();
+            });
         }
 
         function validate_form(){
@@ -600,19 +759,8 @@
             });
 
 
-            $('.verification_form').validate({
+            $('form.verification_form').validate({
                 rules:{
-                    // 'verification_name[]':{
-                    //     required: true
-                    // },
-                    // 'verification_email[]':{
-                    //     required: true
-                    // },
-                    // 'verification_contact[]':{
-                    //     required: true
-                    // },
-                    // 
-                    // 
                     '.required':{
                         required: true
                     }
@@ -639,12 +787,68 @@
             });
 
 
+            $('#experience_edit').validate({
+                rules:{
+                    '.required':{
+                        required: true
+                    }
+                }
+            });
+
+
+            $('#basic_edit').validate({
+                rules:{
+                    '.required':{
+                        required: true
+                    }
+                }
+            });
+
+
+
+            $('#about_me_edit').validate({
+                rules:{
+                    '.required':{
+                        required: true
+                    }
+                }
+            });
+
+
+            $('#language_edit').validate({
+                rules:{
+                    '.required':{
+                        required: true
+                    }
+                }
+            });
 
         }
 
-        
+        function modal_fade_box() {
+            $('.simple-fading-divs div').each(function(i) {
+                if (i == 0) {
+                    $('.sfd--bullets').append($('<span class="box-nav bn--active" box-no="'+(i+1)+'"></span>'))
+                } else {
+                    $('.sfd--bullets').append($('<span class="box-nav" box-no="'+(i+1)+'"></span>'))
+                }
+            });
 
-    
+
+            $('.sfd--bullets span').on('click', function(e) {
+                e.preventDefault();
+                change_box_div(this);
+            });
+            
+            function change_box_div(el) {
+                $('.sfd--bullets span').removeClass('bn--active');
+                $(el).addClass('bn--active');
+
+                var _box_nav = $(el).attr('box-no');
+                $('.simple-fading-divs div').hide();
+                $('.simple-fading-divs .box-no-'+_box_nav).fadeIn();
+            }
+        }
 
 })(jQuery);
 

@@ -94,12 +94,27 @@ function save_the_data_of_form(){
 }
 
 		
+function getFileType($base64image){
+	if (strpos($base64image, 'data:image/png;base64,') !== false) {
+	    return 'png';
+	}
+	if (strpos($base64image, 'data:image/jpeg;base64,') !== false) {
+	    return 'jpg';
+	}
+	if (strpos($base64image, 'data:image/jpg;base64,') !== false) {
+	    return 'jpg';
+	}
+}
+
 
 function upload_photo($base64image){
 	$upload_dir       = wp_upload_dir();
 	$upload_path      = str_replace( '/', DIRECTORY_SEPARATOR, $upload_dir['path'] ) . DIRECTORY_SEPARATOR;
 
 	$img = $base64image;
+	$b64 = $base64image;
+
+
 	$img = str_replace('data:image/png;base64,', '', $img);
 	$img = str_replace('data:image/jpeg;base64,', '', $img);
 	$img = str_replace('data:image/jpg;base64,', '', $img);
@@ -118,6 +133,9 @@ function upload_photo($base64image){
 				$the_type = $_FILES['[profile_picture']['type'];
 		}
 	}
+
+	$the_type = 'image/'.getFileType($base64image);
+	$filetype = '.'.getFileType($base64image);
 
 	$userfullname = WWJ::getUserFullName();
 	$filename         = "Portal_".$userfullname.$date->getTimestamp().$filetype;

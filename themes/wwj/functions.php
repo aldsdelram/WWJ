@@ -76,3 +76,18 @@
 
 	add_action('init', 'sk_start_session', 1);
 	add_action('wp_logout', 'sk_end_session');
+
+
+	function first_login($user_login, $user) {
+	    $user_id = $user->ID;
+	    $first_login = get_user_meta($user_id, 'wwj_first_login', true);
+	    if( $first_login == '1' || $first_login == null) {
+			$user_info = get_userdata($user_id);
+	    	if(in_array('candidate', $user_info->roles)){
+		        update_user_meta($user_id, 'wwj_first_login', '0');
+		        wp_redirect( home_url('/jobseeker/dashboard/resume/step01') );
+		        exit;
+	    	}
+	    }
+	}
+	add_action('wp_login', 'first_login', 10, 2);
