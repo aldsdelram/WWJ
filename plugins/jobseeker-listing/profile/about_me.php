@@ -58,6 +58,7 @@ function edit_about_content(){
 		exit;
 	}
 
+	$cancelLink = home_url('/jobseeker/dashboard/profile/view/others/');
 
 
 	ob_start();
@@ -67,40 +68,28 @@ function edit_about_content(){
 				<div class="col-xs-12">
 					<div class="resume-content">
 
-					<?php if($step3['other_description'] != null): ?>
-						<form action="" method="POST" id="about_me_edit" enctype="multipart/form-data">
+					<form action="" method="POST" id="about_me_edit" enctype="multipart/form-data">
+						<?php if($step3['other_description'] != null): ?>
 							<div class="form-group">
 								<label for="other_description"><strong>Why Hire me</strong></label>
 								<textarea class="input-field required" name="other_description" maxlength="150" data-autoresize=""><?= $about_me ?></textarea>
 							</div>
-
-							<div class="row">
-								<div class="col-xs-12">
-									<div class="form-d-group">
-										<input type="submit" value="Save" class="save-btn-variant-1" name="save">
-										<a href="#" class="cancel-btn-variant-1">Cancel</a>
-									</div>
-								</div>
-							</div>
-						</form>
-
-					<?php else: ?>
-						<form action="" method="POST" id="about_me_edit" enctype="multipart/form-data">
+						<?php else: ?>
 							<div class="form-group">
 								<label for="other_description"><strong>Why Hire me</strong></label>
 								<textarea class="input-field required" name="other_description" maxlength="150" data-autoresize=""></textarea>
 							</div>
+						<?php endif; ?>
 
-							<div class="row">
-								<div class="col-xs-12">
-									<div class="form-d-group">
-										<input type="submit" value="Save" class="save-btn-variant-1" name="save">
-										<a href="#" class="cancel-btn-variant-1">Cancel</a>
-									</div>
+						<div class="row">
+							<div class="col-xs-12">
+								<div class="form-d-group">
+									<input type="submit" value="Save" class="save-btn-variant-1" name="save">
+									<a href="<?= $cancelLink ?>" class="cancel-btn-variant-1">Cancel</a>
 								</div>
 							</div>
-						</form>
-					<?php endif; ?>
+						</div>
+					</form>
 					</div>
 				</div>
 			</div>

@@ -273,6 +273,7 @@ function edit_profile_content(){
 		exit;
 	}
 
+	$cancel_link = home_url('jobseeker/dashboard/profile/view/information/');
 
 	ob_start();
 	?>
@@ -498,7 +499,7 @@ function edit_profile_content(){
 					<div class="col-xs-12">
 						<div class="form-d-group">
 							<input type="submit" value="Save" class="save-btn-variant-1" name="save">
-							<a href="#" class="cancel-btn-variant-1">Cancel</a>
+							<a href="<?= $cancel_link ?>" class="cancel-btn-variant-1">Cancel</a>
 						</div>
 					</div>
 				</div>
@@ -716,7 +717,7 @@ function edit_profile_content(){
 					<div class="col-xs-12">
 						<div class="form-d-group">
 							<input type="submit" value="Save" class="save-btn-variant-1" name="save">
-							<a href="#" class="cancel-btn-variant-1">Cancel</a>
+							<a href="<?= $cancel_link ?>" class="cancel-btn-variant-1">Cancel</a>
 						</div>
 					</div>
 				</div>

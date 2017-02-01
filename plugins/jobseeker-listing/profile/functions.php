@@ -114,7 +114,7 @@
 	 *
 	 * @return     string  returns the html content with container
 	 */
-	function create_profile_container($icon, $editIcon, $title, $content) {
+	function create_profile_container($icon, $editIcon, $edit_url, $title, $content) {
 		ob_start();
 		?>
 
@@ -126,7 +126,7 @@
 						<h1 class="profile-view--header_title">
 							<img class="profile-view--header_icon" src="<?= $icon; ?>"><?= $title; ?>
 							<?php if($editIcon != '') : ?>
-								<a href="#"><img class="profile-view--edit_icon" src="<?= $editIcon; ?>"></a>
+								<a href="<?= $edit_url ?>"><img class="profile-view--edit_icon" src="<?= $editIcon; ?>"></a>
 							<?php endif; ?>
 						</h1>
 					</div>

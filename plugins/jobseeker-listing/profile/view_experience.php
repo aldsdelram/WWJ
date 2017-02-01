@@ -14,7 +14,7 @@ function view_experience_content(){
 
 				<div class="row exp--sets">
 					<div class="col-xs-12">
-						<h2><div class="exp--job-title"><?= $work_experience['job'] ?></div></h2>
+						<h2><div class="exp--job-title"><?= $work_experience['job'] ?> | <a href="<?= home_url('jobseeker/dashboard/profile/edit/experience/?company='.$key) ?>">EDIT</a></div> </h2>
 						<h3><div class="exp--company-name"><?= $work_experience['company_name'] ?></div></h3>
 
 						<p class="exp--description"><strong class="textcolor--gray">Task Lists</strong><br>
@@ -133,6 +133,8 @@ function edit_experience_content(){
 
 	if($work_experiences == null)
 		$work_experiences = null;
+
+	$cancelLink = home_url('/jobseeker/dashboard/profile/view/experience/');
 
 	ob_start();
 	?>
@@ -390,7 +392,7 @@ function edit_experience_content(){
 
 						<div class="form-d-group">
 						    <input type="submit" value="Save" class="save-btn-variant-1" name="save">
-						    <a href="<?= home_url('jobseeker/dashboard/profile/view/experience/')?>" class="cancel-btn-variant-1">Cancel</a>
+						    <a href="<?= $cancelLink?>" class="cancel-btn-variant-1">Cancel</a>
 					    </div>
 				</form>
 			</div>

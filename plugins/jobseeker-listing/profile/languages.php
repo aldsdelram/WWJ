@@ -63,6 +63,8 @@ function edit_languages_content(){
 		exit;
 	}
 
+	$cancelLink = home_url('/jobseeker/dashboard/profile/view/others/');
+
 	ob_start();
 	?>
 		<div class="btsp-container-fluid white-bg-views experience-view--main_content">
@@ -172,7 +174,7 @@ function edit_languages_content(){
 					<div class="col-xs-12">
 						<div class="form-d-group">
 							<input type="submit" value="Save" class="save-btn-variant-1" name="save">
-							<a href="#" class="cancel-btn-variant-1">Cancel</a>
+							<a href="<?= $cancelLink ?>" class="cancel-btn-variant-1">Cancel</a>
 						</div>
 					</div>
 				</div>
