@@ -1,14 +1,12 @@
 
 
-
-
 #main-section .employers-section-promotion_1 {
 	text-align: center;
 	padding: 60px 0;
 }
 
 .empsp--container {
-	margin-top: 25px;
+	margin-top: 25px !important;
 }
 
 .empsp-sets {

@@ -12,6 +12,17 @@ jQuery( document ).ready( function($) {
 		dots 			: false,
 		arrows 			: true,
 		centerMode 		: true,
-		centerPadding 	: '0px'
+		centerPadding 	: '0px',
+		swipe 			: false,
+		swipeToSlide 	: false,
+		touchMove 		: false,
+		zIndex 			: 9999
 	});
+
+	$( '.slick-arrow' ).on( 'click', function() {
+		$( '.phoneSlider-list' ).css( 'z-index', '0' );
+		setTimeout( function() {
+			$( '.phoneSlider-list' ).css( 'z-index', '2' );
+		}, 500 );
+	})
 });

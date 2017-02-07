@@ -1,0 +1,111 @@
+
+
+/*________________________ =EMPLOYER REGISTRATION FORM HEADER ________________________*/
+
+.erf--step_states {
+	width: 100%;
+	padding-bottom: 120px;
+}
+
+.erf--step_states > div {
+	float: left;
+	border-bottom: 6px solid #9a9a9a;
+	position: relative;
+	height: 60px;
+}
+
+.erf--ss_1 {
+	width: 19%;
+}
+	.erf--ss_1 .ss_circle_set {
+    	right: -70px; 
+	}
+
+.erf--ss_2 {
+	width: 30%;
+}
+	.erf--ss_2 .ss_circle_set {
+    	right: -70px;
+	}
+
+.erf--ss_3 {
+	width: 50%;
+}
+	.erf--ss_3 .ss_circle_set {
+    	left: 50%;
+    	/*transform: translate(-50%, 0);*/
+	}
+
+.ss_circle_set {
+    position: absolute;
+    bottom: -75px;
+    text-align: center;
+    z-index: 9;
+
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-box-orient: vertical;
+	-webkit-box-direction: normal;
+	-ms-flex-direction: column;
+	flex-direction: column;
+	-webkit-box-align: center;
+	-ms-flex-align: center;
+	align-items: center;
+}
+
+.ss_circle_set p {
+    margin-top: 10px;
+    font-weight: 600;
+}
+
+.ss_circle {
+	background-color: #9a9a9a;
+	height: 88px;
+	width: 88px;
+	border-radius: 50%;
+	box-shadow: 0 2px 3px 0 #505050;
+    text-align: center;
+    padding-top: 25px;
+}
+
+.erf--step_states > .ss_active{
+	border-bottom: 6px solid #ea1a23;
+}
+
+.ss_active .ss_circle {
+	background-color: #ea1a23;
+}
+
+
+/*________________________ =EMPLOYER VARIANTS ________________________*/
+
+.emp-form_title {
+    font-weight: 600;
+    border-bottom: 2px solid #00c6ff;
+    padding-bottom: 15px;
+    margin-bottom: 20px;
+}
+
+
+/*________________________ =EMPLOYER FORMS ________________________*/
+
+.emp-form_group {
+    margin-bottom: 15px;
+}
+
+.emp-form_group label .asterisk {
+	color: #ea1a23;
+}
+
+.emp-form_group input[type="text"] {
+	background-color: #f9f9f9;
+    width: 100%;
+    border: 1px solid #b9b9b9;
+    padding: 10px 15px;
+    box-sizing: border-box;
+    border-radius: 10px;
+    font-size: 18px;
+    margin-top: 10px;
+    color: #464646;
+}
