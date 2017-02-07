@@ -75,7 +75,7 @@ function createContent(){
 
 			<h1 class="heading-v-3"> links </h1>
 				<div class="link_column">
-					<div class="link_col_left">Address</div>
+					<div class="link_col_left"><img src="<?= wp_get_attachment_url(307) ?>"></div>
 					<div class="link_col_right"><a href="<?= $linkedin ?>">Click here to view profile</a></div>
 				</div>
 
@@ -184,7 +184,8 @@ function createContent(){
 				<?php foreach($verification as $key => $ver): ?>
 					<?php foreach ($ver['firstname'] as $k => $v): ?>
 					<div class="container-v-2">
-						<div class="ref_image" style="background-image:url('<?= plugin_dir_url( __FILE__  ).'img/sugat.png'?>');"></div>
+						<!--div class="ref_image" style="background-image:url('<?= plugin_dir_url( __FILE__  ).'img/sugat.png'?>');"></div-->
+						<div class="ref_image" style="background-image:url('<?= wp_get_attachment_url(308) ?>');"></div>
 						<div class="ref_details">
 							<p>
 								<span class="ref_name"><strong><?= $v ?></strong></span><br/>
@@ -201,7 +202,9 @@ function createContent(){
 		</div>
 
 		<div class="logo">
-			<img src="var:logo" />
+			<a href="<?= home_url() ?>">
+				<img src="var:logo" />
+			</a>
 		</div>
 
 

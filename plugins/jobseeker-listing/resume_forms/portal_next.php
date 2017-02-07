@@ -1,20 +1,14 @@
 <?php  
  function portal_next() {
+        $user_id = get_current_user_id();
         if(isset($_POST['ref-submit'])){
-
             foreach ($_POST as $key => $value) {
                 if($key == "ref-submit")
                     continue;
-                if(get_user_meta($user_id, '_profile_'.$key, true)){
-                    $new_value = serialize($value);
-                    update_user_meta( $user_id, '_profile_'.$key, $new_value );
-                }
-                else
-                    add_user_meta($user_id, '_profile_'.$key, serialize($value));
+                $new_value = serialize($value);
+                update_user_meta( $user_id, '_profile_'.$key, $new_value );
             }
-
-            wp_redirect(home_url('/profile'));
-
+            wp_redirect(home_url('/jobseeker/dashboard/profile/view/information/'));
         }
 
 
@@ -36,74 +30,82 @@
 
             ob_start();
             ?>
-                <div class="portal--next-container">
-                    <div class="box-shadow">
-                        <?php echo '<img src="'.get_stylesheet_directory_uri(). '/images/wwj_logo.png">';?>
-                        <h1>Don’t leave your friends behind! Get them in the loop. Share the joy of fast and easy recruitment anytime, anywhere.</h1>
+                <div id="next-container">
+                    <div class="next-content" style="background:url('<?=wp_get_attachment_url(608) ?>')">
+                        <div class="header">
+                            Don’t leave your friends behind! Share the joy of fast and easy recruitment anytime, anywhere.
+                        </div>
 
-                        <?php echo '<img src="'.get_stylesheet_directory_uri(). '/images/bbq_house_1.jpg">';?>
-                        <?php echo '<img src="'.get_stylesheet_directory_uri(). '/images/bbq_house_2.jpg">';?>
+                        <div class="images">
+                            <?php echo '<img src="'.wp_get_attachment_url(607).'">';?><br/>
+                            <?php echo '<img src="'.wp_get_attachment_url(606).'">';?>
+                        </div>                        
 
-                        <p> Chance to win exclusive deals! Users who invite 5 friends from this page stand to earn vouchers and discounts ranging from retreat spas, popular eateries to BBQ catering. 
-                            *Terms &amp; conditions apply
-                        </p>
+                    <p> Chance to win exclusive deals! Users who invite 5 friends from this page stand to earn vouchers and discounts ranging from retreat spas, popular eateries to BBQ catering. <span class="tac">*Terms &amp; conditions apply</span>
+                    </p>
 
-                        <form method="post">
-                        <div class="material--form">
-                            <div class="input-field">
-                                <label class="active" for="ref_email_address">Email Address</label>
-                                <input placeholder="" id="ref_email_address" type="text" class="validate" name="ref_email_address[]">
+                    <form method="post">
+                        <div class="resume-content">
+                            <div class="form-group">
+                                <label for="ref_email_address">Email Address</label>
+                                <input name="ref_email_address[]" class="input-field validate" type="text">
                             </div>
-                            <div class="input-field">
-                                <label class="active" for="ref_email_address">Email Address</label>
-                                <input placeholder="" id="ref_email_address" type="text" class="validate" name="ref_email_address[]">
+                            <div class="form-group">
+                                <label for="ref_email_address">Email Address</label>
+                                <input name="ref_email_address[]" class="input-field validate" type="text">
                             </div>
-                            <div class="input-field">
-                                <label class="active" for="ref_email_address">Email Address</label>
-                                <input placeholder="" id="ref_email_address" type="text" class="validate" name="ref_email_address[]">
+                            <div class="form-group">
+                                <label for="ref_email_address">Email Address</label>
+                                <input name="ref_email_address[]" class="input-field validate" type="text">
                             </div>
-                            <div class="input-field">
-                                <label class="active" for="ref_email_address">Email Address</label>
-                                <input placeholder="" id="ref_email_address" type="text" class="validate" name="ref_email_address[]">
+                            <div class="form-group">
+                                <label for="ref_email_address">Email Address</label>
+                                <input name="ref_email_address[]" class="input-field validate" type="text">
                             </div>
-                            <div class="input-field">
-                                <label class="active" for="ref_email_address">Email Address</label>
-                                <input placeholder="" id="ref_email_address" type="text" class="validate" name="ref_email_address[]">
+                            <div class="form-group">
+                                <label for="ref_email_address">Email Address</label>
+                                <input name="ref_email_address[]" class="input-field validate" type="text">
+                            </div>
+
+                            <div class="btn-panel rd-row rd-middle-xs rd-center-xs">
+                                <input type="submit" name="ref-submit" value="Send">
                             </div>
                         </div>
-                        <div class="ref-container">
-                            <input type="submit" name="ref-submit" value="Send">
-                        </div>
-                        </form>
-
-                    </div>
+                    </form>
                 </div>
+            </div>
             <?php
             return ob_get_clean();
         }
         else{
+
+
             ob_start();
             ?>
             <div class="portal--next-container">
             <form action="" method="post">
-            <ul class="slick-slider-variant-1">
+            
+            <div style="display:none">
                 <li>
                     <div class="box-shadow">
-                        <h1>What position level are you looking at? (Select one or more)</h1>
-
                         <div class="position-level-container chxbxs">
-                            <div><input id="position_level_1" type="checkbox" name="position_level[]" value="Fresh / Entry Level"><label for="position_level_1">Fresh / Entry Level</label></div>
-                            <div><input id="position_level_2" type="checkbox" name="position_level[]" value="Non-Executive"><label for="position_level_2">Non-Executive</label></div>
-                            <div><input id="position_level_3" type="checkbox" name="position_level[]" value="Executive"><label for="position_level_3">Executive</label></div>
-                            <div><input id="position_level_4" type="checkbox" name="position_level[]" value="Manager"><label for="position_level_4">Manager</label></div>
-                            <div><input id="position_level_5" type="checkbox" name="position_level[]" value="Middle Management"><label for="position_level_5">Middle Management</label></div>
-                            <div><input id="position_level_6" type="checkbox" name="position_level[]" value="Senior Management"><label for="position_level_6">Senior Management</label></div>
-                            <div><input id="position_level_7" type="checkbox" name="position_level[]" value="Professional"><label for="position_level_7">Professional</label></div>
+                            <div><input id="position_level_1" type="checkbox" name="position_level[]"  value="Fresh / Entry Level"><label for="position_level_1">Fresh / Entry Level</label></div>
+                            <div><input id="position_level_2" type="checkbox" name="position_level[]"  value="Non-Executive"><label for="position_level_2">Non-Executive</label></div>
+                            <div><input id="position_level_3" type="checkbox" name="position_level[]"  value="Executive"><label for="position_level_3">Executive</label></div>
+                            <div><input id="position_level_4" type="checkbox" name="position_level[]"  value="Manager"><label for="position_level_4">Manager</label></div>
+                            <div><input id="position_level_5" type="checkbox" name="position_level[]"  value="Middle Management"><label for="position_level_5">Middle Management</label></div>
+                            <div><input id="position_level_6" type="checkbox" name="position_level[]"  value="Senior Management"><label for="position_level_6">Senior Management</label></div>
+                            <div><input id="position_level_7" type="checkbox" name="position_level[]"  value="Professional"><label for="position_level_7">Professional</label></div>
                         </div>
 
                     </div>
-                    <p><a href="" class="slider-next">NEXT</a></p>
+                    <p><a href="#" class="slider-next">NEXT</a></p>
                 </li>
+
+
+            </div>
+
+            <ul class="slick-slider-variant-1">
                 <li>
                     <div class="box-shadow">
                         <h1>Which type of companies would you like to work for? (Select one or more)</h1>
@@ -133,10 +135,13 @@
                     <div class="box-shadow">
                         <h1>Do you have any location preference? (Select one)</h1>
 
-                        <input id="location_preference_1" type="checkbox" name="location_preference" value="Islandwide" style="display:none;">
-                        <!-- <label for="location_preference_1">Islandwide</label> -->
+                        <div style="text-align:center; margin-top: 20px;">
+                            <input id="location_preference_1" type="checkbox" name="location_preference" value="Islandwide"
+                                style="display:none;">
+                            <label for="location_preference_1">Islandwide</label>
 
-                        <label><a href="#" class="portal-next--show_other_loc">Show other locations</a></label>
+                            <label><a href="#" class="portal-next--show_other_loc">Show other locations</a></label>
+                        </div>
 
                         <div class="other-locations chxbxs">
                             <?php $locations = array(

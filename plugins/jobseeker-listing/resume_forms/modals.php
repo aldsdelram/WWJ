@@ -203,16 +203,43 @@
 	}
 
 	function success_modal(){
+        if(isset($_REQUEST['next'])){
+        	$_SESSION['position_level'] = $_REQUEST['position_level'];
+        	wp_redirect(home_url('jobseeker/dashboard/resume/next/'));
+        	exit();
+        }
 		ob_start();
 		?>
 			<div class="portal--modal success_container" style="display: block;">
 				<div class="portal--modal-details">
-					<div class="portal--modal-content">
-						<h1>YOUR RESUME IS SUCCESFULLY SAVE</h1>
-						<h3> Do you wish to view your resume? </h3>
-						<div class="btn-panel">
-							<a href="<?= home_url('jobseeker/dashboard/resume/pdf')?>" class="yes">YES</a>
-							<a href="#" class="no">No</a>
+					<div class="portal--modal-content" style="padding:0;">
+						<div style="padding: 50px 20px;">
+							<h1>Your Profile is now live on <span style="color:#ac0105;">WWJ</span> Portal!</h1>
+							<h3 style="font: 24px/30px 'Open Sans'; margin: 0 0 30px; padding: 0 56px;"> Look forward to more jobs coming your way under Job Alerts in your profile. In the meantime, please view your profile to verify the  information entered. If you have enquiries for us, our friendly support team is one click away </h3>
+							<div class="btn-panel">
+								<a href="<?= home_url('jobseeker/dashboard/profile/view/information/')?>" class="yes">View Profile</a>
+								<a href="<?= home_url('jobseeker/dashboard/resume/pdf')?>" class="no">View Resume</a>
+							</div>
+						</div>
+						<div class="" style="background: #303841; padding: 50px 20px;">
+							<h1 style="font: 600 34px/42px 'Open Sans'; text-transform: uppercase; margin: 0 0 30px; color: #fff;">Help us streamline the job offers you receive to increase the rate of hiring success.</h1>
+
+								<form method="post">
+				                        <h3>What position level are you looking at? (Select one or more)</h3>
+				                        <div class="position-level-container chxbxs">
+				                            <div><input id="position_level_1" type="checkbox" name="position_level[]" value="Fresh / Entry Level"><label for="position_level_1">Fresh / Entry Level</label></div>
+				                            <div><input id="position_level_2" type="checkbox" name="position_level[]" value="Non-Executive"><label for="position_level_2">Non-Executive</label></div>
+				                            <div><input id="position_level_3" type="checkbox" name="position_level[]" value="Executive"><label for="position_level_3">Executive</label></div>
+				                            <div><input id="position_level_4" type="checkbox" name="position_level[]" value="Manager"><label for="position_level_4">Manager</label></div>
+				                            <div><input id="position_level_5" type="checkbox" name="position_level[]" value="Middle Management"><label for="position_level_5">Middle Management</label></div>
+				                            <div><input id="position_level_6" type="checkbox" name="position_level[]" value="Senior Management"><label for="position_level_6">Senior Management</label></div>
+				                            <div><input id="position_level_7" type="checkbox" name="position_level[]" value="Professional"><label for="position_level_7">Professional</label></div>
+				                        </div>
+										<div class="btn-panel">
+											<a href="<?= home_url('jobseeker/dashboard/profile/view/information/')?>" class="yes">Skip</a>
+											<input type="submit" name="next" value="Next">
+										</div>
+								</form>
 						</div>
 					</div>
 				</div>

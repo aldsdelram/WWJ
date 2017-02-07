@@ -44,6 +44,7 @@ jQuery( document ).ready( function($) {
 			out_focus_field( this );
 	});
 
+
 	$(document).on('focus', '.dropdown-data', function(event) {
 		$( this ).closest( '.dropdown-input').addClass( 'opened' );
 		event.stopPropagation();
@@ -180,4 +181,13 @@ jQuery(document).on('focus', '.input-field', function(){
 
 jQuery(document).on('blur', '.input-field', function(){
 	jQuery(this).closest('.form-group').removeClass('focused');
+});
+
+
+
+
+
+jQuery(document).on('click', '.has-sub-menu', function(e){
+	e.preventDefault();
+	jQuery(this).parent().toggleClass('active');
 });

@@ -17,10 +17,11 @@
 	function view_profile_func(){
 		$icon    	 = plugins_url() . '/jobseeker-listing/img/icon--view-profile.png';
 		$editIcon    = plugins_url() . '/jobseeker-listing/img/edit-button.png';
+		$edit_url    = home_url('/jobseeker/dashboard/profile/edit/profile/');
 		$title   	 = 'PROFILE';
 		$content 	 = view_profile_content();
 
-		return create_profile_container($icon, $editIcon, $title, $content);
+		return create_profile_container($icon, $editIcon, $edit_url, $title, $content);
 	}
 	add_shortcode('view-profile', 'view_profile_func');
 
@@ -31,7 +32,7 @@
 		$title   	 = 'PROFILE';
 		$content 	 = edit_profile_content();
 
-		return create_profile_container($icon, $editIcon, $title, $content);
+		return create_profile_container($icon, '', '', $title, $content);
 	}
 	add_shortcode('edit-profile', 'edit_profile_func');
 
@@ -52,7 +53,7 @@
 		$title   	 = 'MORE ABOUT ME';
 		$content 	 = edit_about_content();
 
-		return create_profile_container($icon, $editIcon, $title, $content);
+		return create_profile_container($icon, $editIcon, '', $title, $content);
 	}
 	add_shortcode('edit-about', 'edit_about_func');
 
@@ -68,7 +69,7 @@
 		$title   	 = 'EXPERIENCE';
 		$content 	 = view_experience_content();
 
-		return create_profile_container($icon, $editIcon, $title, $content);
+		return create_profile_container($icon, '', '', $title, $content);
 	}
 	add_shortcode('view-experience', 'view_experience_func');
 
@@ -77,10 +78,10 @@
 		$icon    	 = plugins_url() . '/jobseeker-listing/img/icon--view-experience.png';
 		$editIcon    = plugins_url() . '/jobseeker-listing/img/edit-button.png';
 		
-		$html .= create_profile_container(plugins_url() . '/jobseeker-listing/img/icon--skills.png', $editIcon, 'SKILLS', view_skills_content());
-		$html .= create_profile_container($icon, $editIcon, 'LANGUAGES', view_languages_content());
-		$html .= create_profile_container($icon, $editIcon, 'AWARDS', view_awards_content());
-		$html .= create_profile_container($icon, $editIcon, 'MORE ABOUT ME', view_about_content());
+		$html .= create_profile_container(plugins_url() . '/jobseeker-listing/img/icon--skills.png', $editIcon, home_url('/jobseeker/dashboard/profile/edit/skills/'), 'SKILLS', view_skills_content());
+		$html .= create_profile_container($icon, $editIcon, home_url('jobseeker/dashboard/profile/edit/languages/'), 'LANGUAGES', view_languages_content());
+		$html .= create_profile_container($icon, $editIcon, home_url('jobseeker/dashboard/profile/edit/awards'), 'AWARDS', view_awards_content());
+		$html .= create_profile_container($icon, $editIcon, home_url('jobseeker/dashboard/profile/edit/about-me'), 'MORE ABOUT ME', view_about_content());
 
 
 		return $html;
@@ -94,7 +95,7 @@
 		$title   	 = 'EXPERIENCE';
 		$content 	 = edit_experience_content();
 
-		return create_profile_container($icon, $editIcon, $title, $content);
+		return create_profile_container($icon, $editIcon, '', $title, $content);
 	}
 	add_shortcode('edit-experience', 'edit_experience_func');
 
@@ -105,7 +106,7 @@
 		$title   	 = 'SKILLS';
 		$content 	 = edit_skills_content();
 
-		return create_profile_container($icon, $editIcon, $title, $content);
+		return create_profile_container($icon, $editIcon, '', $title, $content);
 	}
 	add_shortcode('edit-skills', 'edit_skills_func');
 
@@ -116,7 +117,7 @@
 		$title     = 'ABOUT ME';
 		$content   = edit_awards_content();
 
-		return create_profile_container($icon, $editIcon, $title, $content);
+		return create_profile_container($icon, $editIcon, '',$title, $content);
 	}
 
 	add_shortcode('edit-awards', 'edit_awards_func');
@@ -128,7 +129,7 @@
 		$title     = 'EDIT LANGUAGES';
 		$content   = edit_languages_content();
 
-		return create_profile_container($icon, $editIcon, $title, $content);
+		return create_profile_container($icon, $editIcon, '', $title, $content);
 	}
 
 	add_shortcode('edit-languages', 'edit_languages_func');

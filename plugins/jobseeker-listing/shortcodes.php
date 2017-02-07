@@ -59,29 +59,33 @@
 							<label for="salary_range">Salary Range</label>
 							<select name="salary_range" id="salary_range">
 								<option value="">All(SGD)</option>
-								<option value="0-1000"><?= wc_price(0).' - '.wc_price(1000)?></option>
-								<option value="1001-10000"><?= wc_price(1001).' - '.wc_price(10000)?></option>
-								<option value="10001-20000"><?= wc_price(10001).' - '.wc_price(20000)?></option>
-								<option value=">20000">&gt; <?= wc_price(20000)?></option>
+								<option value="0-1999"><?= wc_price(0).' - '.wc_price(1999)?></option>
+								<option value="2000-2999"><?= wc_price(2000).' - '.wc_price(2999)?></option>
+								<option value="3000-3999"><?= wc_price(2000).' - '.wc_price(2999)?></option>
+								<option value="4000-4999"><?= wc_price(4000).' - '.wc_price(4999)?></option>
+								<option value="5000-5999"><?= wc_price(5000).' - '.wc_price(5999)?></option>
+								<option value=">6000">&gt; <?= wc_price(6000)?></option>
 							</select>
 						</div>
 						<div class="filter-candidate availability">
 							<label for="availability">Availability</label>
 							<select name="availability" id="availability">
 								<option value="">All(Months)</option>
-								<?php for($i=1;$i<=12;$i++)
-										echo '<option value="'.$i.'">'.$i.' Month'.($i>1?'s':'').'</option>';
-								?>
+								<option value="1 Week">1 Week</option>
+								<option value="2-3 Weeks">2-3 Weeks</option>
+								<option value="1 Month">1 Month</option>
+								<option value="> 1 Month">1 Month</option>
 							</select>
 						</div>
 						<div class="filter-candidate yoe">
 							<label for="yoe">YOE</label>
 							<select name="yoe" id="yoe">
 								<option value="">All(Years)</option>
-								<?php for($i=1;$i<=5;$i++)
-										echo '<option value="'.$i.'">'.$i.' Year'.($i>1?'s':'').'</option>';
-								?>
-
+								<option value="Less than 1 year">Less than 1 year</option>
+								<option value="1-2 years">1-2 years</option>
+								<option value="3-4 years">3-4 years</option>
+								<option value="5-6 years">5-6 years</option>
+								<option value="More than 6 years">More than 6 years</option>
 							</select>
 						</div>
 					</div>
