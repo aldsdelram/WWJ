@@ -53,7 +53,7 @@
 					</div> <!-- end of .form-group -->
 					<div class="form-group">
 						<label for="email_address">Email</label>
-						<input type="email" name="email_address" class="input-field" value="<?= get_user_meta(get_current_user_id(), 'user_email', true) ?>/>
+						<input type="email" name="email_address" class="input-field" value="<?= get_user_meta(get_current_user_id(), 'user_email', true) ?>" />
 					</div> <!-- end of .form-group -->
 
 
