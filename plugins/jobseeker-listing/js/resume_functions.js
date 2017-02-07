@@ -827,7 +827,7 @@
         }
 
         function modal_fade_box() {
-            $('.simple-fading-divs div').each(function(i) {
+            $('.simple-fading-divs > div').each(function(i) {
                 if (i == 0) {
                     $('.sfd--bullets').append($('<span class="box-nav bn--active" box-no="'+(i+1)+'"></span>'))
                 } else {
