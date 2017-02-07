@@ -147,6 +147,7 @@
 
             formatDropdownInput();
             modal_fade_box();
+            init_portal_next();
 
             inputProfilePicture = 'input[name=photo_base_64]';
             $('.portal--modal-image-capture').hide();
@@ -848,6 +849,72 @@
                 $('.simple-fading-divs div').hide();
                 $('.simple-fading-divs .box-no-'+_box_nav).fadeIn();
             }
+        }
+
+        function init_portal_next(){
+            $('#location_preference_1').change(function(){
+                if($(this).prop('checked') == true){
+                    $(this).next('label').css('background', '#e2373f');
+                    $('.other-locations').find('input').each(function(){
+                        $(this).prop('checked', true);
+                    });
+                }
+                else{
+                    $(this).next('label').css('background', '#ff141d');
+                    $('.other-locations').find('input').each(function(){
+                        $(this).prop('checked', false);
+                    });
+                }
+            });
+
+            $('.portal-next--show_other_loc').click(function(e){
+                e.preventDefault();
+                $('.other-locations').slideToggle('fast');
+            });
+
+                $('.other-locations').hide();
+
+            var other_loc = null;
+            $('.other-locations').find('input').each(function(){
+                $(this).change(function(){
+                    if($('#location_preference_1').prop('checked')){
+                        $('#location_preference_1').prop('checked', false);
+                        $('#location_preference_1').next('label').css('background', '#ff141d');
+                            $('.other-locations').find('input').each(function(){
+                                $(this).prop('checked', false);
+                            });
+                        $(this).prop('checked', true);
+                        return true;
+                    }
+                    else{
+                        if($(this).prop('checked'))
+                            var is_checked = true;
+                        else
+                            var is_checked = false;
+
+                        $('.other-locations').find('input').each(function(){
+                            $(this).prop('checked', false);
+                        });
+
+                        $(this).prop('checked', is_checked);
+
+                        return true;
+                    }
+                });
+            });
+
+            var that;
+            $('.shift-container input').each(function(){
+                $(this).change(function(){
+                    that = $(this);
+                    $('.shift-container input').each(function(){
+                        if($(this) != that)
+                            $(this).removeAttr('checked');
+                    });
+
+                    that.prop('checked', true);
+                });
+            });
         }
 
 })(jQuery);
