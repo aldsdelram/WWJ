@@ -845,8 +845,8 @@
                 $(el).addClass('bn--active');
 
                 var _box_nav = $(el).attr('box-no');
-                $('.simple-fading-divs div').hide();
-                $('.simple-fading-divs .box-no-'+_box_nav).fadeIn();
+                $('.simple-fading-divs > div').hide();
+                $('.simple-fading-divs > .box-no-'+_box_nav).fadeIn();
             }
         }
 
