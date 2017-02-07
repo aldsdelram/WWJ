@@ -5,7 +5,7 @@
             foreach ($_POST as $key => $value) {
                 if($key == "ref-submit")
                     continue;
-                $new_value = serialize($value);
+                $new_value = $value;
                 update_user_meta( $user_id, '_profile_'.$key, $new_value );
             }
             wp_redirect(home_url('/jobseeker/dashboard/profile/view/information/'));
@@ -20,13 +20,14 @@
                 if($key == "done")
                     continue;
                 if(get_user_meta($user_id, '_profile_'.$key, true)){
-                    $new_value = serialize($value);
+                    $new_value = $value;
                     update_user_meta( $user_id, '_profile_'.$key, $new_value );
                 }
                 else
-                    add_user_meta($user_id, '_profile_'.$key, serialize($value));
+                    add_user_meta($user_id, '_profile_'.$key, $value);
             }
 
+            unset($_SESSION['position_level']);
 
             ob_start();
             ?>
@@ -89,13 +90,22 @@
                 <li>
                     <div class="box-shadow">
                         <div class="position-level-container chxbxs">
-                            <div><input id="position_level_1" type="checkbox" name="position_level[]"  value="Fresh / Entry Level"><label for="position_level_1">Fresh / Entry Level</label></div>
-                            <div><input id="position_level_2" type="checkbox" name="position_level[]"  value="Non-Executive"><label for="position_level_2">Non-Executive</label></div>
-                            <div><input id="position_level_3" type="checkbox" name="position_level[]"  value="Executive"><label for="position_level_3">Executive</label></div>
-                            <div><input id="position_level_4" type="checkbox" name="position_level[]"  value="Manager"><label for="position_level_4">Manager</label></div>
-                            <div><input id="position_level_5" type="checkbox" name="position_level[]"  value="Middle Management"><label for="position_level_5">Middle Management</label></div>
-                            <div><input id="position_level_6" type="checkbox" name="position_level[]"  value="Senior Management"><label for="position_level_6">Senior Management</label></div>
-                            <div><input id="position_level_7" type="checkbox" name="position_level[]"  value="Professional"><label for="position_level_7">Professional</label></div>
+                            <?php 
+                                $position_levels = [
+                                    'Fresh / Entry Level',
+                                    'Non-Executive',
+                                    'Executive',
+                                    'Manager',
+                                    'Middle Management',
+                                    'Senior Management',
+                                    'Professional'
+                                ];
+                            ?>
+
+
+                            <?php foreach ($position_levels as $key => $value):?>
+                                <div><input id="position_level_<?= $key+1?>" type="checkbox" name="position_level[]"  value="<?= $value ?>" <?= in_array($value, $_SESSION['position_level'])? 'checked': ''; ?> ><label for="position_level_<?= $key+1 ?>"><?= $value?></label></div>
+                            <?php endforeach; ?>
                         </div>
 
                     </div>
