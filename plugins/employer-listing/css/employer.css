@@ -4,7 +4,7 @@
 
 .erf--step_states {
 	width: 100%;
-	padding-bottom: 120px;
+	padding-bottom: 100px;
 }
 
 .erf--step_states > div {
@@ -80,25 +80,87 @@
 
 /*________________________ =EMPLOYER VARIANTS ________________________*/
 
-.emp-form_title {
+.emp--form_title {
     font-weight: 600;
     border-bottom: 2px solid #00c6ff;
     padding-bottom: 15px;
     margin-bottom: 20px;
+    margin-top: 50px;
 }
 
-
-/*________________________ =EMPLOYER FORMS ________________________*/
-
-.emp-form_group {
-    margin-bottom: 15px;
+.centered-axis-xy {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%,-50%);
 }
 
-.emp-form_group label .asterisk {
+.redrisk {
 	color: #ea1a23;
 }
 
-.emp-form_group input[type="text"] {
+/*________________________ =EMPLOYER FORMS ________________________*/
+
+.employer-registration--main p {
+    font-size: 14px;
+}
+
+.emp--upload-set {
+	margin-bottom: 30px;
+}
+	.emp--upload_title {
+	    margin-bottom: 18px;
+	}
+
+	.emp--upload_box {
+		height: 230px;
+		width: 100%;
+		border: 3px dashed #e3e3e3;
+		background-color: #f9f9f9;
+		position: relative;
+	}
+
+.emp--upload-center {
+	text-align: center;
+}
+	.emp--upload-btn {
+		border: 1px solid #ccc;
+	    display: inline-block;
+	    padding: 10px 20px;
+	    cursor: pointer;
+	    background: #ea1a23;
+	    color: #fff;
+	    border-radius: 15px;
+	    width: 200px;
+	    font-weight: 600;
+	}
+
+	.emp--upload-btn input[type="file"] {
+	    display: none;
+	}
+
+	input[class^="upload--hidden"] {
+		display: none;
+	}
+
+.emp--upload-text {
+	color: #b9b9b9;
+    font-weight: 600;
+    font-size: 14px;
+    margin-top: 6px;
+    margin-bottom: 0;
+}
+	
+
+.emp--form_group {
+    margin-bottom: 15px;
+}
+
+.emp--form_group label .asterisk {
+	color: #ea1a23;
+}
+
+.emp--form_group input[type="text"] {
 	background-color: #f9f9f9;
     width: 100%;
     border: 1px solid #b9b9b9;
@@ -108,4 +170,35 @@
     font-size: 18px;
     margin-top: 10px;
     color: #464646;
+}
+
+.eft--small {
+	font-size: 16px;
+}
+
+.plus--repeater input {
+	max-width: 90%;
+	float: left;
+}
+
+.plus--repeater label {
+	clear: both;
+    display: block;
+}
+
+.plus--repeater i {
+    border-radius: 50%;
+    border: 1px solid #ea1a23;
+    width: 20px;
+    height: 20px;
+    text-align: center;
+    padding-top: 3px;
+    margin-top: 8px;
+    color: #ea1a23;
+    font-size: 13px;
+    cursor: pointer;
+}
+
+#mapContainer {
+	border: 1px solid #e3e3e3;
 }
