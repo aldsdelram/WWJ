@@ -3140,3 +3140,86 @@ form .upme-login-register-link:hover {
 .sidebar-menu.active .sub-menu a{
 	padding: 5px 0 5px 30px;
 }
+
+
+
+/*________________________ =LEARN MORE SECTION ________________________*/
+
+.learn-more--banner {
+	background-repeat: no-repeat;
+	background-position: top center;
+	background-size: cover;
+	min-height: 292px;
+}
+
+.learn-more--banner .t-part_1 {
+    font-family: 'Oswald';
+    color: #fff;
+    font-size: 45px;
+    line-height: 60px;
+    font-weight: 400;
+    margin-top: 25px;
+    position: relative;
+    border-bottom: 7px solid #fff;
+    float: left;
+    margin-bottom: 10px;
+    padding-bottom: 10px;
+}
+/*	.learn-more--banner .t-part_1:before {
+		content: "";
+		display: block;
+		position: absolute;
+		bottom: 0;
+		left: 0;
+		width: 70%;
+	}*/
+
+.learn-more--banner .t-part_2 {
+	color: #fff;
+	font-size: 18px;
+}
+
+.learn-more--banner .t-part_3 {
+    background-color: #fff;
+    color: #212121;
+    font-size: 18px;
+    padding: 10px 20px;
+    margin-top: 15px;
+    float: left;
+}
+
+.learn-more--banner .t-part_3 .this-line {
+    background-color: #da1f26;
+    width: 4px;
+    height: 28px;
+    display: inline-block;
+    vertical-align: middle;
+}
+
+
+.learn-more--comic_section {
+	text-align: center;
+	padding: 40px 20px;
+}
+
+.learn-more--section_3 {
+	color: #fff;
+	padding: 85px 20px;
+	text-align: center;
+	font-size: 18px;
+	background-repeat: no-repeat;
+	background-position: top center;
+	background-size: cover;
+}
+
+.learn-more--section_3 .section-title--variant_1 {
+	color: #fff;
+}
+
+.learn-more--section_3 h2 + p {
+	margin-bottom: 20px;
+}
+
+.learn-more--section_4 {
+	padding: 50px 20px;
+}
