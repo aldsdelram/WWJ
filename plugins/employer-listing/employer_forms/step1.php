@@ -172,7 +172,6 @@ function employer_reg_show_step_1(){
 					<div class="col-sm-4">
 						<a href="#" class="ebs--link">NEXT</a>
 					</div>
-					
 				</div>
 
 
