@@ -203,3 +203,12 @@
 	border: 1px solid #e3e3e3;
 	margin: 15px 0;
 }
+
+
+.ebs--link {
+    color: #b9b9b9;
+    border: 1px solid #b9b9b9;
+    padding: 10px 20px;
+    display: inline-block;
+    border-radius: 20px;
+}
