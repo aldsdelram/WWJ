@@ -25,4 +25,18 @@ jQuery( document ).ready( function($) {
 			$( '.phoneSlider-list' ).css( 'z-index', '2' );
 		}, 500 );
 	})
+
+	function showmap(address) {
+		var embed= "<iframe width='100%' height='300' frameborder='0' scrolling='no' marginheight='0' marginwidth='0' src='https://maps.google.com/maps?&amp;q="+ encodeURIComponent( address ) +  "&amp;output=embed'></iframe>"; 
+		$("#mapContainer").html(embed);
+		$('.addresstomap').addClass('scrolloffmap');
+	}
+
+	showmap("");
+
+	$("#location_address").on("keyup", function(e) {
+		var addr = $(this).val();
+		showmap(addr);
+	});
 });
+
