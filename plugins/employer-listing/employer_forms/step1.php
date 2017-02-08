@@ -160,6 +160,20 @@ function employer_reg_show_step_1(){
 					</div>
 				</div>
 
+				<!-- END BUTTONS -->
+
+				<div class="row ebs--buttons">
+					<div class="col-sm-4">
+						<a href="#" class="ebs--link">PREVIEW MODE</a>
+					</div>
+					<div class="col-sm-4">
+						<input type="submit" class="ebs--submit" value="SAVE THIS FORM">
+					</div>
+					<div class="col-sm-4">
+						<a href="#" class="ebs--link">NEXT</a>
+					</div>
+				</div>
+
 
 		</form>
 
