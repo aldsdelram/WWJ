@@ -571,7 +571,6 @@
     content: '\f046';
 }
 
-
 .success_container form a{
     font: 600 16px/24px 'Open Sans';
     text-transform: uppercase;
@@ -581,7 +580,8 @@
     border: 1px solid #df141d;
     margin: 0 20px;
     padding: 7px 0;
-    background: white;
+    background: white !important;
+    color: #df141d !important;
     border: 1px solid #df141d !important;    
 }
 
