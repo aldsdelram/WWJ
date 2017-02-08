@@ -78,13 +78,13 @@
 }
 
 
-/*________________________ =EMPLOYER VARIANTS ________________________*/
+/*________________________ =EMPLOYER =VARIANTS ________________________*/
 
 .emp--form_title {
     font-weight: 600;
     border-bottom: 2px solid #00c6ff;
     padding-bottom: 15px;
-    margin-bottom: 20px;
+    margin-bottom: 30px;
     margin-top: 50px;
 }
 
@@ -97,6 +97,24 @@
 
 .redrisk {
 	color: #ea1a23;
+}
+
+.scrolloffmap {
+    pointer-events: none;
+}
+
+.emp--red-btn-variant-1 {
+    color: #fff;
+    background-color: #ea1a23;
+    border-radius: 15px;
+    font-weight: 600;
+    display: inline-block;
+    padding: 5px 25px;
+    margin-top: 20px;
+}
+
+.text-right {
+	text-align: right;
 }
 
 /*________________________ =EMPLOYER FORMS ________________________*/
@@ -120,13 +138,21 @@
 		position: relative;
 	}
 
+.emp--small_previews .emp--upload-set {
+	margin-bottom: 0;
+}
+
+.emp--small_previews .emp--upload_box {
+	max-height: 160px;
+}
+
 .emp--upload-center {
 	text-align: center;
 }
 	.emp--upload-btn {
 		border: 1px solid #ccc;
 	    display: inline-block;
-	    padding: 10px 20px;
+	    padding: 7px 20px;
 	    cursor: pointer;
 	    background: #ea1a23;
 	    color: #fff;
@@ -199,16 +225,59 @@
     cursor: pointer;
 }
 
-#mapContainer {
+#mapContainer iframe {
 	border: 1px solid #e3e3e3;
 	margin: 15px 0;
 }
 
+.ebs--buttons {
+	margin-top: 30px;
+	text-align: center;
+}
 
 .ebs--link {
     color: #b9b9b9;
     border: 1px solid #b9b9b9;
     padding: 10px 20px;
     display: inline-block;
-    border-radius: 20px;
+    border-radius: 12px;
+    width: 80%;
+    font-weight: 700;
+    font-size: 18px;
+    -webkit-transition: all .2s ease-in-out;
+    -moz-transition: all .2s ease-in-out;
+    -o-transition: all .2s ease-in-out;
+    transition: all .2s ease-in-out;
+}
+	.ebs--link:hover {
+	    color: #00c6ff;
+	    border: 1px solid #00c6ff;
+	    background-color: #fff;
+	}
+
+.ebs--submit {
+    color: #fff;
+    cursor: pointer;
+    background-color: #00c6ff;
+    border: 1px solid #00c6ff;
+    padding: 12px 20px 11px;
+    display: inline-block;
+    border-radius: 12px;
+    width: 80%;
+    font-weight: 700;
+    font-size: 18px;
+    -webkit-transition: all .3s ease-in-out;
+    -moz-transition: all .3s ease-in-out;
+    -o-transition: all .3s ease-in-out;
+    transition: all .3s ease-in-out;
+}
+	.ebs--submit:hover {
+	    border: 1px solid #00b1e4;
+	    background-color: #00b1e4;
+	}
+
+.emp--title_sub {
+	margin-bottom: 20px;
+    font-size: 18px;
+    font-weight: 600;
 }

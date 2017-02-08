@@ -38,5 +38,17 @@ jQuery( document ).ready( function($) {
 		var addr = $(this).val();
 		showmap(addr);
 	});
+
+
+	// ______ scroll map fix
+	$('.gmap_div iframe').addClass('scrolloffmap');
+	
+    $('.gmap_div').on('click', function () {
+        $(this).find('iframe').removeClass('scrolloffmap');
+    });
+
+    $(".gmap_div iframe").mouseleave(function () {
+        $(this).addClass('scrolloffmap'); 
+    });
 });
 

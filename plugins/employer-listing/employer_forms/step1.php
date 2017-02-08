@@ -6,12 +6,9 @@ function employer_reg_show_step_1(){
 	
 
 	<div class="employer-registration--main resume-content">
-		
 		<form action="">
-
 			<!-- 1 -->
 				<h2 class="emp--form_title">COMPANY INFORMATION</h2>
-
 				<div class="emp--upload-set">
 					<p class="emp--upload_title">Company Header Image</p>
 
@@ -115,7 +112,6 @@ function employer_reg_show_step_1(){
 
 			<!-- 2 -->
 				<h2 class="emp--form_title"><span class="redrisk">*</span> COMPANY OVERVIEW	| <span class="eft--small">Make a catchy introduction that compels jobseekers</span></h2>
-
 				<div class="form-group">
 					<label for="about_us">About Us:</label>
 					<textarea name="about_us" class="input-field required" aria-required="true" style="height: 55px;"></textarea>
@@ -123,7 +119,6 @@ function employer_reg_show_step_1(){
 
 			<!-- 3 -->
 				<h2 class="emp--form_title">LOCATION MAP</h2>
-
 				<div class="row">
 					<div class="col-sm-6">
 						<div class="form-group">
@@ -156,12 +151,11 @@ function employer_reg_show_step_1(){
 
 				<div class="row">
 					<div class="col-xs-12">
-						<div id="mapContainer"></div>
+						<div id="mapContainer" class="gmap_div"></div>
 					</div>
 				</div>
 
 				<!-- END BUTTONS -->
-
 				<div class="row ebs--buttons">
 					<div class="col-sm-4">
 						<a href="#" class="ebs--link">PREVIEW MODE</a>
@@ -173,8 +167,6 @@ function employer_reg_show_step_1(){
 						<a href="#" class="ebs--link">NEXT</a>
 					</div>
 				</div>
-
-
 		</form>
 
 	</div>
