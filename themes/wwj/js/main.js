@@ -191,3 +191,10 @@ jQuery(document).on('click', '.has-sub-menu', function(e){
 	e.preventDefault();
 	jQuery(this).parent().toggleClass('active');
 });
+
+
+// learn more accordion
+
+$('.lm--accord_set > .fa-plus').on( 'click', function(event) {
+    $(this).parent().parent().parent().parent().find('.lma--toggle_content').slideToggle('fast');
+});
