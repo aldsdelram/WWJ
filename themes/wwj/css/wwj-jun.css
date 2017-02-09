@@ -68,6 +68,7 @@
 }
 
 .empsp-learn-more {
+    background-color: #fff;
     border: 1px solid #363636 !important;
     padding: 10px 30px !important;
     display: inline-block;
@@ -79,7 +80,7 @@
 .empsp-learn-more:before {
     content: " ";
     position: absolute;
-    z-index: -1;
+    z-index: 0;
     top: 0;
     left: 0px;
     right: 0px;

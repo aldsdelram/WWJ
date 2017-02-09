@@ -28,11 +28,17 @@
 		?>
 
 		<div class="learn-more--accords_main">
-			<div class="row">
 
 				<?php if( have_rows('lm_accordions', 'option') ) : ?>
+    			
+    			<?php $count = 0; ?>
+				<div class="row">
 					<?php while ( have_rows('lm_accordions', 'option') ) : the_row(); ?>
-						
+    	  			<?php if( $count == 2 ) : ?>
+    			</div>
+				<div class="row">
+	    		<?php $count = 0; endif; ?>
+
 						<div class="col-sm-6 lm--accord_set">
 							<div class="lm--accord_inner">
 								<div class="lma--pic">
@@ -48,10 +54,10 @@
 							<div class="lma--toggle_content"><?php the_sub_field('accordion_content'); ?></div>
 						</div>
 						
-					<?php endwhile; ?>
+					<?php $count++; endwhile; ?>
 				<?php endif; ?>
 
-			</div>
+				</div>
 		</div>
 
 		<?php
