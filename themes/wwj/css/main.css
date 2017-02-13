@@ -15,6 +15,10 @@ body {
 	color: #df141d;
 }
 
+.text-center {
+	text-align: center;
+}
+
 .container {
 	width: 1170px;
 	margin: 0 auto !important;
@@ -3222,4 +3226,99 @@ form .upme-login-register-link:hover {
 
 .learn-more--section_4 {
 	padding: 50px 20px;
+}
+
+.learn-more--accords_main {
+	margin-top: 30px;
+}
+
+.learn-more--accords_main .row {
+	margin-bottom: 20px;
+}
+
+.lm--accord_inner {
+	color: #fff;
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-box-pack: justify;
+	-ms-flex-pack: justify;
+	justify-content: space-between;
+}
+
+.lma--pic {
+	min-height: 130px;
+	background-color: #da1f26;
+	width: 30%;
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-box-pack: center;
+    -ms-flex-pack: center;
+        justify-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+                -ms-grid-row-align: center;
+            align-items: center;
+}
+
+.lma--desc {
+	width: 67%;
+}
+
+.lma--flex_con {
+	min-height: 130px;
+	background-color: #363636;
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: flex;
+	clear: both;
+}
+	.lma--title {
+		padding: 15px;
+	    display: -webkit-box;
+	    display: -ms-flexbox;
+	    display: flex;
+	    -webkit-box-orient: vertical;
+	    -webkit-box-direction: normal;
+	        -ms-flex-direction: column;
+	            flex-direction: column;
+	    -webkit-box-pack: center;
+	        -ms-flex-pack: center;
+	            justify-content: center;
+    	-webkit-box-flex: 1;
+	    -ms-flex-positive: 1;
+        flex-grow: 1;
+	}
+
+	.lma--toggle i {
+		cursor: pointer;
+		padding: 15px;
+    	background-color: #da1f26;
+	}
+
+.lma--toggle_content {
+	display: none;
+	color: #fff;
+	background-color: #8f8f8f;
+    width: 67%;
+    float: right;
+	margin-top: 10px;
+    margin-right: 0;
+	padding: 10px 15px;
+}
+
+.learn-more--section_5 {
+	background: #f1f1f1;
+	padding: 50px 20px;
+	text-align: center;
+}
+
+.learn-more--section_5 img {
+	margin-bottom: 15px;
+}
+
+.learn-more--section_6 {
+	padding: 50px 20px;
+	text-align: center;
 }

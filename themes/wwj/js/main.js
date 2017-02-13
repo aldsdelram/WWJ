@@ -158,6 +158,12 @@ jQuery( document ).ready( function($) {
 
 	//debugger;
 	listObj2 = new List('jobListing-container', listOptions2);
+
+	// learn more accordion
+	jQuery('.lm--accord_set .fa').on( 'click', function(event) {
+		jQuery(this).toggleClass('fa-minus', 'fa-plus');
+	    jQuery(this).closest('.lm--accord_set').find('.lma--toggle_content').slideToggle('fast');
+	});
 	
 });
 
@@ -191,3 +197,5 @@ jQuery(document).on('click', '.has-sub-menu', function(e){
 	e.preventDefault();
 	jQuery(this).parent().toggleClass('active');
 });
+
+

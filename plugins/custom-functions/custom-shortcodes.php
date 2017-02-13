@@ -21,3 +21,47 @@
 		return ob_get_clean();
 	}
 	add_shortcode('hello', 'hello');
+
+
+	function learn_more_accord() {
+		ob_start();
+		?>
+
+		<div class="learn-more--accords_main">
+
+				<?php if( have_rows('lm_accordions', 'option') ) : ?>
+    			
+    			<?php $count = 0; ?>
+				<div class="row">
+					<?php while ( have_rows('lm_accordions', 'option') ) : the_row(); ?>
+    	  			<?php if( $count == 2 ) : ?>
+    			</div>
+				<div class="row">
+	    		<?php $count = 0; endif; ?>
+
+						<div class="col-sm-6 lm--accord_set">
+							<div class="lm--accord_inner">
+								<div class="lma--pic">
+									<div class="pic--flex_position"><img src="<?php the_sub_field('accordion_icon_image'); ?>" alt=""></div>
+								</div>
+								<div class="lma--desc">
+									<div class="lma--flex_con">
+										<div class="lma--title"><?php the_sub_field('accordion_title'); ?></div>
+										<div class="lma--toggle"><i class="fa fa-plus" aria-hidden="true"></i></div>
+									</div>
+								</div>
+							</div>
+							<div class="lma--toggle_content"><?php the_sub_field('accordion_content'); ?></div>
+						</div>
+						
+					<?php $count++; endwhile; ?>
+				<?php endif; ?>
+
+				</div>
+		</div>
+
+		<?php
+		return ob_get_clean();
+	}
+
+	add_shortcode('learn-more-accordions', 'learn_more_accord');
