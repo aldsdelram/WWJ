@@ -17,7 +17,8 @@
 	
 // ENQUEUE SCRIPTS
 	function employer_scripts_func() {
-		wp_enqueue_script( 'employer-js', plugin_dir_url( __FILE__ ) . '/employer.js' );
+		wp_enqueue_script( 'employer-js', plugin_dir_url( __FILE__ ) . 'js/employer.js' );
+		wp_enqueue_script( 'filedrop-js', plugin_dir_url( __FILE__ ) . 'js/filedrop-min.js' );
 	}
 
 	add_action( 'wp_enqueue_scripts', 'employer_scripts_func' );

@@ -417,7 +417,9 @@
 
 
             
-
+            $('.help_modal_close').click(function(){
+                $('.portal--modal').fadeOut();
+            });
 
 
             /*______________ close modal on click gray area _______________________*/
