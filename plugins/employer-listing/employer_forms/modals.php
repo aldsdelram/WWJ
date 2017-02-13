@@ -88,3 +88,28 @@ function employer_help_button_modal() {
 	<?php
 	return ob_get_clean();
 }
+
+
+function emp_success_modal(){
+	ob_start();
+	?>
+		<div class="portal--modal success_container" style="display: block;">
+			<div class="portal--modal-details">
+				<div class="portal--modal-content" style="padding:0;">
+					<div style="padding: 50px 20px;">
+						<img src="<?= wp_get_attachment_url(723)?>">
+						<h3 style="font: 24px/30px 'Open Sans'; margin: 0 0 30px; padding: 0 56px; text-transform: uppercase;"> Congratulations ACE GROUP</h3>
+						<div class="btn-panel">
+							<a href="#" class="yes" style="width: auto; padding: 10px">I’M READY TO FIND MY NEXT DREAM CANDIDATE</a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<script>
+			jQuery('.portal--modal .success_container').show();
+		</script>
+	<?php
+	return ob_get_clean();
+}

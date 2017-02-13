@@ -1,23 +1,76 @@
 <?php
 
 function employer_reg_show_step_1(){
+
+	if(isset($_REQUEST['next'])){
+		$post_data = $_REQUEST;
+		$step1_data = [];
+
+		$ignore = [
+			'company',
+			'o_company_info',
+			'next'
+		];
+
+		foreach ($post_data as $key => $value) {
+			if(in_array($key, $ignore))
+				continue;
+			$step1_data[$key] = $value;
+		}
+
+		if(isset($post_data['company']['cover_photo'])){
+			if($post_data['company']['cover_photo'] !=null){
+				$attachment = upload_photo($post_data['company']['cover_photo']);
+
+				$step1_data_meta = get_user_meta(get_current_user_id(), 'emp_step1_data', true);
+				if($step1_data_meta){
+					if($step1_data_meta['cover_photo']){
+						wp_delete_attachment( $step1_data_meta['cover_photo'], true );
+					}
+				}
+				$step1_data['cover_photo'] = $attachment['ID'];
+			}
+			else
+				$step1_data['cover_photo'] = '';
+		}
+
+		if(isset($post_data['company']['logo'])){
+			if($post_data['company']['logo'] !=null){
+				$attachment = upload_photo($post_data['company']['logo']);
+
+				$step1_data_meta = get_user_meta(get_current_user_id(), 'emp_step1_data', true);
+				if($step1_data_meta){
+					if($step1_data_meta['logo']){
+						wp_delete_attachment( $step1_data_meta['logo'], true );
+					}
+				}
+				$step1_data['logo'] = $attachment['ID'];
+			}
+			else
+				$step1_data['logo'] = '';
+		}
+
+		update_user_meta(get_current_user_id(), 'emp_step1_data', $step1_data);
+		wp_redirect(home_url('/employer/dashboard/registration/step-02/'));
+
+
+	}
 	ob_start();
 	?>
 	
 
 	<div class="employer-registration--main resume-content">
-		<form action="">
+		<!--form action="" method="post"-->
 			<!-- 1 -->
 				<h2 class="emp--form_title">COMPANY INFORMATION</h2>
 				<div class="emp--upload-set">
 					<p class="emp--upload_title">Company Header Image</p>
 
 					<div class="emp--upload_box">
-
 						<div class="emp--upload-center centered-axis-xy">
 							<label class="emp--upload-btn">
-								<input type="file" data-target="upload--hidden">
-								<input type="text" class="upload--hidden">
+								<input type="file" data-target="upload--hidden_cover" class="uploader">
+								<input type="text" class="upload--hidden_cover" name="company[cover_photo]">
 								CHOOSE COVER
 							</label>
 							<p class="emp--upload-text">drag &amp; drop here your image</p>
@@ -32,7 +85,8 @@ function employer_reg_show_step_1(){
 							<div class="emp--upload_box">
 								<div class="emp--upload-center centered-axis-xy">
 									<label class="emp--upload-btn">
-										<input type="file" class="file--hidden">
+										<input type="file" data-target="upload--hidden_dp" class="uploader">
+										<input type="text" class="upload--hidden_dp" name="company[logo]">
 										UPLOAD LOGO
 									</label>
 									<p class="emp--upload-text">drag &amp; drop here your image</p>
@@ -66,7 +120,7 @@ function employer_reg_show_step_1(){
 							<div class="col-sm-6">
 								<div class="form-group">
 									<label for="company_info[size]"><span class="redrisk">*</span> Size:</label>
-									<input type="text" name="company_info[size]" class="input-field">
+									<input type="number" name="company_info[size]" class="input-field required numeric" min=1>
 								</div>
 							</div>
 						</div>
@@ -75,15 +129,20 @@ function employer_reg_show_step_1(){
 							<div class="col-sm-6">
 								<div class="form-group">
 									<label for="company_info[website]">Website:</label>
-									<input type="text" name="company_info[website]" class="input-field">
+									<input type="url" name="company_info[website]" class="input-field">
 								</div>
 							</div>
 
 							<div class="col-sm-6">
 								<div class="form-group plus--repeater">
-									<label for="company_info[social]">Social Media Page:</label>
-									<input type="text" name="company_info[social]" class="input-field"><i class="fa fa-plus" aria-hidden="true"></i>
-									<!-- <div class="clearfix"></div> -->
+									<label for="company_info[social][]">Social Media Page:</label>
+									<div class="to_repeat">
+										<input type="text" name="company_info[social][]" class="input-field">
+										<i class="fa fa-plus" aria-hidden="true"></i>
+										<div class="clearfix"></div>
+									</div>
+									<div class="repeated">
+									</div>
 									<!-- <input type="text" name="company_info[social]" class="input-field"><i class="fa fa-minus" aria-hidden="true"></i> -->
 									<!-- <div class="clearfix"></div> -->
 									<!-- <input type="text" name="company_info[social]" class="input-field"><i class="fa fa-minus" aria-hidden="true"></i> -->
@@ -98,14 +157,14 @@ function employer_reg_show_step_1(){
 					<div class="col-sm-6">
 						<div class="form-group">
 							<label for="company_info[telno]">Telephone Number:</label>
-							<input type="text" name="company_info[telno]" class="input-field">
+							<input type="number" name="company_info[telno]" class="input-field numeric" minlength=8 maxlength=8>
 						</div>
 					</div>
 
 					<div class="col-sm-6">
 						<div class="form-group">
 							<label for="company_info[fax]">Fax Number:</label>
-							<input type="text" name="company_info[fax]" class="input-field">
+							<input type="text" name="company_info[fax]" class="input-field numeric" minlength=8 maxlength=8>
 						</div>
 					</div>
 				</div>
@@ -161,13 +220,13 @@ function employer_reg_show_step_1(){
 						<a href="#" class="ebs--link">PREVIEW MODE</a>
 					</div>
 					<div class="col-sm-4">
-						<input type="submit" class="ebs--submit" value="SAVE THIS FORM">
+						<input type="submit" class="ebs--submit" value="SAVE THIS FORM" name="save">
 					</div>
 					<div class="col-sm-4">
-						<a href="#" class="ebs--link">NEXT</a>
+						<input type="submit" class="ebs--link" value="NEXT" name="next">
 					</div>
 				</div>
-		</form>
+		<!--/form-->
 
 	</div>
 

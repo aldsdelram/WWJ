@@ -138,6 +138,25 @@
 		position: relative;
 	}
 
+
+	.emp--upload-center{
+	    -webkit-transition: 0.2s;
+	    transition: 0.2s;
+	}
+
+	.has-bg .emp--upload-center{
+		opacity: 0 !important;
+	}
+
+	.emp--upload_box:hover .emp--upload-center{
+		opacity: 1 !important;
+	}
+
+	.emp--upload_box.fd-zone.over .emp--upload-center{
+		opacity: 1 !important;
+	}
+
+
 .emp--small_previews .emp--upload-set {
 	margin-bottom: 0;
 }
@@ -280,4 +299,28 @@
 	margin-bottom: 20px;
     font-size: 18px;
     font-weight: 600;
+}
+
+
+.hidden-fields{
+	display: none;
+}
+
+.no-data .edit_product{
+	display:none;
+}
+
+.repeater_with_previews .previews a.edit{
+	text-align: center;
+	display: block;	
+}
+
+.repeater_with_previews .previews .no-data .edit{
+	display:none;
+}
+
+
+.adder.disable-upload{
+	pointer-events: none;
+	opacity: 0.1;
 }
