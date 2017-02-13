@@ -100,3 +100,164 @@
 	color: #fff !important;
     margin-bottom: 25px;
 }
+
+
+/*________________________ =COMPANY PROFILE PAGE ________________________*/
+
+.cp--flex-grid {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+}
+
+.cp--flex_set {
+    width: 29%;
+    margin: 0 1%;
+}
+
+.cp--flex-image {
+    height: 220px;
+    max-width: 220px;
+    width: 100%;
+    background-repeat: no-repeat;
+    background-position: top center;
+    background-size: cover;
+    border-color: #fff;
+    border-radius: 50%;
+    border-width: 8px;
+    border-style: solid;
+    display: inline-block;
+    margin-bottom: 15px;
+}
+
+.cp--flex-title {
+    font-weight: normal;
+    margin-bottom: 10px;
+    font-size: 21px;
+}
+
+.cp--edit_banner {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    color: #fff;
+}
+
+.cp--edit_banner i {
+    margin-right: 5px;
+    border-bottom: 1px solid #fff;
+    padding-bottom: 2px;
+}
+
+#c-profile--main_banner {
+    height: 475px;
+    background-color: #e3e3e3;
+    background: url('../../../uploads/2017/02/testprofilebg.jpg') no-repeat top center;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    position: relative;
+}
+    #c-profile--main_banner .cp--name {
+        font-size: 50px;
+        color: #fff;
+        font-weight: 300;
+    }
+
+.oc--section_titles {
+    font-weight: 500;
+    font-size: 35px;
+    margin-bottom: 40px;
+}
+
+#c-profile--about_us {
+    padding: 60px 0;
+}
+    .cp--about_pic {
+        height: 330px;
+        width: 330px;
+        background-repeat: no-repeat;
+        background-position: top center;
+        background-size: cover;
+        border-radius: 50%;
+        border-width: 8px;
+        border-style: solid;
+    }
+
+#c-profile--about_us .flex-h-middle {
+    height: 330px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+}
+
+#c-profile--our_services {
+    color: #fff;
+    padding: 60px 0;
+    text-align: center;
+}
+
+#c-profile--team_members {
+    padding: 60px 0;
+    text-align: center;
+}
+
+#c-profile--testimonials .btsp-container {
+    padding: 50px 0;
+    border-top: 4px solid #8d9f31;
+}
+
+
+.cp--testi_set {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-pack: distribute;
+    justify-content: space-around;
+}
+
+    .cp--testi_image {
+        height: 250px;
+        max-width: 250px;
+        width: 100%;
+        background-repeat: no-repeat;
+        background-position: top center;
+        background-size: cover;
+        border-color: #fff;
+        border-radius: 50%;
+        border-width: 8px;
+        border-style: solid;
+        display: inline-block;
+        margin-bottom: 15px;
+    }
+
+    .cp--testi_desc {
+        max-width: 750px;
+        width: 100%;
+    }
+
+    .cp--testi_desc {
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-align: center;
+        -ms-flex-align: center;
+        align-items: center;
+    }
+
+#c-profile--partners {
+    background-color: #f2edea;
+    padding: 40px 0;
+}

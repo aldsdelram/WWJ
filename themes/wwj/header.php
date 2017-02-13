@@ -28,8 +28,16 @@
 													<span>Hello, <?= $current_user->user_login ?></span>
 													<div class="dropdown-content">
 														<ul>
-															<li><a href="#">Dashboard</a></li>
-															<li><a href="#">Profile</a></li>
+															<?php
+															$user_info = get_userdata(get_current_user_id());
+													    	if(in_array('candidate', $user_info->roles)): ?>
+																<li><a href="<?= home_url('/jobseeker/dashboard/profile/view/information')?>">Dashboard</a></li>
+																<li><a href="<?= home_url('/jobseeker/dashboard/profile/view/information')?>">Profile</a></li>
+													    	<?php else: ?>
+																<li><a href="#">Dashboard</a></li>
+																<li><a href="#">Profile</a></li>
+													    	<?php endif; ?>
+
 														</ul>
 													</div> <!-- end of .dropdown-content -->
 												</div> <!-- end of .has-dropdown -->
