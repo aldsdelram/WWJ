@@ -9,7 +9,7 @@ function search_job_position_func() {
 	<div class="searchJob-container">
 		<form action="" method="">
 			<div class="input-search">
-				<input type="text" placeholder="Search the job position that you need here." />
+				<input type="text" placeholder="Enter keywords most relevant to your candidate search eg. industry-specific skills, job title etc." />
 				<input type="submit" value="Search" />
 			</div> <!-- end of .input-search -->
 			<div class="filter-search">

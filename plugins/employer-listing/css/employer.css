@@ -136,6 +136,10 @@
 		border: 3px dashed #e3e3e3;
 		background-color: #f9f9f9;
 		position: relative;
+		background-position: center center;
+		background-size: cover;
+	    -webkit-transition: 0.2s;
+	    transition: 0.2s;
 	}
 
 
