@@ -279,6 +279,56 @@ jQuery( document ).ready( function($) {
     });
 
 
+    $('.cp--testi_slider').slick({
+        arrows: false,
+        dots: true,
+	  	infinite: true,
+	  	speed: 300,
+	  	slidesToShow: 1,
+		slidesToScroll: 1,
+		autoplay: true,
+		autoplaySpeed: 5000,
+	  	responsive: [
+		    {
+		      breakpoint: 1024,
+		      settings: {
+		        slidesToShow: 1,
+		        slidesToScroll: 1,
+		        infinite: true,
+		        arrows: false,
+		        dots: true
+		      }
+		    },
+		    {
+		      breakpoint: 992,
+		      settings: {
+		        slidesToShow: 1,
+		        slidesToScroll: 1,
+		        infinite: true,
+		        arrows: false,
+		        dots: true
+		      }
+		    },
+		    {
+		      breakpoint: 641,
+		      settings: {
+		        slidesToShow: 1,
+		        slidesToScroll: 1,
+		        arrows: false,
+		        dots: true
+		      }
+		    },
+		    {
+		      breakpoint: 541,
+		      settings: {
+		        slidesToShow: 1,
+		        slidesToScroll: 1,
+		        arrows: false,
+		        dots: true
+		      }
+		    }
+		]
+    });
 
 
 });
