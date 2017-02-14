@@ -75,8 +75,8 @@ function employer_reg_show_step_2(){
 				<div class="employer-registration--main resume-content">
 				<!-- 1 -->
 					<h2 class="emp--form_title">OUR SERVICES | <span class="eft--small">Make a catchy introduction that compels jobseekers</span></h2>
-					<div class="row repeater_with_previews">
-						<div class="adder">
+					<div class="repeater_with_previews">
+						<div class="row adder">
 							<div class="col-sm-4">
 								<div class="emp--upload-set">
 									<div class="emp--upload_box">
@@ -93,7 +93,8 @@ function employer_reg_show_step_2(){
 							</div>
 							<div class="col-sm-8">
 								<div class="form-group">
-									<label for="company_services[product]"><span class="redrisk">*</span> Product Name:</label> <input class="input-field required" data-required="true" data-name="services[name]" type="text">
+									<label for="company_services[product]"><span class="redrisk">*</span> Product Name:</label>
+									<input class="input-field required" data-required="true" data-name="services[name]" type="text">
 								</div>
 								<div class="form-group">
 									<label for="company_services[description]">Description:</label> 
@@ -128,31 +129,65 @@ function employer_reg_show_step_2(){
 
 				<!-- 2 -->
 					<h2 class="emp--form_title">TEAM MEMBERS</h2>
-					<div class="row">
-						<div class="col-sm-4">
-							<div class="emp--upload-set">
-								<div class="emp--upload_box">
-									<div class="emp--upload-center centered-axis-xy">
-										<label class="emp--upload-btn">
-											<input type="file" data-target="upload--hidden_dp_members" class="uploader">
-											<input type="text" class="upload--hidden_dp_members" name="team_members[logo]">
-											UPLOAD
-										</label>
-										<p class="emp--upload-text">drag &amp; drop here your image</p>
+					<div class="repeater_with_previews">
+						<div class="row adder">
+							<div class="col-sm-4">
+								<div class="emp--upload-set">
+									<div class="emp--upload_box">
+										<div class="emp--upload-center centered-axis-xy">
+											<label class="emp--upload-btn">
+												<input type="file" data-target="upload--hidden_dp_members" class="uploader">
+												<input type="text" class="upload--hidden_dp_members" data-name="team_members[photo]" data-target-background="with_bg">
+												UPLOAD
+											</label>
+											<p class="emp--upload-text">drag &amp; drop here your image</p>
+										</div>
 									</div>
 								</div>
 							</div>
+							<div class="col-sm-8">
+								<div class="form-group">
+
+									<label for="team_members[staffname]"><span class="redrisk">*</span> Staff Name:</label>
+									<input class="input-field required" data-required="true" data-name="team_members[staffname]" type="text">
+									
+								</div>
+								<div class="form-group">
+									<label for="team_members[position]">Position:</label> 
+									<textarea aria-required="true" class="input-field" data-name="team_members[position]" style="height: 55px;"></textarea>
+								</div>
+
+								<div class="text-right">
+									<a href="javascript:void(0)" class="emp--red-btn-variant-1 btn_add adder_button">ADD</a>
+								</div>
+
+							</div>
 						</div>
-						<div class="col-sm-8">
-							<div class="form-group">
-								<label for="team_members[staffname]"><span class="redrisk">*</span> Staff Name:</label> <input class="input-field required" name="team_members[staffname]" type="text">
-							</div>
-							<div class="form-group">
-								<label for="team_members[position]">Position:</label> 
-								<textarea aria-required="true" class="input-field" name="team_members[position]" style="height: 55px;"></textarea>
-							</div>
+
+						<h3 class="emp--title_sub">UPLOAD PREVIEWS</h3>
+						<div class="row emp--small_previews emp--team_members_thumbnails previews">
+							<div class="col-xs-12 flex-5-con">
+								<?php for($i=0; $i<5; $i++): ?>
+									<div class="preview_container no-data" data-id="<?= $i ?>">
+										<div class="emp--upload-set">
+											<div class="emp--upload_box with_bg_<?=$i?>">
+												<div class="emp--upload-center centered-axis-xy">
+												</div>
+												<div class="hidden-fields">
+													<input type="text" data-edit="team_members[photo]" data-edit-background='true' name="team_members[photo][<?= $i ?>]" >
+													<input class="input-field" data-edit="team_members[staffname]" name="team_members[staffname][<?=$i?>]" type="text">
+													<textarea aria-required="true" class="input-field required" data-edit="team_members[position]"  name="team_members[position][<?= $i?>]" style="height: 55px;" placeholder="Insert a product or service description that will make candidates love what you are doing (Max. 150 characters)"></textarea>
+												</div>
+											</div>
+										</div>
+										<a href="javascript:void(0)" class="edit_product edit" data-id="<?=$i?>">EDIT</a>
+									</div>
+								<?php endfor; ?>
+							</div>					
 						</div>
 					</div>
+
+
 
 				<!-- 3 -->
 					<h2 class="emp--form_title">VIDEOS | <span class="eft--small">Share your video to provide a good introduction of your company</span></h2>

@@ -154,15 +154,15 @@
 }
 
 .cp--flex-image {
-    height: 220px;
-    max-width: 220px;
+    height: 200px;
+    max-width: 200px;
     width: 100%;
     background-repeat: no-repeat;
     background-position: top center;
     background-size: cover;
     border-color: #fff;
     border-radius: 50%;
-    border-width: 8px;
+    border-width: 6px;
     border-style: solid;
     display: inline-block;
     margin-bottom: 15px;
@@ -190,7 +190,10 @@
 #c-profile--main_banner {
     height: 475px;
     background-color: #e3e3e3;
-    background: url('../../../uploads/2017/02/testprofilebg.jpg') no-repeat top center;
+    background-image: url('../../../uploads/2017/02/testprofilebg.jpg');
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
@@ -333,4 +336,19 @@
 
 #c-profile--contact_us iframe {
     margin-bottom: 20px;
+}
+
+
+.flex-5-con {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: justify;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+}
+
+
+.flex-5-con > div {
+    width: 160px;
 }
