@@ -1,4 +1,7 @@
 
+.text-left {
+    text-align: left;
+}
 
 #main-section .employers-section-promotion_1 {
 	text-align: center;
@@ -88,7 +91,6 @@
     border-bottom: 3px solid #686868;
 }
 
-
 #main-section .employers-section-promotion_2 {
 	text-align: center;
 	padding: 60px 0;
@@ -99,6 +101,39 @@
 #main-section .employers-section-promotion_2 .section-title--variant_1 {
 	color: #fff !important;
     margin-bottom: 25px;
+}
+
+
+.simple-form input[type=text],
+.simple-form input[type=email],
+.simple-form textarea {
+    background: #f0eef0;
+    font: 700 14px/22px 'Open Sans';
+    border: 1px solid #ececec;
+    border-radius: 3px;
+    display: block;
+    width: 100%;
+    box-shadow: none;
+    padding: 10px 15px !important;
+}
+
+.simple-form .btn-panel input[type=submit] {
+    display: block;
+    width: 160px;
+    margin: 0 auto;
+    font: 700 18px/26px 'Open Sans';
+    text-align: center;
+    color: #fff;
+    padding: 15px 0;
+    border-radius: 3px;
+    background: #ea1a23;
+}
+
+.simple-form .wpcf7-not-valid-tip {
+    font: italic 12px/20px 'Open Sans';
+    display: block;
+    text-align: left;
+    color: #ea1a23;
 }
 
 
@@ -141,8 +176,8 @@
 
 .cp--edit_banner {
     position: absolute;
-    top: 20px;
-    right: 20px;
+    top: 30px;
+    right: 40px;
     color: #fff;
 }
 
@@ -257,7 +292,45 @@
         align-items: center;
     }
 
+.cp--testi_slider .slick-dots {
+    text-align: center;
+}
+
+.cp--testi_slider .slick-dots li {
+    display: inline-block;
+}
+
+.cp--testi_slider .slick-dots li button {
+    cursor: pointer;
+    padding: 7px;
+    margin: 0 9px;
+    font-size: 0;
+    border-radius: 50%;
+}
+
+.cp--testi_slider .slick-dots .slick-active button {
+    background-color: #fff;
+    border: 2px solid #9a9a9a;
+}
+
+
+/* =PARTNERS */
 #c-profile--partners {
     background-color: #f2edea;
     padding: 40px 0;
+    text-align: center;
+}
+
+#c-profile--partners img {
+    margin: 0 20px;
+}
+
+/* =CONTACT US */
+#c-profile--contact_us {
+    padding: 60px 0 80px;
+    text-align: center;
+}
+
+#c-profile--contact_us iframe {
+    margin-bottom: 20px;
 }
