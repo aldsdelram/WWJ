@@ -107,21 +107,47 @@ function employer_reg_show_step_1(){
 									<p><span class="redrisk">*</span> Industry:</p>
 									<div class="dropdown-input" readonly="readonly">
 										<input type="text" name="company_info[industry]" class="dropdown-data input-field valid required" aria-invalid="false">
+										<?php 
+
+											$industries = ["Employment Agencies",
+											"Accounting / Finance",
+											"Admin / Human Resource",
+											"Healthcare",
+											"Information Technology",
+											"Marketing",
+											"Others (Sales, Services)"];
+
+
+										?>
 										<ul class="option_expertise_years">
-											<li>list 1</li>
-											<li>list 2</li>
-											<li>list 3</li>
-											<li>list 4</li>
+										<?php foreach ($industries as $industry):?>
+											<li value="<?= $industry ?>"><?= $industry ?></li>
+										<?php endforeach; ?>
 										</ul>
 									</div>
 								</div>
 							</div>
 
 							<div class="col-sm-6">
-								<div class="form-group">
+								<!--div class="form-group">
 									<label for="company_info[size]"><span class="redrisk">*</span> Size:</label>
 									<input type="number" name="company_info[size]" class="input-field required numeric" min=1>
-								</div>
+								</div-->
+
+								<div class="form-group">
+									<label for="company_info[size]"><span class="redrisk">*</span> Size:</label>
+									<div class="dropdown-input">
+										<input type="text" name="company_info[size]" class="dropdown-data input-field required" readonly/>
+										<ul class="option_company_size">
+										<?php $size = ['Small', 'Medium', 'Large'] ?>
+										<?php foreach ($size as $s): ?>
+											<li data-value="<?= $s ?>"><?= $s ?></li>
+										<?php endforeach; ?>
+										</ul>
+									</div>
+								</div> <!-- end of .form-group -->
+
+
 							</div>
 						</div>
 
@@ -156,6 +182,7 @@ function employer_reg_show_step_1(){
 				<div class="row">
 					<div class="col-sm-6">
 						<div class="form-group">
+							<span class="placeholder">+65</span>
 							<label for="company_info[telno]">Telephone Number:</label>
 							<input type="number" name="company_info[telno]" class="input-field numeric" minlength=8 maxlength=8>
 						</div>
@@ -163,6 +190,7 @@ function employer_reg_show_step_1(){
 
 					<div class="col-sm-6">
 						<div class="form-group">
+							<span class="placeholder">+65</span>
 							<label for="company_info[fax]">Fax Number:</label>
 							<input type="text" name="company_info[fax]" class="input-field numeric" minlength=8 maxlength=8>
 						</div>
