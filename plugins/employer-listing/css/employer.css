@@ -260,6 +260,7 @@
 
 .ebs--link {
     color: #b9b9b9;
+    cursor: pointer;
     border: 1px solid #b9b9b9;
     padding: 10px 20px;
     display: inline-block;

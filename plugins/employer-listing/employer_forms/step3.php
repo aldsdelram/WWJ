@@ -88,8 +88,8 @@ function employer_reg_show_step_3(){
 			<!-- 2 -->
 				<h2 class="emp--form_title">REFERRALS</h2>
 
-				<div class="row repeater_with_previews">
-					<div class="adder">
+				<div class="repeater_with_previews">
+					<div class="row adder">
 						<div class="col-sm-4">
 							<div class="emp--upload-set">
 								<div class="emp--upload_box">
