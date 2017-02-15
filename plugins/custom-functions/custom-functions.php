@@ -15,6 +15,7 @@ Network: true
 
 	include( plugin_dir_path( __FILE__ ) . '/custom-shortcodes.php'); 
 	include( plugin_dir_path( __FILE__ ) . '/class/job-listing.php'); 
+	include( plugin_dir_path( __FILE__ ) . '/class/company-profile.php'); 
 	include( plugin_dir_path( __FILE__ ) . '/class/main_class.php'); 
 
 // ************************************
