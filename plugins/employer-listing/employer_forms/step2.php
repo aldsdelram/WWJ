@@ -45,22 +45,48 @@ function employer_reg_show_step_2(){
 		$step2_data['services'] = $services;
 
 
-		if(isset($post_data['team_members']['logo'])){
-			if($post_data['team_members']['logo'] !=null){
-				$attachment = upload_photo($post_data['team_members']['logo']);
-				$step2_data_meta = get_user_meta(get_current_user_id(), 'emp_step2_data', true);
-				if($step2_data_meta){
-					foreach($step2_data_meta['team_members'] as $meta){
-						wp_delete_attachment( $meta['logo'], true );
+		$team_members = [];
+		foreach( $post_data['team_members']['staffname'] as $key => $name){
+			$service = [];
+			$service['staffname'] = $name;
+			$service['position']= $post_data['team_members']['position'][$key];
+			if(isset($post_data['team_members']['photo'][$key])){
+				if($post_data['team_members']['photo'][$key] !=null){
+					$attachment = upload_photo($post_data['team_members']['photo'][$key]);
+
+					$step2_data_meta = get_user_meta(get_current_user_id(), 'emp_step2_data', true);
+					if($step2_data_meta){
+						foreach($step2_data_meta['team_members'] as $meta){
+							wp_delete_attachment( $meta['photo'], true );
+						}
 					}
+					$service['photo'] = $attachment['ID'];
 				}
-				$post_data['team_members']['logo'] = $attachment['ID'];
+				else
+					$service['photo'] = '';
 			}
-			else
-				$post_data['team_members']['logo'] = '';
+			$team_members[] = $service;
 		}
 
-		$step2_data['team_members'] = $post_data['team_members'];
+		$step2_data['team_members'] = $team_members;
+
+
+		// if(isset($post_data['team_members']['logo'])){
+		// 	if($post_data['team_members']['logo'] !=null){
+		// 		$attachment = upload_photo($post_data['team_members']['logo']);
+		// 		$step2_data_meta = get_user_meta(get_current_user_id(), 'emp_step2_data', true);
+		// 		if($step2_data_meta){
+		// 			foreach($step2_data_meta['team_members'] as $meta){
+		// 				wp_delete_attachment( $meta['logo'], true );
+		// 			}
+		// 		}
+		// 		$post_data['team_members']['logo'] = $attachment['ID'];
+		// 	}
+		// 	else
+		// 		$post_data['team_members']['logo'] = '';
+		// }
+
+		// $step2_data['team_members'] = $post_data['team_members'];
 
 		update_user_meta(get_current_user_id(), 'emp_step2_data', $step2_data);
 		wp_redirect(home_url('/employer/dashboard/registration/step-03/'));

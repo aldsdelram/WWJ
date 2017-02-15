@@ -32,7 +32,8 @@ jQuery( document ).ready( function($) {
 	})
 
 	function showmap(address) {
-		var embed= "<iframe width='100%' height='300' frameborder='0' scrolling='no' marginheight='0' marginwidth='0' src='https://maps.google.com/maps?&amp;q="+ encodeURIComponent( address ) +  "&amp;output=embed'></iframe>"; 
+		var embed= "<iframe width='100%' height='300' frameborder='0' scrolling='no' marginheight='0' marginwidth='0'"+
+		 	"src='https://maps.google.com/maps?&amp;q="+ encodeURIComponent( address ) +  "&amp;output=embed'></iframe>"; 
 		$("#mapContainer").html(embed);
 		$('.addresstomap').addClass('scrolloffmap');
 	}
@@ -167,7 +168,8 @@ jQuery( document ).ready( function($) {
 		    	main_container.find('[data-name]').each(function(){
 		    		container.find('[name^="'+$(this).attr('data-name')+'"]').val($(this).val());
 		    	});
-		    	container.css('background-image', 'url(\''+$('[data-target-background]').val()+'\'');
+		    	input_uploader = main_container.find('[data-target-background]');
+		    	container.css('background-image', 'url(\''+$(input_uploader).val()+'\'');
 		    	found = true;
 			}
 		});
@@ -231,7 +233,8 @@ jQuery( document ).ready( function($) {
 		    	main_container.find('[data-name]').each(function(){
 		    		container.find('[name^="'+$(this).attr('data-name')+'"]').val($(this).val());
 		    	});
-		    	container.css('background-image', 'url(\''+$('[data-target-background]').val()+'\'');
+		    	input_uploader = main_container.find('[data-target-background]');
+		    	container.css('background-image', 'url(\''+$(input_uploader).val()+'\'');
 		    	found = true;
 			}
 		});

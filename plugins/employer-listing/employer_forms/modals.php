@@ -89,6 +89,8 @@ function emp_success_modal(){
 						<h3 style="font: 24px/30px 'Open Sans'; margin: 0 0 30px; padding: 0 56px; text-transform: uppercase;"> Congratulations ACE GROUP</h3>
 						<div class="btn-panel">
 							<a href="<?= home_url('employer/candidates-listing') ?>" class="yes" style="width: auto; padding: 10px">I’M READY TO FIND MY NEXT DREAM CANDIDATE</a>
+							<a href="<?= home_url('employer/company-profile-view/') ?>" class="no" style="width: auto; padding: 10px">VIEW MY COMPANY PROFILE</a>
+
 						</div>
 					</div>
 				</div>

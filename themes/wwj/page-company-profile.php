@@ -15,6 +15,33 @@
 		wp_redirect( get_permalink( $firstchild->ID ) );
 	}
 
+	$current_user  = get_currentuserinfo();
+	$step1 = get_user_meta(get_current_user_id(), 'emp_step1_data', true);
+	$step2 = get_user_meta(get_current_user_id(), 'emp_step2_data', true);
+	$step3 = get_user_meta(get_current_user_id(), 'emp_step3_data', true);
+
+	$name = $step1['company_info']['name'];
+	$industry = $step1['company_info']['industry'];
+	$size = $step1['company_info']["size"];
+	$website = $step1['company_info']["website"];
+	$socials = $step1['company_info']['social'];
+	$tel_no = $step1['company_info']["telno"];
+	$fax_no = $step1['company_info']["fax"];
+	$about_us = $step1['about_us'];
+	$address = $step1['location']['address'];
+	$postal_code = $step1['location']['postal_code'];
+	$cover_photo = $step1['cover_photo'];
+	$logo = $step1["logo"];
+
+	$videos = $step2["videos"];
+	$services = $step2["services"];
+	$team_members = $step2['team_members'];
+
+	$join_us = $step3["join_us"];
+	$referrals = $step3['referrals'];
+
+
+
 ?>
 
 <!DOCTYPE html>
@@ -58,9 +85,13 @@
 		</header>
 		
 		<!-- 1: MAIN BANNER -->
-		<section id="c-profile--main_banner">
+		<?php if($cover_photo): ?>
+			<section id="c-profile--main_banner" style="background-image: url('<?= wp_get_attachment_url($cover_photo)?>');">
+		<?php else: ?>
+			<section id="c-profile--main_banner">
+		<?php endif; ?>
 			<a href="#" class="cp--edit_banner"><i class="fa fa-pencil" aria-hidden="true"></i> Edit</a>
-			<h1 class="cp--name">Company Profile Name</h1>
+			<h1 class="cp--name"><?= $name ?></h1>
 		</section>
 		
 		<!-- 2: ABOUT US -->
@@ -68,12 +99,16 @@
 			<div class="btsp-container">
 				<div class="row">
 					<div class="col-sm-4">
-						<div class="cp--about_pic" style="background-image: url('http://preskubbs.com/wwj2/skubbswp/wp-content/uploads/2017/02/testprofilebg.jpg'); border-color: #8d9f31;"></div>
+						<?php if($logo): ?>
+							<div class="cp--about_pic" style="background-image: url('<?= wp_get_attachment_url($logo) ?>'); border-color: #8d9f31;"></div>
+						<?php else: ?>
+							<div class="cp--about_pic" style="background-image: url('http://preskubbs.com/wwj2/skubbswp/wp-content/uploads/2017/02/testprofilebg.jpg'); border-color: #8d9f31;"></div>
+						<?php endif; ?>
 					</div>
 					<div class="col-sm-8 flex-h-middle">
 						<div class="cp--about_texts">
 							<h2 style="color: #59392a;" class="oc--section_titles">About Us</h2>
-							<p>Rejuvenate your mind, body and spirit at LA Spa, Nail Bar &amp; Massage  your source for five-star skin and nail treatments. Our world class spa services revolve around our commitment to delivering you the very best in the beauty industry. We provide your with perfectly polished nails and sumptuously smooth skin in a stylish and comfortable environment, but it goes well beyond that. In truth, it’s simple; we want you to leave our beauty salon feeling beautiful, pampered and revived!</p>
+							<p><?= $about_us ?></p>
 						</div>
 					</div>
 				</div>
@@ -89,29 +124,22 @@
 
 						<div class="cp--flex-grid">
 
-							<div class="cp--flex_set">
-								<div class="cp--flex-image" style="background-image: url('http://preskubbs.com/wwj2/skubbswp/wp-content/uploads/2017/02/services-1.jpg');"></div>
-								<h3 class="cp--flex-title">Polished Perfection</h3>
-								<div class="cp--os-desc">
-									Looking for a incredible paint job? Get polish with our talented staff.
-								</div>
-							</div>
-
-							<div class="cp--flex_set">
-								<div class="cp--flex-image" style="background-image: url('http://preskubbs.com/wwj2/skubbswp/wp-content/uploads/2017/02/services-2.jpg');"></div>
-								<h3 class="cp--flex-title">Skin Care</h3>
-								<div class="cp--os-desc">
-									Indulge in our high-end skin and spa treatments.
-								</div>
-							</div>
-
-							<div class="cp--flex_set">
-								<div class="cp--flex-image" style="background-image: url('http://preskubbs.com/wwj2/skubbswp/wp-content/uploads/2017/02/services-3.jpg');"></div>
-								<h3 class="cp--flex-title">Hair Salon</h3>
-								<div class="cp--os-desc">
-									Get healthy hair! Providing a treatment for your hair to make it look like glowing.
-								</div>
-							</div>
+							<?php foreach($services as $service): ?>
+								<?php if($service['name'] != null) :?>
+									<div class="cp--flex_set">
+									<?php if($service['photo'] == ''): ?>
+										<div class="cp--flex-image" style="background-image: url('');"></div>
+									<?php else: ?>
+											<div class="cp--flex-image" style="background-image: url('<?= wp_get_attachment_url($service['photo'])?>');"></div>
+										<?php endif; ?>
+										<h3 class="cp--flex-title"><?= $service['name']?></h3>
+										<div class="cp--os-desc">
+											<?= $service['description'] ?>
+										</div>
+									</div>	
+								<?php endif;?>
+							<?php endforeach; ?>
+							
 
 						</div>
 
@@ -121,6 +149,7 @@
 		</section>
 		
 		<!-- 4: TEAM MEMBERS -->
+		<!--
 		<section id="c-profile--team_members">
 			<div class="btsp-container">
 				<div class="row">
@@ -129,7 +158,23 @@
 
 						<div class="cp--flex-grid">
 
-							<div class="cp--flex_set">
+							<?php# foreach($services as $service): ?>
+								<?php if($team_members['staffname'] != null) :?>
+									<div class="cp--flex_set">
+									<?php if($team_members['logo'] == ''): ?>
+										<div class="cp--flex-image" style="background-image: url(''); border-color: #8d9f31;"></div>
+									<?php else: ?>
+											<div class="cp--flex-image" style="background-image: url('<?= wp_get_attachment_url($team_members['logo'])?>'); border-color: #8d9f31;"></div>
+										<?php endif; ?>
+										<h3 class="cp--flex-title"><?= $team_members['staffname']?></h3>
+										<div class="cp--os-desc">
+											<?= $team_members['position'] ?>
+										</div>
+									</div>	
+								<?php endif;?>
+							<?php# endforeach; ?>
+
+							<!--div class="cp--flex_set">
 								<div class="cp--flex-image" style="background-image: url('http://preskubbs.com/wwj2/skubbswp/wp-content/uploads/2017/02/sam-co.jpg'); border-color: #8d9f31;"></div>
 								<h3 class="cp--flex-title">Sam Co</h3>
 								<div class="cp--flex-desc">
@@ -166,6 +211,7 @@
 				</div>
 			</div>
 		</section>
+		-->
 
 		<section id="c-profile--testimonials">
 			<div class="btsp-container">
@@ -177,7 +223,28 @@
 
 				<div class="cp--testi_slider">
 
-					<div class="cp--testflexset">
+
+					<?php foreach($referrals as $referral): ?>
+						<?php if($referral['name'] != null) :?>
+
+							<div class="cp--testflexset">
+								<div class="cp--testi_set">
+									<div class="cp--testi_desc">
+										<div class="cp--testi_desc_content">
+											<?= $referral['description'] ?>
+										</div>
+									</div>
+									<?php if($referral['photo'] == ''): ?>
+										<div class="cp--testi_image" style="background-image: url(''); border-color: #8d9f31;"></div>
+									<?php else: ?>
+										<div class="cp--testi_image" style="background-image: url('<?= wp_get_attachment_url($referral['photo'])?>'); border-color: #8d9f31;"></div>
+									<?php endif; ?>
+								</div>
+							</div>
+						<?php endif;?>
+					<?php endforeach; ?>
+
+					<!--div class="cp--testflexset">
 						<div class="cp--testi_set">
 							<div class="cp--testi_desc">
 								<div class="cp--testi_desc_content">
@@ -208,7 +275,7 @@
 							</div>
 							<div class="cp--testi_image" style="background-image: url('http://preskubbs.com/wwj2/skubbswp/wp-content/uploads/2017/02/testimonial-pic.jpg'); border-color: #8d9f31;"></div>
 						</div>
-					</div>
+					</div-->
 
 				</div>
 			</div>
@@ -227,11 +294,13 @@
 		<section id="c-profile--contact_us">
 			<h2 style="color: #59392a;" class="oc--section_titles">Contact Us</h2>
 			<div class="gmap_div">
-				<iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d7977.560671389543!2d103.829165!3d1.306971!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31da198cc0aefd57%3A0xca8ff9109e38059!2s400+Orchard+Rd%2C+Singapore+238875!5e0!3m2!1sen!2s!4v1486970306056" width="100%" height="300" frameborder="0" style="border:0" allowfullscreen></iframe>
+
+				<iframe width='100%' height='300' frameborder='0' scrolling='no' marginheight='0' marginwidth='0'
+		 			src='https://maps.google.com/maps?&amp;q=<?=urlencode($address) ?>&amp;output=embed'></iframe>
 			</div>
 
 			<p><strong>Address:<br>
-			80 Bras Basah Rd, Singapore 189560</strong></p>
+			<?= $address?> <?= $postal_code ?></strong></p>
 		</section>
 	</main>
 
