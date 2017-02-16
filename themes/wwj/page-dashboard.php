@@ -50,7 +50,7 @@
 						<div class="notif-container">
 							<div class="rd-row rd-middle-xs">
 								<div class="post-job">
-									<a href="#">Post a Job</a>
+									<a href="#">My Calendar</a>
 								</div>
 								<div class="notifs message">
 									<span class="count rd-row rd-middle-xs rd-center-xs">8</span>
