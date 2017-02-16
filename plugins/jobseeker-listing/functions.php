@@ -17,6 +17,7 @@
 	include( plugin_dir_path( __FILE__ ) . '/faq_listing.php'); 
 	include( plugin_dir_path( __FILE__ ) . '/resume_forms/main.php'); 
 	include( plugin_dir_path( __FILE__ ) . '/profile/main.php'); 
+	include( plugin_dir_path( __FILE__ ) . '/company_profile_view.php'); 
 
 // ENQUEUE SCRIPTS
 
