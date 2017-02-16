@@ -1,5 +1,9 @@
 
 
+#job_posting .white-bg-views {
+	padding-bottom: 0 !important;
+}
+
 /*________________________ =EMPLOYER REGISTRATION FORM HEADER ________________________*/
 
 .erf--step_states {
