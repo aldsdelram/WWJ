@@ -2,8 +2,7 @@
 	/*
 		Template Name: Dashboard Page
 	*/
-?>
-<?php
+
 	if ( !is_user_logged_in() ) {
 		wp_redirect( home_url( 'jobseeker/login' ) );
 		exit();
@@ -14,7 +13,12 @@
 		$firstchild = $pagekids[0];
 		wp_redirect( get_permalink( $firstchild->ID ) );
 	}
+
+	// profile pic
+	$jpp = get_user_meta(get_current_user_id(), 'step1_data', true);
+	$profile_picture = wp_get_attachment_url($jpp['photo_base_64']);
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -26,20 +30,50 @@
 <body>
 	<main id="main-wrapper" class="dashboard-page">
 		<div class="rd-row">
+
 			<aside id="main-sidebar">
-				<div class="sidebar-logo"></div>
-				<div class="sidepar-dp"></div>
-				<div class="sidebar-menus">
-					<div class="sidebar-menu">
-						<a href="" class="has-sub-menu">Profile</a>
-						<div class="sub-menu">
-							<a href="<?= home_url('/jobseeker/dashboard/profile/view/information/') ?>">Basic Information</a>
-							<a href="<?= home_url('/jobseeker/dashboard/profile/view/experience/') ?>">Experience</a>
-							<a href="<?= home_url('/jobseeker/dashboard/profile/view/others/') ?>">Other Information</a>
+				<div class="sidebar--container">
+					<!-- logo -->
+					<div class="sidebar-logo"><img src="<?= wp_get_attachment_url(844); ?>" alt=""></div>
+					
+					<!-- profile set -->
+					<div class="sb--profile-set" style="background-image: url(<?= wp_get_attachment_url(845); ?>);">
+						<div class="sbp--misc_stats clearfix">
+							<div class="sbp--rank_stat pull-left"><img src="<?= wp_get_attachment_url(846); ?>" alt="">45/100</div>
+							<div class="sbp--credit_stat pull-right"><img src="<?= wp_get_attachment_url(847); ?>" alt="">20</div>
+						</div>
+
+						<div class="sbp--profile-pic" style="background-image: url(<?= $profile_picture; ?>);"></div>
+						<div class="sbp--profile_name"><?= $current_user->first_name .' '. $current_user->last_name; ?></div>
+					</div>
+
+					<div class="sidebar-menus">
+						<div class="sidebar-menu">
+							
+							<div class="sbp--nav_set">
+								<a href="" class="has-sub-menu">Profile</a>
+								<div class="sub-menu">
+									<a href="<?= home_url('/jobseeker/dashboard/profile/view/information/') ?>">Basic Information</a>
+									<a href="<?= home_url('/jobseeker/dashboard/profile/view/experience/') ?>">Experience</a>
+									<a href="<?= home_url('/jobseeker/dashboard/profile/view/others/') ?>">Other Information</a>
+								</div>
+							</div>
+
+							<div class="sbp--nav_set">
+								<a href="" class="has-sub-menu">Profile</a>
+								<div class="sub-menu">
+									<a href="<?= home_url('/jobseeker/dashboard/profile/view/information/') ?>">Basic Information</a>
+									<a href="<?= home_url('/jobseeker/dashboard/profile/view/experience/') ?>">Experience</a>
+									<a href="<?= home_url('/jobseeker/dashboard/profile/view/others/') ?>">Other Information</a>
+								</div>
+							</div>
+
+
 						</div>
 					</div>
 				</div>
 			</aside>
+
 			<section id="main-section">
 				<header class="content-header">
 					<div class="rd-row rd-between-xs rd-middle-xs">
