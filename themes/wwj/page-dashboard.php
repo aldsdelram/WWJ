@@ -49,18 +49,23 @@
 
 					<div class="sidebar-menus">
 						<div class="sidebar-menu">
+
+							<div class="sbp--nav_set">
+								<a href="<?= home_url(); ?>">Home</a>
+							</div>
 							
 							<div class="sbp--nav_set">
-								<a href="" class="has-sub-menu">Profile</a>
+								<a href="" class="has-sub-menu">Manage Career <i class="fa fa-caret-right" aria-hidden="true"></i></a>
 								<div class="sub-menu">
-									<a href="<?= home_url('/jobseeker/dashboard/profile/view/information/') ?>">Basic Information</a>
-									<a href="<?= home_url('/jobseeker/dashboard/profile/view/experience/') ?>">Experience</a>
-									<a href="<?= home_url('/jobseeker/dashboard/profile/view/others/') ?>">Other Information</a>
+									<a href="#">Job Invitations</a>
+									<a href="#">Job Applications</a>
+									<a href="#">Job Search</a>
+									<a href="#">Bookmarked</a>
 								</div>
 							</div>
 
 							<div class="sbp--nav_set">
-								<a href="" class="has-sub-menu">Profile</a>
+								<a href="" class="has-sub-menu">Profile <i class="fa fa-caret-right" aria-hidden="true"></i></a>
 								<div class="sub-menu">
 									<a href="<?= home_url('/jobseeker/dashboard/profile/view/information/') ?>">Basic Information</a>
 									<a href="<?= home_url('/jobseeker/dashboard/profile/view/experience/') ?>">Experience</a>

@@ -79,6 +79,7 @@ Network: true
 		wp_enqueue_script( 'cf-scripts', plugin_dir_url( __FILE__ ) . '/js/main.js', array() );
 		wp_enqueue_script( 'validate', plugin_dir_url( __FILE__ ) . '/js/validate.js', array() );
 		wp_enqueue_script( 'actual', plugin_dir_url( __FILE__ ) . '/js/jquery.actual.min.js', array() );
+		// wp_enqueue_script( 'scotch', plugin_dir_url( __FILE__ ) . '/js/scotchPanels.js', array() );
 	}
 	add_action( 'wp_enqueue_scripts', 'custom_plugin_scripts' );
 
