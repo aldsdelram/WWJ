@@ -228,7 +228,7 @@ function edit_experience_content(){
 										</div>
 									</div>
 								</div>
-								<label class="company_year_error">To Date Must Not be late to the From Date</label>
+								<label class="company_year_error">The date picked must not be later than the From Date</label>
 							</div>
 
 
@@ -340,7 +340,7 @@ function edit_experience_content(){
 									</div>
 								</div>
 							</div>
-							<label class="company_year_error">To Date Must Not be late to the From Date</label>
+							<label class="company_year_error">The date picked must not be later than the From Date</label>
 						</div>
 
 

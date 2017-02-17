@@ -64,10 +64,11 @@ function employer_reg_edit_step_1(){
 
 	if($cover_photo){
 		$path= wp_get_attachment_url($cover_photo);
-		$type = pathinfo($path, PATHINFO_EXTENSION);
-		$data = file_get_contents($path);
-		$base64 = 'data:image/' . $type . ';base64,' . base64_encode($data);
-		$cover_photo_b64 = $base64;
+		$cover_photo_b64 = WWJ::convertURLtoB64($path);
+	}
+	if($logo){
+		$path= wp_get_attachment_url($logo);
+		$logo_b64 = WWJ::convertURLtoB64($path);
 	}
 	
 	ob_start();
@@ -78,6 +79,7 @@ function employer_reg_edit_step_1(){
 		<!--form action="" method="post"-->
 			<!-- 1 -->
 				<h2 class="emp--form_title">COMPANY INFORMATION</h2>
+
 				<?php if($cover_photo): ?>
 					<div class="emp--upload-set">
 						<p class="emp--upload_title">Company Header Image</p>
@@ -111,26 +113,42 @@ function employer_reg_edit_step_1(){
 						</div>
 					</div>
 				<?php endif; ?>
+
 				<div class="row">
 					<div class="col-sm-4">
-						<div class="emp--upload-set">
-							<div class="emp--upload_box">
-								<div class="emp--upload-center centered-axis-xy">
-									<label class="emp--upload-btn">
-										<input type="file" data-target="upload--hidden_dp" class="uploader">
-										<input type="text" class="upload--hidden_dp" name="company[logo]">
-										UPLOAD LOGO
-									</label>
-									<p class="emp--upload-text">drag &amp; drop here your image</p>
+						<?php if($logo): ?>
+							<div class="emp--upload-set">
+								<div class="emp--upload_box has-bg" style="background-image: url('<?= wp_get_attachment_url($logo) ?>')">
+									<div class="emp--upload-center centered-axis-xy">
+										<label class="emp--upload-btn">
+											<input type="file" data-target="upload--hidden_dp" class="uploader">
+											<input type="text" class="upload--hidden_dp" name="company[logo]" value="<?= $logo_b64 ?>">
+											UPLOAD LOGO
+										</label>
+										<p class="emp--upload-text">drag &amp; drop here your image</p>
+									</div>
 								</div>
 							</div>
-						</div>
+						<?php else: ?>
+							<div class="emp--upload-set">
+								<div class="emp--upload_box">
+									<div class="emp--upload-center centered-axis-xy">
+										<label class="emp--upload-btn">
+											<input type="file" data-target="upload--hidden_dp" class="uploader">
+											<input type="text" class="upload--hidden_dp" name="company[logo]">
+											UPLOAD LOGO
+										</label>
+										<p class="emp--upload-text">drag &amp; drop here your image</p>
+									</div>
+								</div>
+							</div>
+						<?php endif; ?>
 					</div>
 
 					<div class="col-sm-8">
 						<div class="form-group">
 							<label for="company_info[name]"><span class="redrisk">*</span> Company Name:</label>
-							<input type="text" name="company_info[name]" class="input-field required">
+							<input type="text" name="company_info[name]" class="input-field required" value="<?= $name?>">
 						</div>
 
 						<div class="row">
@@ -138,7 +156,7 @@ function employer_reg_edit_step_1(){
 								<div class="form-group">
 									<p><span class="redrisk">*</span> Industry:</p>
 									<div class="dropdown-input" readonly="readonly">
-										<input type="text" name="company_info[industry]" class="dropdown-data input-field valid required" aria-invalid="false">
+										<input type="text" name="company_info[industry]" class="dropdown-data input-field valid required" aria-invalid="false" value="<?= $industry?>" data-value="<?= $industry?>">
 										<?php 
 
 											$industries = ["Employment Agencies",
@@ -169,7 +187,7 @@ function employer_reg_edit_step_1(){
 								<div class="form-group">
 									<label for="company_info[size]"><span class="redrisk">*</span> Size:</label>
 									<div class="dropdown-input">
-										<input type="text" name="company_info[size]" class="dropdown-data input-field required" readonly/>
+										<input type="text" name="company_info[size]" class="dropdown-data input-field required" readonly value="<?= $size ?>" data-value="<?= $size ?>"/>
 										<ul class="option_company_size">
 										<?php $size = ['Small', 'Medium', 'Large'] ?>
 										<?php foreach ($size as $s): ?>
@@ -187,20 +205,42 @@ function employer_reg_edit_step_1(){
 							<div class="col-sm-6">
 								<div class="form-group">
 									<label for="company_info[website]">Website:</label>
-									<input type="url" name="company_info[website]" class="input-field">
+									<input type="url" name="company_info[website]" class="input-field" value="<?= $website ?>">
 								</div>
 							</div>
 
 							<div class="col-sm-6">
 								<div class="form-group plus--repeater">
 									<label for="company_info[social][]">Social Media Page:</label>
-									<div class="to_repeat">
-										<input type="text" name="company_info[social][]" class="input-field">
-										<i class="fa fa-plus" aria-hidden="true"></i>
-										<div class="clearfix"></div>
-									</div>
-									<div class="repeated">
-									</div>
+									<?if($socials): ?>
+										<?$socCount = 0; ?>
+										<?php foreach ($socials as $social): ?>
+											<?php if($socCount == 0): ?>
+											<div class="to_repeat">
+												<input type="text" name="company_info[social][]" class="input-field" value="<?= $social ?>">
+												<i class="fa fa-plus" aria-hidden="true"></i>
+												<div class="clearfix"></div>
+											</div>
+											<div class="repeated">
+											<?php else: ?>
+												<div class="repeated_row">
+													<input type="text" name="company_info[social]" class="input-field" value="<?= $social ?>">
+													<i class="fa fa-minus" aria-hidden="true"></i>
+													<div class="clearfix"></div>
+												</div>
+											<?php endif;?>
+											<?php $socCount++; ?>
+										<?php endforeach; ?>
+										</div>
+									<?php else: ?>
+										<div class="to_repeat">
+											<input type="text" name="company_info[social][]" class="input-field">
+											<i class="fa fa-plus" aria-hidden="true"></i>
+											<div class="clearfix"></div>
+										</div>
+										<div class="repeated">
+										</div>
+									<?php endif; ?>
 									<!-- <input type="text" name="company_info[social]" class="input-field"><i class="fa fa-minus" aria-hidden="true"></i> -->
 									<!-- <div class="clearfix"></div> -->
 									<!-- <input type="text" name="company_info[social]" class="input-field"><i class="fa fa-minus" aria-hidden="true"></i> -->
@@ -216,7 +256,7 @@ function employer_reg_edit_step_1(){
 						<div class="form-group">
 							<span class="placeholder">+65</span>
 							<label for="company_info[telno]">Telephone Number:</label>
-							<input type="number" name="company_info[telno]" class="input-field numeric" minlength=8 maxlength=8>
+							<input type="number" name="company_info[telno]" class="input-field numeric" minlength=8 maxlength=8 value="<?= $tel_no?>">
 						</div>
 					</div>
 
@@ -224,7 +264,7 @@ function employer_reg_edit_step_1(){
 						<div class="form-group">
 							<span class="placeholder">+65</span>
 							<label for="company_info[fax]">Fax Number:</label>
-							<input type="text" name="company_info[fax]" class="input-field numeric" minlength=8 maxlength=8>
+							<input type="text" name="company_info[fax]" class="input-field numeric" minlength=8 maxlength=8 value="<?= $fax_no?>">
 						</div>
 					</div>
 				</div>
@@ -233,7 +273,7 @@ function employer_reg_edit_step_1(){
 				<h2 class="emp--form_title"><span class="redrisk">*</span> COMPANY OVERVIEW	| <span class="eft--small">Make a catchy introduction that compels jobseekers</span></h2>
 				<div class="form-group">
 					<label for="about_us">About Us:</label>
-					<textarea name="about_us" class="input-field required" aria-required="true" style="height: 55px;"></textarea>
+					<textarea name="about_us" class="input-field required" aria-required="true" style="height: 55px;"><?=$about_us?></textarea>
 				</div>
 
 			<!-- 3 -->
@@ -242,7 +282,7 @@ function employer_reg_edit_step_1(){
 					<div class="col-sm-6">
 						<div class="form-group">
 							<label for="location[address]"><span class="redrisk">*</span> Location:</label>
-							<input type="text" id="location_address" name="location[address]" class="input-field required">
+							<input type="text" id="location_address" name="location[address]" class="input-field required" value="<?= $address?>">
 						</div>
 					</div>
 
@@ -262,7 +302,7 @@ function employer_reg_edit_step_1(){
 
 						<div class="form-group">
 							<label for="location[postal_code]"><span class="redrisk">*</span> Postal Code:</label>
-							<input type="text" name="location[postal_code]" class="input-field required">
+							<input type="text" name="location[postal_code]" class="input-field required" value="<?= $postal_code ?>">
 						</div>
 					</div>
 

@@ -67,9 +67,9 @@
 							<div class="sbp--nav_set">
 								<a href="" class="has-sub-menu">Profile <i class="fa fa-caret-right" aria-hidden="true"></i></a>
 								<div class="sub-menu">
-									<a href="<?= home_url('/jobseeker/dashboard/profile/view/information/') ?>">Basic Information</a>
-									<a href="<?= home_url('/jobseeker/dashboard/profile/view/experience/') ?>">Experience</a>
-									<a href="<?= home_url('/jobseeker/dashboard/profile/view/others/') ?>">Other Information</a>
+									<a href="<?= home_url('/jobseeker/dashboard/profile/view/information/') ?>">Personal Information</a>
+									<a href="<?= home_url('/jobseeker/dashboard/profile/view/experience/') ?>">Career</a>
+									<a href="<?= home_url('/jobseeker/dashboard/profile/view/others/') ?>">Strengths</a>
 								</div>
 							</div>
 
