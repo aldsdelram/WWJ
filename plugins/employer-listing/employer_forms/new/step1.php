@@ -3,8 +3,38 @@
 function employer_reg_show_step_1(){
 
 	if(isset($_REQUEST['next'])){
+
 		$post_data = $_REQUEST;
 		$step1_data = [];
+
+
+		$post_id = 0;
+		$args = array(
+		    'author' => get_current_user_id(),
+		    'post_type' => 'comp_profile',
+		);
+		$author_posts = new WP_Query( $args );
+
+		if( $author_posts->have_posts() ) {
+		    while( $author_posts->have_posts()) {
+		        $author_posts->the_post();
+		    	$post_id = get_the_ID();
+		    }
+		    wp_reset_postdata();
+		}
+		else{
+			$post = array(
+			   'post_author' => get_current_user_id(),
+			   'post_content' => '',
+			   'post_status' => 'draft', //draft
+			   'post_title' => $post_data['company_info']['name'],
+			   'post_parent' => '',
+			   'post_type' => 'comp_profile'
+			);
+			$post_id = wp_insert_post($post);
+		}
+
+
 
 		$ignore = [
 			'company',
@@ -50,7 +80,55 @@ function employer_reg_show_step_1(){
 				$step1_data['logo'] = '';
 		}
 
+
 		update_user_meta(get_current_user_id(), 'emp_step1_data', $step1_data);
+		$step1 = get_user_meta(get_current_user_id(), 'emp_step1_data', true);
+		$name = $step1['company_info']['name'];
+		$industry = $step1['company_info']['industry'];
+		$size = $step1['company_info']["size"];
+		$website = $step1['company_info']["website"];
+		$socials = $step1['company_info']['social'];
+		$tel_no = $step1['company_info']["telno"];
+		$fax_no = $step1['company_info']["fax"];
+		$about_us = $step1['about_us'];
+		$address = $step1['location']['address'];
+		$postal_code = $step1['location']['postal_code'];
+		$cover_photo = $step1['cover_photo'];
+		$logo = $step1["logo"];
+
+		update_field('banner_image', $cover_photo, $post_id);		
+		update_field('company_logo', $logo, $post_id);		
+		update_field('industry', $industry, $post_id);		
+		update_field('size', $size, $post_id);		
+		update_field('website', $size, $post_id);
+		$value = [];
+		foreach($socials as $social){
+			$value[] =
+			array(				
+				"page" => $social
+			);
+		}
+		update_field( 'telephone_number', $tel_no, $post_id );
+		update_field( 'fax_number', $fax_number, $post_id);		
+		update_field( 'about_us_content', $about_us, $post_id);		
+		update_field( 'location', $location, $post_id);		
+		update_field( 'postal_code', $postal_code, $post_id);		
+
+
+		// $value = [];
+		// foreach($services as $service){
+		// 	$value[] =
+		// 	array(				
+		// 		"our_services_image" => $service['photo'],
+		// 		"our_services_title" => $service['name'],
+		// 		"our_services_description" => $service['description']
+		// 	);
+		// }
+		// update_field( 'our_services_repeater', $value, $post_id );
+
+		// echo "testing";
+		// echo $post_id;
+
 		wp_redirect(home_url('/employer/dashboard/registration/step-02/'));
 
 

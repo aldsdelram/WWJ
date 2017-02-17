@@ -1,6 +1,6 @@
 <?php
 
-function employer_reg_show_step_2(){
+function employer_reg_edit_step_2(){
 
 	if(isset($_REQUEST['next'])){
 		$post_data = $_REQUEST;
@@ -47,9 +47,9 @@ function employer_reg_show_step_2(){
 
 		$team_members = [];
 		foreach( $post_data['team_members']['staffname'] as $key => $name){
-			$service = [];
-			$service['staffname'] = $name;
-			$service['position']= $post_data['team_members']['position'][$key];
+			$team_member = [];
+			$team_member['staffname'] = $name;
+			$team_member['position']= $post_data['team_members']['position'][$key];
 			if(isset($post_data['team_members']['photo'][$key])){
 				if($post_data['team_members']['photo'][$key] !=null){
 					$attachment = upload_photo($post_data['team_members']['photo'][$key]);
@@ -60,12 +60,12 @@ function employer_reg_show_step_2(){
 							wp_delete_attachment( $meta['photo'], true );
 						}
 					}
-					$service['photo'] = $attachment['ID'];
+					$team_member['photo'] = $attachment['ID'];
 				}
 				else
-					$service['photo'] = '';
+					$team_member['photo'] = '';
 			}
-			$team_members[] = $service;
+			$team_members[] = $team_member;
 		}
 
 		$step2_data['team_members'] = $team_members;

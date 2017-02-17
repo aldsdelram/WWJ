@@ -94,55 +94,96 @@
 				<div id="candidate-backdrop">
 					<div class="registration-message"></div>
 					<ul class="list candidates-list rd-row">
-						<?php for ( $i = 0; $i <= 25; $i++ ) : ?>
-							<li class="candidates-item rd-col-lg-3 rd-col-md-6 rd-col-xs-12">
-								<div class="item-container">
-									<div class="img-container" style="background: url( '<?= home_url( 'skubbswp/wp-content/uploads/2016/12/janelle-chan.png' ) ?>' ) no-repeat top center; background-size: cover;">
-										<div class="btn-unlock">Unlock Now</div>
-									</div>
-									<div class="jobseeker-details">
-										<div class="rd-row rd-between-xs rd-middle-xs">
-											<h3 class="name">Janelle Chan</h3>
-											<div class="add-to-fave added"><i class="fa fa-star" aria-hidden="true"></i></div>
-											<?php 
-												$ind_rand = rand(0, count($industries)-1);
-												$position = $industries[$ind_rand]->name;
-												$position_id = $industries[$ind_rand]->term_id;
-												$salary = rand(0,30000);
-												$region = $regions[rand(0, count($regions)-1)]->name;
-												$region_id = $regions[rand(0, count($regions)-1)]->term_id;
-												$availability = rand(1,12);
-												$yoe = rand(1,5);
-											?>
-											<p class="position">Open Position: <?= $position?></p>
-											<p>Desired Salary: <?= wc_price($salary)?></p>
-											<div class="hidden_informations" style="display:none">
-												<p class="desired_position"><?= $position_id?></p>
-												<p class="industry"><?=$position?></p>
-												<p class="salary"><?=$salary?></p>
-												<p class="region"><?=$region_id?></p>
-												<p class="availability"><?=$availability?></p>
-												<p class="yoe"><?=$yoe?></p>
+
+						<?php 
+							$args = array(
+								'role' => 'candidate',
+							); 
+
+							$user_query = new WP_User_Query($args);
+							$authors = $user_query->get_results();
+							?>
+							<?php if (!empty($authors)):?>
+							    <?php foreach ($authors as $author): ?>
+							    	<?php
+							   			// $region = $regions[rand(0, count($regions)-1)]->name;
+										// $region_id = $regions[rand(0, count($regions)-1)]->term_id;
+
+							    		$candidate_id =  $author->ID;
+
+					    				$step1 = get_user_meta($candidate_id, 'step1_data', true);
+										$step2 = get_user_meta($candidate_id, 'step2_data', true);
+										$step3 = get_user_meta($candidate_id, 'step3_data', true);
+
+					    				$profile_picture = wp_get_attachment_url($step1['photo_base_64']);
+										$firstname = $author->user_firstname;
+										$lastname  = $author->user_lastname;
+										$desired_salary = $step2['desired_salary'];
+										$position_id = $step2["field_of_expertise"]; 
+										$position = Job_Listing::GetIndustryByID($position_id);
+										$about_me = $step3['other_description'];
+										$availability = $step2["o_start_year"];
+										$yoe = $step2['expertise_years'];
+							    	?>
+							    	<li class="candidates-item rd-col-lg-3 rd-col-md-6 rd-col-xs-12">
+										<div class="item-container">
+											<?php if($profile_picture): ?>
+											<div class="img-container" style="background: url( '<?= $profile_picture ?>' ) no-repeat top center; background-size: cover;">
+											<?php else: ?>
+											<div class="img-container" style="background: url( '<?= wp_get_attachment_url(14) ?>' ) no-repeat top center; background-size: cover;">
+											<?php endif; ?>
+												<div class="btn-unlock">Unlock Now</div>
 											</div>
-										</div>
-									</div> <!-- end of .jobseeker-details -->
-									<div class="other-details">
-										<ul>
-											<li>
-												<div class="rd-row rd-center-xs rd-middle-xs">
-													<div>58 Views</div>
-													<div class="separator">|</div>
-													<div>3 Shortlisted</div>
+											<div class="jobseeker-details">
+												<div class="rd-row rd-between-xs rd-middle-xs">
+													<h3 class="name"><?= $firstname.' '.$lastname ?></h3>
+													<div class="add-to-fave added"><i class="fa fa-star" aria-hidden="true"></i></div>
+													<?php 
+														// $ind_rand = rand(0, count($industries)-1);
+														// $position = $industries[$ind_rand]->name;
+														// $position_id = $industries[$ind_rand]->term_id;
+														// $salary = rand(0,30000);
+														// $region = $regions[rand(0, count($regions)-1)]->name;
+														// $region_id = $regions[rand(0, count($regions)-1)]->term_id;
+														// $availability = rand(1,12);
+														// $yoe = rand(1,5);
+													?>
+													<p class="position">Open Position: <?= $position?></p>
+													<p>Desired Salary: <?= wc_price($desired_salary)?></p>
+													<div class="hidden_informations" style="display:none">
+														<p class="desired_position"><?= $position_id?></p>
+														<p class="industry"><?=$position?></p>
+														<p class="salary"><?=$salary?></p>
+														<p class="region"><?=$region_id?></p>
+														<p class="availability"><?=$availability?></p>
+														<p class="yoe"><?=$yoe?></p>
+													</div>
 												</div>
-											</li>
-											<li>
-												<p>I am a person that learn quickly and perform better under pressure, am a very good team player. . .</p>
-											</li>
-										</ul>
-									</div> <!-- end of .other-details -->
-								</div> <!-- end of .item-container -->
-							</li> <!-- end of .candidates-item -->
-						<?php endfor; ?>
+											</div> <!-- end of .jobseeker-details -->
+											<div class="other-details">
+												<ul>
+													<li>
+														<div class="rd-row rd-center-xs rd-middle-xs">
+															<div>58 Views</div>
+															<div class="separator">|</div>
+															<div>3 Shortlisted</div>
+														</div>
+													</li>
+													<li>
+														<p><?= $about_me ?></p>
+													</li>
+												</ul>
+											</div> <!-- end of .other-details -->
+										</div> <!-- end of .item-container -->
+									</li> <!-- end of .candidates-item -->
+							    <?php endforeach; ?>
+							<?php else: ?>
+							<?php endif; ?>
+
+						?>
+
+
+						
 					</ul> <!-- end of .candidates-list -->
 				</div>
 				<div class="pagination-container">

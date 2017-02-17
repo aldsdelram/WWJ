@@ -11,10 +11,7 @@
 	*/
 
 	include( plugin_dir_path( __FILE__ ) . '/shortcodes.php'); 
-	include( plugin_dir_path( __FILE__ ) . '/employer_forms/main.php'); 
-	include( plugin_dir_path( __FILE__ ) . '/job_posting/main.php'); 
-	include( plugin_dir_path( __FILE__ ) . '/job-posting-list.php'); 
-	
+	include( plugin_dir_path( __FILE__ ) . '/employer_forms/main.php'); 	
 
 	
 // ENQUEUE SCRIPTS
