@@ -321,6 +321,16 @@
     }
 }
 
+.ev--skill_box {
+    color: #616161;
+    display: inline-block;
+    border: 1px solid #d2d2d2;
+    padding: 2px 10px;
+    margin-right: 12px;
+    font-size: 14px;
+    background-color: #e5e5e5;
+}
+
 /* ________________________ =EXPERIENCE */
 
 .exp--sets {
@@ -418,10 +428,12 @@
 
 
 .cert_image_container {
-    height: 100px;
-    width: 100px;
+    height: 150px;
+    width: 200px;
     background-size: cover;
     margin: 5px;
+    display: inline-block;
+    background-color: #f7f7f7;
 }
 
 
@@ -999,3 +1011,4 @@
 .jlv--main_navs .jlv--btn-red {
     background-color: #da1f26;
 }
+

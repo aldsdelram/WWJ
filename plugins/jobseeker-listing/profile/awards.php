@@ -85,7 +85,7 @@ function edit_awards_content(){
 
 		<div class="btsp-container-fluid white-bg-views experience-view--main_content">
 			<div id="resume-form">
-				<div class="resume-content">
+				<div class="resume-content" style="padding: 0;">
 					<form action="" method="POST" id="awards_edit" enctype="multipart/form-data">
 						<div class="form-container">
 							<div class="form-divider certificate_container">
@@ -93,10 +93,10 @@ function edit_awards_content(){
 									<h3>Achievements</h3>
 								</div>
 								<div class="fields-repeater certificate_repeater">
-									<div class="form-group">
+									<div class="form-group text-center">
 										<div class="btn-panel">
 											<div class="cert_image_container" data-name="cert_image[0]"></div>
-											<div class="upload-button step3-upload">
+											<div class="upload-button step3-upload" style="margin: 0 auto 20px;">
 												<input type="file" class="cert_image" data-name="cert_image[0]"/>
 												<p><span><i class="fa fa-plus fa-fw" aria-hidden="true"></i></span> Upload Image</p>
 												<input type="text" class="cert_image_64" name="cert_image[0]" style="display:none" />
