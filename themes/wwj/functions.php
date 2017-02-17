@@ -89,6 +89,11 @@
 		        wp_redirect( home_url('/jobseeker/dashboard/resume/step01') );
 		        exit;
 	    	}
+	    	else{
+		    	update_user_meta($user_id, 'wwj_first_login', '0');
+		        wp_redirect( home_url('/employer/dashboard/registration/step-01/') );
+		        exit;	
+	    	}
 	    }
 	}
 	add_action('wp_login', 'first_login', 10, 2);

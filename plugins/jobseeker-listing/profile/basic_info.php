@@ -56,7 +56,7 @@ function view_profile_content(){
 					<!-- Date of Birth -->
 					<div class="row">
 						<div class="col-sm-6"><strong class="textcolor--gray">Date of Birth:</strong></div>
-						<div class="col-sm-6"><strong><?= $bday->format("M-d-Y"); ?></strong></div>
+						<div class="col-sm-6"><strong><?= $bday != null ? $bday->format("M-d-Y"): ''; ?></strong></div>
 					</div>
 
 					<!-- Gender -->
@@ -390,7 +390,7 @@ function edit_profile_content(){
 
 							<div class="form-group">
 								<label class="required" for="birthday"><strong><span class="text-red">*</span> Date of Birth</strong></label>
-								<input name="birthday" id="birthday" type="text" class="datepicker input-field required" placeholder="dd-mm-yy" readonly="" value="<?= $bday->format('d-m-Y') ?>">
+								<input name="birthday" id="birthday" type="text" class="datepicker input-field required" placeholder="dd-mm-yy" readonly="" value="<?= $bday != null ? $bday->format('d-m-Y') : '' ?>">
 							</div>
 
 							<div class="form-group">
@@ -609,12 +609,12 @@ function edit_profile_content(){
 						<div class="resume-content">
 							<div class="form-group">
 								<label for="fullname"><strong>First Name</strong></label>
-								<input type="text" name="firstname" class="input-field required">
+								<input type="text" name="firstname" class="input-field required" value="<?= $firstname?>">
 							</div>
 
 							<div class="form-group">
 								<label for="fullname"><strong>Last Name</strong></label>
-								<input type="text" name="lastname" class="input-field required">
+								<input type="text" name="lastname" class="input-field required" value="<?= $lastname?>">
 							</div>
 
 							<div class="form-group">

@@ -38,7 +38,11 @@ jQuery( document ).ready( function($) {
 		$('.addresstomap').addClass('scrolloffmap');
 	}
 
-	showmap("");
+	var init_address = '';
+	if($('#location_address').val()){
+		showmap($(this).val());
+	}
+
 
 	$("#location_address").on("keyup", function(e) {
 		var addr = $(this).val();

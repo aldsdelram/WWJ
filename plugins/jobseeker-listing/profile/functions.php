@@ -117,7 +117,6 @@
 	function create_profile_container($icon, $editIcon, $edit_url, $title, $content) {
 		ob_start();
 		?>
-
 		<div class="profile--container">
 
 			<div class="btsp-container-fluid profile-view--header">
