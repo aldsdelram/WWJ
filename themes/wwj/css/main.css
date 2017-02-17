@@ -11,6 +11,10 @@ body {
 	color: #363636;
 }
 
+#ui-datepicker-div {
+	z-index: 9999 !important;
+}
+
 .text-red {
 	color: #df141d;
 }
@@ -1999,7 +2003,8 @@ body {
 	background: #e5e5e5;
 	-webkit-transition: .5s;
 	transition: .5s;
-	z-index: 999;
+	z-index: 9;
+    min-height: 100vh;
 }
 
 .dashboard-page .toggle-sidebar {

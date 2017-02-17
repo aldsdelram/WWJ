@@ -604,10 +604,11 @@
 .gray--header_bg {
     background: #616161;
     color: #fff;
+    padding: 0 30px;
 }
 
 .gray--header_title {
-    padding: 20px 10px;
+    padding: 20px 0;
     font-family: "Oswald";
     font-weight: 400;
 }
