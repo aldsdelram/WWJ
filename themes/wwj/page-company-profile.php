@@ -53,9 +53,9 @@
 	<?php wp_head(); ?>
 </head>
 
-<body>
+<body class="company-profile-template">
 
-	<main id="main-wrapper" class="company-profile-template">
+	<main id="main-wrapper" >
 		<header id="main-header">
 			<div class="top-bar">
 				<div class="container">
@@ -149,7 +149,7 @@
 		</section>
 		
 		<!-- 4: TEAM MEMBERS -->
-		<!--
+		
 		<section id="c-profile--team_members">
 			<div class="btsp-container">
 				<div class="row">
@@ -158,21 +158,21 @@
 
 						<div class="cp--flex-grid">
 
-							<?php# foreach($services as $service): ?>
-								<?php if($team_members['staffname'] != null) :?>
+							<?php foreach($team_members as $team_member): ?>
+								<?php if($team_member['staffname'] != null) :?>
 									<div class="cp--flex_set">
-									<?php if($team_members['logo'] == ''): ?>
+									<?php if($team_member['photo'] == ''): ?>
 										<div class="cp--flex-image" style="background-image: url(''); border-color: #8d9f31;"></div>
 									<?php else: ?>
-											<div class="cp--flex-image" style="background-image: url('<?= wp_get_attachment_url($team_members['logo'])?>'); border-color: #8d9f31;"></div>
+											<div class="cp--flex-image" style="background-image: url('<?= wp_get_attachment_url($team_member['photo'])?>'); border-color: #8d9f31;"></div>
 										<?php endif; ?>
-										<h3 class="cp--flex-title"><?= $team_members['staffname']?></h3>
+										<h3 class="cp--flex-title"><?= $team_member['staffname']?></h3>
 										<div class="cp--os-desc">
-											<?= $team_members['position'] ?>
+											<?= $team_member['position'] ?>
 										</div>
 									</div>	
 								<?php endif;?>
-							<?php# endforeach; ?>
+							<?php endforeach; ?>
 
 							<!--div class="cp--flex_set">
 								<div class="cp--flex-image" style="background-image: url('http://preskubbs.com/wwj2/skubbswp/wp-content/uploads/2017/02/sam-co.jpg'); border-color: #8d9f31;"></div>
@@ -204,14 +204,13 @@
 								<div class="cp--flex-desc">
 									Staff Member
 								</div>
-							</div>
+							</div-->
 						</div>
 
 					</div>
 				</div>
 			</div>
 		</section>
-		-->
 
 		<section id="c-profile--testimonials">
 			<div class="btsp-container">

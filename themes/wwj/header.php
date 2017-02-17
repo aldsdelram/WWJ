@@ -6,7 +6,7 @@
 	<title>Work Work Jay</title>
 	<?php wp_head(); ?>
 </head>
-<body class="<?= is_user_logged_in() ? 'logged-in' : '' ?>">
+<body class="<?= is_user_logged_in() ? 'logged-in' : '' ?> <?= 'page-'.get_the_ID()?>">
 	<main id="main-wrapper" class="<?= str_replace( ' ', '-', strtolower( get_the_title() ) ) . '-page' ?>">
 		<header id="main-header" class="<?= str_replace( ' ', '-', strtolower( get_the_title() ) ) . '-header' ?>">
 			<?php if ( !is_page( 'splash' ) ): ?>
@@ -15,15 +15,10 @@
 						<div class="rd-row rd-between-xs rd-middle-xs">
 							<div class="login-register">
 								<ul class="rd-row rd-middle-xs">
-									<?php if ( is_subpage() == 127 ): ?>
-										<li><a href="javascript:void(0)" class="show-modal" data-modal="#login-emp-modal">Login</a></li>
-										<li><a href="javascript:void(0)" class="show-modal" data-modal="#register-emp-modal">Register</a></li>
-									<?php else: ?>
+									<?php if ( is_user_logged_in() ) :?>
 										<li>
-											<?php
-												if ( is_user_logged_in() ) :
-													$current_user = wp_get_current_user();
-											?>
+											<?php if ( is_user_logged_in() ) : ?>
+												<?php $current_user = wp_get_current_user(); ?>
 												<div class="has-dropdown">
 													<span>Hello, <?= $current_user->user_login ?></span>
 													<div class="dropdown-content">
@@ -34,10 +29,10 @@
 																<li><a href="<?= home_url('/jobseeker/dashboard/profile/view/information')?>">Dashboard</a></li>
 																<li><a href="<?= home_url('/jobseeker/dashboard/profile/view/information')?>">Profile</a></li>
 													    	<?php else: ?>
-																<li><a href="#">Dashboard</a></li>
-																<li><a href="#">Profile</a></li>
+																<li><a href="<?= home_url('/employer/dashboard/home')?>">Dashboard</a></li>
+																<li><a href="<?= home_url('/employer/company-profile-view/')?>">Profile</a></li>
 													    	<?php endif; ?>
-
+													    	<li><a href="<?= wp_logout_url( get_permalink( get_the_ID() ) ); ?>">Logout</a></li>
 														</ul>
 													</div> <!-- end of .dropdown-content -->
 												</div> <!-- end of .has-dropdown -->
@@ -45,14 +40,17 @@
 												<a href="javascript:void(0)" class="show-modal" data-modal="#login-cand-modal">Login</a>
 											<?php endif ?>
 										</li>
-										<li>
-											<?php if ( is_user_logged_in() ) : ?>
-												<a href="<?= wp_logout_url( get_permalink( get_the_ID() ) ); ?>">Logout</a>
-											<?php else: ?>
-												<a href="javascript:void(0)" class="show-modal" data-modal="#register-cand-modal">Register</a>
-											<?php endif ?>
-										</li>
-									<?php endif ?>
+
+									<?php else: ?>
+										<?php if(is_subpage() == 127):?>
+											<li><a href="javascript:void(0)" class="show-modal" data-modal="#login-emp-modal">Login</a></li>
+											<li><a href="javascript:void(0)" class="show-modal" data-modal="#register-emp-modal">Register</a></li>
+										<?php else: ?>
+											<li><a href="javascript:void(0)" class="show-modal" data-modal="#login-cand-modal">Login</a></li>
+											<li><a href="javascript:void(0)" class="show-modal" data-modal="#register-cand-modal">Register</a></li>
+										<?php endif; ?>
+
+									<?php endif;?>
 								</ul>
 							</div> <!-- end of .login-register -->
 							<div class="cart">
