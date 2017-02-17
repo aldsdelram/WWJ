@@ -379,13 +379,18 @@
 
 .jpl--sorting_links ul li {
 	display: inline-block;
-    margin-right: 30px;
+    margin-right: 40px;
+}
+
+.jpl--sorting_links ul li:last-child {
+    margin-right: 0;
 }
 
 .jpl--sorting_links ul li a {
     padding: 18px 0 10px;
     display: inline-block;
-    margin-bottom: 12px;
+    margin-bottom: 16px;
+    color: #303841;
 }
 
 .jpl--sorting_links ul .sort-active a,
@@ -398,6 +403,7 @@
     color: #fff;
     margin: 15px 0;
     border-radius: 25px;
+    max-width: 220px;
 }
 
 .jpl--search label {
@@ -414,7 +420,7 @@
 }
 
 .jpl--single_set {
-
+	margin-bottom: 40px;
 }
 
 .jpl--ss_info h2 {
@@ -424,7 +430,7 @@
 }
 
 .jpl--ss_info h4 {
-    font-size: 15px;
+    font-size: 16px;
     font-weight: 600;
     line-height: 25px;
     margin-bottom: 15px;
@@ -512,5 +518,34 @@
     display: flex;
     justify-content: space-around;
     font-size: 14px;
-    margin-top: 5px;
+}
+
+.jpl--paginator {
+	text-align: right;
+}
+
+.jpl--paginator ul {
+	list-style-type: none;
+	display: inline-block;
+	margin-left: 10px;
+}
+
+.jpl--paginator ul li {
+	display: inline-block;
+}
+
+.jpl--paginator ul li a {
+    border: 1px solid #b3b3b3;
+    padding: 2px 9px;
+    margin-left: 4px;
+    -webkit-transition: all .3s ease-in-out;
+    -moz-transition: all .3s ease-in-out;
+    -o-transition: all .3s ease-in-out;
+    transition: all .3s ease-in-out;
+}
+
+.active-paginator a,
+.jpl--paginator ul li:hover a {
+	background-color: #df141d;
+	color: #fff;
 }
