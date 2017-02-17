@@ -16,8 +16,9 @@
 		wp_redirect( get_permalink( $firstchild->ID ) );
 	}
 
-
+	// ------------------------------------
 	// MISCELLANEOUS
+	// ------------------------------------
 
 	$company_details = get_user_meta(get_current_user_id(), 'emp_step1_data', true);
 	$job_category = get_the_terms( $post->ID, 'job_listings_category');
@@ -85,7 +86,7 @@
 							</div>
 
 							<div class="jlv--applied_box">
-								<p>APPLIED<br><strong>26</strong></p>
+								<p>APPLIED<br><strong>----</strong></p>
 							</div>
 						</div>
 					</div>
@@ -141,8 +142,8 @@
 							<div class="jlv--sidebar_cats">
 								<p><span class="jlv--cat_name">Job Industry:</span><br> <?php echo $job_category[0]->name; ?></p>
 								<p><span class="jlv--cat_name">Employment Type:</span><br> <?php echo $job_type[0]->name; ?></p>
-								<p><span class="jlv--cat_name">Working Hours:</span><br> 9 AM - 6 PM </p>
-								<p><span class="jlv--cat_name">Shift Pattern:</span><br> 5 Day Work Week</p>
+								<p><span class="jlv--cat_name">Working Hours:</span><br> [9 AM - 6 PM] </p>
+								<p><span class="jlv--cat_name">Shift Pattern:</span><br> [5 Day Work Week]</p>
 								<p><span class="jlv--cat_name">Salary:</span><br> <?php the_field('min_salary'); ?> - <?php the_field('max_salary'); ?></p>
 								<p><span class="jlv--cat_name">Job Level:</span><br> <?php the_field('employment_level'); ?></p>
 								<p><span class="jlv--cat_name">Min. Years of Experience:</span><br> <?php the_field('year_of_experience'); ?></p>

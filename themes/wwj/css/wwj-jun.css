@@ -352,3 +352,9 @@
 .flex-5-con > div {
     width: 160px;
 }
+
+
+.company-profile-template #main-footer .google-map,
+.company-profile-template #main-footer .information {
+    display:none;
+}

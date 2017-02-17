@@ -25,10 +25,25 @@ jQuery( document ).ready( function($) {
 	    });
 	}
 
-	//dashboard sidebar
+	// =dashboard =sidebar
 	$( '.toggle-sidebar' ).on( 'click', function() {
 		$( this ).closest( '.dashboard-page' ).toggleClass( 'close-sidebar' );
+
+		if($('.sidebar--container').is(':visible')) {
+		    $('.sidebar--container').fadeOut(150);
+		} else {
+			$('.sidebar--container').delay(200).fadeIn(500);
+		}
+
 	});
+
+	$(document).on('click', '.has-sub-menu', function(e){
+		e.preventDefault();
+		$(this).parent().toggleClass('active');
+		$(this).next('.sub-menu').slideToggle('fast');
+		$(this).find('i').toggleClass('fa-caret-down fa-caret-right');
+	});
+
 
 	//calendar
 	$( function() {
@@ -193,9 +208,6 @@ jQuery(document).on('blur', '.input-field', function(){
 
 
 
-jQuery(document).on('click', '.has-sub-menu', function(e){
-	e.preventDefault();
-	jQuery(this).parent().toggleClass('active');
-});
+
 
 
