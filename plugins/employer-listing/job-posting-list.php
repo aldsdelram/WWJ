@@ -14,6 +14,24 @@ ob_start();
 		</div>
 	</div>
 
+	<div class="btsp-container-fluid jpl--sorting_links">
+		<div class="row">
+			<div class="col-xs-12">
+				<ul>
+					<li>All (2)</li>
+					<li>Draft (0)</li>
+					<li>Pending (1)</li>
+					<li>Expired (0)</li>
+				</ul>
+
+				<div class="jpl--search">
+					
+					<input type="text">
+				</div>
+			</div>
+		</div>
+	</div>
+
 	<div class="btsp-container-fluid white-bg-views jinv--main">
 	</div>
 
