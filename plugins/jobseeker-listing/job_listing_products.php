@@ -202,7 +202,7 @@
 								<div><?= get_the_content(); ?></div>
 							</div> <!-- end of .product-details -->
 							<div class="btn-panel">
-								<a href="javascript:void(0)" onclick="javascript:document.getElementById('add_to_cart_<?= get_the_ID(); ?>').submit();">Buy</a>
+								<a class="hvr-underline-from-center" href="javascript:void(0)" onclick="javascript:document.getElementById('add_to_cart_<?= get_the_ID(); ?>').submit();">Buy</a>
 								<form id="add_to_cart_<?= get_the_ID(); ?>" method="post"><input name="add-to-cart" value="<?= get_the_ID(); ?>" type="hidden"><input name="wpuw_add_product" value="1" type="hidden"></form>
 							</div>
 						</div>

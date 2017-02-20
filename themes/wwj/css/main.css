@@ -1044,6 +1044,10 @@ body {
 	position: relative;
 }
 
+._gold .hvr-underline-from-center:before {
+	background-color: #dc8600;
+}
+
 #main-section .toolkit-list li ._gold .most-popular-badge {
 	position: absolute;
     z-index: 10;
@@ -1069,6 +1073,11 @@ body {
 #main-section .toolkit-list li ._3-in-1 .price .number {
 	background: #d200ff;
 }
+
+._3-in-1 .hvr-underline-from-center:before {
+	background-color: #8f05ad;
+}
+
 
 #main-section .toolkit-list li ._3-in-1 .item-header:after {
 	border-color: rgba(210, 0, 255, 0);
@@ -3593,4 +3602,10 @@ form .upme-login-register-link:hover {
     font-weight: normal;
     display: inline-block;
     padding: 13px 25px;
+}
+
+.red-btn-variant-1.hvr-ripple-out:before {
+    border: #ea1a23 solid 4px;
+    -webkit-animation-duration: .5s;
+    animation-duration: .5s;
 }

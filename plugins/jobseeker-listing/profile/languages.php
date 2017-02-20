@@ -10,16 +10,23 @@ function view_languages_content(){
 	?>
 		<div class="btsp-container-fluid white-bg-views experience-view--main_content">
 			<?php for($i=1; $i<=5; $i++): ?>
+
+				<?php $lang_contents = ''; ?>
+
+				<?php foreach($languages as $language): ?>
+					<?php if($language['rating'] == $i): ?>
+						<?php $lang_contents .= '<span class="ev--skill_box">' . $language['name'] . '</span>'; ?>
+					<?php endif; ?>
+				<?php endforeach; ?>
+
 				<div class="row">
 					<div class="col-xs-12 col-md-4">
-						<?= WWJ::getRatingDescription($i)?>
+						<?php if($lang_contents) : ?>
+							<?= WWJ::getRatingDescription($i); ?>
+						<?php endif; ?>
 					</div>
 					<div class="col-xs-12 col-md-8">
-						<?php foreach($languages as $language): ?>
-							<?php if($language['rating'] == $i): ?>
-								<?= $language['name'] ?>
-							<?php endif; ?>
-						<?php endforeach; ?>
+						<?= $lang_contents; ?>
 					</div>
 				</div>
 			<?php endfor; ?>
