@@ -90,18 +90,28 @@
 						</div>
 					</div> <!-- end of .form-group -->	
 
+					
+
 					<div class="form-group">
-						<h3 class="required">Nationality</h3>
-						<div class="dropdown-input">
-							<input type="text" name="nationality" class="dropdown-data input-field" readonly/>
-							<ul class="option_nationality">
-							<?php $nationalities = WWJ::getNationalities(); ?>
-							<?php foreach ($nationalities as $key => $value): ?>
-								<li data-value="<?= $key ?>"><?= $value ?></li>
-							<?php endforeach; ?>
-							</ul>
+						<div class="dropdown-search-input">
+							<h3 class="required">Nationality</h3>
+							<input type="text" name="nationality" class="dropdown-data input-field" />
+							<div class="dropdown-list">
+								<div>
+									<input class="filter-dropdown" type="text">
+								</div>
+								<ul class="nationality_options">
+									<?php $nationalities = WWJ::getNationalities(); ?>
+									<?php foreach ($nationalities as $key => $value): ?>
+										<li data-value="<?= $key ?>"><?= $value ?></li>
+									<?php endforeach; ?>
+								</ul>
+							</div>
 						</div>
-					</div> <!-- end of .form-group -->
+					</div>
+
+
+
 
 				</div> <!-- end of .left-form -->
 
@@ -110,22 +120,29 @@
 					<div class="form-group">
 						<h3 class="required">What is your highest educational level?</h3>
 						<div class="form-group">
-							<label for="tertiary">Educational Level</label>
-							<div class="dropdown-input">
-								<input type="text" name="tertiary" class="dropdown-data input-field" readonly/>
-								<ul class="option_tertiary">
-									<li>No Formal Qualification</li>
-									<li>PSLE &amp; Belowo Secondary or Equivalent</li>
-									<li>GCE 'N' Level / GCE 'O' Level / GCE A'Level</li>
-									<li>Professional Certificates</li>
-									<li>Diploma</li>
-									<li>Degree</li>
-									<li>Master</li>
-									<li>Doctorate</li>
-								</ul>
-							</div> <!-- end of .dropdown-input -->
+							<div class="dropdown-search-input">
+								<label for="tertiary">Educational Level</label>
+								<input type="text" name="tertiary" class="dropdown-data input-field" />
+								<div class="dropdown-list">
+									<div>
+										<input class="filter-dropdown" type="text">
+									</div>
+									<ul class="tertiary_options">
+										<li>No Formal Qualification</li>
+										<li>PSLE &amp; Belowo Secondary or Equivalent</li>
+										<li>GCE 'N' Level / GCE 'O' Level / GCE A'Level</li>
+										<li>Professional Certificates</li>
+										<li>Diploma</li>
+										<li>Degree</li>
+										<li>Master</li>
+										<li>Doctorate</li>
+									</ul>
+								</div>
+							</div>
 						</div>
-					</div> <!-- end of .form-group -->
+					</div>
+
+
 
 					<div class="form-group">
 						<label for="course">Course</label>
@@ -134,28 +151,40 @@
 
 					<div class="form-divider rd-row rd-between-xs">
 						<div class="left-form">
+
 							<div class="form-group">
-								<label for="start_year">Start Year</label>
-								<div class="dropdown-input">
+								<div class="dropdown-search-input">
+									<label for="start_year">Start Year</label>
 									<input type="text" name="start_year" class="dropdown-data input-field" readonly/>
-									<ul class="option_star_year">
-										<?php for( $i = date( 'Y' ); $i >= 1950; $i-- ) : ?>
-											<li><?= $i ?></li>
-										<?php endfor; ?>
-									</ul>
-								</div> <!-- end of .dropdown-input -->
+									<div class="dropdown-list">
+										<div>
+											<input class="filter-dropdown" type="text">
+										</div>
+										<ul class="option_star_year">
+											<?php for( $i = date( 'Y' ); $i >= 1950; $i-- ) : ?>
+												<li><?= $i ?></li>
+											<?php endfor; ?>
+										</ul>
+									</div>
+								</div>
 							</div>
 						</div> <!-- end of .left-form -->
+
 						<div class="right-form">
 							<div class="form-group">
-								<label for="end_year">End Year</label>
-								<div class="dropdown-input">
+								<div class="dropdown-search-input">
+									<label for="end_year">End Year</label>
 									<input type="text" name="end_year" class="dropdown-data input-field" readonly/>
-									<ul class="option_end_year">
-										<?php for( $i = date( 'Y' ); $i >= 1950; $i-- ) : ?>
-											<li><?= $i ?></li>
-										<?php endfor; ?>
-									</ul>
+									<div class="dropdown-list">
+										<div>
+											<input class="filter-dropdown" type="text">
+										</div>
+										<ul class="option_star_year">
+											<?php for( $i = date( 'Y' ); $i >= 1950; $i-- ) : ?>
+												<li><?= $i ?></li>
+											<?php endfor; ?>
+										</ul>
+									</div>
 								</div>
 							</div>
 						</div>
@@ -165,15 +194,22 @@
 
 
 					<div class="form-group">
-						<h3 class="required">What is your employment status?</h3>
-						<div class="dropdown-input">
-							<input type="text" name="employment_status" class="dropdown-data input-field" />
-							<ul class="option_employment_status">
-								<li>Actively Seeking for Job Opportunities</li>
-								<li>Employed but Open to Attractive Offers</li>
-								<li>Satisfied and Not Looking for A Change</li>
-							</ul>
-						</div> <!-- end of .dropdown-input -->
+						<div class="form-group">
+							<div class="dropdown-search-input">
+								<h3 class="required">What is your employment status?</h3>
+								<input type="text" name="employment_status" class="dropdown-data input-field" readonly/>
+								<div class="dropdown-list">
+									<div>
+										<input class="filter-dropdown" type="text">
+									</div>
+									<ul class="option_employment_status">
+										<li>Actively Seeking for Job Opportunities</li>
+										<li>Employed but Open to Attractive Offers</li>
+										<li>Satisfied and Not Looking for A Change</li>
+									</ul>
+								</div>
+							</div>
+						</div>
 					</div>
 
 

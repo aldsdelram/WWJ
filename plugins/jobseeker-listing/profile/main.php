@@ -9,16 +9,40 @@
 
 
 
+	function check_if_completed_resume_form(){
+		$step3 = get_user_meta(get_current_user_id(), 'step3_data', true);
+		$step2 = get_user_meta(get_current_user_id(), 'step2_data', true);
+		$step1 = get_user_meta(get_current_user_id(), 'step1_data', true);
+
+		$link = false;
+		if(!$step3){
+			$link = 'jobseeker/dashboard/resume/step03/';
+		}
+		if(!$step2){
+			$link = 'jobseeker/dashboard/resume/step02/';
+		}
+		if(!$step1){
+			$link = 'jobseeker/dashboard/resume/step01/';
+		}
+		if($link){
+			wp_redirect(home_url($link));
+			exit();
+		}
+	}
+
 	/**
 	 * SHORTCODE FOR BASIC INFO
 	 *
 	 * @return     <type>  ( description_of_the_return_value )
 	 */
 	function view_profile_func(){
+
+		check_if_completed_resume_form();
+
 		$icon    	 = plugins_url() . '/jobseeker-listing/img/icon--view-profile.png';
 		$editIcon    = plugins_url() . '/jobseeker-listing/img/edit-button.png';
 		$edit_url    = home_url('/jobseeker/dashboard/profile/edit/profile/');
-		$title   	 = 'PROFILE';
+		$title   	 = 'PERSONAL INFORMATION';
 		$content 	 = view_profile_content();
 
 		return create_profile_container($icon, $editIcon, $edit_url, $title, $content);
@@ -29,7 +53,7 @@
 	function edit_profile_func(){
 		$icon    	 = plugins_url() . '/jobseeker-listing/img/icon--view-profile.png';
 		$editIcon    = plugins_url() . '/jobseeker-listing/img/edit-button.png';
-		$title   	 = 'PROFILE';
+		$title   	 = 'PERSONAL INFORMATION';
 		$content 	 = edit_profile_content();
 
 		return create_profile_container($icon, '', '', $title, $content);
@@ -64,9 +88,13 @@
 	 * @return     <type>  ( description_of_the_return_value )
 	 */
 	function view_experience_func(){
+
+		check_if_completed_resume_form();
+
+
 		$icon    	 = plugins_url() . '/jobseeker-listing/img/icon--view-experience.png';
 		$editIcon    = plugins_url() . '/jobseeker-listing/img/edit-button.png';
-		$title   	 = 'EXPERIENCE';
+		$title   	 = 'CAREER';
 		$content 	 = view_experience_content();
 
 		return create_profile_container($icon, '', '', $title, $content);
@@ -74,6 +102,10 @@
 	add_shortcode('view-experience', 'view_experience_func');
 
 	function view_others_func(){
+
+		check_if_completed_resume_form();
+
+
 		$html = '';
 		$icon    	 = plugins_url() . '/jobseeker-listing/img/icon--view-experience.png';
 		$editIcon    = plugins_url() . '/jobseeker-listing/img/edit-button.png';
@@ -92,7 +124,7 @@
 	function edit_experience_func(){
 		$icon    	 = plugins_url() . '/jobseeker-listing/img/icon--view-experience.png';
 		$editIcon    = '';
-		$title   	 = 'EXPERIENCE';
+		$title   	 = 'CAREER';
 		$content 	 = edit_experience_content();
 
 		return create_profile_container($icon, $editIcon, '', $title, $content);

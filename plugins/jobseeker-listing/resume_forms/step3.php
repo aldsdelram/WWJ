@@ -121,15 +121,24 @@ function show_step_3(){
 					<textarea name="body_corporate[0]" class="input-field cert_body_corporate" data-autoresize=""></textarea>
 				</div> <!-- end of .form-group -->
 				<div class="form-group">
-					<label for="year">Year</label>
-					<div class="dropdown-input">
-						<input type="text" name="cert_year[0]" class="dropdown-data input-field cert_year" />
-						<ul>
-							<?php for( $i = date( 'Y' ); $i >= 1950; $i-- ) : ?>
-								<li><?= $i ?></li>
-							<?php endfor; ?>
-						</ul>
+
+					<div class="form-group">
+						<div class="dropdown-search-input">
+							<label for="year">Year</label>
+							<input type="text" name="cert_year[0]" class="dropdown-data input-field" readonly/>
+							<div class="dropdown-list">
+								<div>
+									<input class="filter-dropdown" type="text">
+								</div>
+								<ul class="option_star_year">
+									<?php for( $i = date( 'Y' ); $i >= 1950; $i-- ) : ?>
+										<li><?= $i ?></li>
+									<?php endfor; ?>
+								</ul>
+							</div>
+						</div>
 					</div>
+
 				</div> <!-- end of .form-group -->
 			</div>
 		</div> <!-- end of .fields-repeater -->

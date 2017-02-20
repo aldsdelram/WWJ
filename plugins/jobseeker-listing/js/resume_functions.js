@@ -88,7 +88,66 @@
 
             });
 
+
+            search_input_field = [];
+            $('.dropdown-search-input').each(function(key, value){
+                the_dropdow_data = $(this).find('.dropdown-data');
+                console.log(the_dropdow_data);
+                name = the_dropdow_data.attr('name');
+                the_value = the_dropdow_data.attr('value');
+                f_value = the_dropdow_data.attr('data-fvalue');
+                data_value = the_dropdow_data.attr('data-value');
+
+                classList = the_dropdow_data.attr('class');
+                if(classList != null)
+                    class_array = classList.split(/\s+/);
+                else
+                    class_array = [];
+
+                new_class = "dropdown_real_input ";
+                for (var i = 0; i < class_array.length; i++) {
+                    new_class+=("real_"+class_array[i]+" ");
+                }
+
+                input_field = $('<input></input>')
+                    .attr('name', name)
+                    .attr('readonly', true)
+                    .attr('class', new_class)
+                    .hide();
+
+                if(the_value){
+                    input_field.val(data_value);
+                    the_dropdow_data.val(data_value);
+                }
+                if(f_value){
+                    input_field.val(data_value);
+                    the_dropdow_data.val(f_value);
+                }
+
+                search_input_field.push(input_field);
+                $(this).append(search_input_field[key]);
+                the_dropdow_data.attr('name', 'o_'+name);
+
+                $(this).find('li').each(function(){
+                    $(this).click(function(){
+                        if($(this)[0].hasAttribute("data-value")){
+                            $(this).closest('.dropdown-search-input').find('.dropdown-data').val($(this).html());
+                            $(this).closest('.dropdown-search-input').find('.dropdown_real_input').val($(this).attr('data-value'));
+                            search_input_field[key].val($(this).attr('data-value'));
+                        }
+                        else{
+                            search_input_field[key].val($(this).html());
+                            $(this).closest('.dropdown-search-input').find('.dropdown-data').val($(this).html());
+                            $(this).closest('.dropdown-search-input').find('.dropdown_real_input').val($(this).html());
+
+                        }
+                    });
+                });
+
+
+            });
         }
+
 
 
         function rearrangeVerificationFields(){

@@ -92,43 +92,126 @@ function edit_awards_content(){
 								<div class="form-group">
 									<h3>Achievements</h3>
 								</div>
-								<div class="fields-repeater certificate_repeater">
+
+								<?php if($certificates): ?>
+									<?php $cert_count = 0; ?>
+									<?php foreach ($certificates as $key => $certificate): ?>
+										<?php if($cert_count == 0): ?>
+											<div class="fields-repeater certificate_repeater">
+												<div class="form-group">
+													<div class="btn-panel">
+														<div class="cert_image_container" data-name="cert_image[0]"></div>
+														<div class="upload-button step3-upload">
+															<input type="file" class="cert_image" data-name="cert_image[0]"/>
+															<p><span><i class="fa fa-plus fa-fw" aria-hidden="true"></i></span> Upload Image</p>
+															<input type="text" class="cert_image_64" name="cert_image[0]" style="display:none" />
+														</div> <!-- end of .upload-button -->
+													</div>
+												</div> <!-- end of .form-group -->
+												<div class="rd-row rd-between-xs rd-top-xs three-cols">
+													<div class="form-group">
+														<label for="awards_certification">Awards/Certification</label>
+														<textarea name="awards_certification[0]" class="input-field cert_award" data-autoresize=""></textarea>
+													</div> <!-- end of .form-group -->
+													<div class="form-group">
+														<label for="body_corporate">Body Corporate</label>
+														<textarea name="body_corporate[0]" class="input-field cert_body_corporate" data-autoresize=""></textarea>
+													</div> <!-- end of .form-group -->
+													<div class="form-group">
+														<label for="year">Year</label>
+														<div class="dropdown-input">
+															<input type="text" name="cert_year[0]" class="dropdown-data input-field cert_year" />
+															<ul>
+																<?php for( $i = date( 'Y' ); $i >= 1950; $i-- ) : ?>
+																	<li><?= $i ?></li>
+																<?php endfor; ?>
+															</ul>
+														</div>
+													</div> <!-- end of .form-group -->
+												</div>
+											</div> <!-- end of .fields-repeater -->
+											<div class="fields-repeated certificate_repeated">
+										<?php else: ?>
+											<div>
+												<div class="delete-field" onclick="delete_field( this ); style=">
+													<i aria-hidden="true" class="fa fa-times fa-fw"></i> Delete
+												</div>
+												<div class="delete-field" onclick="delete_field( this );">
+													<i aria-hidden="true" class="fa fa-times fa-fw"></i> Delete
+												</div>
+												<div class="form-group text-center">
+													<div class="btn-panel">
+														<div class="cert_image_container" data-name="cert_image[1]"></div>
+														<div class="upload-button step3-upload" style="margin: 0 auto 20px;">
+															<input class="cert_image" data-name="cert_image[1]" type="file">
+															<p><span><i aria-hidden="true" class="fa fa-plus fa-fw"></i></span> Upload Image</p><input class="cert_image_64" name="cert_image[1]" style="display:none" type="text">
+														</div><!-- end of .upload-button -->
+													</div>
+												</div><!-- end of .form-group -->
+												<div class="rd-row rd-between-xs rd-top-xs three-cols">
+													<div class="form-group">
+														<label for="awards_certification">Awards/Certification</label> 
+														<textarea class="input-field cert_award" data-autoresize="" name="awards_certification[1]"></textarea>
+													</div><!-- end of .form-group -->
+													<div class="form-group">
+														<label for="body_corporate">Body Corporate</label> 
+														<textarea class="input-field cert_body_corporate" data-autoresize="" name="body_corporate[1]"></textarea>
+													</div><!-- end of .form-group -->
+													<div class="form-group">
+														<label for="year">Year</label>
+														<div class="dropdown-input">
+															<input class="dropdown-data input-field cert_year" name="o_year[1]" type="text">
+															<ul></ul><input class="dropdown_real_input real_dropdown-data real_input-field real_cert_year" name="cert_year[1]" readonly="readonly" style="display: none;">
+														</div>
+													</div><!-- end of .form-group -->
+												</div>
+											</div>
+										<?php endif; ?>
+										<?php $cert_count++;?>
+									<?php endforeach; ?>
 									<div class="form-group">
-										<div class="btn-panel">
-											<div class="cert_image_container" data-name="cert_image[0]"></div>
-											<div class="upload-button step3-upload">
-												<input type="file" class="cert_image" data-name="cert_image[0]"/>
-												<p><span><i class="fa fa-plus fa-fw" aria-hidden="true"></i></span> Upload Image</p>
-												<input type="text" class="cert_image_64" name="cert_image[0]" style="display:none" />
-											</div> <!-- end of .upload-button -->
-										</div>
-									</div> <!-- end of .form-group -->
-									<div class="rd-row rd-between-xs rd-top-xs three-cols">
+										<button id="add-field" class="add-certification"><span><i class="fa fa-plus fa-fw" aria-hidden="true"></i></span> Add More</button>
+									</div>
+								<?php else: ?>
+									<div class="fields-repeater certificate_repeater">
 										<div class="form-group">
-											<label for="awards_certification">Awards/Certification</label>
-											<textarea name="awards_certification[0]" class="input-field cert_award" data-autoresize=""></textarea>
-										</div> <!-- end of .form-group -->
-										<div class="form-group">
-											<label for="body_corporate">Body Corporate</label>
-											<textarea name="body_corporate[0]" class="input-field cert_body_corporate" data-autoresize=""></textarea>
-										</div> <!-- end of .form-group -->
-										<div class="form-group">
-											<label for="year">Year</label>
-											<div class="dropdown-input">
-												<input type="text" name="cert_year[0]" class="dropdown-data input-field cert_year" />
-												<ul>
-													<?php for( $i = date( 'Y' ); $i >= 1950; $i-- ) : ?>
-														<li><?= $i ?></li>
-													<?php endfor; ?>
-												</ul>
+											<div class="btn-panel">
+												<div class="cert_image_container" data-name="cert_image[0]"></div>
+												<div class="upload-button step3-upload">
+													<input type="file" class="cert_image" data-name="cert_image[0]"/>
+													<p><span><i class="fa fa-plus fa-fw" aria-hidden="true"></i></span> Upload Image</p>
+													<input type="text" class="cert_image_64" name="cert_image[0]" style="display:none" />
+												</div> <!-- end of .upload-button -->
 											</div>
 										</div> <!-- end of .form-group -->
+										<div class="rd-row rd-between-xs rd-top-xs three-cols">
+											<div class="form-group">
+												<label for="awards_certification">Awards/Certification</label>
+												<textarea name="awards_certification[0]" class="input-field cert_award" data-autoresize=""></textarea>
+											</div> <!-- end of .form-group -->
+											<div class="form-group">
+												<label for="body_corporate">Body Corporate</label>
+												<textarea name="body_corporate[0]" class="input-field cert_body_corporate" data-autoresize=""></textarea>
+											</div> <!-- end of .form-group -->
+											<div class="form-group">
+												<label for="year">Year</label>
+												<div class="dropdown-input">
+													<input type="text" name="cert_year[0]" class="dropdown-data input-field cert_year" />
+													<ul>
+														<?php for( $i = date( 'Y' ); $i >= 1950; $i-- ) : ?>
+															<li><?= $i ?></li>
+														<?php endfor; ?>
+													</ul>
+												</div>
+											</div> <!-- end of .form-group -->
+										</div>
+									</div> <!-- end of .fields-repeater -->
+									<div class="fields-repeated certificate_repeated">
 									</div>
-								</div> <!-- end of .fields-repeater -->
-								<div class="fields-repeated certificate_repeated"></div>
-								<div class="form-group">
-									<button id="add-field" class="add-certification"><span><i class="fa fa-plus fa-fw" aria-hidden="true"></i></span> Add More</button>
-								</div>
+									<div class="form-group">
+										<button id="add-field" class="add-certification"><span><i class="fa fa-plus fa-fw" aria-hidden="true"></i></span> Add More</button>
+									</div>
+								<?php endif; ?>
 							</div> <!-- end of .form-divider -->
 						</div>
 
