@@ -19,6 +19,14 @@ body {
 	color: #df141d;
 }
 
+.text-white {
+	color: #fff;
+}
+
+.text-upper {
+	text-transform: uppercase;
+}
+
 .text-center {
 	text-align: center;
 }
@@ -552,12 +560,6 @@ body {
 
 #main-section .employers-section-promotion_1 {
 
-}
-
-.section-title--variant_1 {
-	font: 36px/44px 'Oswald';
-	margin: 0 0 30px;
-	text-align: center !important;
 }
 
 #main-section .createProfile-area .section-title,
@@ -1472,6 +1474,7 @@ body {
 #main-section .filter-industry .view-icon > div {
 	padding: 5px;
 	color: #171717;
+	-webkit-transition: .5s;
 	transition: .5s;
 	cursor: pointer;
 }
@@ -3045,8 +3048,6 @@ form .upme-login-register-link:hover {
 
 .sfd--bullets span {
 	-webkit-transition: all .2s ease-in-out;
-    -moz-transition: all .2s ease-in-out;
-    -o-transition: all .2s ease-in-out;
     transition: all .2s ease-in-out;
 }
 
@@ -3383,4 +3384,129 @@ form .upme-login-register-link:hover {
 .learn-more--section_6 {
 	padding: 50px 20px;
 	text-align: center;
+}
+
+
+
+/*________________________ =new  =About Us Page ________________________*/
+
+.page-742 .inner-banner {
+	display: none;
+}
+
+.page-742  #main-section #about-workwork-jay-content {
+	text-align: inherit !important;
+}
+
+.page-742 #main-wrapper p {
+	margin-bottom: 25px;
+	line-height: 27px;
+}
+
+.aue--grid_bg {
+	background-repeat: no-repeat;
+	background-position: top center;
+	background-size: cover;
+}
+
+/* ------- =top ------- */
+
+.aue--top_section {
+	background-repeat: no-repeat;
+	background-position: top center;
+	background-size: cover;
+	min-height: 450px;
+}
+
+.aue--top_section h1 {
+    color: #fff;
+    text-transform: uppercase;
+    text-shadow: 1px 2px 5px black;
+    margin-bottom: 24px;
+    font-size: 42px;
+}
+
+.aue--flex_text_center {
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+}
+
+.aue--top_section .aue--flex_text_center {
+	min-height: 450px;
+}
+
+/* ------- =1 ------- */
+.aue--sec_1 .col-sm-6 {
+	min-height: 630px;
+}
+
+.aue--sec_1 .aue--flex_text_center {
+    padding: 0 60px;
+    min-height: 630px;
+}
+
+/* ------- =2 ------- */
+.aue--sec_2 {
+	text-align: center;
+    color: #fff;
+    padding-top: 45px;
+}
+
+/* ------- =3 ------- */
+.aue--sec_3 {
+	text-align: center;
+    padding-top: 45px;
+}
+
+.aue--special_title {
+	text-align: center;
+	position: relative;
+	margin-bottom: 50px;
+}
+
+.aue--special_title h3 {
+    color: #ebebeb;
+    font: 120px/120px 'Oswald';
+    font-weight: bold;
+}
+
+.aue--special_title h4 {
+    position: absolute;
+    z-index: 1;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%,-50%);
+    font: 32px/35px 'Oswald';
+    font-style: italic;
+    padding-top: 20px;
+}
+
+
+/*________________________ =VARIANTS ________________________*/
+
+.section-title--variant_1 {
+	font: 36px/44px 'Oswald';
+	margin: 0 0 30px;
+	text-align: center !important;
+}
+
+.section-title--variant_2 {
+	font: 36px/44px 'Oswald';
+	margin: 0 0 30px;
+}
+
+.red-btn-variant-1 {
+    color: #fff;
+    background-color: #ea1a23;
+    font-weight: normal;
+    display: inline-block;
+    padding: 13px 25px;
 }
