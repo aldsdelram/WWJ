@@ -320,6 +320,11 @@
 
 						<div class="sfd--bullets"></div>
 
+						<div class="sfd--footer">
+							<img src="<?= wp_get_attachment_url(52); ?>" alt="">
+							<p><span class="flexit">Tel: <a href="tel:6567176668">+65 6717-6668</a> | Email: <a href="mailto:jobs@workworkjay.com">jobs@workworkjay.com</a></span></p>
+						</div>
+
 					</div>
 				</div>
 			</div>

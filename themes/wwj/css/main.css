@@ -3117,6 +3117,29 @@ form .upme-login-register-link:hover {
 	text-align: left;
 }
 
+.sfd--footer {
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: flex;
+}
+
+.sfd--footer p {
+    font-size: 13px;
+    width: 100%;
+    margin-left: 20px;
+    position: relative;
+}
+
+.sfd--footer .flexit {
+    background-color: black;
+    padding: 5px;
+    width: 105%;
+    position: absolute;
+    right: -20px;
+    top: 22px;
+    color: #fff;
+}
+
 
 /* ________________________ =sidebar ________________________ */
 .sidebar--container {
@@ -3415,7 +3438,8 @@ form .upme-login-register-link:hover {
 
 /*________________________ =new  =About Us Page ________________________*/
 
-.page-742 .inner-banner {
+.page-742 .inner-banner,
+.page-131 .inner-banner {
 	display: none;
 }
 
@@ -3507,7 +3531,8 @@ form .upme-login-register-link:hover {
     z-index: 1;
     left: 50%;
     top: 50%;
-    transform: translate(-50%,-50%);
+    -webkit-transform: translate(-50%,-50%);
+            transform: translate(-50%,-50%);
     font: 32px/35px 'Oswald';
     font-style: italic;
     padding-top: 20px;
