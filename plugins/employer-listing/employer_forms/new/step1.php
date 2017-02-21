@@ -169,6 +169,7 @@ function employer_reg_show_step_1(){
 										UPLOAD LOGO
 									</label>
 									<p class="emp--upload-text">drag &amp; drop here your image</p>
+									<p class="emp--upload-text" style="font-size: 12px;"><i>(best image size would be 200x200)</i></p>	
 								</div>
 							</div>
 						</div>
