@@ -92,6 +92,15 @@ function edit_skills_content(){
 					$industry_id = $step2_data['field_of_expertise'];
 					$skills = Job_Listing::getSkills($industry_id); 
 					$count = count($skills); 
+
+
+					$cand_skills = [];
+					foreach($step3['skills'] as $key => $value){
+						$cand_skills[] = $value;
+
+					}
+
+
 				?>
 
 
@@ -127,17 +136,25 @@ function edit_skills_content(){
 						</div>
 
 				<?php for($i=0; $i<$count; $i++): ?>
-						<div class="row skill_parent_<?=$skills[$i]->term_id?>" style="display:none;">
+					<?php
+						$display = 'display:none';
+						$the_rating = '';
+						if(in_array($skills[$i]->term_id, $cand_skills)){
+							$display = '';
+							$the_rating = $step3['ratings'][$skills[$i]->term_id];
+						}
+					?>
+						<div class="row skill_parent_<?=$skills[$i]->term_id?>" style="<?= $display ?>">
 							<div class="col-sm-6">
 								<?= $skills[$i]->name ?>
-								<input class="input_skill" style="display:none;" value="<?=$skills[$i]->term_id?>">
+								<input class="input_skill" style="display:none;" value="<?=$skills[$i]->term_id?>" <?php if($the_rating != '') echo 'name="skills[]"'; ?>>
 							</div>
 							<div class="col-sm-6">
 								<div class="col-xs-11">
 									<div class="form-group">
 										<label for=rating[<?=$skills[$i]->term_id?>]>&nbsp;</label>
 										<div class="dropdown-input">
-											<input type="text" name="rating[<?=$skills[$i]->term_id?>]" class="dropdown-data input-field" />
+											<input type="text" name="rating[<?=$skills[$i]->term_id?>]" class="dropdown-data input-field" value="<?= $the_rating . ' - ' . WWJ::getRatingDescription($the_rating); ?>" data-value="<?= $the_rating ?>"/> 
 											<ul>
 												<?php for($j= 1; $j<= 5; $j++): ?>
 													<li data-value="<?= $j ?>"><?= $j ?> - <?= WWJ::getRatingDescription($j); ?></li>
