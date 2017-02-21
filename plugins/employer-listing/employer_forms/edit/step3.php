@@ -65,9 +65,24 @@ function employer_reg_edit_step_3(){
 		// $step2_data['team_members'] = $post_data['team_members'];
 
 		update_user_meta(get_current_user_id(), 'emp_step3_data', $step3_data);
-		wp_redirect(home_url('/employer/dashboard/registration/success'));
+		wp_redirect(home_url('/employer/company-profile-view/'));
 	}
 
+	$step3 = get_user_meta(get_current_user_id(), 'emp_step3_data', true);
+	$join_us = $step3["join_us"];
+	$referrals = $step3['referrals'];
+
+
+	if($referrals == null){
+		$referrals = [];
+		for($i=0; $i<4; $i++){
+			$refferal = [];
+			$refferal['name'] = '';
+			$refferal['description']= '';
+			$refferal['photo'] = '';
+			$referrals[] = $service;
+		}
+	}
 
 	ob_start();
 	?>
@@ -80,7 +95,7 @@ function employer_reg_edit_step_3(){
 				<div class="row">
 					<div class="col-xs-12">
 						<div class="form-group">
-							<textarea aria-required="true" class="input-field required" name="join_us" style="height: 55px;" placeholder="Enter text here.."></textarea>
+							<textarea aria-required="true" class="input-field required" name="join_us" style="height: 55px;" placeholder="Enter text here.."><?= $join_us ?></textarea>
 						</div>
 					</div>
 				</div>
@@ -100,6 +115,8 @@ function employer_reg_edit_step_3(){
 											UPLOAD
 										</label>
 										<p class="emp--upload-text">drag &amp; drop here your image</p>
+										<p class="emp--upload-text" style="font-size: 12px;"><i>(best image size would be 200x200)</i></p>
+										
 									</div>
 								</div>
 							</div>
@@ -121,20 +138,44 @@ function employer_reg_edit_step_3(){
 					<h3 class="emp--title_sub">UPLOAD PREVIEWS</h3>
 					<div class="row emp--small_previews emp--referrals_thumbnails previews">
 						<?php for($i=0; $i<4; $i++): ?>
-							<div class="col-sm-3 preview_container no-data" data-id="<?= $i ?>">
-								<div class="emp--upload-set">
-									<div class="emp--upload_box with_bg_<?=$i?>">
-										<div class="emp--upload-center centered-axis-xy">
-										</div>
-										<div class="hidden-fields">
-											<input type="text" data-edit="referrals[photo]" data-edit-background='true' name="referrals[photo][<?= $i ?>]" >
-											<input class="input-field" data-edit="referrals[name]" name="referrals[name][<?=$i?>]" type="text">
-											<textarea aria-required="true" class="input-field required" data-edit="referrals[description]"  name="referrals[description][<?= $i?>]" style="height: 55px;" placeholder="Insert a product or service description that will make candidates love what you are doing (Max. 150 characters)"></textarea>
+							<?php if($referrals[$i]['name']): ?>
+									<?php   $b64 = '';
+											$path = '';
+											if($referrals[$i]['photo']){
+												$path= wp_get_attachment_url($referrals[$i]['photo']);
+												$b64 = WWJ::convertURLtoB64($path);
+											}
+									?>
+								<div class="col-sm-3 preview_container" data-id="<?= $i ?>">
+									<div class="emp--upload-set">
+										<div class="emp--upload_box with_bg_<?=$i?>" style="background-image: url('<?= $path ?>')">
+											<div class="emp--upload-center centered-axis-xy">
+											</div>
+											<div class="hidden-fields">
+												<input type="text" data-edit="referrals[photo]" data-edit-background='true' name="referrals[photo][<?= $i ?>]" value="<?= $b64 ?>" >
+												<input class="input-field" data-edit="referrals[name]" name="referrals[name][<?=$i?>]" type="text" value="<?= $referrals[$i]['name'] ?>">
+												<textarea aria-required="true" class="input-field required" data-edit="referrals[description]"  name="referrals[description][<?= $i?>]" style="height: 55px;"> <?= $referrals[$i]['description'] ?></textarea>
+											</div>
 										</div>
 									</div>
+									<a href="javascript:void(0)" class="edit_product edit" data-id="<?=$i?>">EDIT</a>
 								</div>
-								<a href="javascript:void(0)" class="edit_product edit" data-id="<?=$i?>">EDIT</a>
-							</div>
+							<?php else: ?>
+								<div class="col-sm-3 preview_container no-data" data-id="<?= $i ?>">
+									<div class="emp--upload-set">
+										<div class="emp--upload_box with_bg_<?=$i?>">
+											<div class="emp--upload-center centered-axis-xy">
+											</div>
+											<div class="hidden-fields">
+												<input type="text" data-edit="referrals[photo]" data-edit-background='true' name="referrals[photo][<?= $i ?>]" >
+												<input class="input-field" data-edit="referrals[name]" name="referrals[name][<?=$i?>]" type="text">
+												<textarea aria-required="true" class="input-field required" data-edit="referrals[description]"  name="referrals[description][<?= $i?>]" style="height: 55px;" placeholder="Insert a product or service description that will make candidates love what you are doing (Max. 150 characters)"></textarea>
+											</div>
+										</div>
+									</div>
+									<a href="javascript:void(0)" class="edit_product edit" data-id="<?=$i?>">EDIT</a>
+								</div>
+							<?php endif;?>
 						<?php endfor; ?>						
 					</div>
 				</div>

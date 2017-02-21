@@ -52,7 +52,9 @@ function employer_reg_edit_step_1(){
 		}
 
 		update_user_meta(get_current_user_id(), 'emp_step1_data', $step1_data);
-		wp_redirect(home_url('/employer/dashboard/registration/step-02/'));
+		// wp_redirect(home_url('/employer/dashboard/registration/step-02/'));
+		wp_redirect(home_url('/employer/profile/edit/step-02/'));
+
 
 
 		// $b64image = base64_encode(file_get_contents('path/to/image.png'));
@@ -82,8 +84,8 @@ function employer_reg_edit_step_1(){
 
 				<?php if($cover_photo): ?>
 					<div class="emp--upload-set">
-						<p class="emp--upload_title">Company Header Image</p>
-
+						<p class="emp--upload_title" style="margin-bottom: 0;">Company Header Image</p>
+						<p style="font-size: 13px; margin-bottom: 15px;"><i>(best image size would be 1350x475)</i></p>
 						<div class="emp--upload_box has-bg" style="background-image: url('<?= wp_get_attachment_url($cover_photo) ?>')">
 							<div class="emp--upload-center centered-axis-xy">
 								<label class="emp--upload-btn">
@@ -126,6 +128,7 @@ function employer_reg_edit_step_1(){
 											UPLOAD LOGO
 										</label>
 										<p class="emp--upload-text">drag &amp; drop here your image</p>
+										<p class="emp--upload-text" style="font-size: 12px;"><i>(best image size would be 200x200)</i></p>
 									</div>
 								</div>
 							</div>
@@ -139,6 +142,7 @@ function employer_reg_edit_step_1(){
 											UPLOAD LOGO
 										</label>
 										<p class="emp--upload-text">drag &amp; drop here your image</p>
+										<p class="emp--upload-text" style="font-size: 12px;"><i>(best image size would be 200x200)</i></p>
 									</div>
 								</div>
 							</div>

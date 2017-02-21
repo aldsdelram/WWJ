@@ -89,7 +89,39 @@ function employer_reg_edit_step_2(){
 		// $step2_data['team_members'] = $post_data['team_members'];
 
 		update_user_meta(get_current_user_id(), 'emp_step2_data', $step2_data);
-		wp_redirect(home_url('/employer/dashboard/registration/step-03/'));
+		wp_redirect(home_url('/employer/profile/edit/step-03/'));
+	}
+
+
+
+
+	$step2 = get_user_meta(get_current_user_id(), 'emp_step2_data', true);
+	$services = $step2["services"];
+
+	$videos = $step2["videos"];
+	$team_members = $step2['team_members'];
+
+
+	if($services == null){
+		$services = [];
+		for($i=0; $i<4; $i++){
+			$service = [];
+			$service['staffname'] = '';
+			$service['description']= '';
+			$service['photo'] = '';
+			$services[] = $service;
+		}
+	}
+
+	if($team_members == null){
+		$team_members = [];
+		for($i=0; $i<4; $i++){
+			$member = [];
+			$member['name'] = '';
+			$member['position']= '';
+			$member['photo'] = '';
+			$team_members[] = $service;
+		}
 	}
 
 
@@ -113,6 +145,8 @@ function employer_reg_edit_step_2(){
 												UPLOAD
 											</label>
 											<p class="emp--upload-text">drag &amp; drop here your image</p>
+											<p class="emp--upload-text" style="font-size: 12px;"><i>(best image size would be 200x200)</i></p>
+
 										</div>
 									</div>
 								</div>
@@ -135,20 +169,44 @@ function employer_reg_edit_step_2(){
 						<h3 class="emp--title_sub">UPLOAD PREVIEWS</h3>
 						<div class="row emp--small_previews emp--services_thumbnails previews">
 							<?php for($i=0; $i<4; $i++): ?>
-								<div class="col-sm-3 preview_container no-data" data-id="<?= $i ?>">
-									<div class="emp--upload-set">
-										<div class="emp--upload_box with_bg_<?=$i?>">
-											<div class="emp--upload-center centered-axis-xy">
-											</div>
-											<div class="hidden-fields">
-												<input type="text" data-edit="services[photo]" data-edit-background='true' name="services[photo][<?= $i ?>]" >
-												<input class="input-field" data-edit="services[name]" name="services[name][<?=$i?>]" type="text">
-												<textarea aria-required="true" class="input-field required" data-edit="services[description]"  name="services[description][<?= $i?>]" style="height: 55px;" placeholder="Insert a product or service description that will make candidates love what you are doing (Max. 150 characters)"></textarea>
+								<?php if($services[$i]['name']): ?>
+									<?php   $b64 = '';
+											$path = '';
+											if($services[$i]['photo']){
+												$path= wp_get_attachment_url($services[$i]['photo']);
+												$b64 = WWJ::convertURLtoB64($path);
+											}
+									?>
+									<div class="col-sm-3 preview_container" data-id="<?= $i ?>">
+										<div class="emp--upload-set">
+											<div class="emp--upload_box with_bg_<?=$i?>" style="background-image: url('<?= $path ?>')">
+												<div class="emp--upload-center centered-axis-xy">
+												</div>
+												<div class="hidden-fields">
+													<input type="text" data-edit="services[photo]" data-edit-background='true' name="services[photo][<?= $i ?>]" value="<?= $b64?>">
+													<input class="input-field" data-edit="services[name]" name="services[name][<?=$i?>]" type="text" value="<?= $services[$i]['name'] ?>">
+													<textarea aria-required="true" class="input-field required" data-edit="services[description]"  name="services[description][<?= $i?>]" style="height: 55px;"><?= $services[$i]['description'] ?></textarea>
+												</div>
 											</div>
 										</div>
+										<a href="javascript:void(0)" class="edit_product edit" data-id="<?=$i?>">EDIT</a>
 									</div>
-									<a href="javascript:void(0)" class="edit_product edit" data-id="<?=$i?>">EDIT</a>
-								</div>
+								<?php else: ?>
+									<div class="col-sm-3 preview_container no-data" data-id="<?= $i ?>">
+										<div class="emp--upload-set">
+											<div class="emp--upload_box with_bg_<?=$i?>">
+												<div class="emp--upload-center centered-axis-xy">
+												</div>
+												<div class="hidden-fields">
+													<input type="text" data-edit="services[photo]" data-edit-background='true' name="services[photo][<?= $i ?>]" >
+													<input class="input-field" data-edit="services[name]" name="services[name][<?=$i?>]" type="text">
+													<textarea aria-required="true" class="input-field required" data-edit="services[description]"  name="services[description][<?= $i?>]" style="height: 55px;" placeholder="Insert a product or service description that will make candidates love what you are doing (Max. 150 characters)"></textarea>
+												</div>
+											</div>
+										</div>
+										<a href="javascript:void(0)" class="edit_product edit" data-id="<?=$i?>">EDIT</a>
+									</div>
+								<?php endif;?>
 							<?php endfor; ?>						
 						</div>
 					</div>
@@ -167,6 +225,7 @@ function employer_reg_edit_step_2(){
 												UPLOAD
 											</label>
 											<p class="emp--upload-text">drag &amp; drop here your image</p>
+											<p class="emp--upload-text" style="font-size: 12px;"><i>(best image size would be 200x200)</i></p>
 										</div>
 									</div>
 								</div>
@@ -194,20 +253,44 @@ function employer_reg_edit_step_2(){
 						<div class="row emp--small_previews emp--team_members_thumbnails previews">
 							<div class="col-xs-12 flex-5-con">
 								<?php for($i=0; $i<5; $i++): ?>
-									<div class="preview_container no-data" data-id="<?= $i ?>">
-										<div class="emp--upload-set">
-											<div class="emp--upload_box with_bg_<?=$i?>">
-												<div class="emp--upload-center centered-axis-xy">
-												</div>
-												<div class="hidden-fields">
-													<input type="text" data-edit="team_members[photo]" data-edit-background='true' name="team_members[photo][<?= $i ?>]" >
-													<input class="input-field" data-edit="team_members[staffname]" name="team_members[staffname][<?=$i?>]" type="text">
-													<textarea aria-required="true" class="input-field required" data-edit="team_members[position]"  name="team_members[position][<?= $i?>]" style="height: 55px;" placeholder="Insert a product or service description that will make candidates love what you are doing (Max. 150 characters)"></textarea>
+									<?php if($team_members[$i]['staffname']): ?>
+										<?php   $b64 = '';
+												$path = '';
+												if($team_members[$i]['photo']){
+													$path= wp_get_attachment_url($team_members[$i]['photo']);
+													$b64 = WWJ::convertURLtoB64($path);
+												}
+										?>
+										<div class="preview_container" data-id="<?= $i ?>">
+											<div class="emp--upload-set">
+												<div class="emp--upload_box with_bg_<?=$i?>" style="background-image: url('<?= $path ?>')">
+													<div class="emp--upload-center centered-axis-xy">
+													</div>
+													<div class="hidden-fields">
+														<input type="text" data-edit="team_members[photo]" data-edit-background='true' name="team_members[photo][<?= $i ?>]" value="<?= $b64 ?>" >
+														<input class="input-field" data-edit="team_members[staffname]" name="team_members[staffname][<?=$i?>]" type="text" value="<?= $team_members[$i]['staffname'] ?>">
+														<textarea aria-required="true" class="input-field required" data-edit="team_members[position]"  name="team_members[position][<?= $i?>]" style="height: 55px;"><?= $team_members[$i]['position']?></textarea>
+													</div>
 												</div>
 											</div>
+											<a href="javascript:void(0)" class="edit_product edit" data-id="<?=$i?>">EDIT</a>
 										</div>
-										<a href="javascript:void(0)" class="edit_product edit" data-id="<?=$i?>">EDIT</a>
-									</div>
+									<?php else: ?>
+										<div class="preview_container no-data" data-id="<?= $i ?>">
+											<div class="emp--upload-set">
+												<div class="emp--upload_box with_bg_<?=$i?>">
+													<div class="emp--upload-center centered-axis-xy">
+													</div>
+													<div class="hidden-fields">
+														<input type="text" data-edit="team_members[photo]" data-edit-background='true' name="team_members[photo][<?= $i ?>]">
+														<input class="input-field" data-edit="team_members[staffname]" name="team_members[staffname][<?=$i?>]" type="text" >
+														<textarea aria-required="true" class="input-field required" data-edit="team_members[position]"  name="team_members[position][<?= $i?>]" style="height: 55px;"></textarea>
+													</div>
+												</div>
+											</div>
+											<a href="javascript:void(0)" class="edit_product edit" data-id="<?=$i?>">EDIT</a>
+										</div>
+									<?php endif; ?>
 								<?php endfor; ?>
 							</div>					
 						</div>
@@ -221,12 +304,12 @@ function employer_reg_edit_step_2(){
 					<div class="row">
 						<div class="col-sm-6">
 							<div class="form-group">
-								<label for="videos[link1]"><span class="redrisk">*</span> Link 1:</label> <input class="input-field required" name="videos[link1]" type="text">
+								<label for="videos[link1]">Link 1:</label> <input class="input-field" name="videos[link1]" type="text" value=" <?= $videos['link1'] ?>">
 							</div>
 						</div>
 						<div class="col-sm-6">
 							<div class="form-group">
-								<label for="videos[link2]"><span class="redrisk">*</span> Link 2:</label> <input class="input-field required" name="videos[link2]" type="text">
+								<label for="videos[link2]">Link 2:</label> <input class="input-field" name="videos[link2]" type="text" value=" <?= $videos['link2'] ?>">
 							</div>
 						</div>
 					</div>
