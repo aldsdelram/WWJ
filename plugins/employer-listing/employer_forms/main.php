@@ -3,6 +3,7 @@
 include( 'new/step1.php' ); 
 include( 'new/step2.php' ); 
 include( 'new/step3.php' ); 
+include( 'new/recommendation.php' );
 
 include( 'edit/step1.php' ); 
 include( 'edit/step2.php' ); 

@@ -50,7 +50,7 @@
     background: #fff;
     width: 850px;
     text-align: center;
-    padding: 50px 20px;
+    padding: 50px 20px 25px;
     overflow: auto;
     max-height: 80%;
 }
@@ -329,6 +329,7 @@
     margin-right: 12px;
     font-size: 14px;
     background-color: #e5e5e5;
+    margin-bottom: 10px;
 }
 
 /* ________________________ =EXPERIENCE */
@@ -467,26 +468,28 @@
 #next-container .header{
     background: #303841;
     color: white;
-    font: 32px/30px 'Open Sans';
+    font: 32px/43px 'Open Sans';
     font-weight: 700;
     text-transform: uppercase;
-    padding:40px 10px;
+    padding: 35px 10px;
     text-align: center;
     margin-bottom: 15px;
 }
 
 #next-container .images{
     text-align: center;
+    margin-bottom: 10px;
 }
 
 #next-container .images img{
-    margin: 5px;
+    margin: 15px 0;
 }
 
 #next-container p{
     font: 24px 'Open Sans';
     text-align: center;
     width: 70%;
+    margin-bottom: 25px;
     margin-left: 50%;
     left: -35%;
     position: relative;

@@ -94,6 +94,7 @@ Network: true
 		wp_enqueue_style( 'sk-crp', plugin_dir_url( __FILE__ ) . '/css/sk_customize_registration_page.css');
 		wp_enqueue_style( 'sk-clp', plugin_dir_url( __FILE__ ) . '/css/sk_customize_login_page.css');
 		wp_enqueue_style( 'bootstrap-gridonly', plugin_dir_url( __FILE__ ) . '/css/bootstrap-gridonly.css' );
+		wp_enqueue_style( 'hover-css', plugin_dir_url( __FILE__ ) . '/css/hover.css');
 	}
 	add_action( 'wp_enqueue_scripts', 'custom_plugin_styles' );
 

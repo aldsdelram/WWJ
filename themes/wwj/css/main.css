@@ -31,6 +31,10 @@ body {
 	text-align: center;
 }
 
+.text-margin-bottom-25 {
+	margin-bottom: 25px;
+}
+
 .container {
 	width: 1170px;
 	margin: 0 auto !important;
@@ -930,7 +934,8 @@ body {
 }
 
 #main-section .toolkit-list > li {
-	width: calc( 100% / 3 - 30px );
+	/*width: calc( 100% / 3 - 30px );*/
+	width: calc( 100% / 3 - 50px );
 	list-style: none;
 }
 
@@ -959,8 +964,8 @@ body {
     border-width: 30px;
     margin-left: 0;
     border-top-width: 20px;
-    border-left-width: 180px;
-    border-right-width: 180px;
+    border-left-width: 170px;
+    border-right-width: 170px;
 }
 
 #main-section .toolkit-list li .item-header h3 {
@@ -1035,6 +1040,21 @@ body {
 	color: #00aeff;
 }
 
+#main-section .toolkit-list li ._gold {
+	position: relative;
+}
+
+._gold .hvr-underline-from-center:before {
+	background-color: #dc8600;
+}
+
+#main-section .toolkit-list li ._gold .most-popular-badge {
+	position: absolute;
+    z-index: 10;
+    top: -30px;
+    right: -60px;
+}
+
 #main-section .toolkit-list li ._gold .item-header,
 #main-section .toolkit-list li ._gold .price .number {
 	background: #ff9c00;
@@ -1053,6 +1073,11 @@ body {
 #main-section .toolkit-list li ._3-in-1 .price .number {
 	background: #d200ff;
 }
+
+._3-in-1 .hvr-underline-from-center:before {
+	background-color: #8f05ad;
+}
+
 
 #main-section .toolkit-list li ._3-in-1 .item-header:after {
 	border-color: rgba(210, 0, 255, 0);
@@ -3092,6 +3117,29 @@ form .upme-login-register-link:hover {
 	text-align: left;
 }
 
+.sfd--footer {
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: flex;
+}
+
+.sfd--footer p {
+    font-size: 13px;
+    width: 100%;
+    margin-left: 20px;
+    position: relative;
+}
+
+.sfd--footer .flexit {
+    background-color: black;
+    padding: 5px;
+    width: 105%;
+    position: absolute;
+    right: -20px;
+    top: 22px;
+    color: #fff;
+}
+
 
 /* ________________________ =sidebar ________________________ */
 .sidebar--container {
@@ -3390,7 +3438,8 @@ form .upme-login-register-link:hover {
 
 /*________________________ =new  =About Us Page ________________________*/
 
-.page-742 .inner-banner {
+.page-742 .inner-banner,
+.page-131 .inner-banner {
 	display: none;
 }
 
@@ -3399,7 +3448,6 @@ form .upme-login-register-link:hover {
 }
 
 .page-742 #main-wrapper p {
-	margin-bottom: 25px;
 	line-height: 27px;
 }
 
@@ -3457,19 +3505,19 @@ form .upme-login-register-link:hover {
 .aue--sec_2 {
 	text-align: center;
     color: #fff;
-    padding-top: 45px;
+    padding: 45px 0 50px;
 }
 
 /* ------- =3 ------- */
 .aue--sec_3 {
 	text-align: center;
-    padding-top: 45px;
+    padding: 55px 0 80px;
 }
 
 .aue--special_title {
 	text-align: center;
 	position: relative;
-	margin-bottom: 50px;
+	margin-bottom: 60px;
 }
 
 .aue--special_title h3 {
@@ -3483,12 +3531,82 @@ form .upme-login-register-link:hover {
     z-index: 1;
     left: 50%;
     top: 50%;
-    transform: translate(-50%,-50%);
+    -webkit-transform: translate(-50%,-50%);
+            transform: translate(-50%,-50%);
     font: 32px/35px 'Oswald';
     font-style: italic;
     padding-top: 20px;
 }
 
+.aue--sec_3_sets img {
+	border: 3px solid #262c32;
+}
+
+/* ------- =4 ------- */
+.aue--sec_4 .col-sm-6 {
+	min-height: 630px;
+	padding: 0;
+}
+
+.aue--sec_4 .aue--flex_text_center {
+	background-color: #f4f4f4;
+    padding: 0 60px;
+    min-height: 630px;
+}
+
+/* ------- =5 ------- */
+.aue--sec_5 .col-sm-6 {
+	min-height: 630px;
+	padding: 0;
+}
+
+.aue--sec_5 .aue--flex_text_center {
+	background-color: #f4f4f4;
+    padding: 0 60px;
+    min-height: 630px;
+}
+
+/* ------- =6 ------- */
+.aue--sec_6 {
+	text-align: center;
+    padding: 90px 0 100px;
+}
+
+.aue--sec_6 h2 {
+	margin-bottom: 0;
+}
+
+.aue--sec_6 h3 {
+    font-weight: normal;
+    margin-top: 10px;
+    margin-bottom: 20px;
+}
+
+.aue--sec_6_images img {
+    margin: 0 30px;
+}
+
+/* ------- =7 ------- */
+.aue--sec_7 {
+	text-align: center;
+    padding: 60px 0 70px;
+}
+
+.aue--sec_7 .btsp-container {
+	padding: 0;
+}
+
+.aue--sec_7 p, .aue--sec_7 h2 {
+	color: #fff;
+}
+
+.aue--sec_7 h2 {
+	margin-bottom: 10px;
+}
+
+.aue--sec_7 h2 + p {
+	margin-bottom: 50px;
+}
 
 /*________________________ =VARIANTS ________________________*/
 
@@ -3509,4 +3627,10 @@ form .upme-login-register-link:hover {
     font-weight: normal;
     display: inline-block;
     padding: 13px 25px;
+}
+
+.red-btn-variant-1.hvr-ripple-out:before {
+    border: #ea1a23 solid 4px;
+    -webkit-animation-duration: .5s;
+    animation-duration: .5s;
 }
