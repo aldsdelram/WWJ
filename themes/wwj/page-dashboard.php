@@ -50,20 +50,23 @@
 					<div class="sidebar-menus">
 						<div class="sidebar-menu">
 
+							<!-- home -->
 							<div class="sbp--nav_set">
 								<a href="<?= home_url(); ?>">Home</a>
 							</div>
 							
+							<!-- manage career -->
 							<div class="sbp--nav_set">
 								<a href="" class="has-sub-menu">Manage Career <i class="fa fa-caret-right" aria-hidden="true"></i></a>
 								<div class="sub-menu">
-									<a href="#">Job Invitations</a>
-									<a href="#">Job Applications</a>
-									<a href="#">Job Search</a>
-									<a href="#">Bookmarked</a>
+									<a href="<?= home_url('/jobseeker/dashboard/dashboard-home/') ?>">Job Invitations</a>
+									<a href="<?= home_url('/jobseeker/dashboard/dashboard-home/') ?>">Job Applications</a>
+									<a href="<?= home_url('/jobseeker/dashboard/dashboard-home/') ?>">Job Search</a>
+									<a href="<?= home_url('/jobseeker/dashboard/dashboard-home/') ?>">Bookmarked</a>
 								</div>
 							</div>
 
+							<!-- profile -->
 							<div class="sbp--nav_set">
 								<a href="" class="has-sub-menu">Profile <i class="fa fa-caret-right" aria-hidden="true"></i></a>
 								<div class="sub-menu">
@@ -73,6 +76,19 @@
 								</div>
 							</div>
 
+							<!-- reports -->
+							<div class="sbp--nav_set">
+								<a href="<?= home_url('/jobseeker/dashboard/dashboard-home/') ?>">Reports</a>
+							</div>
+
+							<!-- reports -->
+							<div class="sbp--nav_set">
+								<a href="" class="has-sub-menu">Billing <i class="fa fa-caret-right" aria-hidden="true"></i></a>
+								<div class="sub-menu">
+									<a href="<?= home_url('/jobseeker/dashboard/dashboard-home/') ?>">Buy Credits</a>
+									<a href="<?= home_url('/jobseeker/dashboard/dashboard-home/') ?>">Payment History</a>
+								</div>
+							</div>
 
 						</div>
 					</div>

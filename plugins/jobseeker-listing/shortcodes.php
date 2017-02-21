@@ -408,3 +408,21 @@
 	add_shortcode( 'create_profile', 'create_profile_func' );
 
 
+/*___________________ TEMPORARY CONTENT ____________________*/
+
+	function coming_your_way_func() {
+		ob_start();
+		?>
+
+		<div class="btsp-container-fluid white-bg-views">
+			<div class="row">
+				<div class="col-sm-12">
+					<h2 class="section-title">Coming Your Way</h2>
+				</div>
+			</div>
+		</div>
+
+		<?php
+		return ob_get_clean();
+	}
+	add_shortcode( 'coming_yourway', 'coming_your_way_func' );

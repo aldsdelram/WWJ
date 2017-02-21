@@ -142,7 +142,8 @@ function employer_reg_show_step_1(){
 			<!-- 1 -->
 				<h2 class="emp--form_title">COMPANY INFORMATION</h2>
 				<div class="emp--upload-set">
-					<p class="emp--upload_title">Company Header Image</p>
+					<p class="emp--upload_title" style="margin-bottom: 0;">Company Header Image</p>
+					<p style="font-size: 13px; margin-bottom: 15px;"><i>(best image size would be 1350x475)</i></p>
 
 					<div class="emp--upload_box">
 						<div class="emp--upload-center centered-axis-xy">

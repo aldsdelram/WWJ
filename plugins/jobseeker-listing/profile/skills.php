@@ -10,18 +10,26 @@ function view_skills_content(){
 	?>
 		<div class="btsp-container-fluid white-bg-views experience-view--main_content">
 			<?php for($i=1; $i<=5; $i++): ?>
+
+				<?php $content = ''; ?>
+
+				<?php foreach($skills as $skill): ?>
+					<?php if($skill['rating'] == $i): ?>
+						<?php $content .= '<span class="ev--skill_box">' . $skill['name'] . '</span>'; ?>
+					<?php endif; ?>
+				<?php endforeach; ?>
+
 				<div class="row">
 					<div class="col-xs-12 col-md-4">
-						<?= WWJ::getRatingDescription($i)?>
+						<?php if($content) : ?>
+							<?= WWJ::getRatingDescription($i); ?>
+						<?php endif; ?>
 					</div>
 					<div class="col-xs-12 col-md-8">
-						<?php foreach($skills as $skill): ?>
-							<?php if($skill['rating'] == $i): ?>
-								<?= $skill['name'] ?>
-							<?php endif; ?>
-						<?php endforeach; ?>
+						<?= $content; ?>
 					</div>
 				</div>
+
 			<?php endfor; ?>
 		</div>
 	<?php
