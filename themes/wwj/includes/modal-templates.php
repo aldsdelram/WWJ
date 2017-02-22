@@ -83,3 +83,74 @@
 		</div>
 	</div>
 </div>
+
+
+
+
+
+<div id="candidate-info-modal" class="modal-area">
+	<div class="centered">
+		<div class="modal-content">
+			<header class="modal-header">
+				<div class="rd-row rd-between-xs rd-middle-xs">
+					<h3>Personal Information</h3>
+					<div class="close-modal"><i class="fa fa-times fa-fw" aria-hidden="true"></i></div>
+				</div>
+			</header> <!-- end of .modal-header -->
+			<section class="modal-section">
+
+				<div class="bstp-container-fluid cm--info_main">
+
+					<div class="row cm--info_part_1">
+						<div class="col-sm-5">
+							<div class="candidate_photo" style="background-image: url('<?= wp_get_attachment_url(978); ?>');"></div>
+						</div>
+						<div class="col-sm-7">
+							<label class="cm--info_line" for=""><span>Name: </span> <span class="cm--value name">Janelle</span></label>
+							<label class="cm--info_line" for=""><span>Age: </span> <span class="cm--value age">30</span></label>
+							<label class="cm--info_line" for=""><span>Gender: </span> <span class="cm--value gender">Female</span></label>
+							<label class="cm--info_line" for=""><span>Open Position: </span> <span class="cm--value open_position">Marketing Manager</span></label>
+							<label class="cm--info_line" for=""><span>Desired Salary: </span> <span class="cm--value desired_salary">SGD$3,200</span></label>
+							<label class="cm--info_line" for=""><span>Credit Price: </span> <span class="cm--value credit_price">30</span></label>
+						</div>
+					</div>
+
+					<div class="row cm--info_part_2">
+						<div class="col-xs-12">
+							<h4>Why you Should Hire Me</h4>
+							<p class="about_me">I am a person that learn quickly and perform better under pressure, am a very good team pleayer that motivate others in other to achieve the company’s common goals.</p>
+						</div>
+					</div>
+
+					<div class="row cm--info_part_3">
+						<div class="col-sm-4"><a href="#" class="cm--red_btn">UNLOCK NOW</a></div>
+						<div class="col-sm-4"><a href="#" class="cm--trans_btn">CONTACT</a></div>
+						<div class="col-sm-4"><a href="#" class="cm--red_btn cm--invite_btn">INVITE</a></div>
+					</div>
+
+					<div class="row cm--invite_form">
+						<form action="">
+							<div class="col-sm-9">
+								<div style="display:none"><input class="candidate_id" name="candidate_id" type="text" ></div>
+								<select name="" id="" class="cm--job_dropdown">
+									<option value="">-- Select job to offer --</option>
+									<?php $postings = Job_Listing::getPostings(); ?>
+									<?php foreach($postings as $key => $posting): ?>
+										<option value="<?= $key ?>"><?=$posting ?></option>
+									<?php endforeach; ?>
+								</select>
+							</div>
+							<div class="col-sm-3">
+								<input type="submit" value="Submit" class="cm--job_invite_submit">
+							</div>
+						</form>
+
+						<div class="cm--notice">INVITED SUCESSFULLY</div>
+					</div>
+
+				</div>
+
+			</section> <!-- end of .modal-section -->
+		</div> <!-- end of .modal-content -->
+	</div> <!-- end of .centered -->
+</div> <!-- end of #login-modal -->
