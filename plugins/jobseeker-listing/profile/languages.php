@@ -15,7 +15,7 @@ function view_languages_content(){
 
 				<?php foreach($languages as $language): ?>
 					<?php if($language['rating'] == $i): ?>
-						<?php $lang_contents .= '<span class="ev--skill_box">' . $language['name'] . '</span>'; ?>
+						<?php $lang_contents .= '<span class="ev--skill_box">' . ucfirst($language['name']) . '</span>'; ?>
 					<?php endif; ?>
 				<?php endforeach; ?>
 
