@@ -99,6 +99,44 @@
 	add_action('wp_login', 'first_login', 10, 2);
 
 
+	function change_text_button($allowed_profile_tags, $allowed_email_profile_tags_params){
+
+		// if($allowed_email_profile_tags_params['name'] == 'reg_activation_user'){
+		    $user_id = $allowed_email_profile_tags_params['user_id'];
+			$user_info = get_userdata($user_id);
+
+		    $replacement = 'Yes, I\'m ready to find my next employee';
+	    	if(in_array('candidate', $user_info->roles)){
+	            $replacement = 'Yes, I\'m ready to find a job!';
+	        }
+
+	        update_user_meta($user_id, 'activation_button_text', $replacement);
+			array_push($allowed_profile_tags, 'activation_button_text');
+		// }
+		return $allowed_profile_tags;
+	}
+	add_filter('upme_allowed_email_profile_tags', 'change_text_button', 10, 2);
+
+	function change_contact_link($allowed_profile_tags, $allowed_email_profile_tags_params){
+
+		// if($allowed_email_profile_tags_params['name'] == 'reg_activation_user'){
+		    $user_id = $allowed_email_profile_tags_params['user_id'];
+			$user_info = get_userdata($user_id);
+
+		    $replacement = home_url('/employer/contact-us/');
+	    	if(in_array('candidate', $user_info->roles)){
+	            $replacement = home_url('jobseeker/contact-us/');
+	        }
+
+	        update_user_meta($user_id, 'contact_button_link', $replacement);
+			array_push($allowed_profile_tags, 'contact_button_link');
+		// }
+		return $allowed_profile_tags;
+	}
+	add_filter('upme_allowed_email_profile_tags', 'change_contact_link', 10, 2);
+
+	
+
 	// ____________________________________________________________ =ACF OPTIONS PAGE
 
 	if( function_exists('acf_add_options_page') ) {

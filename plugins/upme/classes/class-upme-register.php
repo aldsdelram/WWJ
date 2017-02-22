@@ -359,7 +359,7 @@ class UPME_Register {
                     }else{
                         $admin_email_status = $upme_email_templates->upme_send_emails( 'reg_activation_admin' , get_option('admin_email') , '' , '' ,$send_params,$user_id);
                     }
-                    log_error("hello");
+                    // log_error("hello");
 
 
                     if(session_id() == '')
@@ -375,7 +375,14 @@ class UPME_Register {
 
                     $email_status = $upme_email_templates->upme_send_emails('reg_activation_user', $user->user_email , '' , '' ,$send_params,$user_id);
                     
-                    wp_redirect(home_url('/jobseeker/register/hello/'));
+                    $user_info = get_userdata($user_id);
+                    $url = '';
+                    if(in_array('candidate', $user_info->roles)){
+                        home_url('/jobseeker/register/hello/');
+                    }
+                    else{
+                        home_url('/employer/register/hello/');
+                    }
                     exit;
 
                 }else if('INACTIVE' == $approval_status){

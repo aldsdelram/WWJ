@@ -342,6 +342,49 @@ jQuery( document ).ready( function($) {
 		]
     });
 
+    $(document).on('click', '.candidates-list .btn-unlock', function(){
+    	information_container = $(this).next('.unlock_information');
+    	information_container.find('div').each(function(){
+    		$('#candidate-info-modal').find('.'+$(this).attr('class')).html($(this).html());
+    	});
+
+    	candidate_image = information_container.find('.candidate_image').html();
+    	$('#candidate-info-modal').find('.candidate_photo').css('background-image', 'url(\''+candidate_image+'\')');
+    	$('.cm--job_dropdown').val('').click();
+    	$('.candidate_id').val(information_container.find('.candidate_id').html());
+    });
+
+
+    $(document).find('.cm--job_invite_submit').click(function(e){
+    	e.preventDefault();
+    	form = $(this).closest('form');
+    	candidate_id = form.find('.candidate_id').val();
+    	job_id = form.find('.cm--job_dropdown').val();
+
+    	console.log(candidate_id);
+    	console.log(job_id);
+
+    	jQuery.ajax({
+	        url: ajax_url,
+	        type: "POST",
+	        data: {
+	            action: "add_job_listing",
+	            candidate_id: candidate_id,
+	            job_id: job_id
+	        },
+	        cached: false,
+	        dataType: 'json',
+	        success: function(response) {
+
+	        	$('.cm--notice').slideDown('fast');
+	        	// console.log(response);
+	         //    if(response.status){
+	         //        the_element.html(original_text);
+	         //    }
+	        }
+	    });
+    	
+    });
 
 });
 

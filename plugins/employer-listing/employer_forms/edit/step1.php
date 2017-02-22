@@ -52,7 +52,6 @@ function employer_reg_edit_step_1(){
 		}
 
 		update_user_meta(get_current_user_id(), 'emp_step1_data', $step1_data);
-		// wp_redirect(home_url('/employer/dashboard/registration/step-02/'));
 		wp_redirect(home_url('/employer/profile/edit/step-02/'));
 
 

@@ -129,7 +129,7 @@ function employer_reg_show_step_1(){
 		// echo "testing";
 		// echo $post_id;
 
-		wp_redirect(home_url('/employer/dashboard/registration/step-02/'));
+		wp_redirect(home_url('/employer/dashboard/register/step-02/'));
 
 
 	}

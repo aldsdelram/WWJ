@@ -12,6 +12,7 @@
 
 	include( plugin_dir_path( __FILE__ ) . '/shortcodes.php'); 
 	include( plugin_dir_path( __FILE__ ) . '/employer_forms/main.php'); 	
+	include( plugin_dir_path( __FILE__ ) . '/job_posting/main.php'); 	
 
 	
 // ENQUEUE SCRIPTS
@@ -28,4 +29,29 @@
 	}
 	add_action( 'wp_enqueue_scripts', 'employer_listing_styles' );
 
-?>
+
+	function add_job_listing(){
+		
+		$candidate_id = $_POST['candidate_id'];
+		$job_id = $_POST['job_id'];
+
+
+		$post = array(
+		   'post_author' => get_current_user_id(),
+		   'post_content' => '',
+		   'post_status' => 'publish', //draft
+		   'post_title' => 'Job Invitation-'.$candidate_id.'-'.$job_id,
+		   'post_parent' => '',
+		   'post_type' => 'job_invitation'
+		);
+		$post_id = wp_insert_post($post);
+
+		update_field('job_listing_id', $job_id, $post_id);
+		update_field('candidate_id', $candidate_id, $post_id);
+
+		$response['data'] = $_POST;
+		echo json_encode($response);
+		wp_die();
+	}
+	add_action('wp_ajax_add_job_listing', 'add_job_listing');
+	add_action('wp_ajax_nopriv_add_job_listing', 'add_job_listing');
