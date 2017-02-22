@@ -65,7 +65,7 @@ function employer_reg_show_step_3(){
 		// $step2_data['team_members'] = $post_data['team_members'];
 
 		update_user_meta(get_current_user_id(), 'emp_step3_data', $step3_data);
-		wp_redirect(home_url('/employer/dashboard/registration/success'));
+		wp_redirect(home_url('/employer/dashboard/register/success'));
 	}
 
 

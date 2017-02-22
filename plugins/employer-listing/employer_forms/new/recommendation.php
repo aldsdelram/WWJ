@@ -11,7 +11,7 @@ function recommendations_func() {
             update_user_meta( $user_id, '_profile_'.$key, $new_value );
         }
 
-        wp_redirect(home_url('/employer/dashboard/registration/success/'));
+        wp_redirect(home_url('/employer/dashboard/register/success/'));
     }
 ?>
 
