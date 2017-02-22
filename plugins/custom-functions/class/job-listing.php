@@ -257,6 +257,24 @@ class Job_Listing {
 		return $skills;
 	}
 
+	public static function getPostings(){
+		$args = array(
+		   'post_author' => get_current_user_id(),
+		   'post_status' => 'publish', //draft
+		   'post_type' => 'job_listings'
+		);
+		$query = new WP_Query($args);
+		$job_posts = [];
+		if($query->have_posts()){
+			while($query->have_posts()){
+				$query->the_post();
+				$job_posts[get_the_ID()] = get_the_title();
+			}
+			wp_reset_postdata(); 
+		}
+		return $job_posts;
+	}
+
 	public static function register_jobseeker_faq() {
         register_post_type( 'jobseeker_faq',
             array(
