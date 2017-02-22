@@ -17,6 +17,7 @@ Network: true
 	include( plugin_dir_path( __FILE__ ) . '/class/job-listing.php'); 
 	include( plugin_dir_path( __FILE__ ) . '/class/company-profile.php'); 
 	include( plugin_dir_path( __FILE__ ) . '/class/main_class.php'); 
+	include( plugin_dir_path( __FILE__ ) . '/class/job_invitation.php'); 
 
 // ************************************
 // =ACTIONS
@@ -61,6 +62,10 @@ Network: true
 	function test_code_here(){
 
 
+
+		// $postings = Job_Listing::getPostings();
+		// var_dump($postings);
+		// var_dump($query);
 		// var_dump(get_user_meta(get_current_user_id(), 'step1_data', true));
 		// var_dump(get_user_meta(get_current_user_id(), 'step2_data', true));
 		// var_dump(get_user_meta(get_current_user_id(), 'step3_data', true));
