@@ -28,7 +28,7 @@ function recommendations_func() {
 
         <p><strong>EARN YOURSELF 5 CREDITS + A CHANCE TO WIN EXCLUSIVE DEALS!</strong></p>
 
-        <p>Chance to win exclusive deals! Users who invite 5 friends from this page stand to earn vouchers and discounts ranging from retreat spas, popular eateries to BBQ catering. <span class="tac">*Terms &amp; conditions apply</span>
+        <p>Users who invite 5 friends from this page stand to earn vouchers and discounts ranging from retreat spas, popular eateries to BBQ catering. <span class="tac">*Terms &amp; conditions apply</span>
         </p>
 
         <form method="post">

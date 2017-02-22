@@ -1,6 +1,6 @@
 		<footer id="main-footer" class="<?= str_replace( ' ', '-', strtolower( get_the_title() ) ) . '-footer' ?>">
 			<?php if ( !is_page( 'splash' ) ): ?>
-				<div class="google-map">
+				<div class="google-map gmap_div">
 					<h3>Address:</h3>
 					<p>400 Orchard Road #09-08 Singapore 238875</p>
 					<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3988.780303929788!2d103.82671431416932!3d1.306990999046742!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31da198cc0aefd57%3A0xca8ff9109e38059!2s400+Orchard+Rd%2C+Singapore+238875!5e0!3m2!1sen!2ssg!4v1482376814182" width="100%" height="320" frameborder="0" style="border:0" allowfullscreen></iframe>

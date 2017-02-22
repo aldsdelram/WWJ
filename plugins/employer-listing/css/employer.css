@@ -96,7 +96,8 @@
     position: absolute;
     left: 50%;
     top: 50%;
-    transform: translate(-50%,-50%);
+    -webkit-transform: translate(-50%,-50%);
+            transform: translate(-50%,-50%);
 }
 
 .redrisk {
@@ -274,8 +275,6 @@
     font-weight: 700;
     font-size: 18px;
     -webkit-transition: all .2s ease-in-out;
-    -moz-transition: all .2s ease-in-out;
-    -o-transition: all .2s ease-in-out;
     transition: all .2s ease-in-out;
 }
 	.ebs--link:hover {
@@ -296,8 +295,6 @@
     font-weight: 700;
     font-size: 18px;
     -webkit-transition: all .3s ease-in-out;
-    -moz-transition: all .3s ease-in-out;
-    -o-transition: all .3s ease-in-out;
     transition: all .3s ease-in-out;
 }
 	.ebs--submit:hover {
@@ -468,7 +465,10 @@
 		position: relative;
 		cursor: pointer;
 		outline: none;
-		user-select: none;
+		-webkit-user-select: none;
+		   -moz-user-select: none;
+		    -ms-user-select: none;
+		        user-select: none;
 	}
 
 	input.cmn-toggle-round + label {
@@ -493,6 +493,7 @@
 		right: 1px;
 		background-color: #f1f1f1;
 		border-radius: 60px;
+		-webkit-transition: background 0.4s;
 		transition: background 0.4s;
 	}
 
@@ -501,6 +502,7 @@
 		background-color: #fff;
 		border-radius: 100%;
 		box-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+		-webkit-transition: margin 0.4s;
 		transition: margin 0.4s;
 	}
 
@@ -516,8 +518,11 @@
     background-color: #303841;
     color: #fff;
     padding: 9px 0;
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
-    justify-content: space-around;
+    -ms-flex-pack: distribute;
+        justify-content: space-around;
     font-size: 14px;
 }
 
@@ -540,8 +545,6 @@
     padding: 2px 9px;
     margin-left: 4px;
     -webkit-transition: all .3s ease-in-out;
-    -moz-transition: all .3s ease-in-out;
-    -o-transition: all .3s ease-in-out;
     transition: all .3s ease-in-out;
 }
 
@@ -549,4 +552,122 @@
 .jpl--paginator ul li:hover a {
 	background-color: #df141d;
 	color: #fff;
+}
+
+
+/*________________________ =UNLOCK =MODAL ________________________*/
+
+.cm--info_main {
+	padding: 25px;
+	font-size: 14px;
+}
+
+.cm--info_line {
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: flex;
+    width: 100%;
+    margin-bottom: 8px;
+}
+
+.cm--info_line span:first-child {
+    width: 125px;
+    color: #808080;
+}
+
+.cm--info_part_2 h4 {
+    color: #808080;
+    font-weight: 400;
+    margin: 14px 0 5px;
+}
+
+.cm--info_main .candidate_photo {
+	background-repeat: no-repeat;
+	background-position: top center;
+	background-size: cover;
+	width: 100%;
+	height: 200px;
+	display: block;
+}
+
+.cm--hidden {
+	display: none;
+}
+
+.cm--info_part_3 {
+	margin-top: 25px;
+}
+
+.cm--info_part_3 a {
+	-webkit-transition: all .3s ease-in-out;
+	-moz-transition: all .3s ease-in-out;
+	-o-transition: all .3s ease-in-out;
+	transition: all .3s ease-in-out;
+	margin-bottom: 15px;
+}
+
+.cm--red_btn {
+	background: #df141d;
+    color: #fff;
+    width: 100%;
+    display: inline-block;
+    padding: 7px;
+    text-align: center;
+    font-weight: 600;
+}
+	.cm--red_btn:hover {
+		background-color: #980007;
+	}
+
+.cm--trans_btn {
+    background: #fff;
+    border: 2px solid #df141d;
+    color: #df141d;
+    width: 100%;
+    display: inline-block;
+    padding: 5px;
+    text-align: center;
+    font-weight: 600;
+}
+	.cm--trans_btn:hover {
+		background-color: #df141d;
+    	color: #fff;
+	}
+
+
+.cm--invite_form {
+	display: none;
+	padding-top: 15px;
+    border-top: 1px solid #c3c3c3;
+    background-color: #e3e3e3;
+	padding-bottom: 15px;
+	margin: 0;
+}
+
+.cm--job_dropdown {
+    width: 100%;
+    border: 1px solid #9c9c9c;
+    padding: 7px;
+}
+
+.cm--job_invite_submit {
+    background-color: #2b2b2b;
+    padding: 8px;
+    color: #fff;
+    cursor: pointer;
+    width: 100%;
+}
+	.cm--job_invite_submit:hover {
+		background-color: #171616;
+	}
+
+.cm--notice {
+	display: none;
+	text-align: center;
+	border: 1px solid #df141d;
+	position: relative;
+	clear: both;
+	top: 10px;
+	width: 95%;
+	margin: 0 auto;
 }

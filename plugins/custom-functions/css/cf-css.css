@@ -70,3 +70,183 @@ input[name=your-phone]{
     background: #c7161c;
     padding: 12px 50px;
 }
+
+
+/*________________________ =CALENDAR PAGE ________________________*/
+.jobseeker--calendar_main {
+    background-color: #fff;
+}
+
+
+/*________________________ =calenday ui ________________________*/
+
+.jobseeker--calendar_main .row {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+}
+
+.wwj--custom_calendar {
+    margin-top: 20px;
+}
+
+.wwj--custom_calendar .ui-datepicker-inline {
+    border: none !important;
+    width: 100%;
+    max-width: 630px;
+    margin: 0 auto;
+}
+
+.wwj--custom_calendar .ui-widget {
+    font-family: 'Open Sans', Arial,Helvetica,sans-serif;
+}
+
+.wwj--custom_calendar .ui-datepicker-header {
+    background-color: transparent;
+    border: none;
+    margin-bottom: 5px;
+}
+
+.wwj--custom_calendar .ui-datepicker td span, .ui-datepicker td a {
+    text-align: center;
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    border: none !important;
+    margin: 0 auto 15px;
+    color: #626c75 !important;
+    background-color: transparent !important;
+    font-size: 18px;
+    padding: 12px;
+}
+
+.wwj--custom_calendar .ui-datepicker th {
+    color: #404850;
+    font-weight: 600;
+    font-size: 18px;
+    text-transform: uppercase;
+}
+
+.wwj--custom_calendar .ui-datepicker-title {
+    color: #8e9599;
+    font-weight: 100;
+    font-size: 30px;
+}
+
+.wwj--custom_calendar .ui-datepicker-prev {
+    left: 22px !important;
+    top: 16px !important;
+    cursor: pointer;
+}
+
+.wwj--custom_calendar .ui-datepicker-next {
+    right: 22px !important;
+    top: 16px !important;
+    cursor: pointer;
+}
+
+.wwj--custom_calendar .ui-datepicker-prev:before,
+.wwj--custom_calendar .ui-datepicker-next:before {
+    position: absolute;
+    font-family: 'FontAwesome';
+    font-size: 21px;
+    font-weight: normal;
+    color: #8e9599;
+}
+
+.wwj--custom_calendar .ui-datepicker-prev:before {
+    content: "\f053";
+    top: 5px;
+    right: 9px;
+}
+
+.wwj--custom_calendar .ui-datepicker-next:before {
+    content: "\f054";
+    top: 5px;
+    right: 7px;
+}
+
+.wwj--custom_calendar .ui-widget-header .ui-icon {
+    background-image: none;
+}
+
+
+/* hover */
+.wwj--custom_calendar .ui-state-hover,
+.wwj--custom_calendar .ui-widget-content .ui-state-hover,
+.wwj--custom_calendar .ui-widget-header .ui-state-hover,
+.wwj--custom_calendar .ui-state-focus,
+.wwj--custom_calendar .ui-widget-content .ui-state-focus,
+.wwj--custom_calendar .ui-widget-header .ui-state-focus,
+.wwj--custom_calendar .ui-button:hover,
+.wwj--custom_calendar .ui-button:focus {
+    border: none;
+    background-color: #efefef !important;
+}
+
+/* current date*/
+.wwj--custom_calendar .ui-state-highlight,
+.wwj--custom_calendar .ui-widget-content .ui-state-highlight,
+.wwj--custom_calendar .ui-widget-header .ui-state-highlight {
+    background: #f88699 !important;
+    color: #ffffff !important;
+}
+
+/* clicked / selected / event */
+.wwj--custom_calendar .ui-state-active,
+.wwj--custom_calendar .ui-widget-content .ui-state-active,
+.wwj--custom_calendar .ui-widget-header .ui-state-active,
+.wwj--custom_calendar .ui-button:active,
+.wwj--custom_calendar .ui-button:active,
+.wwj--custom_calendar .ui-button.ui-state-active:hover {
+    background-color: #86f7f8 !important;
+}
+
+
+/* =sidebar */
+.cc--sidebar {
+    background-color: #303841;
+    color: #fff;
+    padding-top: 25px;
+    padding-bottom: 25px;
+}
+
+.ccs--sidebar_main_title {
+    font-family: 'Oswald', sans-serif;
+    color: #fff;
+    font-size: 24px;
+    padding-bottom: 15px;
+    margin: 0 15px 30px;
+    border-bottom: 2px solid #fff;
+    text-transform: uppercase;
+    text-align: center;
+    font-weight: 500;
+}
+
+.ccs--set_main {
+    padding: 0 15px;
+}
+
+.ccs--set_main .ccs--schedule_set:not(:last-child) {
+    border-bottom: 2px solid #787d83;
+    padding-bottom: 15px;
+    margin-bottom: 20px;
+}
+
+.ccs--schedule_set {
+    text-transform: uppercase;
+}
+
+.ccs--date {
+    font-family: 'Oswald', sans-serif;
+    font-size: 22px;
+    margin-bottom: 15px;
+}
+
+.ccs--date_text {
+    color: #86e1f8;
+}
+
+.ccs--address {
+    margin-bottom: 10px;
+}

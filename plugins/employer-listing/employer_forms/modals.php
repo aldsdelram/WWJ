@@ -12,7 +12,7 @@ function employer_help_button_modal() {
 						<h2 class="sfd--title">Help Tips</h2>
 						<!-- 1 -->
 						<div class="box-to-fade box-no-1">
-							<img class="sfd--img" src="<?= plugins_url() . '/employer-listing/img/employer-reg-1.png' ?>" alt="">		
+							<img class="sfd--img" src="<?= wp_get_attachment_url(988); ?>" alt="">		
 
 							<div class="clearfix">
 								<h3 class="sfd--slanted">Provide a Standout Company Profile <span class="sfd--slanted-border"></span></h3>
@@ -23,7 +23,7 @@ function employer_help_button_modal() {
 
 						<!-- 2 -->
 						<div class="box-to-fade box-no-2">
-							<img class="sfd--img" src="<?= plugins_url() . '/employer-listing/img/employer-reg-2.png' ?>" alt="">
+							<img class="sfd--img" src="<?= wp_get_attachment_url(989); ?>" alt="">		
 
 							<div class="clearfix">
 								<h3 class="sfd--slanted">Reinforce Your Brand <span class="sfd--slanted-border"></span></h3>
@@ -34,7 +34,7 @@ function employer_help_button_modal() {
 
 						<!-- 3 -->
 						<div class="box-to-fade box-no-3">
-							<img class="sfd--img" src="<?= plugins_url() . '/employer-listing/img/employer-reg-3.png' ?>" alt="">
+							<img class="sfd--img" src="<?= wp_get_attachment_url(993); ?>" alt="" style="max-width: 107%;margin-left: -20px;">
 
 							<div class="clearfix">
 								<h3 class="sfd--slanted">Peddling Your Perks <span class="sfd--slanted-border"></span></h3>
@@ -47,7 +47,7 @@ function employer_help_button_modal() {
 
 						<!-- 4 -->
 						<div class="box-to-fade box-no-4">
-							<img class="sfd--img" src="<?= plugins_url() . '/employer-listing/img/employer-reg-4.png' ?>" alt="">
+							<img class="sfd--img" src="<?= wp_get_attachment_url(990); ?>" alt="" style="max-width: 107%;margin-left: -20px;">
 
 							<div class="clearfix">
 								<h3 class="sfd--slanted">Win with Images <span class="sfd--slanted-border"></span></h3>
@@ -58,7 +58,7 @@ function employer_help_button_modal() {
 
 						<!-- 5 -->
 						<div class="box-to-fade box-no-5">
-							<img class="sfd--img" src="<?= plugins_url() . '/employer-listing/img/employer-reg-5.png' ?>" alt="">
+							<img class="sfd--img" src="<?= wp_get_attachment_url(992); ?>" alt="">
 
 							<div class="clearfix">
 								<h3 class="sfd--slanted">Proofread Before Submitting <span class="sfd--slanted-border"></span></h3>

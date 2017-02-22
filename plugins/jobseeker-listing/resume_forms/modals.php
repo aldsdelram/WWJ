@@ -46,40 +46,30 @@
 													<div class="form-divider rd-row rd-between-xs">
 														<div class="left-form">
 															<div class="form-group">
-																<div class="dropdown-search-input">
+																<div class="dropdown-input">
 																	<label for="from_month">Month</label>
-																	<input type="text" name="start_month[]" class="dropdown-data input-field" readonly/>
-																	<div class="dropdown-list">
-																		<div>
-																			<input class="filter-dropdown" type="text">
-																		</div>
-																		<ul class="option_end_year">
+																	<input class="dropdown-data input-field" name="start_month[]" type="text">
+																	<ul class="option_end_year">
 																		<?php for( $i = 1; $i <= 12; $i++ ) : ?>
 																			<li><?= $i < 10 ? '0'.$i : $i ?></li>
 																		<?php endfor; ?>
 																	</ul>
-																	</div>
-																</div>
+																</div><!-- end of .dropdown-input -->
 															</div>
 														</div>
 														<div class="right-form">
 															<div class="form-group">
-																<div class="dropdown-search-input">
-																	<label for="form_year">Year</label>
-																	<input type="text" name="start_year[]" class="dropdown-data input-field" readonly/>
-																	<div class="dropdown-list">
-																		<div>
-																			<input class="filter-dropdown" type="text">
-																		</div>
-																		<ul class="option_star_year">
-																			<?php for( $i = date( 'Y' ); $i >= 1950; $i-- ) : ?>
-																				<li><?= $i ?></li>
-																			<?php endfor; ?>
-																		</ul>
-																	</div>
+																<label for="form_year">Year</label>
+																<div class="dropdown-input">
+																	<input class="dropdown-data input-field" name="start_year[]" type="text">
+																	<ul class="option_end_year">
+																		<?php for( $i = date( 'Y' ); $i >= 1950; $i-- ) : ?>
+																			<li><?= $i ?></li>
+																		<?php endfor; ?>
+																	</ul>
 																</div>
+																<!--input class="input-field numeric" max="9999" min="1000" name="start_year[]" type="number"-->
 															</div>
-
 														</div>
 													</div>
 												</div><!-- end of .left-form -->
@@ -88,40 +78,32 @@
 													<div class="form-divider rd-row rd-between-xs">
 														<div class="left-form">
 															<div class="form-group">
-																<div class="dropdown-search-input">
-																	<label for="from_month">Month</label>
-																	<input type="text" name="end_month[]" class="dropdown-data input-field" readonly/>
-																	<div class="dropdown-list">
-																		<div>
-																			<input class="filter-dropdown" type="text">
-																		</div>
-																		<ul class="option_end_year">
-																			<li>Present</li>
+																<div class="dropdown-input">
+																	<label for="end_year">Month</label>
+																	<input class="dropdown-data input-field" name="end_month[]" type="text">
+																	<ul class="option_end_month">
 																		<?php for( $i = 1; $i <= 12; $i++ ) : ?>
 																			<li><?= $i < 10 ? '0'.$i : $i ?></li>
 																		<?php endfor; ?>
 																	</ul>
-																	</div>
-																</div>
+																</div><!-- end of .dropdown-input -->
 															</div>
 														</div>
 														<div class="right-form">
 															<div class="form-group">
-																<div class="dropdown-search-input">
-																	<label for="form_year">Year</label>
-																	<input type="text" name="end_year[]" class="dropdown-data input-field" readonly/>
-																	<div class="dropdown-list">
-																		<div>
-																			<input class="filter-dropdown" type="text">
-																		</div>
-																		<ul class="option_star_year">
-																			<li>Present</li>
-																			<?php for( $i = date( 'Y' ); $i >= 1950; $i-- ) : ?>
-																				<li><?= $i ?></li>
-																			<?php endfor; ?>
-																		</ul>
-																	</div>
+																<label for="end_year">Year</label> 
+
+																<div class="dropdown-input">
+																	<input class="dropdown-data input-field" name="end_year[]" type="text">
+																	<ul class="option_end_year">
+																		<li data-value="Present">Present</li>
+																		<?php for( $i = date( 'Y' ); $i >= 1950; $i-- ) : ?>
+																			<li data-value="<?=$i?>"><?= $i ?></li>
+																		<?php endfor; ?>
+																	</ul>
 																</div>
+
+																<!--input class="input-field numeric" max="9999" min="1000" name="end_year[]" type="number"-->
 															</div>
 														</div>
 													</div>
@@ -282,18 +264,18 @@
 							<h2 class="sfd--title">Help Tips</h2>
 							<!-- 1 -->
 							<div class="box-to-fade box-no-1">
-								<img class="sfd--img" src="<?= plugins_url() . '/jobseeker-listing/img/help-modal--img-1.png' ?>" alt="">		
+								<img class="sfd--img" src="<?= wp_get_attachment_url(988); ?>" alt="">		
 
 								<div class="clearfix">
 									<h3 class="sfd--slanted">My personal profile <span class="sfd--slanted-border"></span></h3>
 								</div>
 
-								<p class="sfd--desc">Fill out the form on the left.<br>You can always come back to edit the data in My Profile.</p>
+								<p class="sfd--desc">Fill out the form on the left. You can always come back to edit the data in My Profile.</p>
 							</div>
 
 							<!-- 2 -->
 							<div class="box-to-fade box-no-2">
-								<img class="sfd--img" src="<?= plugins_url() . '/jobseeker-listing/img/help-modal--img-2.png' ?>" alt="">
+								<img class="sfd--img" src="<?= wp_get_attachment_url(989); ?>" alt="">
 
 								<div class="clearfix">
 									<h3 class="sfd--slanted">Tailor your answers to the job you are seeking <span class="sfd--slanted-border"></span></h3>
@@ -304,7 +286,7 @@
 
 							<!-- 3 -->
 							<div class="box-to-fade box-no-3">
-								<img class="sfd--img" src="<?= plugins_url() . '/jobseeker-listing/img/help-modal--img-3.png' ?>" alt="">
+								<img class="sfd--img" src="<?= wp_get_attachment_url(990); ?>" alt="" style="max-width: 107%;margin-left: -20px;">
 
 								<div class="clearfix">
 									<h3 class="sfd--slanted">Provide references <span class="sfd--slanted-border"></span></h3>
@@ -315,7 +297,7 @@
 
 							<!-- 4 -->
 							<div class="box-to-fade box-no-4">
-								<img class="sfd--img" src="<?= plugins_url() . '/jobseeker-listing/img/help-modal--img-4.png' ?>" alt="">
+								<img class="sfd--img" src="<?= wp_get_attachment_url(991); ?>" alt="">
 
 								<div class="clearfix">
 									<h3 class="sfd--slanted">Don't leave any blanks <span class="sfd--slanted-border"></span></h3>
@@ -326,13 +308,13 @@
 
 							<!-- 5 -->
 							<div class="box-to-fade box-no-5">
-								<img class="sfd--img" src="<?= plugins_url() . '/jobseeker-listing/img/help-modal--img-5.png' ?>" alt="">
+								<img class="sfd--img" src="<?= wp_get_attachment_url(992); ?>" alt="">
 
 								<div class="clearfix">
 									<h3 class="sfd--slanted">Proofread your information before submitting <span class="sfd--slanted-border"></span></h3>
 								</div>
 
-								<p class="sfd--desc">Many companies filter candidates by their responses to certain fields within the online application forms. Don't miss out on any chances to be included in the recruiters' filtering processes for the position! Fill out all fields within the application process.</p>
+								<p class="sfd--desc">Before hitting the submit button, take a final glance at the content you have provided. Keep in mind that once you hit that button, your profile will be published directly on WWJ Portal. First impressions are important, so make the best one possible when you apply!</p>
 							</div>
 						</div>
 

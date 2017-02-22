@@ -180,6 +180,65 @@ jQuery( document ).ready( function($) {
 	    jQuery(this).closest('.lm--accord_set').find('.lma--toggle_content').slideToggle('fast');
 	});
 	
+
+	jQuery('.testimonial-fade').slick({
+	    swipe: false,
+	    touchMove: false,
+	    swipeToSlide: false,
+	    arrows: true,
+	    dots: true,
+	    infinite: false,
+	    speed: 300,
+	    slidesToShow: 1,
+	    slidesToScroll: 1,
+	    autoplay: false,
+	    autoplaySpeed: 5000,
+	    responsive: [
+	        {
+	          breakpoint: 1024,
+	          settings: {
+	            slidesToShow: 1,
+	            slidesToScroll: 1,
+	            infinite: false,
+	            arrows: false,
+	            dots: true
+	          }
+	        },
+	        {
+	          breakpoint: 992,
+	          settings: {
+	            slidesToShow: 1,
+	            slidesToScroll: 1,
+	            infinite: false,
+	            arrows: false,
+	            dots: true
+	          }
+	        },
+	        {
+	          breakpoint: 641,
+	          settings: {
+	            slidesToShow: 1,
+	            slidesToScroll: 1,
+	            arrows: false,
+	            dots: true
+	          }
+	        },
+	        {
+	          breakpoint: 541,
+	          settings: {
+	            slidesToShow: 1,
+	            slidesToScroll: 1,
+	            arrows: false,
+	            dots: false
+	          }
+	        }
+	    ]
+	});
+
+	jQuery('.cm--invite_btn').on('click', function() {
+		jQuery('.cm--invite_form').slideToggle('fast');
+	})
+
 });
 
 

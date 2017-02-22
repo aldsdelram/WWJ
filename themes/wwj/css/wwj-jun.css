@@ -3,6 +3,14 @@
     text-align: left;
 }
 
+.oswald-variant {
+    margin-bottom: 15px;
+    font-family: 'Oswald';
+    font-weight: 400;
+    font-size: 32px;
+    margin: 15px 0 55px;
+}
+
 #main-section .employers-section-promotion_1 {
 	text-align: center;
 	padding: 60px 0;
@@ -115,6 +123,10 @@
     width: 100%;
     box-shadow: none;
     padding: 10px 15px !important;
+}
+
+.simple-form textarea {
+    height: 100px;
 }
 
 .simple-form .btn-panel input[type=submit] {
@@ -357,4 +369,145 @@
 .company-profile-template #main-footer .google-map,
 .company-profile-template #main-footer .information {
     display:none;
+}
+
+
+/*________________________ =slick ________________________*/
+
+.slick--red_dots .slick-dots {
+    text-align: center;
+}
+
+.slick--red_dots .slick-dots li {
+    display: inline-block;
+}
+
+.slick--red_dots .slick-dots li button {
+    cursor: pointer;
+    padding: 8px;
+    margin: 0 9px;
+    font-size: 0;
+    border-radius: 50%;
+}
+
+.slick--red_dots .slick-dots .slick-active button {
+    background-color: #ea1a23;
+    border: none;
+}
+
+/* Arrows */
+.slick-prev,
+.slick-next
+{
+    font-size: 0;
+    line-height: 0;
+
+    position: absolute;
+    top: 50%;
+
+    display: block;
+
+    width: 20px;
+    height: 20px;
+    margin-top: -10px;
+    padding: 0;
+
+    cursor: pointer;
+
+    color: transparent;
+    border: none;
+    outline: none;
+    background: transparent;
+}
+.slick-prev:hover,
+.slick-prev:focus,
+.slick-next:hover,
+.slick-next:focus
+{
+    color: transparent;
+    outline: none;
+    background: transparent;
+}
+.slick-prev:hover:before,
+.slick-prev:focus:before,
+.slick-next:hover:before,
+.slick-next:focus:before
+{
+    opacity: 1;
+}
+.slick-prev.slick-disabled:before,
+.slick-next.slick-disabled:before
+{
+    opacity: .25;
+}
+
+.slick-prev:before,
+.slick-next:before
+{
+    font-family: 'FontAwesome';
+    font-size: 20px;
+    line-height: 1;
+
+    opacity: .75;
+    color: gray;
+
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.slick-prev
+{
+    left: -25px;
+}
+[dir='rtl'] .slick-prev
+{
+    right: -25px;
+    left: auto;
+}
+.slick-prev:before
+{
+    content: '\f053';
+}
+
+.slick-next
+{
+    right: -25px;
+}
+.slick-next:before
+{
+    content: '\f054';
+}
+
+/*________________________ =jobseeker contact ________________________*/
+.page-68 .inner-banner,
+.page-139 .inner-banner {
+    display: none;
+}
+
+.page-68 #main-section,
+.page-139 #main-section {
+    background-color: #00a2ed;
+    color: #fff;
+}
+
+.page-68 #main-footer,
+.page-139 #main-footer {
+    border-top: none;
+}
+
+.page-68 #main-footer .google-map,
+.page-139 #main-footer .google-map {
+    padding-top: 0;
+}
+
+.page-139 #main-footer .google-map h3,
+.page-139 #main-footer .google-map h3 + p,
+.page-68 #main-footer .google-map h3,
+.page-68 #main-footer .google-map h3 + p {
+    display: none;
+}
+
+.page-139 #main-footer .google-map iframe,
+.page-68 #main-footer .google-map iframe {
+    margin-top: 0;
 }
