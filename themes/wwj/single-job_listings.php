@@ -81,15 +81,26 @@
 
 					<div class="col-sm-3">
 						<div class="jlv--info_stat">
-							<div class="jlv--expiry_box">
-								<p>EXPIRY<br><strong><?php the_field('expiry_date'); ?></strong></p>
-							</div>
+							<div class="row">
+								<div class="col-sm-6">
+									<div class="jlv--expiry_box">
+										<p>EXPIRY<br><strong><?php the_field('expiry_date'); ?></strong></p>
+									</div>
 
-							<div class="jlv--applied_box">
-								<p>APPLIED<br><strong>----</strong></p>
+									<div class="jlv--extend_button">
+										<a href="#" data-toggle="tooltip" data-placement="bottom" title="Extend your job ad now to enjoy a cheaper rate! Only 5 Credits Top-Up!">EXTEND</a>
+									</div>
+								</div>
+
+								<div class="col-sm-6">
+									<div class="jlv--applied_box">
+										<p>APPLIED<br><strong>----</strong></p>
+									</div>
+								</div>
 							</div>
 						</div>
 					</div>
+
 				</div>
 			</div>
 		</section>

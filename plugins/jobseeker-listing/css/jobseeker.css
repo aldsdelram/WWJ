@@ -411,6 +411,7 @@
     padding: 7px 15px;
     z-index: 2;
     display: none;
+    min-height: 65px;
 }
 
 .dropdown-search-input ul li {
@@ -871,25 +872,40 @@
 
 .jlv--info_stat {
     margin-top: 15px;
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-pack: justify;
-        -ms-flex-pack: justify;
-            justify-content: space-between;
+
 }
 
 .jlv--info_stat div {
-    height: 80px;   
-    width: 120px;
-    padding: 17px;
+    /*height: 80px;   */
 }
     .jlv--expiry_box {
         background-color: #13b3b5;
+        width: 100%;
+        padding: 17px;
     }
 
     .jlv--applied_box {
         background-color: #1f73da;
+        width: 100%;
+        padding: 17px;
+    }
+
+.jlv--extend_button a {
+    background-color: transparent;
+    width: 100%;
+    display: block;
+    margin-top: 10px;
+    text-align: center;
+    padding: 1px;
+    font-size: 12px;
+    -webkit-transition: all .3s ease-in-out;
+    -moz-transition: all .3s ease-in-out;
+    -o-transition: all .3s ease-in-out;
+    transition: all .3s ease-in-out;
+    border: 1px solid #fff;
+}
+    .jlv--extend_button a:hover {
+        background-color: #bb151c;
     }
 
 .job-listing-view--main {

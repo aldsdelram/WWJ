@@ -3,7 +3,9 @@
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-	<title>Work Work Jay</title>
+	<title>
+	<?php bloginfo('name'); ?> <?php is_home() || is_front_page() ? bloginfo('description') : wp_title('|', true, 'left'); ?>
+	</title>
 	<?php wp_head(); ?>
 </head>
 <body class="<?= is_user_logged_in() ? 'logged-in' : '' ?> <?= 'page-'.get_the_ID()?>">

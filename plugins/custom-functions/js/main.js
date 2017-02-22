@@ -19,6 +19,8 @@
         //to initialize the inputs and everything
         function init(){
             $('.wwj--custom_calendar').datepicker();
+
+            $('[data-toggle="tooltip"]').tooltip(); 
         }
 
         /*EVENT LISTENERS*/
