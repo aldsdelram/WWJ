@@ -59,7 +59,8 @@
 		function checkIfLoggedIn(){
 			if($('#candidateListing-container').length){
 				if(listObj.i > 1){
-					$('.registration-message').fadeIn('fast');
+					if($('body.logged-in').length == 0)
+						$('.registration-message').fadeIn('fast');
 				}
 				else
 					$('.registration-message').fadeOut('fast');

@@ -366,6 +366,8 @@ body {
 	margin: 0 10px;
 	height: 100%;
 	background: #da1f26;
+	display: flex;
+	flex-direction: column;
 }
 
 #main-section .searchHistory-list li .img-container,
@@ -403,6 +405,8 @@ body {
 	background: #363636;
 	padding: 10px 10px 10px 15px;
 	color: #fff;
+	display: flex;
+	flex: 1 0 auto;
 }
 
 #main-section .jobseeker-details .name {
@@ -410,6 +414,8 @@ body {
 	text-transform: uppercase;
 	margin: 0 0 5px;
 	padding: 0;
+	width: calc( 100% - 40px);
+	word-break: break-all;
 }
 
 #main-section .jobseeker-details p {
@@ -422,6 +428,7 @@ body {
 	cursor: pointer;
 	-webkit-transition: .5s;
 	transition: .5s;
+	width: 20px;
 }
 
 #main-section .jobseeker-details .add-to-fave:hover,
@@ -600,7 +607,7 @@ body {
 }
 
 #main-section #about-workwork-jay-content {
-	text-align: center;
+	/*text-align: center;*/
 }
 
 #main-section .createProfile-area .details {
@@ -3438,16 +3445,18 @@ form .upme-login-register-link:hover {
 
 /*________________________ =new  =About Us Page ________________________*/
 
-.page-742 .inner-banner,
+.page-61 .inner-banner,
 .page-131 .inner-banner {
 	display: none;
 }
 
-.page-742  #main-section #about-workwork-jay-content {
+.page-61  #main-section #about-workwork-jay-content,
+.page-131  #main-section #about-workwork-jay-content {
 	text-align: inherit !important;
 }
 
-.page-742 #main-wrapper p {
+.page-61 #main-wrapper p,
+.page-131 #main-wrapper p {
 	line-height: 27px;
 }
 
@@ -3540,6 +3549,7 @@ form .upme-login-register-link:hover {
 
 .aue--sec_3_sets img {
 	border: 3px solid #262c32;
+	margin-bottom: 20px;
 }
 
 /* ------- =4 ------- */
@@ -3569,7 +3579,7 @@ form .upme-login-register-link:hover {
 /* ------- =6 ------- */
 .aue--sec_6 {
 	text-align: center;
-    padding: 90px 0 100px;
+    padding: 60px 0 100px;
 }
 
 .aue--sec_6 h2 {
@@ -3607,6 +3617,52 @@ form .upme-login-register-link:hover {
 .aue--sec_7 h2 + p {
 	margin-bottom: 50px;
 }
+
+.au--testimonial_bubble {
+	position: relative;
+    background: #f4f4f4;
+    max-width: 600px;
+    margin: 0 auto 40px;
+    padding: 20px 35px 25px;
+    color: #94a3a8;
+    font-style: italic;
+    line-height: 26px;
+}
+	.au--testimonial_bubble:after {
+		top: 100%;
+		left: 50%;
+		border: solid transparent;
+		content: " ";
+		height: 0;
+		width: 0;
+		position: absolute;
+		pointer-events: none;
+		border-color: rgba(136, 183, 213, 0);
+		border-top-color: #f4f4f4;
+		border-width: 20px;
+		margin-left: -20px;
+	}
+
+.aut--pic {
+	background-repeat: no-repeat;
+	background-position: top center;
+	background-size: cover;
+	width: 90px;
+	height: 90px;
+	border-radius: 50%;
+	display: inline-block;
+}
+
+.aut--name {
+	font-weight: 600;
+}
+
+.aut--position {
+    font-size: 14px;
+    color: #7e9096;
+}
+
+
 
 /*________________________ =VARIANTS ________________________*/
 
