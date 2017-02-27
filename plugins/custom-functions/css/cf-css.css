@@ -107,7 +107,8 @@ input[name=your-phone]{
     margin-bottom: 5px;
 }
 
-.wwj--custom_calendar .ui-datepicker td span, .ui-datepicker td a {
+.wwj--custom_calendar .ui-datepicker td span,
+.wwj--custom_calendar .ui-datepicker td a {
     text-align: center;
     width: 48px;
     height: 48px;
