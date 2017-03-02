@@ -81,15 +81,26 @@
 
 					<div class="col-sm-3">
 						<div class="jlv--info_stat">
-							<div class="jlv--expiry_box">
-								<p>EXPIRY<br><strong><?php the_field('expiry_date'); ?></strong></p>
-							</div>
+							<div class="row">
+								<div class="col-sm-6">
+									<div class="jlv--expiry_box">
+										<p>EXPIRY<br><strong><?php the_field('expiry_date'); ?></strong></p>
+									</div>
 
-							<div class="jlv--applied_box">
-								<p>APPLIED<br><strong>----</strong></p>
+									<div class="jlv--extend_button">
+										<a href="#" data-toggle="tooltip" data-placement="bottom" title="Extend your job ad now to enjoy a cheaper rate! Only 5 Credits Top-Up!">EXTEND</a>
+									</div>
+								</div>
+
+								<div class="col-sm-6">
+									<div class="jlv--applied_box">
+										<p>APPLIED<br><strong>----</strong></p>
+									</div>
+								</div>
 							</div>
 						</div>
 					</div>
+
 				</div>
 			</div>
 		</section>
@@ -110,17 +121,24 @@
 								<h2>Preffered Skills</h2>
 								
 								<div class="jlv--skills_flex">
-									<span>Content marketing</span>
+<!-- 									<span>Content marketing</span>
 									<span>Customer relationship management</span>
 									<span>closing sales</span>
 									<span>mobile marketing</span>
 									<span>multiplatform</span>
-									<span>search engine optimization</span>
+									<span>search engine optimization</span> -->
+									<?php if( have_rows('preferred_skills') ): ?>
+									    <?php while ( have_rows('preferred_skills') ) : the_row(); ?>
+									    	<?php $id = get_sub_field('skill_id')?>
+									    	<span><?= Job_Listing::GetIndustryByID($id) ?></span>
+
+									    <?php endwhile; ?>
+									<?php endif; ?>
 								</div>
 							</div>
 
 							<div class="jlv--main_navs">
-								<a href="#">EDIT</a>
+								<a href="<?= home_url('employer/job-posting/edit/'.get_the_ID()) ?>">EDIT</a>
 								<a href="#" class="jlv--btn-red">REPOST JOB AD</a>
 								<a href="#">CLOSE JOB AD</a>
 							</div>
@@ -142,10 +160,9 @@
 							<div class="jlv--sidebar_cats">
 								<p><span class="jlv--cat_name">Job Industry:</span><br> <?php echo $job_category[0]->name; ?></p>
 								<p><span class="jlv--cat_name">Employment Type:</span><br> <?php echo $job_type[0]->name; ?></p>
-								<p><span class="jlv--cat_name">Working Hours:</span><br> [9 AM - 6 PM] </p>
-								<p><span class="jlv--cat_name">Shift Pattern:</span><br> [5 Day Work Week]</p>
+								<p><span class="jlv--cat_name">Working Hours:</span><br> <?php the_field('working_hours'); ?> </p>
 								<p><span class="jlv--cat_name">Salary:</span><br> <?php the_field('min_salary'); ?> - <?php the_field('max_salary'); ?></p>
-								<p><span class="jlv--cat_name">Job Level:</span><br> <?php the_field('employment_level'); ?></p>
+								<p><span class="jlv--cat_name">Job Level:</span><br> <?php the_field('position_level'); ?></p>
 								<p><span class="jlv--cat_name">Min. Years of Experience:</span><br> <?php the_field('year_of_experience'); ?></p>
 								<p><span class="jlv--cat_name">No. of Vacancies:</span><br> <?php the_field('no_of_vacancies'); ?></p>
 							</div>
