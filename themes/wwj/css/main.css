@@ -3448,7 +3448,7 @@ form .upme-login-register-link:hover {
 
 
 
-/*________________________ =new  =About Us Page ________________________*/
+/*________________________ =New =About Us Page ________________________*/
 
 .page-61 .inner-banner,
 .page-131 .inner-banner {
@@ -3674,6 +3674,34 @@ form .upme-login-register-link:hover {
 }
 
 
+/*________________________ =HIRING TIPS ________________________*/
+
+.hiring-tips--main {
+	background-color: #fff;
+}
+
+.hiring-tips--main .sfd--slanted {
+    padding: 13px 20px;
+    margin-left: 0 !important;
+}
+
+.hiring-tips--main .sfd--desc {
+    padding: 20px;
+}
+
+.hiring-tips--main .sfd--bullets {
+    text-align: center;
+    padding-bottom: 15px;
+}
+
+.hiring-tips--main .sf--full_banner {
+	background-repeat: no-repeat;
+	background-position: top center;
+	background-size: cover;
+	height: 265px;
+	width: 100%;
+}
+
 
 /*________________________ =VARIANTS ________________________*/
 
@@ -3700,4 +3728,30 @@ form .upme-login-register-link:hover {
     border: #ea1a23 solid 4px;
     -webkit-animation-duration: .5s;
     animation-duration: .5s;
+}
+
+
+/*________________________ =CSS FOR TAGGER ________________________*/
+.selector_tagger .selected_tag{
+	border: 1px solid #ccc;
+	display: inline-block;
+	margin: 5px 5px 5px 0;
+	padding: 5px 10px;
+	font: 13px 'Open Sans';
+	font-weight: 300;
+	background: #ddd;
+}
+
+.selector_tagger .selected_tag .delete_tag{
+	margin-left: 10px;
+	font-weight: 800;
+	cursor: pointer;
+	font-size: 16px;
+	line-height: 10px;
+	-webkit-transition: 0.2s;
+	transition: 0.2s;
+}
+
+.selector_tagger .selected_tag .delete_tag:hover{
+	color: #DF141D;
 }
