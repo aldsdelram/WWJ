@@ -614,6 +614,7 @@
     padding: 7px;
     text-align: center;
     font-weight: 600;
+    font-family: 'Open Sans';
 }
 	.cm--red_btn:hover {
 		background-color: #980007;
@@ -627,6 +628,7 @@
     display: inline-block;
     padding: 5px;
     text-align: center;
+    font-family: 'Open Sans';
     font-weight: 600;
 }
 	.cm--trans_btn:hover {
@@ -635,13 +637,25 @@
 	}
 
 
-.cm--invite_form {
+.cm--invite_form, .cm--unlock_form {
 	display: none;
-	padding-top: 15px;
+	padding-top: 10px;
     border-top: 1px solid #c3c3c3;
     background-color: #e3e3e3;
 	padding-bottom: 15px;
 	margin: 0;
+}
+
+.cm--unlock_form p {
+    text-align: center;
+    margin-bottom: 5px;
+}
+
+.cm--unlock_form input[type="submit"] {
+	cursor: pointer;
+    font-family: 'Open Sans';
+	height: 38px;
+	font-weight: bold;
 }
 
 .cm--job_dropdown {
@@ -664,10 +678,17 @@
 .cm--notice {
 	display: none;
 	text-align: center;
-	border: 1px solid #df141d;
-	position: relative;
-	clear: both;
-	top: 10px;
-	width: 95%;
-	margin: 0 auto;
+    border: 2px solid #00c531;
+    position: relative;
+    clear: both;
+    top: 10px;
+    width: 95%;
+    margin: 0 auto 6px;
+    background-color: #00c531;
+    color: #fff;
+    font-weight: 700;
+}
+
+.cm--success {
+	display: none;
 }

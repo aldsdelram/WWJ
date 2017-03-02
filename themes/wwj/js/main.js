@@ -235,9 +235,23 @@ jQuery( document ).ready( function($) {
 	    ]
 	});
 
-	jQuery('.cm--invite_btn').on('click', function() {
+	jQuery('.cm--invite_btn').on('click', function(e) {
+		e.preventDefault();
 		jQuery('.cm--invite_form').slideToggle('fast');
-	})
+
+		if( jQuery('.cm--unlock_form').is(':visible') ) {
+			jQuery('.cm--unlock_form').slideToggle('fast');
+		}
+	});
+
+	jQuery('.cm--unlock_btn, .cm--unlock_no').on('click', function(e) {
+		e.preventDefault();
+		jQuery('.cm--unlock_form').slideToggle('fast');
+
+		if( jQuery('.cm--invite_form').is(':visible') ) {
+			jQuery('.cm--invite_form').slideToggle('fast');
+		}
+	});
 
 });
 
