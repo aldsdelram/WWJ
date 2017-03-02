@@ -100,6 +100,7 @@
 			<section class="modal-section">
 
 				<div class="bstp-container-fluid cm--info_main">
+					<div class="cm--loader"><div class="spin-con"><i class="fa fa-refresh fa-spin fa-3x fa-fw margin-bottom"></i></div></div>
 
 					<div class="cm--default">
 						<div class="row cm--info_part_1">
@@ -129,11 +130,11 @@
 							<div class="col-sm-4"><a href="#" class="cm--red_btn cm--invite_btn">INVITE</a></div>
 						</div>
 
-						<form action="" class="row cm--unlock_form">
+						<div class="row cm--unlock_form">
 							<div class="col-xs-12"><p><strong>Are you sure you want to unlock?</strong></p></div>
 							<div class="col-sm-6"><input type="submit" class="cm--trans_btn" value="YES"></div>
 							<div class="col-sm-6"><a href="#" class="cm--red_btn cm--unlock_no">NO</a></div>
-						</form>
+						</div>
 
 						<form action="" class="row cm--invite_form">
 								<div class="col-sm-9">
@@ -151,6 +152,52 @@
 								</div>
 							<div class="cm--notice">INVITED SUCESSFULLY</div>
 						</form>
+					</div>
+
+					<div class="cm--success">
+						<div class="row cm--info_part_1">
+							<div class="col-xs-12">
+								<div class="success--stars"><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i></div>
+								<h2 class="text-center">YOU HAVE SUCCESSFULLY UNLOCKED</h2>
+							</div>
+							<div class="col-sm-5">
+								<div class="candidate_photo" style="background-image: url('<?= wp_get_attachment_url(978); ?>');"></div>
+							</div>
+							<div class="col-sm-7">
+								<label class="cm--info_line" for=""><span>Name: </span> <span class="cm--value name">Janelle</span></label>
+								<label class="cm--info_line" for=""><span>Age: </span> <span class="cm--value age">30</span></label>
+								<label class="cm--info_line" for=""><span>Gender: </span> <span class="cm--value gender">Female</span></label>
+								<label class="cm--info_line" for=""><span>Open Position: </span> <span class="cm--value open_position">Marketing Manager</span></label>
+								<label class="cm--info_line" for=""><span>Desired Salary: </span> <span class="cm--value desired_salary">SGD$3,200</span></label>
+								<label class="cm--info_line" for=""><span>Credit Price: </span> <span class="cm--value credit_price">30</span></label>
+							</div>
+						</div>
+
+						<div class="row cm--info_part_3">
+							<div class="col-sm-6"><a href="#" class="cm--red_btn">VIEW RESUME</a></div>
+							<div class="col-sm-6"><a href="#" class="cm--trans_btn">DOWNLOAD</a></div>
+						</div>
+					</div>
+
+					<div class="cm--unlocked">
+					
+						<div class="row cm--info_part_1">
+							<div class="col-sm-5">
+								<div class="candidate_photo" style="background-image: url('<?= wp_get_attachment_url(978); ?>');"></div>
+							</div>
+							<div class="col-sm-7">
+								<label class="cm--info_line" for=""><span>Name: </span> <span class="cm--value name">Janelle</span></label>
+								<label class="cm--info_line" for=""><span>Age: </span> <span class="cm--value age">30</span></label>
+								<label class="cm--info_line" for=""><span>Gender: </span> <span class="cm--value gender">Female</span></label>
+								<label class="cm--info_line" for=""><span>Open Position: </span> <span class="cm--value open_position">Marketing Manager</span></label>
+								<label class="cm--info_line" for=""><span>Desired Salary: </span> <span class="cm--value desired_salary">SGD$3,200</span></label>
+								<label class="cm--info_line" for=""><span>Credit Price: </span> <span class="cm--value credit_price">30</span></label>
+							</div>
+						</div>
+						<div class="row cm--info_part_3">
+							<div class="col-sm-6"><a href="#" class="cm--red_btn">VIEW RESUME</a></div>
+							<div class="col-sm-6"><a href="#" class="cm--trans_btn">DOWNLOAD</a></div>
+						</div>
 					</div>
 
 				</div>

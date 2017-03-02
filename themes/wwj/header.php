@@ -7,8 +7,11 @@
 	<?php bloginfo('name'); ?> <?php is_home() || is_front_page() ? bloginfo('description') : wp_title('|', true, 'left'); ?>
 	</title>
 	<?php wp_head(); ?>
+
+
+
 </head>
-<body class="<?= is_user_logged_in() ? 'logged-in' : '' ?> <?= 'page-'.get_the_ID()?>">
+<?= create_body() ?>
 	<main id="main-wrapper" class="<?= str_replace( ' ', '-', strtolower( get_the_title() ) ) . '-page' ?>">
 		<header id="main-header" class="<?= str_replace( ' ', '-', strtolower( get_the_title() ) ) . '-header' ?>">
 			<?php if ( !is_page( 'splash' ) ): ?>

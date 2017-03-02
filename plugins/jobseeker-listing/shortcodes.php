@@ -312,54 +312,102 @@
 				</div> <!-- end of .show-per -->
 				<ul class="paginationTop rd-row"></ul>
 			</div> <!-- end of .pagination-container -->
-			<table cellpadding="0" cellspacing="0" border="0" class="jobListing-table">
-				<thead>
-					<tr>
-						<th class="logo"></th>
-						<th class="jobs">Jobs</th>
-						<th class="location">Location</th>
-						<th class="job-types">Job Types</th>
-					</tr>
-				</thead>
-				<tbody class="list">
-					<?php for( $i = 0; $i <= 25; $i++ ) : ?>
-						<?php 
-							$region = $regions[rand(0, count($regions)-1)]->name;
-							$region_id = $regions[rand(0, count($regions)-1)]->term_id;
-							$type_rand = rand(0, count($types)-1);
-							$the_type_name =  $types[$type_rand]->name;
-							$the_type_id =  $types[$type_rand]->term_id;
-							$type_rand2 = ($type_rand >= count($types) - 1 ) ? $type_rand - 1 : $type_rand + 1;
-							$the_type2_name = $types[$type_rand2]->name;
-							$the_type2_id = $types[$type_rand2]->term_id;
-							$ind_rand = rand(0, count($industries)-1);
-							$position = $industries[$ind_rand]->name;
-							$position_id = $industries[$ind_rand]->term_id;
-						?>
+
+			<div id="backdrop" class="job_listing_backdrop">
+				<div class="registration-message"></div>
+				<table cellpadding="0" cellspacing="0" border="0" class="jobListing-table">
+					<thead>
 						<tr>
-							<td>
-								<div class="img-logo" style="background: url( '<?= home_url( 'skubbswp/wp-content/uploads/2016/12/logo-main.png' ); ?>' ) no-repeat center #fff; background-size: 95%;"></div>
-							</td>
-							<td>
-								<h3 class="job-title job_title">Image Record Assistant</h3>
-								<p>This means that we largely prefer employees that do not have other jobs (either online or offline). Please also write a brief (less than 100 words) answer to...</p>
-								<div style="display:none">
-									<p class="job_type"><?=$the_type_id?>|<?=$the_type2_id?></p>
-									<p class="job_region"><?=$region_id?></p>
-									<p class="category"><?=$position_id?></p>
-								</div>
-							</td>
-							<td class="location-list"><?= $region ?></td>
-							<td class="jobTypes-list">
-								<ul>
-									<li><?= $the_type2_name ?></li>
-									<li><?= $the_type_name  ?></li>
-								</ul>
-							</td>
+							<th class="logo"></th>
+							<th class="jobs">Jobs</th>
+							<th class="location">Location</th>
+							<th class="job-types">Job Types</th>
+							<th>&nbsp;</th>
 						</tr>
-					<?php endfor; ?>
-				</tbody>
-			</table>
+					</thead>
+					<tbody class="list">
+
+						<?php
+							$args = array(
+								'post_type' => 'job_listings',
+								'post_status' => 'publish',
+								'posts_per_page' => -1
+							);
+							$job_listings = new WP_Query($args);						
+						?>
+
+						<?php if( $job_listings->have_posts() ) : ?>
+						    <?php while( $job_listings->have_posts() ) : $job_listings->the_post(); ?>
+						    	<?php 
+									$region = $regions[rand(0, count($regions)-1)]->name;
+									$region_id = $regions[rand(0, count($regions)-1)]->term_id;
+									$type_rand = rand(0, count($types)-1);
+									$the_type_name =  $types[$type_rand]->name;
+									$the_type_id =  $types[$type_rand]->term_id;
+									$type_rand2 = ($type_rand >= count($types) - 1 ) ? $type_rand - 1 : $type_rand + 1;
+									// $the_type2_name = $types[$type_rand2]->name;
+									// $the_type2_id = $types[$type_rand2]->term_id;
+									$ind_rand = rand(0, count($industries)-1);
+									$position = $industries[$ind_rand]->name;
+									$position_id = $industries[$ind_rand]->term_id;
+
+									$job_category = get_the_terms( $post->ID, 'job_listings_category');
+									$job_type = get_the_terms( $post->ID, 'job-types');
+
+									$position = $job_category[0]->name;
+									$position_id = $job_category[0]->term_id;
+									$the_type_id = $job_type[0]->term_id;
+									$the_type__name = $job_type[0]->name;
+
+									// $author_id = get_user_by( 'user_login', get_the_author() );
+									// var_dump($author_id);
+									$author_d = get_the_author_meta('ID');
+									$company_details = get_user_meta(get_current_user_id(), 'emp_step1_data', true);
+
+									$company_logo = $company_details['logo'];
+									if($company_logo){
+										$company_logo = wp_get_attachment_url($company_logo);
+									}
+									else{
+										$company_logo = home_url( 'skubbswp/wp-content/uploads/2016/12/logo-main.png' );
+									}
+
+								?>
+								<tr>
+									<td>
+										<div class="img-logo" style="background: url( '<?= $company_logo ?>' ) no-repeat center #fff; background-size: 95%;"></div>
+									</td>
+									<td>
+										<h3 class="job-title job_title"><?= get_the_title() ?></h3>
+										<p><?= the_field('job_description') ?></p>
+										<div style="display:none">
+											<p class="job_type"><?=$the_type_id?>|<?#$the_type2_id?></p>
+											<p class="job_region"><?=$region_id?></p>
+											<p class="category"><?=$position_id?></p>
+										</div>
+									</td>
+									<td class="location-list"><?= $region ?></td>
+									<td class="jobTypes-list">
+										<ul>
+											<li><?# $the_type2_name ?></li>
+											<li><?= $the_type_name  ?></li>
+										</ul>
+									</td>
+									<td>
+										<div class="jtl--actions">
+											<button class="save--btn_dark_brown">Save</button>
+											<a href="#" class="apply--btn_blue">Apply</a>
+										</div>
+									</td>
+								</tr>
+							<?php endwhile; wp_reset_postdata(); ?>
+					    <?php endif; ?>
+
+						
+					</tbody>
+				</table>
+			</div>
+
 			<div class="pagination-menu rd-row rd-middle-xs rd-end-xs">
 				<div class="show-per">
 					<label for="show_per">Show per page</label>
@@ -426,3 +474,24 @@
 		return ob_get_clean();
 	}
 	add_shortcode( 'coming_yourway', 'coming_your_way_func' );
+
+
+
+/*___________________ JOB INVITATION MODAL ____________________*/
+
+	function job_invitation_notification() {
+	ob_start();
+	?>
+
+		<div class="portal--modal job_invitation_notification">
+			<div class="portal--modal-details">
+				<div class="portal--modal-content">
+					<p>Test</p>
+				</div>
+			</div>
+		</div>
+
+	<?php
+	return ob_get_clean();
+	}
+	add_shortcode( 'job-invitation-notification', 'job_invitation_notification' );

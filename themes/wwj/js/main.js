@@ -235,6 +235,8 @@ jQuery( document ).ready( function($) {
 	    ]
 	});
 
+
+	// CANDIDATE MODAL FUNCTIONS
 	jQuery('.cm--invite_btn').on('click', function(e) {
 		e.preventDefault();
 		jQuery('.cm--invite_form').slideToggle('fast');
@@ -251,6 +253,14 @@ jQuery( document ).ready( function($) {
 		if( jQuery('.cm--invite_form').is(':visible') ) {
 			jQuery('.cm--invite_form').slideToggle('fast');
 		}
+	});
+
+	jQuery('.cm--unlock_form input[type="submit"]').on('click', function() {
+		$('.cm--loader').fadeIn().delay(1000).fadeOut(100, function() {
+			$('.cm--default').slideUp();
+			$('.cm--success').slideDown();
+		});
+		
 	});
 
 });

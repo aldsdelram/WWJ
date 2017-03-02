@@ -1031,3 +1031,49 @@
     background-color: #da1f26;
 }
 
+/* =page =find a job */
+
+.jtl--actions {
+    width: 180px;
+    text-align: center;
+}
+
+.save--btn_dark_brown {
+    background-color: #373737;
+    border-radius: 3px;
+    color: #fff;
+    width: 77px;
+    height: 29px;
+    text-align: center;
+    display: inline-block;
+    font-size: 13px;
+    cursor: pointer;
+    -webkit-transition: all .3s ease-in-out;
+    -moz-transition: all .3s ease-in-out;
+    -o-transition: all .3s ease-in-out;
+    transition: all .3s ease-in-out;
+}
+    .save--btn_dark_brown:hover {
+        background-color: #676767;
+    }
+
+.apply--btn_blue {
+    background-color: #1d74db;
+    border-radius: 3px;
+    color: #fff;
+    width: 77px;
+    height: 29px;
+    text-align: center;
+    display: inline-block;
+    font-size: 13px;
+    position: relative;
+    padding-top: 1px;
+    top: -1px;
+    -webkit-transition: all .3s ease-in-out;
+    -moz-transition: all .3s ease-in-out;
+    -o-transition: all .3s ease-in-out;
+    transition: all .3s ease-in-out;
+}
+    .apply--btn_blue:hover {
+        background-color: #0d50a0;
+    }
