@@ -155,3 +155,21 @@
 		));
 
 	}
+
+
+	function create_body(){
+		$class = '';
+		if( is_page() ) { 
+			global $post;
+		 	$parents = get_post_ancestors( $post->ID );
+		 	foreach ($parents as $id) {
+				$parent = get_post( $id );
+				$class .= $parent->post_name .' ';
+		 	}
+		}
+
+		ob_start();?>
+			<body class="<?= is_user_logged_in() ? 'logged-in' : '' ?> <?= 'page-'.get_the_ID()?> <?= $class?>">
+		<?php
+		return ob_get_clean();
+	}

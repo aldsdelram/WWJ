@@ -27,7 +27,7 @@
 	<title>Work Work Jay</title>
 	<?php wp_head(); ?>
 </head>
-<body>
+<?= create_body() ?>
 	<main id="main-wrapper" class="dashboard-page">
 		<div class="rd-row">
 
