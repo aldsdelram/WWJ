@@ -411,6 +411,7 @@
     padding: 7px 15px;
     z-index: 2;
     display: none;
+    min-height: 65px;
 }
 
 .dropdown-search-input ul li {

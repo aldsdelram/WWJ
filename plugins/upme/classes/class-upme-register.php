@@ -376,13 +376,14 @@ class UPME_Register {
                     $email_status = $upme_email_templates->upme_send_emails('reg_activation_user', $user->user_email , '' , '' ,$send_params,$user_id);
                     
                     $user_info = get_userdata($user_id);
-                    $url = '';
+                    $url = home_url();
                     if(in_array('candidate', $user_info->roles)){
-                        home_url('/jobseeker/register/hello/');
+                        $url = home_url('/jobseeker/register/hello/');
                     }
                     else{
-                        home_url('/employer/register/hello/');
+                        $url = home_url('/employer/dashboard/register/hello/');
                     }
+                    wp_redirect($url);
                     exit;
 
                 }else if('INACTIVE' == $approval_status){

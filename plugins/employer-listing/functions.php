@@ -55,3 +55,17 @@
 	}
 	add_action('wp_ajax_add_job_listing', 'add_job_listing');
 	add_action('wp_ajax_nopriv_add_job_listing', 'add_job_listing');
+
+	
+	add_action('init', 'add_edit_job_listing_url', 1);
+	function add_edit_job_listing_url()
+	{
+	   	global $wp;
+		$wp->add_query_var('job_id');
+	    add_rewrite_rule(
+	        '^employer/job-posting/edit/([0-9]+)$',
+	       	'index.php?page_id=1030&job_id=$matches[1]',
+	        'top'
+	    );
+	    flush_rewrite_rules();
+	}

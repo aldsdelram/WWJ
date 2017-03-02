@@ -108,6 +108,7 @@ function employer_reg_show_step_1(){
 				"page" => $social
 			);
 		}
+		update_field( 'social_media_page', $value, $post_id);
 		update_field( 'telephone_number', $tel_no, $post_id );
 		update_field( 'fax_number', $fax_number, $post_id);		
 		update_field( 'about_us_content', $about_us, $post_id);		

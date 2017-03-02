@@ -20,3 +20,23 @@
 		<?php
 		return ob_get_clean();
 	}
+
+	function get_skills(){
+		
+		$industry_id = $_POST['industry_id'];
+		$html = '<li data-value="">Select skill</li>';
+
+		$skills = Job_Listing::getSkills($industry_id); 
+		$cand_skills = [];
+		$count = count($skills); 
+
+		for($i=0; $i<$count; $i++){
+			$html .= '<li data-value="'.$skills[$i]->term_id.'">'.$skills[$i]->name.'</li>';
+		}
+
+		$response['html'] = $html;
+		echo json_encode($response);
+		wp_die();
+	}
+	add_action('wp_ajax_get_skills', 'get_skills');
+	add_action('wp_ajax_nopriv_get_skills', 'get_skills');
