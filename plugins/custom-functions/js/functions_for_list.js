@@ -3,14 +3,6 @@
 
 		$('.registration-message').hide();
 
-		var html = '';
-
-		html +=	'<h1>NOTICE</h1>';  
-  		html += 'We\'ve notice that you\'re not logged in. To view more candidates, you may log in or register. Thanks!';
-
-		$('.registration-message').html(html);
-
-
 
 		$(document).on('click', '.paginationTop > li.disabled:first-child a', function(){
 			prev($(this));
@@ -57,6 +49,27 @@
 		}
 
 		function checkIfLoggedIn(){
+
+
+			login_link = '#login-emp-modal';
+			reg_link = '#register-emp-modal';
+			if($('body.jobseeker').length){
+				login_link = '#login-cand-modal';
+				reg_link = '#register-cand-modal';
+			}
+
+
+			var html = '';
+			html += '<div class="reg-container">';
+			html +=	'<h1>NOTICE</h1>';  
+			html += 'We\'ve notice that you\'re not logged in. To view more candidates,'
+						+ 'you may <a href="javascript:void(0)" class="show-modal" data-modal="'+ login_link +'">Login</a>'
+						+ ' or <a href="javascript:void(0)" class="show-modal" data-modal="'+ reg_link +'">Register</a>.'
+						+ ' Thanks!';
+			html += '</div>';
+			$('.registration-message').html(html);
+
+
 			if($('#candidateListing-container').length){
 				if(listObj.i > 1){
 					if($('body.logged-in').length == 0)
@@ -65,6 +78,16 @@
 				else
 					$('.registration-message').fadeOut('fast');
 			}
+			else{
+				page = parseInt($(document).find('.paginationTop').find('.active a.page').html());
+				// console.log(page);
+				if(page > 2){
+					if($('body.logged-in').length == 0)
+						$('.registration-message').fadeIn('fast');
+				}
+				else
+					$('.registration-message').fadeOut('fast');	
+			}
 		}
 
 
@@ -72,7 +95,7 @@
 			if($('#candidateListing-container').length)
 				listObj.show(listObj.i, $(this).val());
 			else
-				listObj2.show(listObj.i, $(this).val());
+				listObj2.show(listObj2.i, $(this).val());
 			$('.show-per').find('select').val($(this).val()).click();
 		})
 	});

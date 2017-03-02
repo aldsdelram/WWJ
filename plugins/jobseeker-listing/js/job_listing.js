@@ -87,7 +87,16 @@
                 $( this ).css( 'height', height );
             });
 
+            $(document).find('#search-your-dream-job-content').find('.show-per').each(function(key,value){
+                if(key != 0){
+                    $(this).find('select').attr('id','show_per_2');
+                }
+            });
 
+            $(document).on('change', '#show_per_2', function(){
+                $(document).find('#show_per').val($(this).val()).change();
+                // $(document).find('#show_per').trigger('change');
+            });
 
         }
 

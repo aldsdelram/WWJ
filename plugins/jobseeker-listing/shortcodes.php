@@ -393,12 +393,14 @@
 											<li><?= $the_type_name  ?></li>
 										</ul>
 									</td>
+
 									<td>
 										<div class="jtl--actions">
 											<button class="save--btn_dark_brown">Save</button>
 											<a href="#" class="apply--btn_blue">Apply</a>
 										</div>
 									</td>
+
 								</tr>
 							<?php endwhile; wp_reset_postdata(); ?>
 					    <?php endif; ?>

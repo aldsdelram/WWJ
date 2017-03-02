@@ -386,5 +386,63 @@ jQuery( document ).ready( function($) {
     	
     });
 
+
+    $(document).on('click', '#job_posting .dropdown-input .field_of_expertise ~ ul > li', function(){
+    	var industry_id = $(this).attr('data-value');
+
+    	if(industry_id){
+	    	jQuery.ajax({
+		        url: ajax_url,
+		        type: "POST",
+		        data: {
+		            action: "get_skills",
+		            industry_id: industry_id
+		        },
+		        cached: false,
+		        dataType: 'json',
+		        success: function(response) {
+		        	$('.preferred_skills_options').html(response.html);
+		        	$( document ).find( '.dropdown-list' ).each( function() {
+		                var height = $( this ).children( 'ul' ).actual( 'outerHeight' );
+		                $( this ).css( 'height', height );
+		            });
+		        }
+		    });
+	    }	
+    });
+
+
+    $(document).on('click', '.selector_tagger .option_lists li', function(){
+		container = $(this).closest('.selector_tagger');
+    	container.find('.input-field').val($(this).html());
+    	if($(this).attr('data-value')){
+    		if(!container.find('.selected_tag [value=\''+$(this).attr('data-value')+'\']').length){
+	    		selected_name = container.attr('data-selected-name') + '[]';
+		    	to_append = '<div class="selected_tag">'
+		    	to_append += '<span class="tag_name">'+$(this).html()+'<span>';
+		    	to_append += '<input type="text" style="display:none" name="'+selected_name+'" value="'+$(this).attr('data-value')+'">';
+		    	to_append += '<span class="delete_tag">×</span>'
+		    	to_append += '</div>';
+		    	container.find('.selected_container').append(to_append);
+    		}
+    	}
+    });
+
+    // $(document).on('click', '.preferred_skills_options li', function(){
+    // 	if($(this).attr('data-value')){	
+	   //  	container = $(this).closest('.form-group');
+	   //  	to_append = '<div class="selected_tag">'
+	   //  	to_append += '<div class="skill_name">'+$(this).html()+'<div>';
+	   //  	to_append += '<input type="text" style="display:none" name="skills[]" value="'+$(this).attr('data-value')+'">';
+	   //  	to_append += '<span class="delete_skill">×</span>'
+	   //  	to_append += '</div>';
+	   //  	container.find('.skills_selected').append(to_append);
+    // 	}
+    // });
+
+    $(document).on('click', '.selector_tagger .delete_tag', function(){
+    	$(this).closest('.selected_tag').remove();
+    });
+
 });
 
