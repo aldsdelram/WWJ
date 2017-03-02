@@ -108,14 +108,14 @@ jQuery( document ).ready( function($) {
 	});
 	
 	//modal scripts
-	$( '.show-modal' ).on( 'click', function() {
+	$(document).on('click', '.show-modal' , function() {
 		var modal = $( this ).data( 'modal' );
 
 		$( 'html' ).css( 'overflow', 'hidden' );
 		$( modal ).fadeIn();
 	});
 
-	$( '.close-modal' ).on( 'click', function() {
+	$(document).on('click', '.close-modal', function() {
 		$( 'html' ).css( 'overflow-y', 'scroll' );
 		$( this ).closest( '.modal-area' ).fadeOut();
 	});
