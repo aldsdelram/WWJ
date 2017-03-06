@@ -57,7 +57,8 @@
 	add_action('wp_ajax_nopriv_add_job_listing', 'add_job_listing');
 
 	
-	add_action('init', 'add_edit_job_listing_url', 1);
+
+
 	function add_edit_job_listing_url()
 	{
 	   	global $wp;
@@ -69,6 +70,7 @@
 	    );
 	    flush_rewrite_rules();
 	}
+	add_action('init', 'add_edit_job_listing_url', 1);
 
 
 
@@ -92,3 +94,17 @@
 	}
 	add_action('wp_ajax_unlock_candidate', 'unlock_candidate');
 	add_action('wp_ajax_nopriv_unlock_candidate', 'unlock_candidate');
+
+
+	function add_send_job_invitation_url()
+	{
+	   	global $wp;
+		$wp->add_query_var('candidate_id');
+	    add_rewrite_rule(
+	        '^employer/dashboard/invitation/send/([0-9]+)$',
+	       	'index.php?page_id=1047&candidate_id=$matches[1]',
+	        'top'
+	    );
+	    flush_rewrite_rules();
+	}
+	add_action('init', 'add_send_job_invitation_url', 1);
