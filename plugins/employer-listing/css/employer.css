@@ -778,9 +778,11 @@
 }
 
 .btn--darkgray_variant {
+	font-size: 14px;
+    height: 42px;
 	background-color: #222;
     color: #fff;
-    padding: 12px 35px;
+    padding: 9px 35px;
     display: inline-block;
     font-family: 'Open Sans', sans-serif;
     margin: 0 15px;
@@ -795,9 +797,11 @@
 	}
 
 .btn--red_variant {
+	font-size: 14px;
+    height: 42px;
 	background-color: #df141d;
     color: #fff;
-    padding: 12px 35px;
+    padding: 9px 35px;
     display: inline-block;
     font-family: 'Open Sans', sans-serif;
     margin: 0 15px;
@@ -830,4 +834,101 @@
 .jif__success h5 {
 	font-weight: 600;
     font-size: 14px;
+}
+
+
+/*________________________ =MANAGE =CANDIDATES =VIEW ________________________*/
+
+.listinglayout1 .listinglayout1__whole-set {
+    margin-bottom: 50px;
+}
+
+.listinglayout1__top-dropdown {
+    margin-top: 17px;
+}
+
+.listinglayout1__image-up {
+    display: block;
+    height: 190px;
+    width: 100%;
+    background-color: #e3e3e3;
+    background-repeat: no-repeat;
+    background-position: top center;
+    background-size: cover;
+    margin-bottom: 15px;
+}
+
+.listinglayout1__btn-set {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+}
+
+.listinglayout1__btn-set a {
+    color: #fff;
+    width: 46%;
+    display: inline-block;
+    padding: 5px 15px;
+    text-align: center;
+    font-size: 13px;
+    -webkit-transition: all .3s ease-in-out;
+    -moz-transition: all .3s ease-in-out;
+    -o-transition: all .3s ease-in-out;
+    transition: all .3s ease-in-out;
+}
+
+.listinglayout1__invite-btn {
+    background-color: #da1f26;
+}
+    .listinglayout1__invite-btn:hover {
+        background-color: #ff383f;
+    }
+
+.listinglayout1__reject-btn {
+    background-color: #282828;
+}
+    .listinglayout1__reject-btn:hover {
+        background-color: #3f3f3f;
+    }
+
+.listinglayout1__whole-set .row:not(:last-child) .listinglayout1__set-separator {
+    height: 1px;
+    border-bottom: 1px solid #e3e3e3;
+    padding-top: 30px;
+    margin-bottom: 40px;
+}
+
+.listinglayout1__info-set {
+    margin-bottom: 12px;
+}
+    .listinglayout1__info-set span:first-child {
+        color: #616161;
+        display: inline-block;
+        min-width: 175px;
+    }
+
+    .listinglayout1__info-set span:last-child {
+        color: #222222;
+    }
+
+.listinglayout1__info-set .seeker_name {
+	color: #00a2ff;
+	font-weight: bold;
+	text-decoration: underline;
+}
+
+.listinglayout1__text--gray {
+    color: #616161;
+}
+
+.listinglayout1__misc-links {
+	text-align: center;
+}
+
+.listinglayout1__misc-links a {
+	display: inline-block;
+	margin: 0 5px;
 }
