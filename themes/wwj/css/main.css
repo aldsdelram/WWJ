@@ -391,6 +391,14 @@ body {
 	cursor: pointer;
 	z-index: 2;
 }
+	#main-section .candidates-list .img-container .btn-unlock.unlocked {
+		background-color: #df141d;
+    	color: #fff;
+	}
+
+	#main-section .candidates-list .img-container .btn-unlock.unlocked:hover {
+		background-color: #9c0007;
+	}
 
 #main-section .searchHistory-list .img-container .btn-unlock:hover,
 #main-section .candidates-list .img-container .btn-unlock:hover {
@@ -2075,6 +2083,10 @@ body {
 .dashboard-page .notif-container .notifs {
 	padding: 0 15px;
 	position: relative;
+}
+
+.dashboard-page .notif-container .notifs i {
+	cursor: pointer;
 }
 
 

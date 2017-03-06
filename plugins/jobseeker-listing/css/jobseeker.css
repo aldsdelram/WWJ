@@ -26,7 +26,7 @@
 }
 
 
-
+/*________________________ =MODALS ________________________*/
 .portal--modal{
     position: fixed;
     background: rgba(0,0,0,0.5);
@@ -91,6 +91,16 @@
 
 .portal--modal-content .btn-panel a.no {
     color: #df141d;
+}
+
+.job_invitation_notification .portal--modal-content {
+    width: auto;
+    max-width: 570px;
+    padding: 20px 20px 30px;
+}
+
+.job_invitation_notification .portal--modal-content h3 {
+    margin: 15px 0;
 }
 
 #snap{
@@ -1077,3 +1087,8 @@
     .apply--btn_blue:hover {
         background-color: #0d50a0;
     }
+
+.btn-unlock.unlock {
+    background-color: #df141d;
+    color: #fff;
+}

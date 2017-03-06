@@ -101,6 +101,10 @@
 
 				<div class="bstp-container-fluid cm--info_main">
 					<div class="cm--loader"><div class="spin-con"><i class="fa fa-refresh fa-spin fa-3x fa-fw margin-bottom"></i></div></div>
+					
+					<div class="cm--log_validator">
+						<h5>Please <a href="javascript:void(0)" class="show-modal cm--login" data-modal="#login-emp-modal">login</a> or <a href="javascript:void(0)" class="show-modal cm--register" data-modal="#register-emp-modal">register</a> to access this feature</h5>
+					</div>
 
 					<div class="cm--default">
 						<div class="row cm--info_part_1">
@@ -108,6 +112,7 @@
 								<div class="candidate_photo" style="background-image: url('<?= wp_get_attachment_url(978); ?>');"></div>
 							</div>
 							<div class="col-sm-7">
+								<span class="cm--value candidate_id" style="display:none"></span>
 								<label class="cm--info_line" for=""><span>Name: </span> <span class="cm--value name">Janelle</span></label>
 								<label class="cm--info_line" for=""><span>Age: </span> <span class="cm--value age">30</span></label>
 								<label class="cm--info_line" for=""><span>Gender: </span> <span class="cm--value gender">Female</span></label>

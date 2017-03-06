@@ -487,8 +487,11 @@
 
 		<div class="portal--modal job_invitation_notification">
 			<div class="portal--modal-details">
-				<div class="portal--modal-content">
-					<p>Test</p>
+				<div class="portal--modal-content text-center">
+					<img src="<?= wp_get_attachment_url(1046); ?>" alt="">
+
+					<h3>CONGRATULATIONS!</h3>
+					<h4>You've received an invitation from [company_name]<br>A step closer to a match</h4>
 				</div>
 			</div>
 		</div>

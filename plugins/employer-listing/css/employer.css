@@ -716,6 +716,38 @@
 	left: 0;
 	background-color: rgba(255,255,255, .5);
 	z-index: 10;
+    color: #df141d;
+}
+
+.cm--log_validator {
+	position: absolute;
+	display: block;
+	height: 100%;
+	width: 100%;
+	top: 0;
+	left: 0;
+	background-color: rgba(255,255,255, .9);
+	z-index: 10;
+	color: #464646;
+}
+
+.cm--log_validator h5 {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    -webkit-transform: translate(-50%,-50%);
+    transform: translate(-50%,-50%);
+    z-index: 11;
+    font-size: 18px;
+    text-align: center;
+}
+
+.cm--log_validator a {
+    color: #df141d;
+}
+
+.logged-in .cm--log_validator {
+	display: none;
 }
 
 .cm--loader .spin-con{
@@ -729,4 +761,73 @@
 
 .cm--unlocked {
 	display: none;
+}
+
+
+/*________________________ =EMPLOYER JOB INVITATION FORM ________________________*/
+
+.employer__job-invitation-form .white-bg-views {
+	position: relative;
+}
+
+.gray--header__mini_text {
+    margin-top: 23px;
+    display: inline-block;
+    margin-left: 20px;
+    font-size: 13px;
+}
+
+.btn--darkgray_variant {
+	background-color: #222;
+    color: #fff;
+    padding: 12px 35px;
+    display: inline-block;
+    font-family: 'Open Sans', sans-serif;
+    margin: 0 15px;
+    cursor: pointer;
+    -webkit-transition: all .3s ease-in-out;
+    -moz-transition: all .3s ease-in-out;
+    -o-transition: all .3s ease-in-out;
+    transition: all .3s ease-in-out;
+}
+	.btn--darkgray_variant:hover {
+		background-color: #505050;
+	}
+
+.btn--red_variant {
+	background-color: #df141d;
+    color: #fff;
+    padding: 12px 35px;
+    display: inline-block;
+    font-family: 'Open Sans', sans-serif;
+    margin: 0 15px;
+    cursor: pointer;
+    -webkit-transition: all .3s ease-in-out;
+    -moz-transition: all .3s ease-in-out;
+    -o-transition: all .3s ease-in-out;
+    transition: all .3s ease-in-out;
+}
+	.btn--red_variant:hover {
+		background-color: #940007;
+	}
+
+.jif__submit-set {
+	margin-top: 20px;
+	padding-bottom: 25px;
+}
+
+.jif__success {
+	display: none;
+    border: 2px solid #1fb6ff;
+    padding: 15px;
+}
+
+.jif__success h4 {
+    color: #1fb6ff;
+    margin-bottom: 6px;
+}
+
+.jif__success h5 {
+	font-weight: 600;
+    font-size: 14px;
 }
