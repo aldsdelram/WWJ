@@ -101,6 +101,10 @@
 
 				<div class="bstp-container-fluid cm--info_main">
 					<div class="cm--loader"><div class="spin-con"><i class="fa fa-refresh fa-spin fa-3x fa-fw margin-bottom"></i></div></div>
+					
+					<div class="cm--log_validator">
+						<h5>Please <a href="javascript:void(0)" class="show-modal cm--login" data-modal="#login-emp-modal">login</a> or <a href="javascript:void(0)" class="show-modal cm--register" data-modal="#register-emp-modal">register</a> to access this feature</h5>
+					</div>
 
 					<div class="cm--default">
 						<div class="row cm--info_part_1">

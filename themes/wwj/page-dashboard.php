@@ -44,6 +44,10 @@
 	<?php wp_head(); ?>
 </head>
 <?= create_body() ?>
+	<?php if($main_page_parent_name == 'jobseeker') : ?>
+		<?= do_shortcode('[job-invitation-notification]'); ?>
+	<?php endif; ?>
+
 	<main id="main-wrapper" class="dashboard-page">
 		<div class="rd-row">
 
@@ -132,6 +136,7 @@
 								<div class="sbp--nav_set">
 									<a href="" class="has-sub-menu">Job Posting <i class="fa fa-caret-right" aria-hidden="true"></i></a>
 									<div class="sub-menu">
+										<a href="<?= home_url('/employer/dashboard/job-posting-list/') ?>">View Job Post</a>
 										<a href="<?= home_url('/employer/dashboard/home/') ?>">New Job Post</a>
 									</div>
 								</div>

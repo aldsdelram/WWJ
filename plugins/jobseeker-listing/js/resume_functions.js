@@ -466,16 +466,19 @@
                 $(modal).fadeIn('slow');
             });
 
+            function modalClick(classname) {
+                $(classname).click(function(e){
+                    e.preventDefault();
 
-            $('.help-button i').click(function(e){
-                e.preventDefault();
+                    modal = '.' + $(this).attr('data-modal');
+                    $(modal).fadeIn('fast');
+                });
+            }
 
-                modal = '.' + $(this).attr('data-modal');
-                $(modal).fadeIn('fast');
-            });
+            // ______________ HELP BUTTON ______________
 
+            modalClick('.help-button i');
 
-            
             $('.help_modal_close').click(function(){
                 $('.portal--modal').fadeOut();
             });
@@ -495,6 +498,10 @@
                 }
                 
             });
+
+            // ______________ JOB INVITATION NOTIFICATION MODAL ______________
+
+            modalClick('.notifs i');
 
 
             /*______________add workplace functions_______________________*/

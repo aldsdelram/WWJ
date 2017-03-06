@@ -464,7 +464,7 @@ jQuery( document ).ready( function($) {
     });
 
 
-    // CANDIDATE MODAL FUNCTIONS
+    // ________________________________ CANDIDATE MODAL FUNCTIONS ________________________________
 	jQuery('.cm--invite_btn').on('click', function(e) {
 		e.preventDefault();
 		jQuery('.cm--invite_form').slideToggle('fast');
@@ -509,6 +509,20 @@ jQuery( document ).ready( function($) {
 
 
 	});
+
+	// ________________________________ JOB INVITATION FORM ________________________________
+	jQuery('.jif_submit').on('click', function(e) {
+		e.preventDefault();
+		jQuery('.cm--loader').fadeIn(300).delay(600).fadeOut(300, function() {
+			jQuery('.jif__success').slideDown('fast');
+		});
+	});
+
+    // ________________________________ LOGGED IN VALIDATE ________________________________
+	jQuery('.cm--log_validator a').on('click', function(e) {
+		jQuery('.modal-area').fadeOut('fast');
+	});
+
 
 });
 

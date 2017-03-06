@@ -158,7 +158,7 @@ add_shortcode( 'phone_jobseeker', 'phone_slide_jobseeker_func' );
 
 
 
-/*_______________CANDIDATE LSITING PAGE___________________________*/
+/*___________________________ CANDIDATE LSITING PAGE ___________________________*/
 	/**
 	 * shows candidate listing page
 	 *
@@ -416,3 +416,105 @@ add_shortcode( 'phone_jobseeker', 'phone_slide_jobseeker_func' );
 			return ob_get_clean();
 		}
 	add_shortcode( 'employer_candidate_listing', 'e_candidate_listing_func' );
+
+
+
+
+/*___________________________ JOB INVITATION FORM ___________________________*/
+	/**
+	 * Employer Job Invitation Form
+	 *
+	 * @return     [employer-job-invitation-form]  ( return shortcode )
+	 */
+
+	function employer_job_invitation_form_func() {
+	ob_start();
+	?>
+		<div class="employer__job-invitation-form">
+
+			<div class="btsp-container-fluid gray--header_bg">
+				<div class="row">
+					<div class="col-xs-12">
+						<h1 class="gray--header_title pull-left">Job Invitation Details</h1><span class="gray--header__mini_text">Bring your candidate up to date with a brief description of the job offered</span>
+					</div>
+				</div>
+			</div>
+
+			<div class="btsp-container-fluid resume-content white-bg-views">
+			
+			<div class="cm--loader" style="display: none;"><div class="spin-con"><i class="fa fa-refresh fa-spin fa-3x fa-fw margin-bottom"></i></div></div>
+
+			<!-- form -->
+				<div class="row">
+					<div class="col-sm-6">
+						<div class="form-group">
+							<label for="job_title">Job Title</label>
+							<input type="text" name="job_title" class="input-field"/>
+						</div>
+
+						<div class="form-group">
+							<label for="job_title">Key Responsibilities</label>
+							<input type="text" name="key_responsibility" class="input-field"/>
+						</div>
+
+						<div class="form-group">
+							<label for="job_title">Other Information</label>
+							<input type="text" name="other_information" class="input-field"/>
+						</div>
+					</div>
+
+					<div class="col-sm-6">
+						<div class="form-group">
+							<label for="job_title">Working Hours</label>
+							<input type="text" name="working_hours" class="input-field"/>
+						</div>
+
+						<div class="form-group">
+							<div class="dropdown-search-input">
+								<label for="salary_range">Salary Range</label>
+								<input type="text" name="salary_range" class="dropdown-data input-field" />
+								<div class="dropdown-list">
+									<div>
+										<input class="filter-dropdown" type="text">
+									</div>
+									<ul class="salary_range">
+										<option value="">All(SGD)</option>
+										<option value="0-1999">SGD$0.00 - SGD$1,999.00</option>
+										<option value="2000-2999">SGD$2,000.00 - SGD$2,999.00</option>
+										<option value="3000-3999">SGD$2,000.00 - SGD$2,999.00</option>
+										<option value="4000-4999">SGD$4,000.00 - SGD$4,999.00</option>
+										<option value="5000-5999">SGD$5,000.00 - SGD$5,999.00</option>
+										<option value=">6000">&gt; SGD$6,000.00</option>
+									</ul>
+
+								</div>
+							</div>
+						</div>
+
+					</div>
+				</div>
+
+			<!-- buttons -->
+				<div class="row">
+					<div class="col-xs-12">
+						<p class="text-center jif__submit-set"><button class="btn--darkgray_variant jif_submit">Submit</button> <button class="btn--red_variant">Cancel</button></p>
+					</div>
+				</div>
+
+			<!-- success message -->
+				<div class="row">
+					<div class="col-xs-12">
+						<div class="jif__success text-center">
+							<h4>JOB INVITE SENT</h4>
+							<h5>Remember to respond promptly to any questions posed by your candidate [<u>candidate name</u>]!</h5>
+						</div>
+					</div>
+				</div>
+
+			</div>
+
+		</div>
+	<?php
+	return ob_get_clean();
+	}
+	add_shortcode( 'employer-job-invitation-form', 'employer_job_invitation_form_func' );
