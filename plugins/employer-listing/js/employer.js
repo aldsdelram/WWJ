@@ -463,6 +463,7 @@ jQuery( document ).ready( function($) {
     	$(this).closest('.selected_tag').remove();
     });
 
+<<<<<<< .mine
 
     // ________________________________ CANDIDATE MODAL FUNCTIONS ________________________________
 	jQuery('.cm--invite_btn').on('click', function(e) {
@@ -522,5 +523,66 @@ jQuery( document ).ready( function($) {
 	});
 
 
+=======
+
+    // CANDIDATE MODAL FUNCTIONS
+	jQuery('.cm--invite_btn').on('click', function(e) {
+		e.preventDefault();
+		jQuery('.cm--invite_form').slideToggle('fast');
+
+		if( jQuery('.cm--unlock_form').is(':visible') ) {
+			jQuery('.cm--unlock_form').slideToggle('fast');
+		}
+	});
+
+	jQuery('.cm--unlock_btn, .cm--unlock_no').on('click', function(e) {
+		e.preventDefault();
+		jQuery('.cm--unlock_form').slideToggle('fast');
+
+		if( jQuery('.cm--invite_form').is(':visible') ) {
+			jQuery('.cm--invite_form').slideToggle('fast');
+		}
+	});
+
+	jQuery('.cm--unlock_form input[type="submit"]').on('click', function() {
+		$('.cm--loader').fadeIn();
+
+		candidate_id = $('#candidate-info-modal').find('.candidate_id').html();
+
+		jQuery.ajax({
+	        url: ajax_url,
+	        type: "POST",
+	        data: {
+	            action: "unlock_candidate",
+	            candidate_id: candidate_id
+	        },
+	        cached: false,
+	        dataType: 'json',
+	        success: function(response) {
+	        	console.log(response);
+	        	$(document).find('.candidates-list').find('.candidate-'+response.id).find('.btn-unlock').html('Unlocked').addClass('unlocked');
+				$('.cm--loader').fadeOut(100, function() {
+					$('.cm--default').slideUp();
+					$('.cm--success').slideDown();
+				});
+	        }
+	    });
+
+
+	});
+
+
+
+
+
+
+
+
+
+
+
+
+
+>>>>>>> .theirs
 });
 

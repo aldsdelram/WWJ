@@ -108,14 +108,14 @@ jQuery( document ).ready( function($) {
 	});
 	
 	//modal scripts
-	$(document).on('click', '.show-modal' , function() {
+	$( '.show-modal' ).on( 'click', function() {
 		var modal = $( this ).data( 'modal' );
 
 		$( 'html' ).css( 'overflow', 'hidden' );
 		$( modal ).fadeIn();
 	});
 
-	$(document).on('click', '.close-modal', function() {
+	$( '.close-modal' ).on( 'click', function() {
 		$( 'html' ).css( 'overflow-y', 'scroll' );
 		$( this ).closest( '.modal-area' ).fadeOut();
 	});
@@ -234,35 +234,6 @@ jQuery( document ).ready( function($) {
 	        }
 	    ]
 	});
-
-
-	// CANDIDATE MODAL FUNCTIONS
-	jQuery('.cm--invite_btn').on('click', function(e) {
-		e.preventDefault();
-		jQuery('.cm--invite_form').slideToggle('fast');
-
-		if( jQuery('.cm--unlock_form').is(':visible') ) {
-			jQuery('.cm--unlock_form').slideToggle('fast');
-		}
-	});
-
-	jQuery('.cm--unlock_btn, .cm--unlock_no').on('click', function(e) {
-		e.preventDefault();
-		jQuery('.cm--unlock_form').slideToggle('fast');
-
-		if( jQuery('.cm--invite_form').is(':visible') ) {
-			jQuery('.cm--invite_form').slideToggle('fast');
-		}
-	});
-
-	jQuery('.cm--unlock_form input[type="submit"]').on('click', function() {
-		$('.cm--loader').fadeIn().delay(1000).fadeOut(100, function() {
-			$('.cm--default').slideUp();
-			$('.cm--success').slideDown();
-		});
-		
-	});
-
 });
 
 
