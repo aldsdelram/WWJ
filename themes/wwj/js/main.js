@@ -234,10 +234,6 @@ jQuery( document ).ready( function($) {
 	        }
 	    ]
 	});
-
-
-	
-
 });
 
 

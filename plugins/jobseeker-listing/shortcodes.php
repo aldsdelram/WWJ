@@ -322,6 +322,7 @@
 							<th class="jobs">Jobs</th>
 							<th class="location">Location</th>
 							<th class="job-types">Job Types</th>
+							<th>&nbsp;</th>
 						</tr>
 					</thead>
 					<tbody class="list">
@@ -392,6 +393,14 @@
 											<li><?= $the_type_name  ?></li>
 										</ul>
 									</td>
+
+									<td>
+										<div class="jtl--actions">
+											<button class="save--btn_dark_brown">Save</button>
+											<a href="#" class="apply--btn_blue">Apply</a>
+										</div>
+									</td>
+
 								</tr>
 							<?php endwhile; wp_reset_postdata(); ?>
 					    <?php endif; ?>
@@ -467,3 +476,24 @@
 		return ob_get_clean();
 	}
 	add_shortcode( 'coming_yourway', 'coming_your_way_func' );
+
+
+
+/*___________________ JOB INVITATION MODAL ____________________*/
+
+	function job_invitation_notification() {
+	ob_start();
+	?>
+
+		<div class="portal--modal job_invitation_notification">
+			<div class="portal--modal-details">
+				<div class="portal--modal-content">
+					<p>Test</p>
+				</div>
+			</div>
+		</div>
+
+	<?php
+	return ob_get_clean();
+	}
+	add_shortcode( 'job-invitation-notification', 'job_invitation_notification' );

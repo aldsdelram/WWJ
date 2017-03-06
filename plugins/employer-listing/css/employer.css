@@ -558,8 +558,10 @@
 /*________________________ =UNLOCK =MODAL ________________________*/
 
 .cm--info_main {
+	background-color: #f2f2f2;
 	padding: 25px;
 	font-size: 14px;
+	position: relative;
 }
 
 .cm--info_line {
@@ -600,8 +602,6 @@
 
 .cm--info_part_3 a {
 	-webkit-transition: all .3s ease-in-out;
-	-moz-transition: all .3s ease-in-out;
-	-o-transition: all .3s ease-in-out;
 	transition: all .3s ease-in-out;
 	margin-bottom: 15px;
 }
@@ -690,5 +690,43 @@
 }
 
 .cm--success {
+	display: none;
+}
+
+.cm--success h2 {
+	margin-bottom: 25px;
+}
+
+.success--stars {
+	text-align: center;
+}
+
+.success--stars .fa-star {
+    margin: 0 10px 13px;
+    font-size: 22px;
+    color: #e0f100;
+}
+
+.cm--loader {
+	position: absolute;
+	display: none;
+	height: 100%;
+	width: 100%;
+	top: 0;
+	left: 0;
+	background-color: rgba(255,255,255, .5);
+	z-index: 10;
+}
+
+.cm--loader .spin-con{
+	position: absolute;
+    left: 50%;
+    top: 50%;
+    -webkit-transform: translate(-50%,-50%);
+            transform: translate(-50%,-50%);
+	z-index: 11;
+}
+
+.cm--unlocked {
 	display: none;
 }
