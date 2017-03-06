@@ -69,3 +69,26 @@
 	    );
 	    flush_rewrite_rules();
 	}
+
+
+
+	function unlock_candidate(){
+		$current_user = get_current_user_id();
+		$candidate_id = $_POST['candidate_id'];
+
+		$unlocked = get_user_meta($current_user, 'unlocked_candidates', true);
+		if($unlocked == null){
+			$unlocked = [];
+		}
+		$unlocked[] = $candidate_id;
+
+		update_user_meta($current_user, 'unlocked_candidates', $unlocked);
+
+		$response['unlocked'] = $unlocked;
+		$response['success'] = true;
+		$response['id'] = $candidate_id;
+		echo json_encode($response);
+		wp_die();
+	}
+	add_action('wp_ajax_unlock_candidate', 'unlock_candidate');
+	add_action('wp_ajax_nopriv_unlock_candidate', 'unlock_candidate');

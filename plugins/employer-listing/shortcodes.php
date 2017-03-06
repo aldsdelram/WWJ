@@ -296,8 +296,12 @@ add_shortcode( 'phone_jobseeker', 'phone_slide_jobseeker_func' );
 										    $age = $diff->y;
 									    }
 
+									    $unlocked = get_user_meta(get_current_user_id(), 'unlocked_candidates', true);
+										if($unlocked == null){
+											$unlocked = [];
+										}
 							    	?>
-							    	<li class="candidates-item rd-col-lg-3 rd-col-md-6 rd-col-xs-12">
+							    	<li class="candidates-item candidate-<?= $candidate_id ?> rd-col-lg-3 rd-col-md-6 rd-col-xs-12">
 										<div class="item-container">
 											<?php if($profile_picture): ?>
 											<div class="img-container" style="background: url( '<?= $profile_picture ?>' ) no-repeat top center; background-size: cover;">
@@ -305,7 +309,11 @@ add_shortcode( 'phone_jobseeker', 'phone_slide_jobseeker_func' );
 											<div class="img-container" style="background: url( '<?= wp_get_attachment_url(14) ?>' ) no-repeat top center; background-size: cover;">
 											<?php endif; ?>
 
-												<div class="btn-unlock show-modal" data-modal="#candidate-info-modal">Unlock Now</div>
+												<?php if(in_array($candidate_id, $unlocked)): ?>
+													<div class="btn-unlock show-modal unlocked" data-modal="#candidate-info-modal">Unlocked</div>
+												<?php else: ?>
+													<div class="btn-unlock show-modal" data-modal="#candidate-info-modal">Unlock Now</div>
+												<?php endif; ?>
 												<div class="unlock_information" style="display:none">
 													<div class="name"><?= $firstname.' '.$lastname ?></div>
 													<div class="age"><?= $age != -1 ? $age : 'Not yet available' ?></div>

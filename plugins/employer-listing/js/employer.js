@@ -352,6 +352,25 @@ jQuery( document ).ready( function($) {
     	$('#candidate-info-modal').find('.candidate_photo').css('background-image', 'url(\''+candidate_image+'\')');
     	$('.cm--job_dropdown').val('').click();
     	$('.candidate_id').val(information_container.find('.candidate_id').html());
+
+
+		if($(this).hasClass('unlocked')){
+			jQuery(document).find('#candidate-info-modal').find('.cm--unlocked').show();
+			jQuery(document).find('#candidate-info-modal').find('.cm--success').hide();
+			jQuery(document).find('#candidate-info-modal').find('.cm--unlock_form').hide();
+			jQuery(document).find('#candidate-info-modal').find('.cm--invite_form').hide();
+	    	jQuery(document).find('#candidate-info-modal').find('.cm--loader').hide();
+	    	jQuery(document).find('#candidate-info-modal').find('.cm--default').hide();
+		}
+		else{
+	    	jQuery(document).find('#candidate-info-modal').find('.cm--default').show();
+			jQuery(document).find('#candidate-info-modal').find('.cm--unlocked').hide();
+			jQuery(document).find('#candidate-info-modal').find('.cm--success').hide();
+			jQuery(document).find('#candidate-info-modal').find('.cm--unlock_form').hide();
+			jQuery(document).find('#candidate-info-modal').find('.cm--invite_form').hide();
+	    	jQuery(document).find('#candidate-info-modal').find('.cm--loader').hide();			
+		}
+
     });
 
 
@@ -361,8 +380,8 @@ jQuery( document ).ready( function($) {
     	candidate_id = form.find('.candidate_id').val();
     	job_id = form.find('.cm--job_dropdown').val();
 
-    	console.log(candidate_id);
-    	console.log(job_id);
+    	// console.log(candidate_id);
+    	// console.log(job_id);
 
     	jQuery.ajax({
 	        url: ajax_url,
@@ -443,6 +462,53 @@ jQuery( document ).ready( function($) {
     $(document).on('click', '.selector_tagger .delete_tag', function(){
     	$(this).closest('.selected_tag').remove();
     });
+
+
+    // CANDIDATE MODAL FUNCTIONS
+	jQuery('.cm--invite_btn').on('click', function(e) {
+		e.preventDefault();
+		jQuery('.cm--invite_form').slideToggle('fast');
+
+		if( jQuery('.cm--unlock_form').is(':visible') ) {
+			jQuery('.cm--unlock_form').slideToggle('fast');
+		}
+	});
+
+	jQuery('.cm--unlock_btn, .cm--unlock_no').on('click', function(e) {
+		e.preventDefault();
+		jQuery('.cm--unlock_form').slideToggle('fast');
+
+		if( jQuery('.cm--invite_form').is(':visible') ) {
+			jQuery('.cm--invite_form').slideToggle('fast');
+		}
+	});
+
+	jQuery('.cm--unlock_form input[type="submit"]').on('click', function() {
+		$('.cm--loader').fadeIn();
+
+		candidate_id = $('#candidate-info-modal').find('.candidate_id').html();
+
+		jQuery.ajax({
+	        url: ajax_url,
+	        type: "POST",
+	        data: {
+	            action: "unlock_candidate",
+	            candidate_id: candidate_id
+	        },
+	        cached: false,
+	        dataType: 'json',
+	        success: function(response) {
+	        	console.log(response);
+	        	$(document).find('.candidates-list').find('.candidate-'+response.id).find('.btn-unlock').html('Unlocked').addClass('unlocked');
+				$('.cm--loader').fadeOut(100, function() {
+					$('.cm--default').slideUp();
+					$('.cm--success').slideDown();
+				});
+	        }
+	    });
+
+
+	});
 
 });
 
