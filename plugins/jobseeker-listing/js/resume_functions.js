@@ -131,14 +131,14 @@
                 $(this).find('li').each(function(){
                     $(this).click(function(){
                         if($(this)[0].hasAttribute("data-value")){
-                            $(this).closest('.dropdown-search-input').find('.dropdown-data').val($(this).html());
+                            $(this).closest('.dropdown-search-input').find('.dropdown-data').val($(this).text());
                             $(this).closest('.dropdown-search-input').find('.dropdown_real_input').val($(this).attr('data-value'));
                             search_input_field[key].val($(this).attr('data-value'));
                         }
                         else{
-                            search_input_field[key].val($(this).html());
-                            $(this).closest('.dropdown-search-input').find('.dropdown-data').val($(this).html());
-                            $(this).closest('.dropdown-search-input').find('.dropdown_real_input').val($(this).html());
+                            search_input_field[key].val($(this).text());
+                            $(this).closest('.dropdown-search-input').find('.dropdown-data').val($(this).text());
+                            $(this).closest('.dropdown-search-input').find('.dropdown_real_input').val($(this).text());
 
                         }
                     });
