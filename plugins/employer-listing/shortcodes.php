@@ -548,9 +548,9 @@ add_shortcode( 'phone_jobseeker', 'phone_slide_jobseeker_func' );
 						<div class="listinglayout1__top-dropdown pull-right">
 							<label class="select--variant_1">
 							    <select>
+							        <option>Shortlisted</option>
 							        <option>Applied</option>
 							        <option>Invited</option>
-							        <option>Shortlisted</option>
 							    </select>
 							</label>
 						</div>
@@ -563,39 +563,69 @@ add_shortcode( 'phone_jobseeker', 'phone_slide_jobseeker_func' );
 				<!-- SHORTLISTED -->
 				<div class="listinglayout1__whole-set">
 					<div class="title--variant-1">SHORTLISTED</div>
+					
 					<div class="row">
 						<div class="col-sm-3">
-							<div class="listinglayout1__image-up" style="background-image: url('http://preskubbs.com/wwj2/skubbswp/wp-content/uploads/2017/02/bbq-house-logo.jpg');"></div>
+							<div class="listinglayout1__image-up" style="background-image: url('<?= wp_get_attachment_url(978) ?>');"></div>
 							<div class="listinglayout1__btn-set">
 								<a href="#" class="listinglayout1__invite-btn">Invite</a>
-								<a href="#" class="listinglayout1__reject-btn">Reject</a>
+								<a href="#" class="listinglayout1__reject-btn">Reject</a> 
 							</div>
 						</div>
 						<div class="col-sm-9">
 							<div class="row">
 								<div class="col-sm-9">
-									<p class="listinglayout1__info-set"><span>Name:</span> <span>Janelle Chan</span></p>
-									<p class="listinglayout1__info-set"><span>Age:</span> <span>30</span></p>
-									<p class="listinglayout1__info-set"><span>Gender:</span> <span>Female</span></p>
-									<p class="listinglayout1__info-set"><span>Open Position:</span> <span>Marketing Manager</span></p>
-									<p class="listinglayout1__info-set"><span>Desired Salary:</span> <span>SGD $3,200</span></p>
+									<p class="listinglayout1__info-set"><span>Name:</span> <a href="#" class="seeker_name">Janelle Chan</a></p>
+									<p class="listinglayout1__info-set"><span>Age:</span> <span class="seeker_age">30</span></p>
+									<p class="listinglayout1__info-set"><span>Gender:</span> <span class="seeker_gender">Female</span></p>
+									<p class="listinglayout1__info-set"><span>Open Position:</span> <span class="seeker_position">Marketing Manager</span></p>
+									<p class="listinglayout1__info-set"><span>Desired Salary:</span> <span  class="seeker_salary">SGD $3,200</span></p>
+									<p class="listinglayout1__info-set listinglayout1__text--gray">Why you Should Hire Me:</p>
+									<p class="listinglayout1__info-set"><span class="seeker_whyshouldhireme">I am a person that learn quickly and perform better under pressure, am a very good team player that motivate others to achieve the company's common goals.</span></p>
 								</div>
 
 								<div class="col-sm-3">
-									
-								</div>
-							</div>
-
-							<div class="row">
-								<div class="col-xs-12">
-									<p class="listinglayout1__info-set listinglayout1__text--gray">Why you Should Hire Me:</p>
-									<p class="listinglayout1__info-set">I am a person that learn quickly and perform better under pressure, am a very good team player that motivate others to achieve the company's common goals.</p>
+									<div class="listinglayout1__misc-links">
+										<a href="#" class="listinglayout1__message-icon"><img src="<?= wp_get_attachment_url(1061); ?>" alt=""></a> <a href="#" class="listinglayout1__note-icon"><img src="<?= wp_get_attachment_url(1062); ?>" alt=""></a>
+									</div>
 								</div>
 							</div>
 						</div>
 
 						<div class="col-xs-12"><hr class="listinglayout1__set-separator"></div>
 					</div>
+
+					<div class="row">
+						<div class="col-sm-3">
+							<div class="listinglayout1__image-up" style="background-image: url('<?= wp_get_attachment_url(978) ?>');"></div>
+							<div class="listinglayout1__btn-set">
+								<a href="#" class="listinglayout1__invite-btn">Invite</a>
+								<a href="#" class="listinglayout1__reject-btn">Reject</a> 
+							</div>
+						</div>
+						<div class="col-sm-9">
+							<div class="row">
+								<div class="col-sm-9">
+									<p class="listinglayout1__info-set"><span>Name:</span> <a href="#" class="seeker_name">Janelle Chan</a></p>
+									<p class="listinglayout1__info-set"><span>Age:</span> <span class="seeker_age">30</span></p>
+									<p class="listinglayout1__info-set"><span>Gender:</span> <span class="seeker_gender">Female</span></p>
+									<p class="listinglayout1__info-set"><span>Open Position:</span> <span class="seeker_position">Marketing Manager</span></p>
+									<p class="listinglayout1__info-set"><span>Desired Salary:</span> <span  class="seeker_salary">SGD $3,200</span></p>
+									<p class="listinglayout1__info-set listinglayout1__text--gray">Why you Should Hire Me:</p>
+									<p class="listinglayout1__info-set"><span class="seeker_whyshouldhireme">I am a person that learn quickly and perform better under pressure, am a very good team player that motivate others to achieve the company's common goals.</span></p>
+								</div>
+
+								<div class="col-sm-3">
+									<div class="listinglayout1__misc-links">
+										<a href="#" class="listinglayout1__message-icon"><img src="<?= wp_get_attachment_url(1061); ?>" alt=""></a> <a href="#" class="listinglayout1__note-icon"><img src="<?= wp_get_attachment_url(1062); ?>" alt=""></a>
+									</div>
+								</div>
+							</div>
+						</div>
+
+						<div class="col-xs-12"><hr class="listinglayout1__set-separator"></div>
+					</div>
+
 				</div>
 
 			</div>

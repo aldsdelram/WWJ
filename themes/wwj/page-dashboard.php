@@ -126,9 +126,9 @@
 								<div class="sbp--nav_set">
 									<a href="" class="has-sub-menu">Manage Candidates <i class="fa fa-caret-right" aria-hidden="true"></i></a>
 									<div class="sub-menu">
-										<a href="<?= home_url('/employer/dashboard/home/') ?>">Applied</a>
-										<a href="<?= home_url('/employer/dashboard/home/') ?>">Invited</a>
-										<a href="<?= home_url('/employer/dashboard/home/') ?>">Shortlisted</a>
+										<a href="<?= home_url('/employer/dashboard/manage-candidates/') ?>">Shortlisted</a>
+										<a href="<?= home_url('/employer/dashboard/manage-candidates/') ?>">Applied</a>
+										<a href="<?= home_url('/employer/dashboard/manage-candidates/') ?>">Invited</a>
 									</div>
 								</div>
 

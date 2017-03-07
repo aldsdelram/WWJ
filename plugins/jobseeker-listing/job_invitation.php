@@ -142,4 +142,4 @@ ob_start();
 <?php
 return ob_get_clean();
 }
-add_shortcode( 'job_invitaion_view', 'job_invitation_func' );
+add_shortcode( 'job_invitation_view', 'job_invitation_func' );

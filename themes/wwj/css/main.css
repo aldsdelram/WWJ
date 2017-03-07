@@ -3717,6 +3717,8 @@ form .upme-login-register-link:hover {
 
 /*________________________ =VARIANTS ________________________*/
 
+/* __________ titles __________ */
+
 .section-title--variant_1 {
 	font: 36px/44px 'Oswald';
 	margin: 0 0 30px;
@@ -3727,6 +3729,29 @@ form .upme-login-register-link:hover {
 	font: 36px/44px 'Oswald';
 	margin: 0 0 30px;
 }
+
+.title--variant-1 {
+    font: 700 18px/26px 'Open Sans';
+    color: #222;
+    border-bottom: 1px solid #222;
+    padding: 0 0 12px;
+    margin: 0 0 25px;
+}
+
+.gray--header_bg {
+    background: #616161;
+    color: #fff;
+    padding: 0 30px;
+}
+
+.gray--header_title {
+    padding: 20px 0;
+    font-family: "Oswald";
+    font-weight: 400;
+}
+
+
+/* __________ buttons / link __________ */
 
 .red-btn-variant-1 {
     color: #fff;
@@ -3741,6 +3766,56 @@ form .upme-login-register-link:hover {
     -webkit-animation-duration: .5s;
     animation-duration: .5s;
 }
+
+.red-btn--view_all {
+    background-color: #da1f26;
+    color: #fff;
+    font-size: 13px;
+    font-weight: normal;
+    padding: 0 15px;
+    display: inline-block;
+    border-radius: 4px;
+}
+
+/* __________ selects __________ */
+
+.select--variant_1 {
+    width: 160px;
+    overflow: hidden; 
+    height: 30px;
+    position: relative;
+    display: block;
+}
+    .select--variant_1:after {
+        content: "\f078";
+        font-family: 'FontAwesome';
+        color: #303841;
+        position: absolute;
+        right: 5px;
+        top: 3px;
+        z-index: 1;
+        width: 10%;
+        height: 100%;
+        pointer-events: none;
+        font-size: 12px; 
+    }
+
+.select--variant_1 select { 
+    color: #303841;      
+    height: 30px;
+    padding: 0 10px;
+    border: 0;
+    font-size: 15px;       
+    width: 100%;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    border-radius: 5px;
+}
+    .select--variant_1 select option {
+        background-color: #e5e5e5;
+        padding: 5px;
+    }
 
 
 /*________________________ =CSS FOR TAGGER ________________________*/
