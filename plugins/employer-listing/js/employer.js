@@ -387,7 +387,7 @@ jQuery( document ).ready( function($) {
 	        url: ajax_url,
 	        type: "POST",
 	        data: {
-	            action: "add_job_listing",
+	            action: "add_job_invitation",
 	            candidate_id: candidate_id,
 	            job_id: job_id
 	        },
@@ -467,11 +467,17 @@ jQuery( document ).ready( function($) {
     // ________________________________ CANDIDATE MODAL FUNCTIONS ________________________________
 	jQuery('.cm--invite_btn').on('click', function(e) {
 		e.preventDefault();
-		jQuery('.cm--invite_form').slideToggle('fast');
+		
+		candidate_id = $(this).closest('#candidate-info-modal').find('.cm--value.candidate_id').text();
+		url = home_url + '/employer/dashboard/invitation/send/' + candidate_id;
 
-		if( jQuery('.cm--unlock_form').is(':visible') ) {
-			jQuery('.cm--unlock_form').slideToggle('fast');
-		}
+		location.href = url;
+
+		// jQuery('.cm--invite_form').slideToggle('fast');
+
+		// if( jQuery('.cm--unlock_form').is(':visible') ) {
+		// 	jQuery('.cm--unlock_form').slideToggle('fast');
+		// }
 	});
 
 	jQuery('.cm--unlock_btn, .cm--unlock_no').on('click', function(e) {
@@ -511,12 +517,9 @@ jQuery( document ).ready( function($) {
 	});
 
 	// ________________________________ JOB INVITATION FORM ________________________________
-	jQuery('.jif_submit').on('click', function(e) {
-		e.preventDefault();
-		jQuery('.cm--loader').fadeIn(300).delay(600).fadeOut(300, function() {
-			jQuery('.jif__success').slideDown('fast');
-		});
-	});
+	// jQuery('.jif_submit').on('click', function(e) {
+	// 	e.preventDefault();
+	// });
 
     // ________________________________ LOGGED IN VALIDATE ________________________________
 	jQuery('.cm--log_validator a').on('click', function(e) {
@@ -524,5 +527,46 @@ jQuery( document ).ready( function($) {
 	});
 
 
+	$(document).on('click', '.jif_submit', function(e){
+		e.preventDefault();
+		form = $(this).closest('.jif--form');
+		data = {};
+		form.find('[name]').each(function(){
+			data[$(this).attr('name')] = $(this).val();
+		});
+		candidate_id = form.data('candidate');
+
+		$('.cm--loader').fadeIn(300);
+
+
+		$.ajax({
+	        url: ajax_url,
+	        type: "POST",
+	        data: {
+	            action: "private_job_invite",
+	            data: data,
+	            candidate_id: candidate_id,
+	        },
+	        cached: false,
+	        dataType: 'json',
+	        success: function(response) {
+	        	$('.cm--loader').fadeOut(300, function() {
+					$('.jif__success').slideDown('fast');
+		        	$('.jif__submit-set').slideUp('fast');
+		        	$('.jif--form').addClass('form--disabled');
+				});
+	        }
+	    });
+
+	});
+
+
+	// ________________________________ MANAGE CANDIDATE ________________________________
+    jQuery('.listinglayout1__modal-note input[type="submit"]').on('click', function(e) {
+		e.preventDefault();
+		$('.listinglayout1__modal-note .cm--loader').fadeIn().delay(300).fadeOut(300, function() {
+			jQuery('.listinglayout1__modal-note .modal--success').slideDown('fast').delay(1500).slideUp();
+		});
+	});
 });
 

@@ -32,11 +32,24 @@
 	add_action( 'wp_enqueue_scripts', 'employer_listing_styles' );
 
 
-	function add_job_listing(){
+	function add_job_invitation(){
 		
 		$candidate_id = $_POST['candidate_id'];
 		$job_id = $_POST['job_id'];
 
+		create_job_invitation($job_id, $candidate_id);
+		
+
+		$response['data'] = $_POST;
+		echo json_encode($response);
+		wp_die();
+	}
+	add_action('wp_ajax_add_job_invitation', 'add_job_invitation');
+	add_action('wp_ajax_nopriv_add_job_invitation', 'add_job_invitation');
+
+	
+	function create_job_invitation($job_id, $candidate_id){
+		log_error("hello world xxxxxxxxxxxxxxxxxxxxxxxxx");
 
 		$post = array(
 		   'post_author' => get_current_user_id(),
@@ -48,17 +61,11 @@
 		);
 		$post_id = wp_insert_post($post);
 
+
 		update_field('job_listing_id', $job_id, $post_id);
 		update_field('candidate_id', $candidate_id, $post_id);
-
-		$response['data'] = $_POST;
-		echo json_encode($response);
-		wp_die();
 	}
-	add_action('wp_ajax_add_job_listing', 'add_job_listing');
-	add_action('wp_ajax_nopriv_add_job_listing', 'add_job_listing');
 
-	
 
 
 	function add_edit_job_listing_url()
@@ -110,3 +117,54 @@
 	    flush_rewrite_rules();
 	}
 	add_action('init', 'add_send_job_invitation_url', 1);
+
+
+	function private_job_invite(){
+		
+		$post_data = $_POST['data'];
+		$candidate_id = $_POST['candidate_id'];
+
+		$response['candidate_id'] = $_POST['candidate_id'];
+		$response['data'] = $_POST;
+		// $response['job_title'] = $post_data['job_title']
+
+		$ignore = [
+			'publish',
+			'o_salary',
+			'job_title',
+			'candidate_id',
+		];
+
+		foreach ($post_data as $key => $value) {
+			if(in_array($key, $ignore))
+				continue;
+			$job_posting_data[$key] = $value;
+		}
+
+		$post = array(
+			   'post_author' => get_current_user_id(),
+			   'post_content' => '',
+			   'post_status' => 'publish', //draft
+			   'post_title' => $post_data['job_title'],
+			   'post_parent' => '',
+			   'post_type' => 'job_listings'
+			);
+		$post_id = wp_insert_post($post);
+
+		foreach ($job_posting_data as $key => $value) {
+			update_field($key, $value, $post_id);
+		}
+		wp_set_object_terms($post_id , 'private', 'job-status', false);
+	
+		$date = new DateTime();
+		update_field( 'expiry_date', $date->format('m/d/Y'), $post_id);
+
+		create_job_invitation($post_id, $candidate_id);
+		$response['status'] = true;
+		log_error("hello xxxxx ");
+
+		echo json_encode($response);	
+		wp_die();
+	}
+	add_action('wp_ajax_private_job_invite', 'private_job_invite');
+	add_action('wp_ajax_nopriv_private_job_invite', 'private_job_invite');
