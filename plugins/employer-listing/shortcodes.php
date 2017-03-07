@@ -533,8 +533,13 @@ add_shortcode( 'phone_jobseeker', 'phone_slide_jobseeker_func' );
 	 * @return     [manage-candidates-view]  ( return shortcode )
 	 */
 
-	function manage_candidate_func() {
-	ob_start();
+	function manage_candidate_func($atts) {
+		$myatts = shortcode_atts(
+			array(
+				'type' => ''
+			), $atts, '' );
+
+		ob_start();
 	?>
 
 		<div class="listinglayout1">
@@ -586,7 +591,7 @@ add_shortcode( 'phone_jobseeker', 'phone_slide_jobseeker_func' );
 
 								<div class="col-sm-3">
 									<div class="listinglayout1__misc-links">
-										<a href="#" class="listinglayout1__message-icon"><img src="<?= wp_get_attachment_url(1061); ?>" alt=""></a> <a href="#" class="listinglayout1__note-icon"><img src="<?= wp_get_attachment_url(1062); ?>" alt=""></a>
+										<a href="#" class="listinglayout1__message-icon"><img src="<?= wp_get_attachment_url(1061); ?>" alt=""></a> <a href="#" data-modal="listinglayout1__modal-note"  class="listinglayout1__note-icon"><img src="<?= wp_get_attachment_url(1062); ?>" alt=""></a>
 									</div>
 								</div>
 							</div>
@@ -633,7 +638,24 @@ add_shortcode( 'phone_jobseeker', 'phone_slide_jobseeker_func' );
 
 		</div>
 		
+		<!-- NOTE MODAL -->
+		<div class="portal--modal listinglayout1__modal-note">
+			<div class="portal--modal-details">
+				<div class="portal--modal-content">
+					<h3 class="modal__h3">NEW NOTE</h3>
+					<textarea class="modal__textarea" name="" id="" cols="" rows=""></textarea>
+
+					<div class="listinglayout1__modal-note__interactions">
+						<input type="submit" class="red-btn-standard-1" value="Save">
+						<a href="#" class="darkgray-btn-standard-1">Delete</a>
+					</div>
+
+				</div>
+			</div>
+		</div>
+		
 	<?php
 	return ob_get_clean();
 	}
 	add_shortcode( 'manage-candidates-view', 'manage_candidate_func' );
+	// [manage-candidates-view type=""]

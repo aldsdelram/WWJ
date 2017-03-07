@@ -71,6 +71,44 @@
         		$('.add_to_cart_modal_container').fadeOut("fast");
         	});
 
+
+            // MAIN MODAL FUNCTION 
+            function modalClick(classname) {
+                $(classname).click(function(e){
+                    e.preventDefault();
+
+                    modal = '.' + $(this).attr('data-modal');
+                    $(modal).fadeIn('fast');
+                });
+            }
+
+            // _____ HELP BUTTON 
+            modalClick('.help-button i');
+
+            $('.help_modal_close').click(function(){
+                $('.portal--modal').fadeOut();
+            });
+
+
+            // _____ CLOSE MODAL ON CLICK GRAY AREA
+            $(document).mouseup(function (e) {
+                var container = $(".portal--modal-content");
+
+                if(container.is(':visible')) {
+                    if (!container.is(e.target) // if the target of the click isn't the container...
+                    && container.has(e.target).length === 0) // ... nor a descendant of the container
+                    {
+                        $('.portal--modal').fadeOut();
+                    }
+                }
+                
+            });
+
+            // _____ JOB INVITATION NOTIFICATION MODAL
+            modalClick('.notifs i');
+
+            // _____ MANAGE CANDIDATE MODALS
+            modalClick('.listinglayout1__note-icon');
             
         }
 

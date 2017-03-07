@@ -932,3 +932,33 @@
 	display: inline-block;
 	margin: 0 5px;
 }
+
+/* =modal */
+.listinglayout1__modal-note .portal--modal-content {
+	padding: 20px;
+    max-width: 500px;
+    text-align: left;
+}
+
+.portal--modal-content .modal__h3 {
+	margin-bottom: 15px;
+    border-bottom: 2px solid #e3e3e3;
+    padding-bottom: 15px;
+}
+
+.portal--modal-content .modal__textarea {
+    border: 1px solid #e4e4e4;
+    width: 100%;
+    height: 110px;
+    padding: 10px;
+    margin-bottom: 15px;
+}
+
+.listinglayout1__modal-note__interactions {
+	text-align: center;
+}
+
+.listinglayout1__modal-note__interactions a,
+.listinglayout1__modal-note__interactions input {
+	margin: 0 10px;
+}

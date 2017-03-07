@@ -3753,6 +3753,38 @@ form .upme-login-register-link:hover {
 
 /* __________ buttons / link __________ */
 
+.red-btn-standard-1,
+.darkgray-btn-standard-1 {
+	color: #fff;
+    font-weight: normal;
+    display: inline-block;
+    padding: 5px 34px;
+    height: 34px;
+    font-size: 14px;
+    cursor: pointer;
+    -webkit-transition: all .3s ease-in-out;
+    -moz-transition: all .3s ease-in-out;
+    -o-transition: all .3s ease-in-out;
+    transition: all .3s ease-in-out;
+}
+
+.red-btn-standard-1 {
+    background-color: #ea1a23;
+}
+	.red-btn-standard-1:hover {
+        background-color: #ff383f;
+    }
+
+.darkgray-btn-standard-1 {
+    background-color: #282828;
+}
+
+	.darkgray-btn-standard-1:hover {
+        background-color: #3f3f3f;
+    }
+
+
+
 .red-btn-variant-1 {
     color: #fff;
     background-color: #ea1a23;
@@ -3776,6 +3808,7 @@ form .upme-login-register-link:hover {
     display: inline-block;
     border-radius: 4px;
 }
+
 
 /* __________ selects __________ */
 

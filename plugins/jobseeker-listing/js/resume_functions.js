@@ -131,14 +131,14 @@
                 $(this).find('li').each(function(){
                     $(this).click(function(){
                         if($(this)[0].hasAttribute("data-value")){
-                            $(this).closest('.dropdown-search-input').find('.dropdown-data').val($(this).html());
+                            $(this).closest('.dropdown-search-input').find('.dropdown-data').val($(this).text());
                             $(this).closest('.dropdown-search-input').find('.dropdown_real_input').val($(this).attr('data-value'));
                             search_input_field[key].val($(this).attr('data-value'));
                         }
                         else{
-                            search_input_field[key].val($(this).html());
-                            $(this).closest('.dropdown-search-input').find('.dropdown-data').val($(this).html());
-                            $(this).closest('.dropdown-search-input').find('.dropdown_real_input').val($(this).html());
+                            search_input_field[key].val($(this).text());
+                            $(this).closest('.dropdown-search-input').find('.dropdown-data').val($(this).text());
+                            $(this).closest('.dropdown-search-input').find('.dropdown_real_input').val($(this).text());
 
                         }
                     });
@@ -466,42 +466,7 @@
                 $(modal).fadeIn('slow');
             });
 
-            function modalClick(classname) {
-                $(classname).click(function(e){
-                    e.preventDefault();
-
-                    modal = '.' + $(this).attr('data-modal');
-                    $(modal).fadeIn('fast');
-                });
-            }
-
-            // ______________ HELP BUTTON ______________
-
-            modalClick('.help-button i');
-
-            $('.help_modal_close').click(function(){
-                $('.portal--modal').fadeOut();
-            });
-
-
-            /*______________ close modal on click gray area _______________________*/
-
-            $(document).mouseup(function (e) {
-                var container = $(".portal--modal-content");
-
-                if(container.is(':visible')) {
-                    if (!container.is(e.target) // if the target of the click isn't the container...
-                    && container.has(e.target).length === 0) // ... nor a descendant of the container
-                    {
-                        $('.portal--modal').fadeOut();
-                    }
-                }
-                
-            });
-
-            // ______________ JOB INVITATION NOTIFICATION MODAL ______________
-
-            modalClick('.notifs i');
+            
 
 
             /*______________add workplace functions_______________________*/
