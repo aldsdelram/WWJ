@@ -60,7 +60,7 @@
 				wp_set_object_terms($post_id , $ids, 'job-types', false);
 			}
 
-
+			wp_set_object_terms($post_id , 'job-post', 'job-status', false);
 
 			$value = array("no");
 			if($post_data["do_not_publish"] == "yes"){

@@ -21,6 +21,7 @@ class Job_Listing {
         add_action( 'init', array( __CLASS__, 'register_jobseeker_faq' ), 5 );
         add_action( 'init', array( __CLASS__, 'add_job_region_taxonomy'));
         add_action( 'init', array( __CLASS__, 'add_job_type_taxonomy'));
+        add_action( 'init', array( __CLASS__, 'add_job_status_taxonomy'));
     }
 
     /**
@@ -102,6 +103,43 @@ class Job_Listing {
 		register_taxonomy( 'job-regions', 'job_listings', $args );
 		register_taxonomy_for_object_type( 'job-regions', 'job_listings' );
 	}
+
+	/**
+	 * Adds a job type taxonomy.
+	 */
+	public static function add_job_status_taxonomy()  {
+		$labels = array(
+		    'name'                       => 'Job Status',
+		    'singular_name'              => 'Job Status',
+		    'menu_name'                  => 'Job Statuses',
+		    'all_items'                  => 'All Job Statuses',
+		    'parent_item'                => 'Parent Job Status',
+		    'parent_item_colon'          => 'Parent Job Status:',
+		    'new_item_name'              => 'New Job Status Name',
+		    'add_new_item'               => 'Add New Job Status',
+		    'edit_item'                  => 'Edit Job Status',
+		    'update_item'                => 'Update Job Status',
+		    'separate_items_with_commas' => 'Separate Job Status with commas',
+		    'search_items'               => 'Search Job Status',
+		    'add_or_remove_items'        => 'Add or remove Job Status',
+		    'choose_from_most_used'      => 'Choose from the most used Job Statuses',
+		);
+		$args = array(
+		    'labels'                     => $labels,
+		    'hierarchical'               => true,
+		    'public'                     => true,
+		    'show_ui'                    => true,
+		    'show_admin_column'          => true,
+		    'show_in_nav_menus'          => true,
+		    'show_tagcloud'              => true,
+	        'publicly_queryable' => true,
+    	    'query_var' => true,
+        	'rewrite' => true,
+		);
+		register_taxonomy( 'job-status', 'job_listings', $args );
+		register_taxonomy_for_object_type( 'job-status', 'job_listings' );
+	}
+
 
 	/**
 	 * Adds a job type taxonomy.
