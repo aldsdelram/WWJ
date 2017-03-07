@@ -427,234 +427,119 @@ add_shortcode( 'phone_jobseeker', 'phone_slide_jobseeker_func' );
 	 * @return     [employer-job-invitation-form]  ( return shortcode )
 	 */
 
-	function employer_job_invitation_form_func() {
-	ob_start();
-	?>
-		<div class="employer__job-invitation-form">
 
-			<div class="btsp-container-fluid gray--header_bg">
-				<div class="row">
-					<div class="col-xs-12">
-						<h1 class="gray--header_title pull-left">Job Invitation Details</h1><span class="gray--header__mini_text">Bring your candidate up to date with a brief description of the job offered</span>
+	function employer_job_invitation_form_func() {
+
+		global $wp;
+		$candidate_id = $wp->query_vars['candidate_id'];
+
+		$the_user = get_userdata($candidate_id);
+		
+
+
+		ob_start();
+		?>
+			<div class="employer__job-invitation-form">
+
+				<div class="btsp-container-fluid gray--header_bg">
+					<div class="row">
+						<div class="col-xs-12">
+							<h1 class="gray--header_title pull-left">Job Invitation Details</h1><span class="gray--header__mini_text">Bring your candidate up to date with a brief description of the job offered</span>
+						</div>
 					</div>
 				</div>
-			</div>
 
-			<div class="btsp-container-fluid resume-content white-bg-views">
-			
-				<div class="cm--loader" style="display: none;"><div class="spin-con"><i class="fa fa-refresh fa-spin fa-3x fa-fw margin-bottom"></i></div></div>
 
-				<!-- form -->
-				<form class="jif--from">
-					<div class="row">
-						<div class="col-sm-6">
-							<div class="form-group">
-								<label for="job_title">Job Title</label>
-								<input type="text" name="job_title" class="input-field"/>
-							</div>
+				<?php if($the_user): ?>
+					<div class="btsp-container-fluid resume-content white-bg-views">
+					
+						<div class="cm--loader"><div class="spin-con"><i class="fa fa-refresh fa-spin fa-3x fa-fw margin-bottom"></i></div></div>
 
-							<div class="form-group">
-								<label for="job_title">Key Responsibilities</label>
-								<input type="text" name="key_responsibility" class="input-field"/>
-							</div>
-
-							<div class="form-group">
-								<label for="job_title">Other Information</label>
-								<input type="text" name="other_information" class="input-field"/>
-							</div>
-						</div>
-
-						<div class="col-sm-6">
-							<div class="form-group">
-								<label for="job_title">Working Hours</label>
-								<input type="text" name="working_hours" class="input-field"/>
-							</div>
-
-							<div class="form-group">
-								<div class="dropdown-search-input">
-									<label for="salary_range">Salary Range</label>
-									<input type="text" name="salary_range" class="dropdown-data input-field" />
-									<div class="dropdown-list">
-										<div>
-											<input class="filter-dropdown" type="text">
-										</div>
-										<ul class="salary_range">
-											<li data-value="">All(SGD)</li>
-											<li data-value="0-1999"><?= wc_price(0.00) ?> - <?= wc_price(1,999.00) ?></li>
-											<li data-value="2000-2999"><?= wc_price(2,000.00) ?> - <?= wc_price(2,999.00) ?></li>
-											<li data-value="3000-3999"><?= wc_price(2,000.00) ?> - <?= wc_price(2,999.00) ?></li>
-											<li data-value="4000-4999"><?= wc_price(4,000.00) ?> - <?= wc_price(4,999.00) ?></li>
-											<li data-value="5000-5999"><?= wc_price(5,000.00) ?> - <?= wc_price(5,999.00) ?></li>
-											<li data-value=">6000">&gt; <?= wc_price(6,000.00) ?></li>
-										</ul>
-
+						<!-- form -->
+						<form class="jif--form" data-candidate="<?= $candidate_id ?>">
+							<div class="row">
+								<div class="col-sm-6">
+									<div class="form-group">
+										<label for="job_title">Job Title</label>
+										<input type="text" name="job_title" class="input-field"/>
 									</div>
+
+									<div class="form-group">
+										<label for="job_title">Key Responsibilities</label>
+										<input type="text" name="key_responsibilities" class="input-field"/>
+									</div>
+
+									<div class="form-group">
+										<label for="job_title">Other Information</label>
+										<input type="text" name="other_information" class="input-field"/>
+									</div>
+								</div>
+
+								<div class="col-sm-6">
+									<div class="form-group">
+										<label for="job_title">Working Hours</label>
+										<input type="text" name="working_hours" class="input-field"/>
+									</div>
+
+									<div class="form-group">
+										<div class="dropdown-search-input">
+											<label for="salary_range">Salary Range</label>
+											<input type="text" name="salary_range" class="dropdown-data input-field" />
+											<div class="dropdown-list">
+												<div>
+													<input class="filter-dropdown" type="text">
+												</div>
+												<ul class="salary_range">
+													<li data-value="">All(SGD)</li>
+													<li data-value="0-1999"><?= wc_price(0.00) ?> - <?= wc_price(1999.00) ?></li>
+													<li data-value="2000-2999"><?= wc_price(2000.00) ?> - <?= wc_price(2999.00) ?></li>
+													<li data-value="3000-3999"><?= wc_price(2000.00) ?> - <?= wc_price(2999.00) ?></li>
+													<li data-value="4000-4999"><?= wc_price(4000.00) ?> - <?= wc_price(4999.00) ?></li>
+													<li data-value="5000-5999"><?= wc_price(5000.00) ?> - <?= wc_price(5999.00) ?></li>
+													<li data-value=">6000">&gt; <?= wc_price(6000.00) ?></li>
+												</ul>
+
+											</div>
+										</div>
+									</div>
+
 								</div>
 							</div>
 
-						</div>
-					</div>
-
-				<!-- buttons -->
-					<div class="row">
-						<div class="col-xs-12">
-							<p class="text-center jif__submit-set">
-								<input class="btn--darkgray_variant jif_submit" type="submit" value="Submit">
-								<a class="btn--red_variant" href="<?= home_url('employer/candidates-listing/') ?>">Cancel</a>
-							</p>
-						</div>
-					</div>
-
-				<!-- success message -->
-					<div class="row">
-						<div class="col-xs-12">
-							<div class="jif__success text-center">
-								<h4>JOB INVITE SENT</h4>
-								<h5>Remember to respond promptly to any questions posed by your candidate [<u>candidate name</u>]!</h5>
+						<!-- buttons -->
+							<div class="row">
+								<div class="col-xs-12">
+									<p class="text-center jif__submit-set">
+										<input class="btn--darkgray_variant jif_submit" type="submit" value="Submit">
+										<a class="btn--red_variant" href="<?= home_url('employer/candidates-listing/') ?>">Cancel</a>
+									</p>
+								</div>
 							</div>
+
+						<!-- success message -->
+							<div class="row">
+								<div class="col-xs-12">
+									<div class="jif__success text-center">
+										<h4>JOB INVITE SENT</h4>
+										<h5>Remember to respond promptly to any questions posed by your candidate [<u><?= $first_name = $the_user->first_name . ' ' . $the_user->last_name; ?></u>]!</h5>
+									</div>
+								</div>
+							</div>
+						</form>
+					</div>
+				<?php else: ?>
+					<div class="btsp-container-fluid resume-content white-bg-views">
+						<div>
+							<h2> Sorry but the user does not exists </h2>
 						</div>
 					</div>
-				</form>
+				<?php endif; ?>
 			</div>
-
-		</div>
-	<?php
-	return ob_get_clean();
+		<?php
+		return ob_get_clean();
 	}
 	add_shortcode( 'employer-job-invitation-form', 'employer_job_invitation_form_func' );
 
 
 
 
-/*___________________________ MANAGE CANDIDATE VIEW ___________________________*/
-	/**
-	 * Manage Candidate Page
-	 *
-	 * @return     [manage-candidates-view]  ( return shortcode )
-	 */
-
-	function manage_candidate_func($atts) {
-		$myatts = shortcode_atts(
-			array(
-				'type' => ''
-			), $atts, '' );
-
-		ob_start();
-	?>
-
-		<div class="listinglayout1">
-
-			<!-- header title -->
-			<div class="btsp-container-fluid gray--header_bg gh--floats">
-				<div class="row">
-					<div class="col-xs-12">
-						<h1 class="gray--header_title pull-left">INVITATIONS</h1>
-
-						<div class="listinglayout1__top-dropdown pull-right">
-							<label class="select--variant_1">
-							    <select>
-							        <option>Shortlisted</option>
-							        <option>Applied</option>
-							        <option>Invited</option>
-							    </select>
-							</label>
-						</div>
-					</div>
-				</div>
-			</div>
-
-			<div class="btsp-container-fluid white-bg-views listinglayout1__main">
-
-				<!-- SHORTLISTED -->
-				<div class="listinglayout1__whole-set">
-					<div class="title--variant-1">SHORTLISTED</div>
-					
-					<div class="row">
-						<div class="col-sm-3">
-							<div class="listinglayout1__image-up" style="background-image: url('<?= wp_get_attachment_url(978) ?>');"></div>
-							<div class="listinglayout1__btn-set">
-								<a href="#" class="listinglayout1__invite-btn">Invite</a>
-								<a href="#" class="listinglayout1__reject-btn">Reject</a> 
-							</div>
-						</div>
-						<div class="col-sm-9">
-							<div class="row">
-								<div class="col-sm-9">
-									<p class="listinglayout1__info-set"><span>Name:</span> <a href="#" class="seeker_name">Janelle Chan</a></p>
-									<p class="listinglayout1__info-set"><span>Age:</span> <span class="seeker_age">30</span></p>
-									<p class="listinglayout1__info-set"><span>Gender:</span> <span class="seeker_gender">Female</span></p>
-									<p class="listinglayout1__info-set"><span>Open Position:</span> <span class="seeker_position">Marketing Manager</span></p>
-									<p class="listinglayout1__info-set"><span>Desired Salary:</span> <span  class="seeker_salary">SGD $3,200</span></p>
-									<p class="listinglayout1__info-set listinglayout1__text--gray">Why you Should Hire Me:</p>
-									<p class="listinglayout1__info-set"><span class="seeker_whyshouldhireme">I am a person that learn quickly and perform better under pressure, am a very good team player that motivate others to achieve the company's common goals.</span></p>
-								</div>
-
-								<div class="col-sm-3">
-									<div class="listinglayout1__misc-links">
-										<a href="#" class="listinglayout1__message-icon"><img src="<?= wp_get_attachment_url(1061); ?>" alt=""></a> <a href="#" data-modal="listinglayout1__modal-note"  class="listinglayout1__note-icon"><img src="<?= wp_get_attachment_url(1062); ?>" alt=""></a>
-									</div>
-								</div>
-							</div>
-						</div>
-
-						<div class="col-xs-12"><hr class="listinglayout1__set-separator"></div>
-					</div>
-
-					<div class="row">
-						<div class="col-sm-3">
-							<div class="listinglayout1__image-up" style="background-image: url('<?= wp_get_attachment_url(978) ?>');"></div>
-							<div class="listinglayout1__btn-set">
-								<a href="#" class="listinglayout1__invite-btn">Invite</a>
-								<a href="#" class="listinglayout1__reject-btn">Reject</a> 
-							</div>
-						</div>
-						<div class="col-sm-9">
-							<div class="row">
-								<div class="col-sm-9">
-									<p class="listinglayout1__info-set"><span>Name:</span> <a href="#" class="seeker_name">Janelle Chan</a></p>
-									<p class="listinglayout1__info-set"><span>Age:</span> <span class="seeker_age">30</span></p>
-									<p class="listinglayout1__info-set"><span>Gender:</span> <span class="seeker_gender">Female</span></p>
-									<p class="listinglayout1__info-set"><span>Open Position:</span> <span class="seeker_position">Marketing Manager</span></p>
-									<p class="listinglayout1__info-set"><span>Desired Salary:</span> <span  class="seeker_salary">SGD $3,200</span></p>
-									<p class="listinglayout1__info-set listinglayout1__text--gray">Why you Should Hire Me:</p>
-									<p class="listinglayout1__info-set"><span class="seeker_whyshouldhireme">I am a person that learn quickly and perform better under pressure, am a very good team player that motivate others to achieve the company's common goals.</span></p>
-								</div>
-
-								<div class="col-sm-3">
-									<div class="listinglayout1__misc-links">
-										<a href="#" class="listinglayout1__message-icon"><img src="<?= wp_get_attachment_url(1061); ?>" alt=""></a> <a href="#" class="listinglayout1__note-icon"><img src="<?= wp_get_attachment_url(1062); ?>" alt=""></a>
-									</div>
-								</div>
-							</div>
-						</div>
-
-						<div class="col-xs-12"><hr class="listinglayout1__set-separator"></div>
-					</div>
-
-				</div>
-
-			</div>
-
-		</div>
-		
-		<!-- NOTE MODAL -->
-		<div class="portal--modal listinglayout1__modal-note">
-			<div class="portal--modal-details">
-				<div class="portal--modal-content">
-					<h3 class="modal__h3">NEW NOTE</h3>
-					<textarea class="modal__textarea" name="" id="" cols="" rows=""></textarea>
-
-					<div class="listinglayout1__modal-note__interactions">
-						<input type="submit" class="red-btn-standard-1" value="Save">
-						<a href="#" class="darkgray-btn-standard-1">Delete</a>
-					</div>
-
-				</div>
-			</div>
-		</div>
-		
-	<?php
-	return ob_get_clean();
-	}
-	add_shortcode( 'manage-candidates-view', 'manage_candidate_func' );
-	// [manage-candidates-view type=""]

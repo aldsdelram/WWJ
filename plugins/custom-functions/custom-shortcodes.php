@@ -170,3 +170,113 @@
 	}
 
 	add_shortcode('jobseeker-calendar', 'jobseeker_calendar_func');
+
+
+	/*___________________________ MANAGE CANDIDATE VIEW ___________________________*/
+	/**
+	 * Manage Candidate Page
+	 *
+	 * @return     [manage-candidates-view]  ( return shortcode )
+	 */
+
+	function manage_candidate_func($atts) {
+		$myatts = shortcode_atts(
+			array(
+				'type' => ''
+			), $atts, '' );
+
+		ob_start();
+	?>
+
+		<div class="listinglayout1">
+
+			<!-- header title -->
+			<div class="btsp-container-fluid gray--header_bg gh--floats">
+				<div class="row">
+					<div class="col-xs-12">
+						<h1 class="gray--header_title pull-left">INVITATIONS</h1>
+
+						<div class="listinglayout1__top-dropdown pull-right">
+							<label class="select--variant_1">
+							    <select>
+							        <option>Shortlisted</option>
+							        <option>Applied</option>
+							        <option>Invited</option>
+							    </select>
+							</label>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div class="btsp-container-fluid white-bg-views listinglayout1__main">
+
+				<!-- SHORTLISTED -->
+				<div class="listinglayout1__whole-set">
+					<div class="title--variant-1">SHORTLISTED</div>
+					
+					<div class="row">
+						<div class="col-sm-3">
+							<div class="listinglayout1__image-up" style="background-image: url('<?= wp_get_attachment_url(978) ?>');"></div>
+							<div class="listinglayout1__btn-set">
+								<a href="#" class="listinglayout1__invite-btn">Invite</a>
+								<a href="#" class="listinglayout1__reject-btn">Reject</a> 
+							</div>
+						</div>
+						<div class="col-sm-9">
+							<div class="row">
+								<div class="col-sm-9">
+									<p class="listinglayout1__info-set"><span>Name:</span> <a href="#" class="seeker_name">Janelle Chan</a></p>
+									<p class="listinglayout1__info-set"><span>Age:</span> <span class="seeker_age">30</span></p>
+									<p class="listinglayout1__info-set"><span>Gender:</span> <span class="seeker_gender">Female</span></p>
+									<p class="listinglayout1__info-set"><span>Open Position:</span> <span class="seeker_position">Marketing Manager</span></p>
+									<p class="listinglayout1__info-set"><span>Desired Salary:</span> <span  class="seeker_salary">SGD $3,200</span></p>
+									<p class="listinglayout1__info-set listinglayout1__text--gray">Why you Should Hire Me:</p>
+									<p class="listinglayout1__info-set"><span class="seeker_whyshouldhireme">I am a person that learn quickly and perform better under pressure, am a very good team player that motivate others to achieve the company's common goals.</span></p>
+								</div>
+
+								<div class="col-sm-3">
+									<div class="listinglayout1__misc-links">
+										<a href="#" class="listinglayout1__message-icon"><img src="<?= wp_get_attachment_url(1061); ?>" alt=""></a> <a href="#" data-modal="listinglayout1__modal-note" class="listinglayout1__note-icon"><img src="<?= wp_get_attachment_url(1062); ?>" alt=""></a>
+									</div>
+								</div>
+							</div>
+						</div>
+
+						<div class="col-xs-12"><hr class="listinglayout1__set-separator"></div>
+					</div>
+
+				</div>
+
+			</div>
+
+		</div>
+		
+		<!-- NOTE MODAL -->
+		<div class="portal--modal listinglayout1__modal-note">
+			<div class="portal--modal-details">
+				<form class="portal--modal-content">
+					<div class="cm--loader"><div class="spin-con"><i class="fa fa-refresh fa-spin fa-3x fa-fw margin-bottom"></i></div></div>
+					<h3 class="modal__h3">NEW NOTE</h3>
+					<textarea class="modal__textarea" name="" id="" cols="" rows=""></textarea>
+
+					<div class="listinglayout1__modal-note__interactions">
+						<input type="submit" class="red-btn-standard-1" value="Save">
+						<a href="#" class="darkgray-btn-standard-1">Delete</a>
+					</div>
+
+					<!-- save success -->
+					<div class="modal--success text-center">
+						<h4>NOTE SAVED</h4>
+					</div>
+				</form>
+			</div>
+		</div>
+
+		
+	<?php
+	return ob_get_clean();
+
+	}
+	add_shortcode( 'manage-candidates-view', 'manage_candidate_func' );
+	// [manage-candidates-view type=""]
