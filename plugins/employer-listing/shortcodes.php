@@ -595,7 +595,6 @@ add_shortcode( 'phone_jobseeker', 'phone_slide_jobseeker_func' );
 									</div>
 								</div>
 							</div>
-
 						</div>
 
 						<div class="col-xs-12"><hr class="listinglayout1__set-separator"></div>
